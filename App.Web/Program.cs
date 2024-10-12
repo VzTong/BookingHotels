@@ -1,8 +1,12 @@
 ﻿using App.Data;
+using App.Data.Repositories;
+using App.Web.Common.Mailer;
 using AspNetCoreHero.ToastNotification;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.EntityFrameworkCore;
+using System.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,6 +29,9 @@ builder.Services.AddNotyf(config =>
 	config.Position = NotyfPosition.BottomRight;
 });
 
+// Đăng ký repositories
+builder.Services.AddScoped<GenericRepository>();
+
 // Cấu hình đăng nhập
 //builder.Services.AddAuthentication(AppConst.COOKIES_AUTH)
 //	.AddCookie(options =>
@@ -34,6 +41,14 @@ builder.Services.AddNotyf(config =>
 //		options.Cookie.HttpOnly = true;
 //	});
 
+// Cấu hình AutoMapper
+//var mapperConfig = new MapperConfiguration(config =>
+//{
+//	config.AddProfile(new AutoMapperProfile());
+//});
+//IMapper mapper = mapperConfig.CreateMapper();
+//services.AddSingleton(mapper);
+
 // Cấu hình thư mục view cho ViewComponent
 builder.Services.Configure<RazorViewEngineOptions>(config =>
 {
@@ -41,6 +56,11 @@ builder.Services.Configure<RazorViewEngineOptions>(config =>
 	config.ViewLocationFormats.Add("/{0}.cshtml");
 	config.AreaViewLocationFormats.Add("Areas/Admin/{0}.cshtml");
 });
+
+// Khởi tạo thông tin mail
+AppMailConfiguration mailConfig = new();
+mailConfig.LoadFromConfig(builder.Configuration);
+builder.Services.AddSingleton(mailConfig);
 
 // Cấu hình session
 builder.Services.AddSession(sessionConf =>
@@ -99,7 +119,7 @@ app.MapAreaControllerRoute(
 					   area = "Admin"
 				   }
 	);
-// Đường dẫn cho trang lỗiz
+// Đường dẫn cho trang lỗi
 app.MapControllerRoute(
 					name: "error",
 					pattern: "/error/{statusCode}",
