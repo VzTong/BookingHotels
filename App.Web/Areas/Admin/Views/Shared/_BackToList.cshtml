@@ -1,0 +1,10 @@
+﻿<div>
+	@if (ViewBag.BeforeUrl != null && ViewBag.BeforeUrl != "")
+	{
+		<a class="btn btn-link" href="@ViewBag.BeforeUrl">Về trang danh sách</a>
+	}
+	else
+	{
+		<a class="btn btn-link" asp-area="Admin" asp-action="Index">Về trang danh sách</a>
+	}
+</div>
