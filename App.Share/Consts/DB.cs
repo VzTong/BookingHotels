@@ -130,7 +130,7 @@
 			public const string STATUS_PROCESSING_NAME		= "Phòng đang được dọn dẹp";
 			public const string STATUS_BOOKING_NAME			= "Phòng đang được đặt";
 			public const string STATUS_CHECKIN_NAME			= "Khách đã nhận phòng";
-			public const string STATUS_CHECKOUT_NAME		= "Đã trả phòng";
+			public const string STATUS_CHECKOUT_NAME		= "Đã trả phòng - phòng trống";
 			public const string STATUS_CANCELED_NAME		= "Đã hủy đặt phòng";
 		}
 
