@@ -26,11 +26,19 @@
   <ItemGroup>
     <ProjectReference Include="..\App.Data\App.Data.csproj" />
     <ProjectReference Include="..\App.Share\App.Share.csproj" />
+    <ProjectReference Include="C:\Users\admin\Documents\Zalo Received Files\elFinder.NetCore\elFinder.NetCore.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Areas\Admin\Components\" />
     <Folder Include="wwwroot\clientLTE\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Views\Home\404.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>
