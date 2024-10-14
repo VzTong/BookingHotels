@@ -1,0 +1,67 @@
+﻿@{
+	Layout = null;
+}
+<!doctype html>
+<html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="sm-hover" data-sidebar-image="none" data-preloader="disable">
+<head>
+	<meta charset="utf-8" />
+	<title>403 Error</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta content="Themesbrand" name="author" />
+	<!-- App favicon -->
+	<link rel="icon" type="image/x-icon" href="~/logo-icon.ico" asp-append-version="true" />
+
+	<!-- Layout config Js -->
+	<script src="~/adminLTE/js/layout.js"></script>
+	<!-- Bootstrap Css -->
+	<link href="~/adminLTE/css/bootstrap.min.css" rel="stylesheet" asp-append-version="true" />
+	<!-- Icons Css -->
+	<link href="~/adminLTE/css/icons.min.css" rel="stylesheet" asp-append-version="true" />
+	<!-- App Css-->
+	<link href="~/adminLTE/css/app.min.css" rel="stylesheet" asp-append-version="true" />
+	<!-- custom Css-->
+	<link href="~/adminLTE/css/custom.min.css" rel="stylesheet" asp-append-version="true" />
+</head>
+
+<body>
+
+	<!-- auth-page wrapper -->
+	<div class="auth-page-wrapper auth-bg-cover py-5 d-flex justify-content-center align-items-center min-vh-100">
+		<div class="bg-overlay"></div>
+		<!-- auth-page content -->
+		<div class="auth-page-content overflow-hidden pt-lg-5">
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-xl-5">
+						<div class="card overflow-hidden">
+							<div class="card-body p-4">
+								<div class="text-center">
+									<img src="~/adminLTE/images/error500.png" alt="" class="img-fluid error-500-img error-img" />
+									<h1 class="text-primary mb-4">Internal Server Error !</h1>
+									<h4 class="text-uppercase">Xin lỗi, lỗi server 🥹</h4>
+									<p class="text-muted w-75 mx-auto">Đã xảy ra lỗi trong quá trình xử lý thông tin, chúng tôi rất tiếc vì sự cố này (┬┬﹏┬┬)</p>
+									<a asp-action="Index" asp-controller="Home" class="btn btn-success"><i class="mdi mdi-home me-1"></i>Trở lại trang chủ</a>
+								</div>
+							</div>
+						</div>
+						<!-- end card -->
+					</div>
+					<!-- end col -->
+
+				</div>
+				<!-- end row -->
+			</div>
+			<!-- end container -->
+		</div>
+		<!-- end auth page content -->
+	</div>
+	<!-- end auth-page-wrapper -->
+	<!-- JAVASCRIPT -->
+	<script src="~/adminLTE/libs/bootstrap/js/bootstrap.bundle.min.js" asp-append-version="true"></script>
+	<script src="~/adminLTE/libs/simplebar/simplebar.min.js" asp-append-version="true"></script>
+	<script src="~/adminLTE/libs/node-waves/waves.min.js" asp-append-version="true"></script>
+	<script src="~/adminLTE/libs/feather-icons/feather.min.js"asp-append-version="true"></script>
+	<script src="~/adminLTE/js/pages/plugins/lord-icon-2.1.0.js" asp-append-version="true"></script>
+	<script src="~/adminLTE/js/plugins.js" asp-append-version="true"></script>
+</body>
+</html>
