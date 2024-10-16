@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace App.Data.Migrations
 {
     [DbContext(typeof(WebAppDbContext))]
-    [Migration("20241008135854_init_db")]
-    partial class init_db
+    [Migration("20241016084447_update_configAppRoom")]
+    partial class update_configAppRoom
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -62,8 +62,8 @@ namespace App.Data.Migrations
                         .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("Img")
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -97,211 +97,351 @@ namespace App.Data.Migrations
                         {
                             Id = 1,
                             Address = "Hà Nội, Việt Nam",
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            HotelId = 1,
                             Name = "Hà Nội",
+                            QuantityRoom = 50,
+                            QuantityStaff = 20,
                             Slug = "ha-noi"
                         },
                         new
                         {
                             Id = 2,
                             Address = "TP. Hồ Chí Minh, Việt Nam",
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            HotelId = 2,
                             Name = "TP. Hồ Chí Minh",
+                            QuantityRoom = 80,
+                            QuantityStaff = 25,
                             Slug = "tp-ho-chi-minh"
                         },
                         new
                         {
                             Id = 3,
                             Address = "Đà Nẵng, Việt Nam",
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            HotelId = 3,
                             Name = "Đà Nẵng",
+                            QuantityRoom = 40,
+                            QuantityStaff = 15,
                             Slug = "da-nang"
                         },
                         new
                         {
                             Id = 4,
                             Address = "Nha Trang, Việt Nam",
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            HotelId = 4,
                             Name = "Nha Trang",
+                            QuantityRoom = 60,
+                            QuantityStaff = 18,
                             Slug = "nha-trang"
                         },
                         new
                         {
                             Id = 5,
                             Address = "Hải Phòng, Việt Nam",
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            HotelId = 5,
                             Name = "Hải Phòng",
+                            QuantityRoom = 30,
+                            QuantityStaff = 12,
                             Slug = "hai-phong"
                         },
                         new
                         {
                             Id = 6,
-                            Address = "California, United States",
-                            Name = "California",
-                            Slug = "california"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Address = "New York, United States",
+                            Address = "New York, USA",
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            HotelId = 6,
                             Name = "New York",
+                            QuantityRoom = 100,
+                            QuantityStaff = 40,
                             Slug = "new-york"
                         },
                         new
                         {
-                            Id = 8,
-                            Address = "Texas, United States",
-                            Name = "Texas",
-                            Slug = "texas"
-                        },
-                        new
-                        {
-                            Id = 9,
-                            Address = "Florida, United States",
-                            Name = "Florida",
-                            Slug = "florida"
-                        },
-                        new
-                        {
-                            Id = 10,
-                            Address = "Illinois, United States",
-                            Name = "Illinois",
-                            Slug = "illinois"
-                        },
-                        new
-                        {
-                            Id = 11,
-                            Address = "Tokyo, Japan",
+                            Id = 7,
+                            Address = "Tokyo, Nhật Bản",
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            HotelId = 7,
                             Name = "Tokyo",
+                            QuantityRoom = 90,
+                            QuantityStaff = 35,
                             Slug = "tokyo"
                         },
                         new
                         {
+                            Id = 8,
+                            Address = "Cancun, Mexico",
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            HotelId = 8,
+                            Name = "Cancun",
+                            QuantityRoom = 75,
+                            QuantityStaff = 30,
+                            Slug = "cancun"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Address = "Miami, USA",
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            HotelId = 9,
+                            Name = "Miami",
+                            QuantityRoom = 60,
+                            QuantityStaff = 28,
+                            Slug = "miami"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Address = "Paris, Pháp",
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            HotelId = 10,
+                            Name = "Paris",
+                            QuantityRoom = 110,
+                            QuantityStaff = 45,
+                            Slug = "paris"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Address = "Seoul, Hàn Quốc",
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            HotelId = 11,
+                            Name = "Seoul",
+                            QuantityRoom = 120,
+                            QuantityStaff = 50,
+                            Slug = "seoul"
+                        },
+                        new
+                        {
                             Id = 12,
-                            Address = "Osaka, Japan",
-                            Name = "Osaka",
-                            Slug = "osaka"
+                            Address = "Bangkok, Thái Lan",
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            HotelId = 12,
+                            Name = "Bangkok",
+                            QuantityRoom = 80,
+                            QuantityStaff = 32,
+                            Slug = "bangkok"
                         },
                         new
                         {
                             Id = 13,
-                            Address = "Kyoto, Japan",
-                            Name = "Kyoto",
-                            Slug = "kyoto"
+                            Address = "Tokyo, Nhật Bản",
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            HotelId = 13,
+                            Name = "Tokyo",
+                            QuantityRoom = 95,
+                            QuantityStaff = 38,
+                            Slug = "tokyo"
                         },
                         new
                         {
                             Id = 14,
-                            Address = "Hokkaido, Japan",
-                            Name = "Hokkaido",
-                            Slug = "hokkaido"
+                            Address = "Hong Kong",
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            HotelId = 14,
+                            Name = "Hong Kong",
+                            QuantityRoom = 130,
+                            QuantityStaff = 55,
+                            Slug = "hong-kong"
                         },
                         new
                         {
                             Id = 15,
-                            Address = "Fukuoka, Japan",
-                            Name = "Fukuoka",
-                            Slug = "fukuoka"
+                            Address = "Bali, Indonesia",
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            HotelId = 15,
+                            Name = "Bali",
+                            QuantityRoom = 70,
+                            QuantityStaff = 22,
+                            Slug = "bali"
                         },
                         new
                         {
                             Id = 16,
-                            Address = "Delhi, India",
-                            Name = "Delhi",
-                            Slug = "delhi"
+                            Address = "Bangkok, Thái Lan",
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            HotelId = 16,
+                            Name = "Bangkok",
+                            QuantityRoom = 85,
+                            QuantityStaff = 35,
+                            Slug = "bangkok"
                         },
                         new
                         {
                             Id = 17,
-                            Address = "Maharashtra, India",
-                            Name = "Maharashtra (Mumbai)",
-                            Slug = "maharashtra-mumbai"
+                            Address = "Paris, Pháp",
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            HotelId = 17,
+                            Name = "Paris",
+                            QuantityRoom = 140,
+                            QuantityStaff = 60,
+                            Slug = "paris"
                         },
                         new
                         {
                             Id = 18,
-                            Address = "Karnataka, India",
-                            Name = "Karnataka (Bangalore)",
-                            Slug = "karnataka-bangalore"
+                            Address = "Mumbai, Ấn Độ",
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            HotelId = 18,
+                            Name = "Mumbai",
+                            QuantityRoom = 75,
+                            QuantityStaff = 30,
+                            Slug = "mumbai"
                         },
                         new
                         {
                             Id = 19,
-                            Address = "Tamil Nadu, India",
-                            Name = "Tamil Nadu (Chennai)",
-                            Slug = "tamil-nadu-chennai"
+                            Address = "Sydney, Australia",
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            HotelId = 19,
+                            Name = "Sydney",
+                            QuantityRoom = 65,
+                            QuantityStaff = 29,
+                            Slug = "sydney"
                         },
                         new
                         {
                             Id = 20,
-                            Address = "West Bengal, India",
-                            Name = "West Bengal (Kolkata)",
-                            Slug = "west-bengal-kolkata"
+                            Address = "Bangkok, Thái Lan",
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            HotelId = 20,
+                            Name = "Bangkok",
+                            QuantityRoom = 80,
+                            QuantityStaff = 33,
+                            Slug = "bangkok"
                         },
                         new
                         {
                             Id = 21,
-                            Address = "New South Wales, Australia",
-                            Name = "New South Wales (Sydney)",
-                            Slug = "new-south-wales-sydney"
+                            Address = "Paris, Pháp",
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            HotelId = 21,
+                            Name = "Paris",
+                            QuantityRoom = 125,
+                            QuantityStaff = 50,
+                            Slug = "paris"
                         },
                         new
                         {
                             Id = 22,
-                            Address = "Victoria, Australia",
-                            Name = "Victoria (Melbourne)",
-                            Slug = "victoria-melbourne"
+                            Address = "Mumbai, Ấn Độ",
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            HotelId = 22,
+                            Name = "Mumbai",
+                            QuantityRoom = 70,
+                            QuantityStaff = 27,
+                            Slug = "mumbai"
                         },
                         new
                         {
                             Id = 23,
-                            Address = "Queensland, Australia",
-                            Name = "Queensland (Brisbane)",
-                            Slug = "queensland-brisbane"
+                            Address = "New York, USA",
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            HotelId = 23,
+                            Name = "New York",
+                            QuantityRoom = 110,
+                            QuantityStaff = 42,
+                            Slug = "new-york"
                         },
                         new
                         {
                             Id = 24,
-                            Address = "Western Australia, Australia",
-                            Name = "Western Australia (Perth)",
-                            Slug = "western-australia-perth"
+                            Address = "Dubai, UAE",
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            HotelId = 24,
+                            Name = "Dubai",
+                            QuantityRoom = 150,
+                            QuantityStaff = 50,
+                            Slug = "dubai"
                         },
                         new
                         {
                             Id = 25,
-                            Address = "South Australia, Australia",
-                            Name = "South Australia (Adelaide)",
-                            Slug = "south-australia-adelaide"
+                            Address = "Italy",
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            HotelId = 25,
+                            Name = "Italy",
+                            QuantityRoom = 60,
+                            QuantityStaff = 28,
+                            Slug = "italy"
                         },
                         new
                         {
                             Id = 26,
-                            Address = "Ontario, Canada",
-                            Name = "Ontario (Toronto)",
-                            Slug = "ontario-toronto"
+                            Address = "Phuket, Thái Lan",
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            HotelId = 26,
+                            Name = "Phuket",
+                            QuantityRoom = 75,
+                            QuantityStaff = 30,
+                            Slug = "phuket"
                         },
                         new
                         {
                             Id = 27,
-                            Address = "British Columbia, Canada",
-                            Name = "British Columbia (Vancouver)",
-                            Slug = "british-columbia-vancouver"
+                            Address = "Dubai, UAE",
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            HotelId = 27,
+                            Name = "Dubai",
+                            QuantityRoom = 120,
+                            QuantityStaff = 45,
+                            Slug = "dubai"
                         },
                         new
                         {
                             Id = 28,
-                            Address = "Quebec, Canada",
-                            Name = "Quebec (Montreal)",
-                            Slug = "quebec-montreal"
+                            Address = "Bangkok, Thái Lan",
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            HotelId = 28,
+                            Name = "Bangkok",
+                            QuantityRoom = 90,
+                            QuantityStaff = 35,
+                            Slug = "bangkok"
                         },
                         new
                         {
                             Id = 29,
-                            Address = "Alberta, Canada",
-                            Name = "Alberta (Calgary)",
-                            Slug = "alberta-calgary"
+                            Address = "Bali, Indonesia",
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            HotelId = 29,
+                            Name = "Bali",
+                            QuantityRoom = 65,
+                            QuantityStaff = 25,
+                            Slug = "bali"
                         },
                         new
                         {
                             Id = 30,
-                            Address = "Nova Scotia, Canada",
-                            Name = "Nova Scotia (Halifax)",
-                            Slug = "nova-scotia-halifax"
+                            Address = "Tokyo, Nhật Bản",
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            HotelId = 30,
+                            Name = "Tokyo",
+                            QuantityRoom = 95,
+                            QuantityStaff = 38,
+                            Slug = "tokyo"
+                        },
+                        new
+                        {
+                            Id = 31,
+                            Address = "Los Angeles, USA",
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Los Angeles",
+                            QuantityRoom = 110,
+                            QuantityStaff = 40,
+                            Slug = "los-angeles"
+                        },
+                        new
+                        {
+                            Id = 32,
+                            Address = "Cairo, Ai Cập",
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Cairo",
+                            QuantityRoom = 50,
+                            QuantityStaff = 20,
+                            Slug = "cairo"
                         });
                 });
 
@@ -335,8 +475,8 @@ namespace App.Data.Migrations
                         .HasColumnType("nvarchar(200)");
 
                     b.Property<string>("ImgBanner")
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -365,6 +505,338 @@ namespace App.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("AppHotel", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Khách sạn 5 sao sang trọng tại Hà Nội.",
+                            Email = "info@meliahanoi.com",
+                            ImgBanner = "https://du-lich.chudu24.com/f/m/2105/20/khach-san-melia-hanoi.jpg",
+                            Name = "Khách Sạn Melia Hanoi",
+                            PhoneNumber1 = "+842438223333",
+                            Slug = "khach-san-melia-hanoi"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Khách sạn lịch sử và sang trọng tại TP. Hồ Chí Minh.",
+                            Email = "info@rexhotel.com.vn",
+                            ImgBanner = "https://images2.thanhnien.vn/Uploaded/ttt/images/Content/tan-huong/xach-vali-di/2016_12_w2/rex_hotel/Exterior_Rex_9.jpg",
+                            Name = "Rex Hotel Saigon",
+                            PhoneNumber1 = "+842838292185",
+                            Slug = "rex-hotel-saigon"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Khách sạn ven biển tuyệt đẹp tại Đà Nẵng.",
+                            Email = "info@goldenbaydanang.com",
+                            ImgBanner = "https://www.arttravel.com.vn/upload/news/golden-bay-(4)-9448.jpg",
+                            Name = "Khách Sạn Đà Nẵng Golden Bay",
+                            PhoneNumber1 = "+842363921888",
+                            Slug = "khach-san-da-nang-golden-bay"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Khách sạn với tầm nhìn ra biển tuyệt đẹp tại Nha Trang.",
+                            Email = "info@nhatranglodge.com.vn",
+                            ImgBanner = "https://cf.bstatic.com/xdata/images/hotel/max1024x768/81022752.jpg?k=d69140451157e29655c5d19999354e86b95d3654c7ffbe68081070bc8e041518&o=&hp=1",
+                            Name = "Khách Sạn Nha Trang Lodge",
+                            PhoneNumber1 = "+842583525555",
+                            Slug = "khach-san-nha-trang-lodge"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Khách sạn sang trọng tại trung tâm Hải Phòng.",
+                            Email = "info@imperialhotel.com.vn",
+                            ImgBanner = "https://cf.bstatic.com/xdata/images/hotel/max1024x768/467550547.webp?k=df9413c20e4dc78e4dd3a98618e2815ca246f2bc27a33edf99d9f1bae10e994c&o=",
+                            Name = "Khách Sạn Imperial Hải Phòng",
+                            PhoneNumber1 = "+842253888888",
+                            Slug = "khach-san-imperial-hai-phong"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Khách sạn sang trọng tại New York.",
+                            Email = "info@langhamhotels.com",
+                            ImgBanner = "https://cdn3.ivivu.com/2023/07/The-Langham-New-York-Fifth-Avenue-ivivu.jpg",
+                            Name = "Khách Sạn Langham, New York",
+                            PhoneNumber1 = "+12123338888",
+                            Slug = "langham-new-york"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Khách sạn sang trọng tại Tokyo.",
+                            Email = "info@peninsula.com",
+                            ImgBanner = "https://tokyo-marunouchi.jp/dmo_wp_YfehP9/wp-content/uploads/2017/03/banket_pe_07.jpg",
+                            Name = "Khách Sạn The Peninsula Tokyo",
+                            PhoneNumber1 = "+81362701000",
+                            Slug = "the-peninsula-tokyo"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Khách sạn sang trọng bên bờ biển Cancun.",
+                            Email = "info@ritzcarlton.com",
+                            ImgBanner = "https://ritzcarlton.cancunhotelsweb.net/data/Pics/1080x700w/15670/1567035/1567035848/pic-ritz-carlton-hotel-cancun-5.JPEG",
+                            Name = "Khách Sạn The Ritz-Carlton, Cancun",
+                            PhoneNumber1 = "+5219988916200",
+                            Slug = "ritz-carlton-cancun"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Khách sạn nổi tiếng tại Miami, Florida.",
+                            Email = "info@biltmorehotel.com",
+                            ImgBanner = "https://biltmore-coral-gables.hotelmix.vn/data/Photos/1920x1080/2004/200471/200471074/Biltmore-Hotel-Miami-Coral-Gables-Exterior.JPEG",
+                            Name = "Khách Sạn The Biltmore Miami",
+                            PhoneNumber1 = "+13055284500",
+                            Slug = "the-biltmore-miami"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Khách sạn cao cấp tại Paris, Pháp.",
+                            Email = "info@shangri-la.com",
+                            ImgBanner = "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/36/f3/e2/caption.jpg?w=1200&h=-1&s=1",
+                            Name = "Khách Sạn Shangri-La, Paris",
+                            PhoneNumber1 = "+33153003030",
+                            Slug = "shangri-la-paris"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Khách sạn sang trọng tại Seoul.",
+                            Email = "info@hyatt.com",
+                            ImgBanner = "https://www.americanexpress.com/en-us/travel/discover/photos/197/56953/1600/GHS_Exterior.jpg?ch=560",
+                            Name = "Khách Sạn Grand Hyatt Seoul",
+                            PhoneNumber1 = "+8227971234",
+                            Slug = "grand-hyatt-seoul"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Khách sạn sang trọng tại Bangkok.",
+                            Email = "info@fourseasons.com",
+                            ImgBanner = "https://theluxurytraveller.com/wp-content/uploads/2022/05/FS-Bangkok-144-1080x480.jpg",
+                            Name = "Khách Sạn Four Seasons Bangkok",
+                            PhoneNumber1 = "+6622501000",
+                            Slug = "four-seasons-bangkok"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Khách sạn đẳng cấp tại Tokyo.",
+                            Email = "info@hilton.com",
+                            ImgBanner = "https://cf.bstatic.com/xdata/images/hotel/max1024x768/483824171.jpg?k=3fc70cd0fa564972470a3a08b248feff8fa34e9f8b3f2e0343f5105499238bee&o=&hp=1",
+                            Name = "Khách Sạn Hilton Tokyo",
+                            PhoneNumber1 = "+81333451111",
+                            Slug = "hilton-tokyo"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Khách sạn hiện đại tại Hong Kong.",
+                            Email = "info@whotels.com",
+                            ImgBanner = "https://cache.marriott.com/content/dam/marriott-renditions/HKGWH/hkgwh-pool-exterior-5271-hor-feat.jpg?output-quality=70&interpolation=progressive-bilinear&downsize=1920px:*",
+                            Name = "Khách Sạn W Hong Kong",
+                            PhoneNumber1 = "+85237170000",
+                            Slug = "w-hong-kong"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Khách sạn tuyệt đẹp tại Bali.",
+                            Email = "info@stregis.com",
+                            ImgBanner = "https://res.klook.com/images/fl_lossy.progressive,q_65/c_fill,w_1200,h_630/w_80,x_15,y_15,g_south_west,l_Klook_water_br_trans_yhcmh3/activities/aqglngrp8i0ecxrlwxsm/Tr%E1%BA%A3i%20nghi%E1%BB%87m%20%E1%BA%A9m%20th%E1%BB%B1c%20t%E1%BA%A1i%20The%20St.%20Regis%20Bali%20Resort.jpg",
+                            Name = "Khách Sạn The St. Regis Bali",
+                            PhoneNumber1 = "+62361775200",
+                            Slug = "st-regis-bali"
+                        },
+                        new
+                        {
+                            Id = 16,
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Khách sạn sang trọng tại Bangkok.",
+                            Email = "info@mandarinoriental.com",
+                            ImgBanner = "https://upload.wikimedia.org/wikipedia/commons/e/e5/Mandarin_Oriental_Bangkok_Bang_Rak.jpg",
+                            Name = "Khách Sạn Mandarin Oriental Bangkok",
+                            PhoneNumber1 = "+6626599000",
+                            Slug = "mandarin-oriental-bangkok"
+                        },
+                        new
+                        {
+                            Id = 17,
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Khách sạn cổ điển tại Paris.",
+                            Email = "info@dorchestercollection.com",
+                            ImgBanner = "https://strawberrymilkevents.com/wp-content/uploads/2014/03/le-meurice-paris-1.jpg",
+                            Name = "Khách Sạn Le Meurice, Paris",
+                            PhoneNumber1 = "+33144723456",
+                            Slug = "le-meurice-paris"
+                        },
+                        new
+                        {
+                            Id = 18,
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Khách sạn sang trọng tại Mumbai.",
+                            Email = "info@oberoihotels.com",
+                            ImgBanner = "https://cf.bstatic.com/xdata/images/hotel/max500/28759044.jpg?k=4a3e476214895d86a0e71808d9eb5b85acaebe0cbff06bbd2ecdbb3054d98600&o=&hp=1",
+                            Name = "Khách Sạn The Oberoi, Mumbai",
+                            PhoneNumber1 = "+912266202020",
+                            Slug = "the-oberoi-mumbai"
+                        },
+                        new
+                        {
+                            Id = 19,
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Khách sạn ven sông tại Sydney.",
+                            Email = "info@hyatt.com",
+                            ImgBanner = "https://www.jacadatravel.com/wp-content/uploads/fly-images/157913/park-hyatt-sydney-exterior-1600x500-cc.jpg",
+                            Name = "Khách Sạn Park Hyatt Sydney",
+                            PhoneNumber1 = "+61292561111",
+                            Slug = "park-hyatt-sydney"
+                        },
+                        new
+                        {
+                            Id = 20,
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Khách sạn hiện đại tại Bangkok.",
+                            Email = "info@sukhothai.com",
+                            ImgBanner = "https://kyluc.vn/Userfiles/Upload/images/The%20Sukhothai%20Bangkok.jpg",
+                            Name = "Khách Sạn The Sukhothai Bangkok",
+                            PhoneNumber1 = "+6623448888",
+                            Slug = "the-sukhothai-bangkok"
+                        },
+                        new
+                        {
+                            Id = 21,
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Khách sạn sang trọng tại Paris.",
+                            Email = "info@ritzparis.com",
+                            ImgBanner = "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/H%C3%B4tel_Ritz.jpg/1200px-H%C3%B4tel_Ritz.jpg",
+                            Name = "Khách Sạn Ritz Paris",
+                            PhoneNumber1 = "+33143261800",
+                            Slug = "ritz-paris"
+                        },
+                        new
+                        {
+                            Id = 22,
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Khách sạn 5 sao tại Mumbai.",
+                            Email = "info@theleela.com",
+                            ImgBanner = "https://d25wybtmjgh8lz.cloudfront.net/sites/default/files/styles/ph_pdp_subheader_1000_x_333/public/property/img-mastheads/bomlm_4.jpg?h=7bc7d4e1",
+                            Name = "Khách Sạn The Leela, Mumbai",
+                            PhoneNumber1 = "+912266486000",
+                            Slug = "the-leela-mumbai"
+                        },
+                        new
+                        {
+                            Id = 23,
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Khách sạn sang trọng tại New York.",
+                            Email = "info@stregis.com",
+                            ImgBanner = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/The_St._Regis_Hotel_New_York.JPG/1200px-The_St._Regis_Hotel_New_York.JPG",
+                            Name = "Khách Sạn St. Regis New York",
+                            PhoneNumber1 = "+12125450500",
+                            Slug = "st-regis-new-york"
+                        },
+                        new
+                        {
+                            Id = 24,
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Khách sạn sang trọng tại Dubai.",
+                            Email = "info@jumeirah.com",
+                            ImgBanner = "https://cf.bstatic.com/xdata/images/district/1020x340/45235.jpg?k=daf29066fcf29a01b738ead0998e878a221a3176c033e82a170da725278bc69c&o=",
+                            Name = "Khách Sạn Jumeirah, Dubai",
+                            PhoneNumber1 = "+97144028888",
+                            Slug = "jumeirah-dubai"
+                        },
+                        new
+                        {
+                            Id = 25,
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Khách sạn cổ điển tại Italy.",
+                            Email = "info@belmond.com",
+                            ImgBanner = "https://www.truetrips.com/images/api/hotels/Amalfi/Belmond_Hotel_Caruso/The_Balmoral_Caruso_bn_02.jpg",
+                            Name = "Khách Sạn Belmond Hotel Caruso",
+                            PhoneNumber1 = "+39089812345",
+                            Slug = "belmond-caruso"
+                        },
+                        new
+                        {
+                            Id = 26,
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Khách sạn 5 sao tại Phuket.",
+                            Email = "info@banyantree.com",
+                            ImgBanner = "https://greenmore.vn/wp-content/uploads/2019/12/canh-quan-resort-nghi-duong-banyan-tree-phuket-05-compressed.jpg",
+                            Name = "Khách Sạn Banyan Tree, Phuket",
+                            PhoneNumber1 = "+6676377888",
+                            Slug = "banyan-tree-phuket"
+                        },
+                        new
+                        {
+                            Id = 27,
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Khách sạn sang trọng tại Dubai.",
+                            Email = "info@theaddress.com",
+                            ImgBanner = "https://cf.bstatic.com/xdata/images/hotel/max1024x768/147760688.jpg?k=9604a9318b078228b302c62aaefdfe79aa03688c6d00b953ddc65ab46a337c12&o=&hp=1",
+                            Name = "Khách Sạn The Address, Dubai",
+                            PhoneNumber1 = "+97144087777",
+                            Slug = "the-address-dubai"
+                        },
+                        new
+                        {
+                            Id = 28,
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Khách sạn bên bờ sông tại Bangkok.",
+                            Email = "info@shangri-la.com",
+                            ImgBanner = "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/9c/cc/45/shangri-la-bangkok.jpg?w=700&h=-1&s=1",
+                            Name = "Khách Sạn Shangri-La, Bangkok",
+                            PhoneNumber1 = "+6622367777",
+                            Slug = "shangri-la-bangkok"
+                        },
+                        new
+                        {
+                            Id = 29,
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Khách sạn tuyệt đẹp tại Bali.",
+                            Email = "info@oberoihotels.com",
+                            ImgBanner = "https://www.hotelsinheaven.com/wp-content/uploads/2020/05/the-oberoi-beach-resort-bali-main-pool-beach-scaled-1256x1000.jpg",
+                            Name = "Khách Sạn The Oberoi, Bali",
+                            PhoneNumber1 = "+62361775688",
+                            Slug = "the-oberoi-bali"
+                        },
+                        new
+                        {
+                            Id = 30,
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Khách sạn 5 sao tại Tokyo.",
+                            Email = "info@mandarinoriental.com",
+                            ImgBanner = "https://cf2.bstatic.com/xdata/images/hotel/max1280x900/565155779.jpg?k=6597ca16a17e31dfa517cd3e90b398fd52a5773dfe28ff2b3e5a0baa15f1d89c&o=&hp=1",
+                            Name = "Khách Sạn Mandarin Oriental, Tokyo",
+                            PhoneNumber1 = "+81357770000",
+                            Slug = "mandarin-oriental-tokyo"
+                        });
                 });
 
             modelBuilder.Entity("App.Data.Entities.News.AppCategoryNews", b =>
@@ -649,8 +1121,8 @@ namespace App.Data.Migrations
 
                     b.Property<string>("ImgSrc")
                         .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
 
                     b.Property<int?>("RoomId")
                         .HasColumnType("int");
@@ -793,6 +1265,58 @@ namespace App.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("AppRoomType", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            BringPet = false,
+                            CreatedBy = 1,
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Phòng nhỏ cho 1 người, trang bị đầy đủ tiện nghi.",
+                            PeopleStay = 1,
+                            RoomTypeName = "Phòng Đơn"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            BringPet = false,
+                            CreatedBy = 1,
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Phòng cho 2 người, thích hợp cho cặp đôi hoặc bạn bè.",
+                            PeopleStay = 2,
+                            RoomTypeName = "Phòng Đôi"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            BringPet = true,
+                            CreatedBy = 1,
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Phòng rộng rãi cho gia đình, có giường đôi và giường đơn.",
+                            PeopleStay = 4,
+                            RoomTypeName = "Phòng Gia Đình"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            BringPet = false,
+                            CreatedBy = 1,
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Phòng cao cấp với tiện nghi hiện đại và tầm nhìn đẹp.",
+                            PeopleStay = 2,
+                            RoomTypeName = "Phòng Sang Trọng"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            BringPet = false,
+                            CreatedBy = 1,
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Phòng VIP với các dịch vụ đặc biệt và riêng tư.",
+                            PeopleStay = 2,
+                            RoomTypeName = "Phòng VIP"
+                        });
                 });
 
             modelBuilder.Entity("App.Data.Entities.Room.AppTypeEquipment", b =>
@@ -1659,8 +2183,8 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "admin_test@gmail.com",
                             FullName = "Nguyễn Thanh Long",
-                            PasswordHash = new byte[] { 210, 254, 115, 204, 30, 139, 89, 147, 86, 123, 233, 60, 172, 165, 20, 171, 255, 33, 167, 224, 76, 181, 26, 217, 210, 136, 248, 129, 74, 149, 128, 155, 180, 164, 230, 244, 53, 95, 39, 228, 170, 240, 172, 82, 136, 199, 16, 24, 43, 127, 151, 100, 79, 199, 23, 239, 223, 102, 71, 34, 72, 152, 155, 81 },
-                            PasswordSalt = new byte[] { 26, 182, 176, 205, 218, 242, 159, 117, 145, 83, 21, 202, 167, 115, 4, 197, 233, 167, 161, 248, 8, 178, 174, 23, 158, 184, 68, 24, 224, 236, 114, 239, 97, 6, 129, 224, 163, 174, 106, 243, 203, 247, 18, 196, 20, 151, 168, 233, 10, 170, 136, 169, 234, 148, 80, 214, 253, 45, 63, 136, 2, 150, 109, 210, 165, 134, 82, 221, 81, 177, 243, 110, 180, 127, 139, 62, 123, 196, 45, 22, 171, 255, 0, 24, 47, 119, 155, 18, 65, 214, 242, 81, 184, 211, 19, 61, 54, 208, 158, 97, 24, 119, 124, 78, 45, 82, 134, 26, 93, 56, 28, 170, 30, 55, 189, 39, 251, 141, 44, 38, 39, 61, 53, 49, 195, 140, 19, 142 },
+                            PasswordHash = new byte[] { 230, 138, 157, 94, 61, 94, 35, 173, 220, 84, 185, 246, 106, 243, 186, 114, 177, 238, 189, 168, 71, 103, 34, 159, 16, 83, 146, 1, 193, 217, 172, 89, 185, 24, 25, 219, 37, 120, 91, 145, 0, 233, 30, 228, 39, 35, 81, 145, 101, 219, 202, 150, 92, 67, 217, 30, 202, 237, 148, 203, 1, 207, 48, 74 },
+                            PasswordSalt = new byte[] { 166, 89, 182, 44, 59, 146, 57, 32, 255, 230, 130, 203, 175, 217, 35, 238, 99, 220, 106, 168, 149, 32, 187, 53, 148, 222, 28, 67, 197, 35, 211, 118, 246, 212, 77, 40, 102, 75, 203, 9, 167, 133, 141, 103, 185, 202, 1, 175, 138, 144, 217, 2, 214, 102, 197, 251, 125, 54, 28, 74, 139, 166, 117, 200, 86, 171, 34, 221, 204, 22, 17, 46, 186, 147, 72, 226, 252, 43, 173, 192, 228, 47, 149, 74, 179, 39, 50, 30, 206, 140, 62, 147, 187, 29, 34, 158, 18, 57, 24, 201, 2, 109, 142, 209, 34, 253, 38, 136, 19, 245, 22, 168, 30, 137, 212, 234, 118, 56, 3, 88, 34, 52, 105, 35, 228, 214, 46, 239 },
                             PhoneNumber1 = "+84928666158",
                             PhoneNumber2 = "+84928666156",
                             UpdatedBy = -1,
@@ -1678,8 +2202,8 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "tranthib2001@gmail.com",
                             FullName = "Trần Chí Dũng",
-                            PasswordHash = new byte[] { 210, 254, 115, 204, 30, 139, 89, 147, 86, 123, 233, 60, 172, 165, 20, 171, 255, 33, 167, 224, 76, 181, 26, 217, 210, 136, 248, 129, 74, 149, 128, 155, 180, 164, 230, 244, 53, 95, 39, 228, 170, 240, 172, 82, 136, 199, 16, 24, 43, 127, 151, 100, 79, 199, 23, 239, 223, 102, 71, 34, 72, 152, 155, 81 },
-                            PasswordSalt = new byte[] { 26, 182, 176, 205, 218, 242, 159, 117, 145, 83, 21, 202, 167, 115, 4, 197, 233, 167, 161, 248, 8, 178, 174, 23, 158, 184, 68, 24, 224, 236, 114, 239, 97, 6, 129, 224, 163, 174, 106, 243, 203, 247, 18, 196, 20, 151, 168, 233, 10, 170, 136, 169, 234, 148, 80, 214, 253, 45, 63, 136, 2, 150, 109, 210, 165, 134, 82, 221, 81, 177, 243, 110, 180, 127, 139, 62, 123, 196, 45, 22, 171, 255, 0, 24, 47, 119, 155, 18, 65, 214, 242, 81, 184, 211, 19, 61, 54, 208, 158, 97, 24, 119, 124, 78, 45, 82, 134, 26, 93, 56, 28, 170, 30, 55, 189, 39, 251, 141, 44, 38, 39, 61, 53, 49, 195, 140, 19, 142 },
+                            PasswordHash = new byte[] { 230, 138, 157, 94, 61, 94, 35, 173, 220, 84, 185, 246, 106, 243, 186, 114, 177, 238, 189, 168, 71, 103, 34, 159, 16, 83, 146, 1, 193, 217, 172, 89, 185, 24, 25, 219, 37, 120, 91, 145, 0, 233, 30, 228, 39, 35, 81, 145, 101, 219, 202, 150, 92, 67, 217, 30, 202, 237, 148, 203, 1, 207, 48, 74 },
+                            PasswordSalt = new byte[] { 166, 89, 182, 44, 59, 146, 57, 32, 255, 230, 130, 203, 175, 217, 35, 238, 99, 220, 106, 168, 149, 32, 187, 53, 148, 222, 28, 67, 197, 35, 211, 118, 246, 212, 77, 40, 102, 75, 203, 9, 167, 133, 141, 103, 185, 202, 1, 175, 138, 144, 217, 2, 214, 102, 197, 251, 125, 54, 28, 74, 139, 166, 117, 200, 86, 171, 34, 221, 204, 22, 17, 46, 186, 147, 72, 226, 252, 43, 173, 192, 228, 47, 149, 74, 179, 39, 50, 30, 206, 140, 62, 147, 187, 29, 34, 158, 18, 57, 24, 201, 2, 109, 142, 209, 34, 253, 38, 136, 19, 245, 22, 168, 30, 137, 212, 234, 118, 56, 3, 88, 34, 52, 105, 35, 228, 214, 46, 239 },
                             PhoneNumber1 = "+84928666157",
                             PhoneNumber2 = "+84928666158",
                             UpdatedBy = -1,
@@ -1697,8 +2221,8 @@ namespace App.Data.Migrations
                             Email = "thanhnguyendt2000@gmail.com",
                             FullName = "John Smith",
                             Passport = "123456789",
-                            PasswordHash = new byte[] { 210, 254, 115, 204, 30, 139, 89, 147, 86, 123, 233, 60, 172, 165, 20, 171, 255, 33, 167, 224, 76, 181, 26, 217, 210, 136, 248, 129, 74, 149, 128, 155, 180, 164, 230, 244, 53, 95, 39, 228, 170, 240, 172, 82, 136, 199, 16, 24, 43, 127, 151, 100, 79, 199, 23, 239, 223, 102, 71, 34, 72, 152, 155, 81 },
-                            PasswordSalt = new byte[] { 26, 182, 176, 205, 218, 242, 159, 117, 145, 83, 21, 202, 167, 115, 4, 197, 233, 167, 161, 248, 8, 178, 174, 23, 158, 184, 68, 24, 224, 236, 114, 239, 97, 6, 129, 224, 163, 174, 106, 243, 203, 247, 18, 196, 20, 151, 168, 233, 10, 170, 136, 169, 234, 148, 80, 214, 253, 45, 63, 136, 2, 150, 109, 210, 165, 134, 82, 221, 81, 177, 243, 110, 180, 127, 139, 62, 123, 196, 45, 22, 171, 255, 0, 24, 47, 119, 155, 18, 65, 214, 242, 81, 184, 211, 19, 61, 54, 208, 158, 97, 24, 119, 124, 78, 45, 82, 134, 26, 93, 56, 28, 170, 30, 55, 189, 39, 251, 141, 44, 38, 39, 61, 53, 49, 195, 140, 19, 142 },
+                            PasswordHash = new byte[] { 230, 138, 157, 94, 61, 94, 35, 173, 220, 84, 185, 246, 106, 243, 186, 114, 177, 238, 189, 168, 71, 103, 34, 159, 16, 83, 146, 1, 193, 217, 172, 89, 185, 24, 25, 219, 37, 120, 91, 145, 0, 233, 30, 228, 39, 35, 81, 145, 101, 219, 202, 150, 92, 67, 217, 30, 202, 237, 148, 203, 1, 207, 48, 74 },
+                            PasswordSalt = new byte[] { 166, 89, 182, 44, 59, 146, 57, 32, 255, 230, 130, 203, 175, 217, 35, 238, 99, 220, 106, 168, 149, 32, 187, 53, 148, 222, 28, 67, 197, 35, 211, 118, 246, 212, 77, 40, 102, 75, 203, 9, 167, 133, 141, 103, 185, 202, 1, 175, 138, 144, 217, 2, 214, 102, 197, 251, 125, 54, 28, 74, 139, 166, 117, 200, 86, 171, 34, 221, 204, 22, 17, 46, 186, 147, 72, 226, 252, 43, 173, 192, 228, 47, 149, 74, 179, 39, 50, 30, 206, 140, 62, 147, 187, 29, 34, 158, 18, 57, 24, 201, 2, 109, 142, 209, 34, 253, 38, 136, 19, 245, 22, 168, 30, 137, 212, 234, 118, 56, 3, 88, 34, 52, 105, 35, 228, 214, 46, 239 },
                             PhoneNumber1 = "+12025550123",
                             PhoneNumber2 = "+12027450123",
                             UpdatedBy = -1,
