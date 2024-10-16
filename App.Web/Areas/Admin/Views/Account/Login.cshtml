@@ -1,0 +1,160 @@
+﻿@model App.Web.Areas.Admin.ViewModels.Account.LoginVM
+
+@{
+	Layout = null;
+}
+<!doctype html>
+<html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="sm-hover" data-sidebar-image="none" data-preloader="disable">
+
+<head>
+	<meta charset="utf-8" />
+	<title>Đăng nhập</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta content="Themesbrand" name="author" />
+	<!-- App favicon -->
+	<link rel="icon" type="image/x-icon" href="~/adminLTE/images/logo-main.png" asp-append-version="true" />
+	<link href="https://fonts.googleapis.com/css2?family=Italiano&display=swap" rel="stylesheet">
+
+	<!-- Layout config Js -->
+	<script src="~/adminLTE/js/layout.js"></script>
+	<!-- Bootstrap Css -->
+	<link href="~/adminLTE/css/bootstrap.min.css" rel="stylesheet" asp-append-version="true" />
+	<!-- Icons Css -->
+	<link href="~/adminLTE/css/icons.min.css" rel="stylesheet" asp-append-version="true" />
+	<!-- App Css-->
+	<link href="~/adminLTE/css/app.min.css" rel="stylesheet" asp-append-version="true" />
+	<!-- custom Css-->
+	<link href="~/adminLTE/css/custom.min.css" rel="stylesheet" asp-append-version="true" />
+	<link href="~/css/logo-text.css" rel="stylesheet" asp-append-version="true" />
+</head>
+
+<body>
+
+	<!-- auth-page wrapper -->
+	<div class="auth-page-wrapper auth-bg-cover py-5 d-flex justify-content-center align-items-center min-vh-100">
+		<div class="bg-overlay"></div>
+		<!-- auth-page content -->
+		<div class="auth-page-content overflow-hidden pt-lg-5">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="card overflow-hidden">
+							<div class="row g-0">
+								<div class="col-lg-6">
+									<div class="p-lg-5 p-4 auth-one-bg h-100">
+										<div class="bg-overlay"></div>
+										<div class="position-relative h-100 d-flex flex-column">
+											<div class="mb-4 d-block">
+												<img src="~/adminLTE/images/logo-main.png" alt="" height="70" width="100">
+											</div>
+											<div class="mt-auto">
+												<div class="mb-3">
+													<i class="ri-double-quotes-l display-4 text-success"></i>
+												</div>
+
+												<div id="qoutescarouselIndicators" class="carousel slide" data-bs-ride="carousel">
+													<div class="carousel-indicators">
+														<button type="button" data-bs-target="#qoutescarouselIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+														<button type="button" data-bs-target="#qoutescarouselIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+														<button type="button" data-bs-target="#qoutescarouselIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+													</div>
+													<div class="carousel-inner text-center text-white pb-5">
+														<div class="carousel-item">
+															<p class="fs-15 fst-italic">" Trải nghiệm nghỉ dưỡng hoàn hảo bắt đầu từ việc quản lý đặt phòng thông minh! "</p>
+														</div>
+														<div class="carousel-item">
+															<p class="fs-15 fst-italic">" Dễ dàng quản lý, nâng tầm dịch vụ - Mang lại sự hài lòng tối đa cho khách hàng! "</p>
+														</div>
+														<div class="carousel-item active">
+															<p class="fs-15 fst-italic">" Tối ưu hóa quy trình đặt phòng, tập trung vào những điều tuyệt vời nhất cho khách sạn! "</p>
+														</div>
+													</div>
+												</div>
+												<!-- end carousel -->
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- end col -->
+
+								<div class="col-lg-6">
+									<div class="p-lg-5 p-4">
+										<div>
+											<h5 class="text-primary">Chào mừng trở lại !</h5>
+											<p class="text-muted">Đăng nhập để tiếp tục với <span class="badge badge-label bg-primary italiano" style="font-size:15px; text-shadow: none;"><i class="mdi mdi-circle-medium"></i> V/YBooking</span></p>
+										</div>
+
+										<div class="mt-4">
+											<form method="post" asp-action="Login" asp-controller="Account" asp-area="Admin">
+												@if (TempData["Mesg"] != null)
+												{
+													<p class="login-box-msg text-danger">@TempData["Mesg"]</p>
+												}
+												<div class="mb-3">
+													<label for="username" class="form-label">Tên đăng nhập</label>
+													<input asp-for="Username" type="text" autofocus type="text" class="form-control" id="username" required placeholder="Nhập tên đăng nhập">
+													<span asp-validation-for="Username" class="text-danger"></span>
+												</div>
+
+												<div class="mb-3">
+													<div class="float-end">
+														<a asp-action="ForgotPassword" asp-controller="Account" asp-area="Admin" class="text-muted">Quên mật khẩu?</a>
+													</div>
+													<label class="form-label" for="password-input">Mật khẩu</label>
+													<div class="position-relative auth-pass-inputgroup mb-3">
+														<input asp-for="Password" type="password" class="form-control pe-5 password-input" required placeholder="Nhập mật khẩu" id="password-input">
+														<span asp-validation-for="Password" class="text-danger"></span>
+														<button class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon" type="button" id="password-addon"><i class="ri-eye-fill align-middle"></i></button>
+													</div>
+												</div>
+
+												<div class="form-check">
+													<input class="form-check-input" asp-for="RememberMe" checked id="auth-remember-check">
+													<label class="form-check-label" for="auth-remember-check">Giữ tôi luôn đăng nhập</label>
+												</div>
+
+												<div class="mt-4">
+													<button class="btn btn-success w-100" type="submit">Đăng nhập</button>
+												</div>
+
+												<div class="mt-4 text-center">
+													<div class="signin-other-title">
+														<h5 class="fs-13 mb-4 title">Đăng nhập với</h5>
+														<button type="button" class="btn btn-danger btn-icon waves-effect waves-light"><i class="ri-google-fill fs-16"></i></button>
+													</div>
+												</div>
+
+											</form>
+										</div>
+									</div>
+								</div>
+								<!-- end col -->
+							</div>
+							<!-- end row -->
+						</div>
+						<!-- end card -->
+					</div>
+					<!-- end col -->
+
+				</div>
+				<!-- end row -->
+			</div>
+			<!-- end container -->
+		</div>
+		<!-- end auth page content -->
+
+	</div>
+	<!-- end auth-page-wrapper -->
+	<!-- JAVASCRIPT -->
+	<script src="~/adminLTE/libs/bootstrap/js/bootstrap.bundle.min.js" asp-append-version="true"></script>
+	<script src="~/adminLTE/libs/simplebar/simplebar.min.js" asp-append-version="true"></script>
+	<script src="~/adminLTE/libs/node-waves/waves.min.js" asp-append-version="true"></script>
+	<script src="~/adminLTE/libs/feather-icons/feather.min.js" asp-append-version="true"></script>
+	<script src="~/adminLTE/js/pages/plugins/lord-icon-2.1.0.js" asp-append-version="true"></script>
+	<script src="~/adminLTE/js/plugins.js"></script>
+
+	<!-- password-addon init -->
+	<script src="~/adminLTE/js/pages/password-addon.init.js" asp-append-version="true"></script>
+</body>
+
+</html>
