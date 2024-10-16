@@ -1,12 +1,14 @@
 ﻿using App.Data;
 using App.Data.Repositories;
 using App.Web.Common.Mailer;
+using App.Web.Services.AppUser;
+using App.Web.WebConfig;
+using App.Web.WebConfig.Consts;
 using AspNetCoreHero.ToastNotification;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.EntityFrameworkCore;
-using System.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,24 +32,26 @@ builder.Services.AddNotyf(config =>
 });
 
 // Đăng ký repositories
+builder.Services.AddAppService(builder.Configuration, builder.Environment);
 builder.Services.AddScoped<GenericRepository>();
+builder.Services.AddScoped<IAccountService, AccountService>();
 
 // Cấu hình đăng nhập
-//builder.Services.AddAuthentication(AppConst.COOKIES_AUTH)
-//	.AddCookie(options =>
-//	{
-//		options.LoginPath = AppConst.ADMIN_LOGIN_PATH;
-//		options.ExpireTimeSpan = TimeSpan.FromHours(AppConst.LOGIN_TIMEOUT);
-//		options.Cookie.HttpOnly = true;
-//	});
+builder.Services.AddAuthentication(AppConst.COOKIES_AUTH)
+	.AddCookie(options =>
+	{
+		options.LoginPath = AppConst.ADMIN_LOGIN_PATH;
+		options.ExpireTimeSpan = TimeSpan.FromHours(AppConst.LOGIN_TIMEOUT);
+		options.Cookie.HttpOnly = true;
+	});
 
 // Cấu hình AutoMapper
-//var mapperConfig = new MapperConfiguration(config =>
-//{
-//	config.AddProfile(new AutoMapperProfile());
-//});
-//IMapper mapper = mapperConfig.CreateMapper();
-//services.AddSingleton(mapper);
+var mapperConfig = new MapperConfiguration(config =>
+{
+	config.AddProfile(new AutoMapperProfile());
+});
+IMapper mapper = mapperConfig.CreateMapper();
+builder.Services.AddSingleton(mapper);
 
 // Cấu hình thư mục view cho ViewComponent
 builder.Services.Configure<RazorViewEngineOptions>(config =>
