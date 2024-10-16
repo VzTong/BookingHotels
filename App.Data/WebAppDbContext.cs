@@ -66,6 +66,7 @@ namespace App.Data
 			modelBuilder.ApplyConfiguration(new AppUserConfig());
 
 			// Tạo dữ liệu
+			modelBuilder.Entity<AppHotel>().SeedData();
 			modelBuilder.Entity<AppBranchHotel>().SeedData();
 			modelBuilder.Entity<MstPermission>().SeedData();
 			modelBuilder.Entity<AppRole>().SeedData();
@@ -73,6 +74,7 @@ namespace App.Data
 			modelBuilder.Entity<AppUser>().SeedData();
 			modelBuilder.Entity<AppTypeEquipment>().SeedData();
 			modelBuilder.Entity<AppEquipment>().SeedData();
+			modelBuilder.Entity<AppRoomType>().SeedData();
 		}
 	}
 }
