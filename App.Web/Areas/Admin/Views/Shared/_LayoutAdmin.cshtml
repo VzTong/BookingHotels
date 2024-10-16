@@ -2,101 +2,94 @@
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="sm-hover" data-sidebar-image="none" data-preloader="disable">
 
 <head>
-    <meta charset="utf-8" />
-    <title>@ViewData["Title"] | Hotel - Admin</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="Themesbrand" name="author" />
-    <!-- App favicon -->
-    <link rel="shortcut icon" href="~/adminLTE/images/favicon.ico">
-    <!-- jsvectormap css -->
-    <link href="~/adminLTE/libs/jsvectormap/css/jsvectormap.min.css" rel="stylesheet" asp-append-version="true" />
-    <!--Swiper slider css-->
-    <link href="~/adminLTE/libs/swiper/swiper-bundle.min.css" rel="stylesheet" asp-append-version="true" />
-    <!-- Layout config Js -->
-    <script src="~/adminLTE/js/layout.js"></script>
-    <!-- Bootstrap Css -->
-    <link href="~/adminLTE/css/bootstrap.min.css" rel="stylesheet" asp-append-version="true" />
-    <!-- Icons Css -->
-    <link href="~/adminLTE/css/icons.min.css" rel="stylesheet" asp-append-version="true" />
-    <!-- App Css-->
-    <link href="~/adminLTE/css/app.min.css" rel="stylesheet" asp-append-version="true" />
-    <!-- custom Css-->
-    <link href="~/lib/font-awesome/css/all.css" rel="stylesheet" />
-    <link href="~/lib/bs4-autocomplete/css/bs4-autocomplete.css" rel="stylesheet" asp-append-version="true" />
-    <link href="~/lib/bs4-toast-snackbar/css/toast-snackbar.css" rel="stylesheet" asp-append-version="true" />
-    <link href="~/adminLTE/css/custom.min.css" rel="stylesheet" asp-append-version="true" />
+	<meta charset="utf-8" />
+	<title>@ViewData["Title"] | Hotel - Admin</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta content="Themesbrand" name="author" />
+	<!-- App favicon -->
+	<link rel="icon" type="image/x-icon" href="~/adminLTE/images/logo-main.png" asp-append-version="true" />
+	<link href="https://fonts.googleapis.com/css2?family=Italiano&display=swap" rel="stylesheet">
+	<!-- jsvectormap css -->
+	<link href="~/adminLTE/libs/jsvectormap/css/jsvectormap.min.css" rel="stylesheet" asp-append-version="true" />
+	<!--Swiper slider css-->
+	<link href="~/adminLTE/libs/swiper/swiper-bundle.min.css" rel="stylesheet" asp-append-version="true" />
+	<!-- Layout config Js -->
+	<script src="~/adminLTE/js/layout.js"></script>
+	<!-- Bootstrap Css -->
+	<link href="~/adminLTE/css/bootstrap.min.css" rel="stylesheet" asp-append-version="true" />
+	<!-- Icons Css -->
+	<link href="~/adminLTE/css/icons.min.css" rel="stylesheet" asp-append-version="true" />
+	<!-- App Css-->
+	<link href="~/adminLTE/css/app.min.css" rel="stylesheet" asp-append-version="true" />
+	<!-- custom Css-->
+	<link href="~/lib/font-awesome/css/all.css" rel="stylesheet" />
+	<link href="~/lib/bs4-autocomplete/css/bs4-autocomplete.css" rel="stylesheet" asp-append-version="true" />
+	<link href="~/lib/bs4-toast-snackbar/css/toast-snackbar.css" rel="stylesheet" asp-append-version="true" />
+	<link href="~/adminLTE/css/custom.min.css" rel="stylesheet" asp-append-version="true" />
+	<link href="~/css/logo-text.css" rel="stylesheet" asp-append-version="true" />
 	@RenderSection("Css", false)
 </head>
 
 <body>
-    <div id="layout-wrapper">
-        <partial name="_HeaderBar" />
+	<div id="layout-wrapper">
+		<partial name="_HeaderBar" />
 
-        <!-- ========== App Menu ========== -->
-        <partial name="_MainNavBar" />
+		<!-- ========== App Menu ========== -->
+		<partial name="_MainNavBar" />
 
-        <div class="vertical-overlay"></div>
+		<div class="vertical-overlay"></div>
 
-        <!-- Start Content-->
-        <div class="main-content">
+		<!-- Start Content-->
+		<div class="main-content">
 
-            <div class="page-content">
+			<div class="page-content">
+				<div class="container-fluid">
+					@RenderBody()
+				</div>
 
-                <div class="container-fluid">
-                    <div class="mt-5">
-                        <partial name="_Notyf" />
-                    </div>
-                    @RenderBody()
-                </div>
+			</div>
 
-            </div>
+			<partial name="_Footer" />
+		</div>
+		<!-- end main content-->
 
-            <partial name="_Footer" />
-        </div>
-        <!-- end main content-->
+	</div>
 
-    </div>
+	<!-- back-to-top -->
+	<button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
+		<i class="ri-arrow-up-line"></i>
+	</button>
 
-    <!-- back-to-top -->
-    <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
-        <i class="ri-arrow-up-line"></i>
-    </button>
+	<partial name="_Preloader" />
+	<partial name="_ThemeSettings" model="null" />
+	<partial name="_ChangePassword" model="null" />
 
-    <partial name="_Preloader" />
-    <partial name="_ThemeSettings" model="null" />
+	<!-- JAVASCRIPT -->
+	<script src="~/adminLTE/libs/bootstrap/js/bootstrap.bundle.min.js" asp-append-version="true"></script>
+	<script src="~/adminLTE/libs/simplebar/simplebar.min.js" asp-append-version="true"></script>
+	<script src="~/adminLTE/libs/node-waves/waves.min.js" asp-append-version="true"></script>
+	<script src="~/adminLTE/libs/feather-icons/feather.min.js" asp-append-version="true"></script>
+	<script src="~/adminLTE/js/pages/plugins/lord-icon-2.1.0.js" asp-append-version="true"></script>
+	<script src="~/adminLTE/js/plugins.js" asp-append-version="true"></script>
+	<!-- apexcharts -->
+	<script src="~/adminLTE/libs/apexcharts/apexcharts.min.js" asp-append-version="true"></script>
+	<!-- Vector map-->
+	<script src="~/adminLTE/libs/jsvectormap/js/jsvectormap.min.js" asp-append-version="true"></script>
+	<script src="~/adminLTE/libs/jsvectormap/maps/world-merc.js" asp-append-version="true"></script>
+	<!--Swiper slider js-->
+	<script src="~/adminLTE/libs/swiper/swiper-bundle.min.js" asp-append-version="true"></script>
+	<!-- Dashboard init -->
+	<script src="~/adminLTE/js/pages/dashboard-ecommerce.init.js" asp-append-version="true"></script>
+	<!-- App js -->
+	<script src="~/adminLTE/js/app.js" asp-append-version="true"></script>
+	<!-- notifications init -->
+	<script src="~/adminLTE/js/pages/notifications.init.js" asp-append-version="true"></script>
+	<!-- Javascript dùng chung -->
+	<script src="~/js/site.js" asp-append-version="true"></script>
 
-    <!-- JAVASCRIPT -->
-    <script src="~/adminLTE/libs/bootstrap/js/bootstrap.bundle.min.js" asp-append-version="true"></script>
-    <script src="~/adminLTE/libs/simplebar/simplebar.min.js" asp-append-version="true"></script>
-    <script src="~/adminLTE/libs/node-waves/waves.min.js" asp-append-version="true"></script>
-    <script src="~/adminLTE/libs/feather-icons/feather.min.js" asp-append-version="true"></script>
-    <script src="~/adminLTE/js/pages/plugins/lord-icon-2.1.0.js" asp-append-version="true"></script>
-    <script src="~/adminLTE/js/plugins.js" asp-append-version="true"></script>
-    <!-- apexcharts -->
-    <script src="~/adminLTE/libs/apexcharts/apexcharts.min.js" asp-append-version="true"></script>
-    <!-- Vector map-->
-    <script src="~/adminLTE/libs/jsvectormap/js/jsvectormap.min.js" asp-append-version="true"></script>
-    <script src="~/adminLTE/libs/jsvectormap/maps/world-merc.js" asp-append-version="true"></script>
-    <!--Swiper slider js-->
-    <script src="~/adminLTE/libs/swiper/swiper-bundle.min.js" asp-append-version="true"></script>
-    <!-- Dashboard init -->
-    <script src="~/adminLTE/js/pages/dashboard-ecommerce.init.js" asp-append-version="true"></script>
-    <!-- App js -->
-    <script src="~/adminLTE/js/app.js" asp-append-version="true"></script>
-    <!-- Javascript dùng chung -->
-    <script src="~/js/site.js" asp-append-version="true"></script>
+	@await Component.InvokeAsync("Notyf")
 
-    @await Component.InvokeAsync("Notyf")
-
-    <script type="text/javascript">
-        document.addEventListener("scroll",
-            function () {
-                var e;
-                (e = document.getElementById("page-topbar")) && (50 <= document.body.scrollTop || 50 <= document.documentElement.scrollTop ? e.classList.add("topbar-shadow") : e.classList.remove("topbar-shadow"))
-            })
-    </script>
-
-    @await RenderSectionAsync("Scripts", required: false)
+	@await RenderSectionAsync("Scripts", false)
 </body>
 
 </html>
