@@ -13,9 +13,6 @@ namespace App.Web.Areas.Admin.Controllers
 	[Area("Admin")]
 	public class AppControllerBase : Controller
 	{
-		// Thêm tạm, nào xài auto mapper thì sẽ xóa
-		protected readonly WebAppDbContext _db;
-
 		protected const string AREA_NAME = "Admin";
 		protected const int DEFAULT_PAGE_SIZE = 20;
 		protected const string EXCEPTION_ERR_MESG = "Đã xảy ra lỗi trong quá trình xử lý dữ liệu (500)";
@@ -31,14 +28,9 @@ namespace App.Web.Areas.Admin.Controllers
 		protected string CurrentUsername { get => HttpContext.User.Identity.Name; }
 		protected string Referer { get => Request.Headers["Referer"].ToString(); }
 
-		// Thêm tạm, nào sài auto mapper thì sẽ đổi lại
-		//public AppControllerBase(IMapper mapper)
-		//{
-		//	_mapper = mapper;
-		//}
-		public AppControllerBase(WebAppDbContext db)
+		public AppControllerBase(IMapper mapper)
 		{
-			_db = db;
+			_mapper = mapper;
 		}
 
 		protected RedirectToActionResult HomePage() => RedirectToAction("Index", "Home", new { area = "Admin" });
