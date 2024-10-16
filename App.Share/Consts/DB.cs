@@ -96,7 +96,7 @@
 			public const short DESC_LENGTH					= 255;
 			public const short PHONE_LENGTH					= 15;
 			public const short EMAIL_LENGTH					= 200;
-			public const short IMG_BANNER_LENGTH			= 255;
+			public const short IMG_BANNER_LENGTH			= 500;
 		}
 
 		public static class AppBranchHotel
@@ -107,7 +107,7 @@
 			public const short DESC_LENGTH					= 255;
 			public const short IDMAP_LENGTH					= 255;
 			public const short ADDRESS_LENGTH				= 150;
-			public const short IMG_LENGTH					= 255;
+			public const short IMG_LENGTH					= 500;
 		}
 		#endregion
 
@@ -146,7 +146,7 @@
 		public static class AppImgRoom
 		{
 			public const string TABLE_NAME					= "AppImgRoom";
-			public const short SRC_LENGTH					= 255;
+			public const short SRC_LENGTH					= 500;
 		}
 
 		public static class AppEquipment
