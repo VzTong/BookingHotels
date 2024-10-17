@@ -45,12 +45,6 @@ namespace App.Data.Configurations.Room
 				.WithMany(x => x.Rooms)
 				.HasForeignKey(x => x.RoomTypeId)
 				.OnDelete(DeleteBehavior.Cascade);
-
-			// FK - Equipment
-			builder.HasOne(x => x.Equipment)
-				.WithMany(x => x.Rooms)
-				.HasForeignKey(x => x.EquipmentId)
-				.OnDelete(DeleteBehavior.Cascade);
 		}
 	}
 }
