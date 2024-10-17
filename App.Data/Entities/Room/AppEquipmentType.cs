@@ -2,9 +2,9 @@
 
 namespace App.Data.Entities.Room
 {
-    public class AppTypeEquipment : AppEntityBase
+    public class AppEquipmentType : AppEntityBase
     {
-        public AppTypeEquipment()
+        public AppEquipmentType()
         {
             Equipments = new HashSet<AppEquipment>();
         }
