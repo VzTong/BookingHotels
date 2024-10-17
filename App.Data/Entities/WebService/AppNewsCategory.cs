@@ -2,9 +2,9 @@
 
 namespace App.Data.Entities.News
 {
-    public class AppCategoryNews : AppEntityBase
+    public class AppNewsCategory : AppEntityBase
     {
-        public AppCategoryNews()
+        public AppNewsCategory()
         {
             NewsNavigation = new HashSet<AppNews>();
         }
