@@ -24,7 +24,7 @@
 			public const short PHONE_LENGTH					= 15;
 			public const short EMAIL_LENGTH					= 200;
 			public const short ADDRESS_LENGTH				= 150;
-			public const short AVATAR_LENGTH				= 200;
+			public const short AVATAR_LENGTH				= 500;
 			public const short CITIZENID_LENGTH				= 12;
 			public const short PASSPORT_LENGTH				= 12;
 			public const short PERMANENT_LENGTH				= 15;
@@ -62,13 +62,13 @@
 		#endregion
 
 		#region News
-		public static class AppCategoryNews
-		{
-			public const string TABLE_NAME					= "AppCategoryNews";
+		public static class AppNewsCategory
+        {
+			public const string TABLE_NAME					= "AppNewsCategory";
 			public const short MAX_LENGTH					= 500;
 			public const short TITLE_LENGTH					= 255;
 			public const short SLUG_LENGTH					= 100;
-			public const short COVER_IMG_LENGTH				= 255;
+			public const short COVER_IMG_LENGTH				= 500;
 			public const string DEFAULT_DATE				= "GETDATE()";
 		}
 		public static class AppNews
@@ -77,9 +77,9 @@
 			public const short MAX_LENGTH					= 500;
 			public const short TITLE_LENGTH					= 255;
 			public const short SLUG_LENGTH					= 100;
-			public const short COVER_IMG_LENGTH				= 255;
-			public const short COVER_IMG_THUMB_LENGTH		= 255;
-			public const short STAMP_PATH_LENGTH			= 255;
+			public const short COVER_IMG_LENGTH				= 500;
+			public const short COVER_IMG_THUMB_LENGTH		= 500;
+			public const short STAMP_PATH_LENGTH			= 500;
 			public const string DEFAULT_DATE				= "GETDATE()";
 			public const bool PUBLIC_NEWS					= true;
 			public const string DEFAULT_VALUE				= null;
@@ -156,8 +156,14 @@
 			public const short DESC_LENGTH					= 255;
 		}
 
-		public static class AppTypeEquipment{
-			public const string TABLE_NAME					= "AppTypeEquipment";
+		public static class AppRoomEquipment
+		{
+			public const string TABLE_NAME					= "AppRoomEquipment";
+		}
+
+		public static class AppEquipmentType
+        {
+			public const string TABLE_NAME					= "AppEquipmentType";
 			public const short NAME_LENGTH					= 200;
 		}
 		#endregion
