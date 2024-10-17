@@ -1,11 +1,10 @@
 ﻿using App.Data.Entities.Base;
 using App.Data.Entities.Room;
-using App.Data.Entities.service;
 using App.Data.Entities.User;
 
 namespace App.Data.Entities.Hotel
 {
-	public class AppBranchHotel : AppEntityBase
+    public class AppBranchHotel : AppEntityBase
 	{
         public AppBranchHotel()
         {
