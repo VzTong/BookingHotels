@@ -5,9 +5,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace App.Data.Configurations.WebService
 {
-	public class AppNewsCategoryConfig : IEntityTypeConfiguration<AppNewsCategories>
+	public class AppNewsCategoryConfig : IEntityTypeConfiguration<AppNewsCategory>
 	{
-		public void Configure(EntityTypeBuilder<AppNewsCategories> builder)
+		public void Configure(EntityTypeBuilder<AppNewsCategory> builder)
 		{
 			builder.ToTable(DB.AppNewsCategory.TABLE_NAME);
 			builder.HasKey(x => x.Id);
