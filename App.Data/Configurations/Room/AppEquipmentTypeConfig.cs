@@ -5,16 +5,16 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace App.Data.Configurations.Room
 {
-	public class AppTypeEquipmentConfig : IEntityTypeConfiguration<AppTypeEquipment>
+	public class AppEquipmentTypeConfig : IEntityTypeConfiguration<AppEquipmentType>
 	{
-		public void Configure(EntityTypeBuilder<AppTypeEquipment> builder)
+		public void Configure(EntityTypeBuilder<AppEquipmentType> builder)
 		{
-			builder.ToTable(DB.AppTypeEquipment.TABLE_NAME);
+			builder.ToTable(DB.AppEquipmentType.TABLE_NAME);
 			builder.HasKey(x => x.Id);
 
 			builder.Property(x => x.Name)
 				.IsRequired()
-				.HasMaxLength(DB.AppTypeEquipment.NAME_LENGTH);
+				.HasMaxLength(DB.AppEquipmentType.NAME_LENGTH);
 		}
 	}
 }
