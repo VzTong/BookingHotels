@@ -236,7 +236,7 @@ namespace App.Data.DataSeeders
 				{
 					Id = AuthConst.AppCategoryNews.VIEW_LIST,
 					Code = "VIEW_LIST",
-					Table = DB.AppCategoryNews.TABLE_NAME,
+					Table = DB.AppNewsCategory.TABLE_NAME,
 					GroupName = groupName,
 					Desc = "Xem danh sách thể loại tin",
 					CreatedDate = now
@@ -245,7 +245,7 @@ namespace App.Data.DataSeeders
 				{
 					Id = AuthConst.AppCategoryNews.CREATE,
 					Code = "CREATE",
-					Table = DB.AppCategoryNews.TABLE_NAME,
+					Table = DB.AppNewsCategory.TABLE_NAME,
 					GroupName = groupName,
 					Desc = "Thêm thể loại bài viết",
 					CreatedDate = now
@@ -254,7 +254,7 @@ namespace App.Data.DataSeeders
 				{
 					Id = AuthConst.AppCategoryNews.UPDATE,
 					Code = "UPDATE",
-					Table = DB.AppCategoryNews.TABLE_NAME,
+					Table = DB.AppNewsCategory.TABLE_NAME,
 					GroupName = groupName,
 					Desc = "Cập nhật thể loại bài viết",
 					CreatedDate = now
@@ -263,7 +263,7 @@ namespace App.Data.DataSeeders
 				{
 					Id = AuthConst.AppCategoryNews.DELETE,
 					Code = "DELETE",
-					Table = DB.AppCategoryNews.TABLE_NAME,
+					Table = DB.AppNewsCategory.TABLE_NAME,
 					GroupName = groupName,
 					Desc = "Xóa thể loại bài viết",
 					CreatedDate = now
@@ -527,7 +527,7 @@ namespace App.Data.DataSeeders
 				{
 					Id = AuthConst.AppTypeEquipment.VIEW_LIST,
 					Code = "VIEW_LIST",
-					Table = DB.AppTypeEquipment.TABLE_NAME,
+					Table = DB.AppEquipmentType.TABLE_NAME,
 					GroupName = groupName,
 					Desc = "Quản lý loại trang thiết bị",
 					CreatedDate = now
@@ -536,7 +536,7 @@ namespace App.Data.DataSeeders
 				{
 					Id = AuthConst.AppTypeEquipment.CREATE,
 					Code = "CREATE",
-					Table = DB.AppTypeEquipment.TABLE_NAME,
+					Table = DB.AppEquipmentType.TABLE_NAME,
 					GroupName = groupName,
 					Desc = "Thêm mới loại trang thiết bị",
 					CreatedDate = now
@@ -545,7 +545,7 @@ namespace App.Data.DataSeeders
 				{
 					Id = AuthConst.AppTypeEquipment.UPDATE,
 					Code = "UPDATE",
-					Table = DB.AppTypeEquipment.TABLE_NAME,
+					Table = DB.AppEquipmentType.TABLE_NAME,
 					GroupName = groupName,
 					Desc = "Cập nhật loại trang thiết bị",
 					CreatedDate = now
@@ -554,7 +554,7 @@ namespace App.Data.DataSeeders
 				{
 					Id = AuthConst.AppTypeEquipment.DELETE,
 					Code = "DELETE",
-					Table = DB.AppTypeEquipment.TABLE_NAME,
+					Table = DB.AppEquipmentType.TABLE_NAME,
 					GroupName = groupName,
 					Desc = "Xóa loại trang thiết bị",
 					CreatedDate = now
