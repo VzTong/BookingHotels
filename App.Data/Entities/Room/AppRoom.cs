@@ -11,6 +11,7 @@ namespace App.Data.Entities.Room
             ImgRooms = new HashSet<AppImgRoom>();
 			OrderDetails = new HashSet<AppOrderDetail>();
 			Comments = new HashSet<AppComment>();
+			RoomEquipments = new HashSet<AppRoomEquipment>();
         }
         public string RoomName { get; set; }
 		public int RoomNumber { get; set; }
@@ -22,12 +23,10 @@ namespace App.Data.Entities.Room
 		public DateTime DiscountTo { get; set; }
 		public int? BranchId { get; set; }
 		public int? RoomTypeId { get; set; }
-		public int? EquipmentId { get; set; }
 		
-
 		public AppBranchHotel Branch { get; set; }
 		public AppRoomType RoomType { get; set; }
-		public AppEquipment Equipment { get; set; }
+		public ICollection<AppRoomEquipment> RoomEquipments { get; set; }
 		public ICollection<AppImgRoom> ImgRooms { get; set; }
 		public ICollection<AppOrderDetail> OrderDetails { get; set; }
 		public ICollection<AppComment> Comments { get; set; }
