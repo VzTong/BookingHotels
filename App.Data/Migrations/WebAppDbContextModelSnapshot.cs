@@ -836,56 +836,6 @@ namespace App.Data.Migrations
                         });
                 });
 
-            modelBuilder.Entity("App.Data.Entities.News.AppCategoryNews", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Content")
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
-
-                    b.Property<string>("CoverImgPath")
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
-
-                    b.Property<int?>("CreatedBy")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("CreatedDate")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime2")
-                        .HasDefaultValueSql("GETDATE()");
-
-                    b.Property<DateTime?>("DeletedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int?>("DisplayOrder")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Slug")
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
-
-                    b.Property<int?>("UpdatedBy")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("UpdatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("AppCategoryNews", (string)null);
-                });
-
             modelBuilder.Entity("App.Data.Entities.News.AppNews", b =>
                 {
                     b.Property<int>("Id")
@@ -975,6 +925,56 @@ namespace App.Data.Migrations
                         .IsUnique();
 
                     b.ToTable("AppNews", (string)null);
+                });
+
+            modelBuilder.Entity("App.Data.Entities.News.AppNewsCategories", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Content")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<string>("CoverImgPath")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<int?>("CreatedBy")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("CreatedDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
+
+                    b.Property<DateTime?>("DeletedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("DisplayOrder")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Slug")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<int?>("UpdatedBy")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AppNewsCategory", (string)null);
                 });
 
             modelBuilder.Entity("App.Data.Entities.Room.AppEquipment", b =>
@@ -1096,6 +1096,58 @@ namespace App.Data.Migrations
                         });
                 });
 
+            modelBuilder.Entity("App.Data.Entities.Room.AppEquipmentType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("CreatedBy")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("DisplayOrder")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<int?>("UpdatedBy")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AppEquipmentType", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Trang thiết bị phòng khách",
+                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Thiết bị vệ sinh",
+                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        });
+                });
+
             modelBuilder.Entity("App.Data.Entities.Room.AppImgRoom", b =>
                 {
                     b.Property<int>("Id")
@@ -1170,9 +1222,6 @@ namespace App.Data.Migrations
                     b.Property<int?>("DisplayOrder")
                         .HasColumnType("int");
 
-                    b.Property<int?>("EquipmentId")
-                        .HasColumnType("int");
-
                     b.Property<double>("Price")
                         .HasMaxLength(10)
                         .HasColumnType("float");
@@ -1208,11 +1257,32 @@ namespace App.Data.Migrations
 
                     b.HasIndex("BranchId");
 
-                    b.HasIndex("EquipmentId");
-
                     b.HasIndex("RoomTypeId");
 
                     b.ToTable("AppRoom", (string)null);
+                });
+
+            modelBuilder.Entity("App.Data.Entities.Room.AppRoomEquipment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("EquipmentId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("RoomId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EquipmentId");
+
+                    b.HasIndex("RoomId");
+
+                    b.ToTable("AppRoomEquipment", (string)null);
                 });
 
             modelBuilder.Entity("App.Data.Entities.Room.AppRoomType", b =>
@@ -1313,58 +1383,6 @@ namespace App.Data.Migrations
                             Description = "Phòng VIP với các dịch vụ đặc biệt và riêng tư.",
                             PeopleStay = 2,
                             RoomTypeName = "Phòng VIP"
-                        });
-                });
-
-            modelBuilder.Entity("App.Data.Entities.Room.AppTypeEquipment", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int?>("CreatedBy")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DeletedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int?>("DisplayOrder")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
-
-                    b.Property<int?>("UpdatedBy")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("UpdatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("AppTypeEquipment", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Trang thiết bị phòng khách",
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Thiết bị vệ sinh",
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
                 });
 
@@ -2077,8 +2095,8 @@ namespace App.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Avatar")
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
 
                     b.Property<int?>("BlockedBy")
                         .HasColumnType("int");
@@ -2180,8 +2198,8 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "admin_test@gmail.com",
                             FullName = "Nguyễn Thanh Long",
-                            PasswordHash = new byte[] { 230, 138, 157, 94, 61, 94, 35, 173, 220, 84, 185, 246, 106, 243, 186, 114, 177, 238, 189, 168, 71, 103, 34, 159, 16, 83, 146, 1, 193, 217, 172, 89, 185, 24, 25, 219, 37, 120, 91, 145, 0, 233, 30, 228, 39, 35, 81, 145, 101, 219, 202, 150, 92, 67, 217, 30, 202, 237, 148, 203, 1, 207, 48, 74 },
-                            PasswordSalt = new byte[] { 166, 89, 182, 44, 59, 146, 57, 32, 255, 230, 130, 203, 175, 217, 35, 238, 99, 220, 106, 168, 149, 32, 187, 53, 148, 222, 28, 67, 197, 35, 211, 118, 246, 212, 77, 40, 102, 75, 203, 9, 167, 133, 141, 103, 185, 202, 1, 175, 138, 144, 217, 2, 214, 102, 197, 251, 125, 54, 28, 74, 139, 166, 117, 200, 86, 171, 34, 221, 204, 22, 17, 46, 186, 147, 72, 226, 252, 43, 173, 192, 228, 47, 149, 74, 179, 39, 50, 30, 206, 140, 62, 147, 187, 29, 34, 158, 18, 57, 24, 201, 2, 109, 142, 209, 34, 253, 38, 136, 19, 245, 22, 168, 30, 137, 212, 234, 118, 56, 3, 88, 34, 52, 105, 35, 228, 214, 46, 239 },
+                            PasswordHash = new byte[] { 246, 176, 129, 16, 8, 57, 103, 237, 236, 117, 94, 37, 100, 240, 199, 156, 39, 234, 95, 220, 224, 179, 96, 127, 38, 171, 53, 29, 208, 49, 226, 125, 126, 53, 241, 116, 130, 17, 201, 178, 145, 110, 189, 106, 206, 175, 255, 239, 168, 102, 19, 181, 204, 238, 68, 2, 146, 233, 158, 66, 19, 40, 191, 173 },
+                            PasswordSalt = new byte[] { 254, 47, 25, 224, 107, 163, 255, 108, 106, 7, 79, 190, 147, 5, 74, 125, 113, 212, 53, 231, 223, 247, 251, 139, 93, 154, 7, 187, 7, 83, 215, 171, 181, 168, 71, 62, 185, 4, 208, 87, 60, 232, 131, 177, 182, 132, 104, 214, 244, 184, 126, 196, 44, 207, 149, 3, 24, 175, 51, 79, 45, 209, 199, 44, 65, 162, 221, 43, 95, 36, 173, 49, 246, 63, 48, 115, 61, 43, 123, 47, 44, 211, 193, 87, 36, 223, 31, 120, 177, 100, 169, 255, 194, 128, 247, 171, 72, 163, 138, 119, 252, 100, 30, 70, 199, 10, 219, 251, 145, 202, 169, 160, 136, 77, 253, 253, 113, 10, 198, 185, 88, 175, 131, 197, 78, 28, 255, 237 },
                             PhoneNumber1 = "+84928666158",
                             PhoneNumber2 = "+84928666156",
                             UpdatedBy = -1,
@@ -2199,8 +2217,8 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "tranthib2001@gmail.com",
                             FullName = "Trần Chí Dũng",
-                            PasswordHash = new byte[] { 230, 138, 157, 94, 61, 94, 35, 173, 220, 84, 185, 246, 106, 243, 186, 114, 177, 238, 189, 168, 71, 103, 34, 159, 16, 83, 146, 1, 193, 217, 172, 89, 185, 24, 25, 219, 37, 120, 91, 145, 0, 233, 30, 228, 39, 35, 81, 145, 101, 219, 202, 150, 92, 67, 217, 30, 202, 237, 148, 203, 1, 207, 48, 74 },
-                            PasswordSalt = new byte[] { 166, 89, 182, 44, 59, 146, 57, 32, 255, 230, 130, 203, 175, 217, 35, 238, 99, 220, 106, 168, 149, 32, 187, 53, 148, 222, 28, 67, 197, 35, 211, 118, 246, 212, 77, 40, 102, 75, 203, 9, 167, 133, 141, 103, 185, 202, 1, 175, 138, 144, 217, 2, 214, 102, 197, 251, 125, 54, 28, 74, 139, 166, 117, 200, 86, 171, 34, 221, 204, 22, 17, 46, 186, 147, 72, 226, 252, 43, 173, 192, 228, 47, 149, 74, 179, 39, 50, 30, 206, 140, 62, 147, 187, 29, 34, 158, 18, 57, 24, 201, 2, 109, 142, 209, 34, 253, 38, 136, 19, 245, 22, 168, 30, 137, 212, 234, 118, 56, 3, 88, 34, 52, 105, 35, 228, 214, 46, 239 },
+                            PasswordHash = new byte[] { 246, 176, 129, 16, 8, 57, 103, 237, 236, 117, 94, 37, 100, 240, 199, 156, 39, 234, 95, 220, 224, 179, 96, 127, 38, 171, 53, 29, 208, 49, 226, 125, 126, 53, 241, 116, 130, 17, 201, 178, 145, 110, 189, 106, 206, 175, 255, 239, 168, 102, 19, 181, 204, 238, 68, 2, 146, 233, 158, 66, 19, 40, 191, 173 },
+                            PasswordSalt = new byte[] { 254, 47, 25, 224, 107, 163, 255, 108, 106, 7, 79, 190, 147, 5, 74, 125, 113, 212, 53, 231, 223, 247, 251, 139, 93, 154, 7, 187, 7, 83, 215, 171, 181, 168, 71, 62, 185, 4, 208, 87, 60, 232, 131, 177, 182, 132, 104, 214, 244, 184, 126, 196, 44, 207, 149, 3, 24, 175, 51, 79, 45, 209, 199, 44, 65, 162, 221, 43, 95, 36, 173, 49, 246, 63, 48, 115, 61, 43, 123, 47, 44, 211, 193, 87, 36, 223, 31, 120, 177, 100, 169, 255, 194, 128, 247, 171, 72, 163, 138, 119, 252, 100, 30, 70, 199, 10, 219, 251, 145, 202, 169, 160, 136, 77, 253, 253, 113, 10, 198, 185, 88, 175, 131, 197, 78, 28, 255, 237 },
                             PhoneNumber1 = "+84928666157",
                             PhoneNumber2 = "+84928666158",
                             UpdatedBy = -1,
@@ -2218,8 +2236,8 @@ namespace App.Data.Migrations
                             Email = "thanhnguyendt2000@gmail.com",
                             FullName = "John Smith",
                             Passport = "123456789",
-                            PasswordHash = new byte[] { 230, 138, 157, 94, 61, 94, 35, 173, 220, 84, 185, 246, 106, 243, 186, 114, 177, 238, 189, 168, 71, 103, 34, 159, 16, 83, 146, 1, 193, 217, 172, 89, 185, 24, 25, 219, 37, 120, 91, 145, 0, 233, 30, 228, 39, 35, 81, 145, 101, 219, 202, 150, 92, 67, 217, 30, 202, 237, 148, 203, 1, 207, 48, 74 },
-                            PasswordSalt = new byte[] { 166, 89, 182, 44, 59, 146, 57, 32, 255, 230, 130, 203, 175, 217, 35, 238, 99, 220, 106, 168, 149, 32, 187, 53, 148, 222, 28, 67, 197, 35, 211, 118, 246, 212, 77, 40, 102, 75, 203, 9, 167, 133, 141, 103, 185, 202, 1, 175, 138, 144, 217, 2, 214, 102, 197, 251, 125, 54, 28, 74, 139, 166, 117, 200, 86, 171, 34, 221, 204, 22, 17, 46, 186, 147, 72, 226, 252, 43, 173, 192, 228, 47, 149, 74, 179, 39, 50, 30, 206, 140, 62, 147, 187, 29, 34, 158, 18, 57, 24, 201, 2, 109, 142, 209, 34, 253, 38, 136, 19, 245, 22, 168, 30, 137, 212, 234, 118, 56, 3, 88, 34, 52, 105, 35, 228, 214, 46, 239 },
+                            PasswordHash = new byte[] { 246, 176, 129, 16, 8, 57, 103, 237, 236, 117, 94, 37, 100, 240, 199, 156, 39, 234, 95, 220, 224, 179, 96, 127, 38, 171, 53, 29, 208, 49, 226, 125, 126, 53, 241, 116, 130, 17, 201, 178, 145, 110, 189, 106, 206, 175, 255, 239, 168, 102, 19, 181, 204, 238, 68, 2, 146, 233, 158, 66, 19, 40, 191, 173 },
+                            PasswordSalt = new byte[] { 254, 47, 25, 224, 107, 163, 255, 108, 106, 7, 79, 190, 147, 5, 74, 125, 113, 212, 53, 231, 223, 247, 251, 139, 93, 154, 7, 187, 7, 83, 215, 171, 181, 168, 71, 62, 185, 4, 208, 87, 60, 232, 131, 177, 182, 132, 104, 214, 244, 184, 126, 196, 44, 207, 149, 3, 24, 175, 51, 79, 45, 209, 199, 44, 65, 162, 221, 43, 95, 36, 173, 49, 246, 63, 48, 115, 61, 43, 123, 47, 44, 211, 193, 87, 36, 223, 31, 120, 177, 100, 169, 255, 194, 128, 247, 171, 72, 163, 138, 119, 252, 100, 30, 70, 199, 10, 219, 251, 145, 202, 169, 160, 136, 77, 253, 253, 113, 10, 198, 185, 88, 175, 131, 197, 78, 28, 255, 237 },
                             PhoneNumber1 = "+12025550123",
                             PhoneNumber2 = "+12027450123",
                             UpdatedBy = -1,
@@ -2476,7 +2494,7 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Xem danh sách thể loại tin",
                             GroupName = "Quản lý thể loại tin",
-                            Table = "AppCategoryNews"
+                            Table = "AppNewsCategory"
                         },
                         new
                         {
@@ -2485,7 +2503,7 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Thêm thể loại bài viết",
                             GroupName = "Quản lý thể loại tin",
-                            Table = "AppCategoryNews"
+                            Table = "AppNewsCategory"
                         },
                         new
                         {
@@ -2494,7 +2512,7 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Cập nhật thể loại bài viết",
                             GroupName = "Quản lý thể loại tin",
-                            Table = "AppCategoryNews"
+                            Table = "AppNewsCategory"
                         },
                         new
                         {
@@ -2503,7 +2521,7 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Xóa thể loại bài viết",
                             GroupName = "Quản lý thể loại tin",
-                            Table = "AppCategoryNews"
+                            Table = "AppNewsCategory"
                         },
                         new
                         {
@@ -2728,7 +2746,7 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Quản lý loại trang thiết bị",
                             GroupName = "Quản lý loại trang thiết bị",
-                            Table = "AppTypeEquipment"
+                            Table = "AppEquipmentType"
                         },
                         new
                         {
@@ -2737,7 +2755,7 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Thêm mới loại trang thiết bị",
                             GroupName = "Quản lý loại trang thiết bị",
-                            Table = "AppTypeEquipment"
+                            Table = "AppEquipmentType"
                         },
                         new
                         {
@@ -2746,7 +2764,7 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Cập nhật loại trang thiết bị",
                             GroupName = "Quản lý loại trang thiết bị",
-                            Table = "AppTypeEquipment"
+                            Table = "AppEquipmentType"
                         },
                         new
                         {
@@ -2755,7 +2773,7 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Xóa loại trang thiết bị",
                             GroupName = "Quản lý loại trang thiết bị",
-                            Table = "AppTypeEquipment"
+                            Table = "AppEquipmentType"
                         },
                         new
                         {
@@ -3315,7 +3333,7 @@ namespace App.Data.Migrations
 
             modelBuilder.Entity("App.Data.Entities.News.AppNews", b =>
                 {
-                    b.HasOne("App.Data.Entities.News.AppCategoryNews", "CategoryNews")
+                    b.HasOne("App.Data.Entities.News.AppNewsCategories", "CategoryNews")
                         .WithMany("NewsNavigation")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.NoAction);
@@ -3333,7 +3351,7 @@ namespace App.Data.Migrations
 
             modelBuilder.Entity("App.Data.Entities.Room.AppEquipment", b =>
                 {
-                    b.HasOne("App.Data.Entities.Room.AppTypeEquipment", "TypeEquipment")
+                    b.HasOne("App.Data.Entities.Room.AppEquipmentType", "TypeEquipment")
                         .WithMany("Equipments")
                         .HasForeignKey("TypeEquipmentId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -3358,11 +3376,6 @@ namespace App.Data.Migrations
                         .HasForeignKey("BranchId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("App.Data.Entities.Room.AppEquipment", "Equipment")
-                        .WithMany("Rooms")
-                        .HasForeignKey("EquipmentId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
                     b.HasOne("App.Data.Entities.Room.AppRoomType", "RoomType")
                         .WithMany("Rooms")
                         .HasForeignKey("RoomTypeId")
@@ -3370,9 +3383,24 @@ namespace App.Data.Migrations
 
                     b.Navigation("Branch");
 
+                    b.Navigation("RoomType");
+                });
+
+            modelBuilder.Entity("App.Data.Entities.Room.AppRoomEquipment", b =>
+                {
+                    b.HasOne("App.Data.Entities.Room.AppEquipment", "Equipment")
+                        .WithMany("RoomEquipments")
+                        .HasForeignKey("EquipmentId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("App.Data.Entities.Room.AppRoom", "Room")
+                        .WithMany("RoomEquipments")
+                        .HasForeignKey("RoomId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
                     b.Navigation("Equipment");
 
-                    b.Navigation("RoomType");
+                    b.Navigation("Room");
                 });
 
             modelBuilder.Entity("App.Data.Entities.User.AppRolePermission", b =>
@@ -3520,14 +3548,19 @@ namespace App.Data.Migrations
                     b.Navigation("BranchHotels");
                 });
 
-            modelBuilder.Entity("App.Data.Entities.News.AppCategoryNews", b =>
+            modelBuilder.Entity("App.Data.Entities.News.AppNewsCategories", b =>
                 {
                     b.Navigation("NewsNavigation");
                 });
 
             modelBuilder.Entity("App.Data.Entities.Room.AppEquipment", b =>
                 {
-                    b.Navigation("Rooms");
+                    b.Navigation("RoomEquipments");
+                });
+
+            modelBuilder.Entity("App.Data.Entities.Room.AppEquipmentType", b =>
+                {
+                    b.Navigation("Equipments");
                 });
 
             modelBuilder.Entity("App.Data.Entities.Room.AppRoom", b =>
@@ -3537,16 +3570,13 @@ namespace App.Data.Migrations
                     b.Navigation("ImgRooms");
 
                     b.Navigation("OrderDetails");
+
+                    b.Navigation("RoomEquipments");
                 });
 
             modelBuilder.Entity("App.Data.Entities.Room.AppRoomType", b =>
                 {
                     b.Navigation("Rooms");
-                });
-
-            modelBuilder.Entity("App.Data.Entities.Room.AppTypeEquipment", b =>
-                {
-                    b.Navigation("Equipments");
                 });
 
             modelBuilder.Entity("App.Data.Entities.User.AppRole", b =>
