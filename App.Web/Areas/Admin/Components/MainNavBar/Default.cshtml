@@ -1,0 +1,112 @@
+﻿@using App.Web.Common
+@using App.Web.WebConfig.Consts
+@using Microsoft.IdentityModel.Tokens
+@model App.Web.Areas.Admin.Components.MainNavBar.NavBarViewModel
+@{
+	var currentControllerName = Context.Request.RouteValues["controller"].ToString();
+	string href = "";
+	string menuOpenClass = "";
+	string activeClass = "";
+	bool itemIsOpened;
+}
+
+<div class="app-menu navbar-menu">
+    <!-- LOGO -->
+    <div class="navbar-brand-box">
+        <!-- Dark Logo-->
+        <a href="/" target="_blank" class="logo logo-dark" style="font-size: 22px">
+            <span class="logo-sm">
+                <img src="~/adminLTE/images/logo-hotel.gif" alt="" height="30">
+            </span>
+            <span class="logo-lg">
+                <span class="italiano"
+                      style="color: #494f55 !important;
+							text-shadow: -3px 3px 3px #9dafa9;">
+                    V<lord-icon src="https://cdn.lordicon.com/dtspyazl.json"
+                                trigger="loop"
+                                delay="1000"
+                                style="width:35px;height:35px">
+                    </lord-icon>YBooking
+                </span>
+            </span>
+        </a>
+        <!-- Light Logo-->
+        <a href="/" target="_blank" class="logo logo-light" style="font-size: 22px">
+            <span class="logo-sm">
+                <img src="~/adminLTE/images/logo-hotel.gif" alt="" height="30">
+            </span>
+            <span class="logo-lg">
+                <span class="italiano">
+                    V<lord-icon src="https://cdn.lordicon.com/dtspyazl.json"
+                                trigger="loop"
+                                delay="1000"
+                                style="width:35px;height:35px">
+                    </lord-icon>YBooking
+                </span>
+            </span>
+        </a>
+        <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover" id="vertical-hover">
+            <i class="ri-record-circle-line"></i>
+        </button>
+    </div>
+
+    <div id="scrollbar">
+        <div class="container-fluid mb-3">
+
+            <div id="two-column-menu"></div>
+            <ul class="navbar-nav" id="navbar-nav">
+                @foreach (var item in Model.Items)
+                {
+                    if (!User.IsInPermission(item.Permission))
+                    {
+                        continue;
+                    }
+
+                    href = "#sidebar" + item.SidebarText;
+                    if (!(item.Action + item.Controller).IsNullOrEmpty())
+                    {
+                        href = Url.Action(item.Action, item.Controller);
+                    }
+
+                    itemIsOpened = item.ChildrenItems != null && item.ChildrenItems.Any(i => i.Controller == currentControllerName);
+                    menuOpenClass = itemIsOpened ? "menu-open" : "";
+                    var hasChildren = item.ChildrenItems != null && item.ChildrenItems.Any();
+
+                    <li class="nav-item @(menuOpenClass)">
+                        <a href="@href" class="nav-link @(itemIsOpened ? "active" : "")" role="button"
+                           data-bs-toggle="@(hasChildren ? "collapse" : "")" aria-expanded="@itemIsOpened.ToString().ToLower()"
+                           aria-controls="sidebar@(item.SidebarText)">
+                            <i class="las la-@item.Icon"></i>
+                            <span data-key="t-@(item.DataKey)">@item.DisplayText</span>
+                        </a>
+
+                        @if (hasChildren)
+                        {
+                            <div class="collapse menu-dropdown @(itemIsOpened ? "show" : "")" id="sidebar@(item.SidebarText)">
+                                <ul class="nav nav-sm flex-column">
+                                    @foreach (var sub in item.ChildrenItems)
+                                    {
+                                        if (!User.IsInPermission(sub.Permission))
+                                        {
+                                            continue;
+                                        }
+                                        activeClass = sub.Controller == currentControllerName ? "active" : "";
+                                        <li class="nav-item">
+                                            <a asp-area="Admin" href="@Url.Action(sub.Action, sub.Controller)" class="nav-link @(activeClass)" data-key="t-@(sub.DataKey)">
+                                                @sub.DisplayText
+                                            </a>
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                        }
+                    </li>
+                }
+            </ul>
+
+        </div>
+        <!-- Sidebar -->
+    </div>
+
+    <div class="sidebar-background"></div>
+</div>
