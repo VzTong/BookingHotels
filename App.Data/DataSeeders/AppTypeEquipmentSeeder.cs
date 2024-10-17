@@ -5,13 +5,13 @@ namespace App.Data.DataSeeders
 {
 	public static class AppTypeEquipmentSeeder
 	{
-		public static void SeedData(this EntityTypeBuilder<AppTypeEquipment> builder)
+		public static void SeedData(this EntityTypeBuilder<AppEquipmentType> builder)
 		{
 			var now = new DateTime(year: 2021, month: 12, day: 10);
 
 			// Tạo loại thiết bị
 			builder.HasData(
-				new AppTypeEquipment
+				new AppEquipmentType
 				{
 					Id = 1,
 					Name = "Trang thiết bị phòng khách",
@@ -19,7 +19,7 @@ namespace App.Data.DataSeeders
 					UpdatedDate = now
 				},
 				
-				new AppTypeEquipment
+				new AppEquipmentType
 				{
 					Id = 2,
 					Name = "Thiết bị vệ sinh",
