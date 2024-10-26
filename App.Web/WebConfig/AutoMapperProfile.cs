@@ -1,5 +1,7 @@
-﻿using App.Data.Entities.User;
+﻿using App.Data.Entities.Hotel;
+using App.Data.Entities.User;
 using App.Web.Areas.Admin.ViewModels.Account;
+using App.Web.Areas.Admin.ViewModels.BranchHotel;
 using App.Web.ViewModels.Account;
 using AutoMapper;
 
@@ -19,6 +21,8 @@ namespace App.Web.WebConfig
 			CreateMap<AppUser, AcceptUpdateViewModel>().ReverseMap();
 			CreateMap<AppUser, UserRegisterVM>().ReverseMap();
 			CreateMap<AppUser, UserProfileClientVM>().ReverseMap();
+
+			CreateMap<AppBranchHotel, AddOrUpdateBranchHotelVM>().ReverseMap();
 		}
 
 		//public static MapperConfiguration RoleIndexConf = new(mapper =>
@@ -72,6 +76,12 @@ namespace App.Web.WebConfig
 		//	// Map dữ liệu thuộc tính cha
 		//	mapper.CreateMap<AppRole, RoleDeleteVM>();
 		//});
+
+		public static MapperConfiguration BranchHotelConf = new(mapper =>
+		{
+			mapper.CreateMap<AppBranchHotel, AppBranchHotelListItemVM>();
+		});
+
 
 		//public static MapperConfiguration CategoryNewsConf = new(mapper =>
 		//{
