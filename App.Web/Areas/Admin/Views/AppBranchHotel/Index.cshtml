@@ -1,0 +1,191 @@
+﻿@model IEnumerable<App.Web.Areas.Admin.ViewModels.BranchHotel.AppBranchHotelListItemVM>
+@{
+	ViewData["Title"] = "Danh sách chi nhánh";
+}
+
+<div class="row">
+	<div class="col-12">
+		<div class="page-title-box d-sm-flex align-items-center justify-content-between">
+			<h4 class="mb-sm-0">Quản lý chi nhánh khách sạn</h4>
+
+			<div class="page-title-right">
+				<ol class="breadcrumb m-0">
+					<li class="breadcrumb-item"><a asp-action="Index" asp-area="Admin" asp-controller="Home">Bảng tổng quan</a></li>
+					<li class="breadcrumb-item active">Chi nhánh</li>
+				</ol>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-lg-12">
+		<div class="card">
+			<div class="card-header">
+				<h4 class="card-title mb-0">Chi nhánh khách sạn</h4>
+			</div><!-- end card header -->
+
+			<div class="card-body">
+				<div id="customerList">
+					<div class="row g-4 mb-3">
+						<div class="col-sm-auto">
+							<div>
+								@if (User.IsInPermission(AuthConst.AppBranchHotel.CREATE))
+								{
+									<button type="button" class="btn btn-success btn-label add-btn" data-bs-toggle="modal" id="create-btn" data-bs-target="#addBranchHotel"><i class="ri-add-line label-icon align-middle fs-16 me-2"></i> Thêm chi nhánh</button>
+								}
+								@if (User.IsInPermission(AuthConst.AppBranchHotel.DELETE))
+								{
+									<input id="chkAllowBulkDel" type="checkbox" class="form-check-input" style="margin-top: 0.7rem !important">
+									<label for="chkAllowBulkDel" class="form-check-label hover:pointer">Cho phép xóa nhiều</label>
+
+									<button id="btnBulkDel" class="btn btn-soft-danger"
+											data-keyword="branchHotel"
+											data-url="/Admin/AppBranchHotel/BulkDelete">
+										Xóa hàng loạt (<span id="delCount">0</span> chi nhánh)
+									</button>
+								}
+							</div>
+						</div>
+						<div class="col-sm">
+							<div class="d-flex justify-content-sm-end">
+								<form class="form-horizontal d-flex">
+									<div class="search-box ms-2">
+										<input type="text" class="form-control search" name="Name" value="@ViewBag.Name" placeholder="Tìm theo tên...">
+										<i class="ri-search-line search-icon"></i>
+									</div>
+									<button type="button" class="btn btn-soft-dark waves-effect waves-light ms-3">Tìm kiếm</button>
+								</form>
+							</div>
+						</div>
+					</div>
+
+					<div class="table-responsive table-card mt-3 mb-1">
+						<table class="table align-middle" id="branchHotelTable">
+							<thead class="table-light">
+								<tr>
+									<th scope="col" style="width: 50px;">
+										<div class="form-check">
+											<input class="form-check-input" type="checkbox" id="checkAll" value="option">
+										</div>
+									</th>
+									<th>#</th>
+									<th>Img</th>
+									<th>Tên chi nhánh</th>
+									<th>Mô tả</th>
+									<th>Địa chỉ cụ thể</th>
+									<th>Nhân viên</th>
+									<th>Phòng</th>
+									<th>Chức năng</th>
+								</tr>
+							</thead>
+							<tbody class="list form-check-all">
+								@foreach (var item in Model)
+								{
+									<tr>
+										<th scope="row">
+											<div class="form-check">
+												<input id="chk@(item.Id)" data-id="@item.Id" class="form-check-input" type="checkbox"
+													   name="chk_child" value="option1">
+											</div>
+										</th>
+
+										<td>@item.RowIndex</td>
+
+										<td class="id" style="display:none;">
+											<a class="fw-medium link-primary">@item.Id</a>
+										</td>
+
+										<td>
+											@{
+												if (item.Img != null)
+												{
+													<img src="/@item.Img" width="350px" height="200px" style="object-fit:cover" />
+												}
+												else
+												{
+													<span>Hiện không có ảnh</span>
+												}
+											}
+										</td>
+										<td class="branchHotel_name">@item.Name</td>
+										<td class="description fit">@item.Description</td>
+										<td class="address">@item.Address</td>
+										<td class="quantityStaff" style="text-align: center">@item.QuantityStaff</td>
+										<td class="quantityRoom" style="text-align: center">@item.QuantityRoom</td>
+										<td>
+											<div class="d-flex gap-2">
+												@if (User.IsInPermission(AuthConst.AppBranchHotel.UPDATE))
+												{
+													<div class="edit">
+														<button class="btn btn-sm edit-item-btn link-success fs-15" data-bs-toggle="modal" data-bs-target="#updateBranchHotel"><i class="ri-edit-2-line"></i></button>
+													</div>
+												}
+												@if (User.IsInPermission(AuthConst.AppBranchHotel.DELETE))
+												{
+													<div class="remove">
+														<button class="btn btn-sm remove-item-btn link-danger fs-15" data-bs-toggle="modal" data-bs-target="#deleteBranchHotelModal"><i class="ri-delete-bin-line"></i></button>
+													</div>
+												}
+											</div>
+										</td>
+									</tr>
+								}
+
+							</tbody>
+						</table>
+					</div>
+
+					<div class="d-flex justify-content-end">
+						<div class="pagination-wrap hstack gap-2">
+							<partial name="_Pager" />
+						</div>
+					</div>
+				</div>
+			</div><!-- end card -->
+		</div>
+		<!-- end col -->
+	</div>
+	<!-- end col -->
+</div>
+<!-- end row -->
+<partial name="_AddBranchHotel" model="null" />
+<partial name="_UpdateBranchHotel" model="null" />
+<partial name="_DeleteBranchHotelModal" model="null" />
+
+
+@section Scripts {
+	<script>
+
+		const fileInput = document.getElementById('fileInput');
+		const fileInput2 = document.getElementById('fileInput2');
+		const imagePreview = document.getElementById('imagePreview');
+		const imgBranch = document.getElementById('imgBranch');
+		const iconPreview = document.getElementById('iconPreview');
+
+		fileInput.addEventListener('change', function (ev) {
+			const file = fileInput.files[0];
+			if (file) {
+				imagePreview.style.display = 'block'; // Hiển thị thẻ img
+				iconPreview.style.display = 'none'; // Ẩn thẻ img
+				imagePreview.src = URL.createObjectURL(file);
+			}
+		});
+
+		fileInput2.addEventListener('change', function (ev) {
+			const file = fileInput2.files[0];
+			if (file) {
+				imgBranch.src = URL.createObjectURL(file);
+			}
+		});
+
+		function UpdateActor(name, imgBranch, idBranchHotel) {
+			document.getElementById('name').value = name;
+			document.getElementById('imgBranch').src = "/" + imgBranch;
+			document.getElementById('idEdit').value = idBranchHotel;
+		}
+
+	</script>
+	<script src="~/adminLTE/js/pages/listjs.init.js"></script>
+}
