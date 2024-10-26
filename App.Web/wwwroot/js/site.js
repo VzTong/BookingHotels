@@ -113,9 +113,3 @@ $(document).on("change", "select[name^=devCateId]", function (ev) {
         Toast.danger("Lỗi rồi đại vương ơi :(");
     });
 });
-
-// Chế độ cập nhật nhanh danh mục sản phẩm ở index
-$("#chkCateUpdate").change(function () {
-    var url = $(this).closest("a").attr("data-url");
-    location.href = url;
-});
