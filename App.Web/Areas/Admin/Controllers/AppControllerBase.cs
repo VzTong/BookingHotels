@@ -1,5 +1,4 @@
-﻿using App.Data;
-using App.Web.Common;
+﻿using App.Web.Common;
 using App.Web.WebConfig.Consts;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
@@ -18,6 +17,7 @@ namespace App.Web.Areas.Admin.Controllers
 		protected const string EXCEPTION_ERR_MESG = "Đã xảy ra lỗi trong quá trình xử lý dữ liệu (500)";
 		protected const string MODEL_STATE_INVALID_MESG = "Dữ liệu không hợp lệ, vui lòng kiểm tra lại";
 		protected const string PAGE_NOT_FOUND_MESG = "Không tìm thấy trang";
+		protected readonly string DefaultImagePath = "upload/img_avt/astronaut.png";// Đường dẫn đến ảnh mặc định
 
 		protected readonly object ROUTE_FOR_AREA = new
 		{
@@ -90,6 +90,43 @@ namespace App.Web.Areas.Admin.Controllers
 				filterContext.Result = new RedirectResult("/");
 				return;
 			}
+		}
+
+
+		/// <summary>
+		/// Upload và trả về tên file, file đó được lưu trong thư mục Upload
+		/// </summary>
+		/// <param name="file">Là file đó</param>
+		/// <param name="dir">Thư mục lưu file</param>
+		/// <returns></returns>
+		// Viết hàm xử lý ảnh riêng
+		protected string UploadFile(IFormFile file, string dir)
+		{
+			if (file == null)
+			{
+				// Người dùng không upload ảnh, sử dụng ảnh mặc định
+				var defaultImageBytes = System.IO.File.ReadAllBytes(DefaultImagePath.TrimStart('/'));
+				return Convert.ToBase64String(defaultImageBytes);
+			}
+
+			// upload ảnh bìa (CoverImg)
+			var fName = file.FileName;
+			fName = Path.GetFileNameWithoutExtension(fName)
+					+ DateTime.Now.Ticks
+					+ Path.GetExtension(fName);
+
+			// Gán giá trị cột CoverImg
+			var res = "upload/img/" + fName;
+
+			// Tạo đường dẫn tuyệt đối (Ví dụ: E:/Project/wwwroot/upload/xxxx.jpg)
+			fName = Path.Combine(dir, "upload/img", fName);
+
+			// Tạo Stream để lưu file
+			var stream = System.IO.File.Create(fName);
+			file.CopyTo(stream);
+			stream.Dispose(); // Giải phóng bộ nhớ
+
+			return res;
 		}
 	}
 }
