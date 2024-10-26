@@ -93,8 +93,9 @@ namespace App.Data.Migrations
                         new
                         {
                             Id = 1,
-                            Address = "Hà Nội, Việt Nam",
+                            Address = "123 Phố Lý Thái Tổ, Quận Hoàn Kiếm, Hà Nội, Việt Nam",
                             CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Chi nhánh của Melia Hà Nội tại Hà Nội",
                             HotelId = 1,
                             Name = "Hà Nội",
                             QuantityRoom = 50,
@@ -104,8 +105,9 @@ namespace App.Data.Migrations
                         new
                         {
                             Id = 2,
-                            Address = "TP. Hồ Chí Minh, Việt Nam",
+                            Address = "456 Đường Nguyễn Huệ, Phường Bến Nghé, Quận 1, TP. Hồ Chí Minh, Việt Nam",
                             CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Chi nhánh của Rex Hotel Sài Gòn tại TP. Hồ Chí Minh",
                             HotelId = 2,
                             Name = "TP. Hồ Chí Minh",
                             QuantityRoom = 80,
@@ -115,8 +117,9 @@ namespace App.Data.Migrations
                         new
                         {
                             Id = 3,
-                            Address = "Đà Nẵng, Việt Nam",
+                            Address = "789 Đường Bạch Đằng, Phường Hải Châu, Đà Nẵng, Việt Nam",
                             CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Chi nhánh của Đà Nẵng Golden Bay tại Đà Nẵng",
                             HotelId = 3,
                             Name = "Đà Nẵng",
                             QuantityRoom = 40,
@@ -126,8 +129,9 @@ namespace App.Data.Migrations
                         new
                         {
                             Id = 4,
-                            Address = "Nha Trang, Việt Nam",
+                            Address = "101 Đường Trần Phú, Thành phố Nha Trang, Khánh Hòa, Việt Nam",
                             CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Chi nhánh của Nha Trang Lodge tại Nha Trang",
                             HotelId = 4,
                             Name = "Nha Trang",
                             QuantityRoom = 60,
@@ -137,8 +141,9 @@ namespace App.Data.Migrations
                         new
                         {
                             Id = 5,
-                            Address = "Hải Phòng, Việt Nam",
+                            Address = "202 Đường Lê Đại Hành, Quận Hồng Bàng, Hải Phòng, Việt Nam",
                             CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Chi nhánh của Imperial Hải Phòng tại Hải Phòng",
                             HotelId = 5,
                             Name = "Hải Phòng",
                             QuantityRoom = 30,
@@ -148,8 +153,9 @@ namespace App.Data.Migrations
                         new
                         {
                             Id = 6,
-                            Address = "New York, USA",
+                            Address = "600 Đường 5th Ave, New York, NY 10020, USA",
                             CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Chi nhánh của Langham Hotel tại New York",
                             HotelId = 6,
                             Name = "New York",
                             QuantityRoom = 100,
@@ -159,8 +165,9 @@ namespace App.Data.Migrations
                         new
                         {
                             Id = 7,
-                            Address = "Tokyo, Nhật Bản",
+                            Address = "123 Đường Chuo, Minato City, Tokyo, Nhật Bản",
                             CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Chi nhánh của The Peninsula Tokyo tại Tokyo",
                             HotelId = 7,
                             Name = "Tokyo",
                             QuantityRoom = 90,
@@ -170,8 +177,9 @@ namespace App.Data.Migrations
                         new
                         {
                             Id = 8,
-                            Address = "Cancun, Mexico",
+                            Address = "700 Boulevard Kukulcan, Cancun, Mexico",
                             CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Chi nhánh của The Ritz-Carlton tại Cancun",
                             HotelId = 8,
                             Name = "Cancun",
                             QuantityRoom = 75,
@@ -181,8 +189,9 @@ namespace App.Data.Migrations
                         new
                         {
                             Id = 9,
-                            Address = "Miami, USA",
+                            Address = "500 South Florida Avenue, Miami, FL 33131, USA",
                             CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Chi nhánh của The Biltmore Miami tại Miami",
                             HotelId = 9,
                             Name = "Miami",
                             QuantityRoom = 60,
@@ -192,8 +201,9 @@ namespace App.Data.Migrations
                         new
                         {
                             Id = 10,
-                            Address = "Paris, Pháp",
+                            Address = "70 Avenue de La Bourdonnais, 75007 Paris, Pháp",
                             CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Chi nhánh của Shangri-La tại Paris",
                             HotelId = 10,
                             Name = "Paris",
                             QuantityRoom = 110,
@@ -203,8 +213,9 @@ namespace App.Data.Migrations
                         new
                         {
                             Id = 11,
-                            Address = "Seoul, Hàn Quốc",
+                            Address = "747-7, Sinsa-dong, Gangnam-gu, Seoul, Hàn Quốc",
                             CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Chi nhánh của Grand Hyatt tại Seoul",
                             HotelId = 11,
                             Name = "Seoul",
                             QuantityRoom = 120,
@@ -214,8 +225,9 @@ namespace App.Data.Migrations
                         new
                         {
                             Id = 12,
-                            Address = "Bangkok, Thái Lan",
+                            Address = "123, 123/1-3, Thanon Ratchadamri, Lumphini, Pathum Wan, Bangkok, Thái Lan",
                             CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Chi nhánh của Four Seasons tại Bangkok",
                             HotelId = 12,
                             Name = "Bangkok",
                             QuantityRoom = 80,
@@ -225,8 +237,9 @@ namespace App.Data.Migrations
                         new
                         {
                             Id = 13,
-                            Address = "Tokyo, Nhật Bản",
+                            Address = "2-6-1 Nishishinjuku, Shinjuku City, Tokyo, Nhật Bản",
                             CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Chi nhánh của Hilton tại Tokyo",
                             HotelId = 13,
                             Name = "Tokyo",
                             QuantityRoom = 95,
@@ -236,8 +249,9 @@ namespace App.Data.Migrations
                         new
                         {
                             Id = 14,
-                            Address = "Hong Kong",
+                            Address = "1 Austin Road West, Tsim Sha Tsui, Hong Kong",
                             CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Chi nhánh của W Hong Kong tại Hong Kong",
                             HotelId = 14,
                             Name = "Hong Kong",
                             QuantityRoom = 130,
@@ -247,8 +261,9 @@ namespace App.Data.Migrations
                         new
                         {
                             Id = 15,
-                            Address = "Bali, Indonesia",
+                            Address = "Nusa Dua, Bali, Indonesia",
                             CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Chi nhánh của The St. Regis tại Bali",
                             HotelId = 15,
                             Name = "Bali",
                             QuantityRoom = 70,
@@ -258,8 +273,9 @@ namespace App.Data.Migrations
                         new
                         {
                             Id = 16,
-                            Address = "Bangkok, Thái Lan",
+                            Address = "48-5, Thanon Ruam Rudee, Lumphini, Pathum Wan, Bangkok, Thái Lan",
                             CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Chi nhánh của Mandarin Oriental tại Bangkok",
                             HotelId = 16,
                             Name = "Bangkok",
                             QuantityRoom = 85,
@@ -269,8 +285,9 @@ namespace App.Data.Migrations
                         new
                         {
                             Id = 17,
-                            Address = "Paris, Pháp",
+                            Address = "228 Rue de Rivoli, 75001 Paris, Pháp",
                             CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Chi nhánh của Le Meurice tại Paris",
                             HotelId = 17,
                             Name = "Paris",
                             QuantityRoom = 140,
@@ -280,8 +297,9 @@ namespace App.Data.Migrations
                         new
                         {
                             Id = 18,
-                            Address = "Mumbai, Ấn Độ",
+                            Address = "Balaji Towers, Juhu Beach, Mumbai, Ấn Độ",
                             CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Chi nhánh của The Oberoi tại Mumbai",
                             HotelId = 18,
                             Name = "Mumbai",
                             QuantityRoom = 75,
@@ -291,19 +309,21 @@ namespace App.Data.Migrations
                         new
                         {
                             Id = 19,
-                            Address = "Sydney, Australia",
+                            Address = "7 Hickson Rd, Millers Point, Sydney, Australia",
                             CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Chi nhánh của Park Hyatt tại Sydney",
                             HotelId = 19,
                             Name = "Sydney",
-                            QuantityRoom = 65,
+                            QuantityRoom = 60,
                             QuantityStaff = 29,
                             Slug = "sydney"
                         },
                         new
                         {
                             Id = 20,
-                            Address = "Bangkok, Thái Lan",
+                            Address = "5/5-7 Thanon Sukhumvit 23, Khlong Toei Nuea, Watthana, Bangkok, Thái Lan",
                             CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Chi nhánh của The Sukhothai tại Bangkok",
                             HotelId = 20,
                             Name = "Bangkok",
                             QuantityRoom = 80,
@@ -313,8 +333,9 @@ namespace App.Data.Migrations
                         new
                         {
                             Id = 21,
-                            Address = "Paris, Pháp",
+                            Address = "15 Place Vendôme, 75001 Paris, Pháp",
                             CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Chi nhánh của Ritz Paris tại Paris",
                             HotelId = 21,
                             Name = "Paris",
                             QuantityRoom = 125,
@@ -324,12 +345,13 @@ namespace App.Data.Migrations
                         new
                         {
                             Id = 22,
-                            Address = "Mumbai, Ấn Độ",
+                            Address = "Mahalaxmi, Mumbai, Ấn Độ",
                             CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Chi nhánh của Taj Mahal Palace tại Mumbai",
                             HotelId = 22,
                             Name = "Mumbai",
-                            QuantityRoom = 70,
-                            QuantityStaff = 27,
+                            QuantityRoom = 75,
+                            QuantityStaff = 30,
                             Slug = "mumbai"
                         },
                         new
@@ -337,6 +359,7 @@ namespace App.Data.Migrations
                             Id = 23,
                             Address = "New York, USA",
                             CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Chi nhánh của St. Regis tại New York",
                             HotelId = 23,
                             Name = "New York",
                             QuantityRoom = 110,
@@ -348,6 +371,7 @@ namespace App.Data.Migrations
                             Id = 24,
                             Address = "Dubai, UAE",
                             CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Chi nhánh của Jumeirah tại Dubai",
                             HotelId = 24,
                             Name = "Dubai",
                             QuantityRoom = 150,
@@ -359,6 +383,7 @@ namespace App.Data.Migrations
                             Id = 25,
                             Address = "Italy",
                             CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Chi nhánh của Belmond Hotel Caruso tại Italy",
                             HotelId = 25,
                             Name = "Italy",
                             QuantityRoom = 60,
@@ -370,6 +395,7 @@ namespace App.Data.Migrations
                             Id = 26,
                             Address = "Phuket, Thái Lan",
                             CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Chi nhánh của Banyan Tree tại Phuket",
                             HotelId = 26,
                             Name = "Phuket",
                             QuantityRoom = 75,
@@ -381,6 +407,7 @@ namespace App.Data.Migrations
                             Id = 27,
                             Address = "Dubai, UAE",
                             CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Chi nhánh của The Address tại Dubai",
                             HotelId = 27,
                             Name = "Dubai",
                             QuantityRoom = 120,
@@ -392,6 +419,7 @@ namespace App.Data.Migrations
                             Id = 28,
                             Address = "Bangkok, Thái Lan",
                             CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Chi nhánh của Shangri-La tại Bangkok",
                             HotelId = 28,
                             Name = "Bangkok",
                             QuantityRoom = 90,
@@ -403,6 +431,7 @@ namespace App.Data.Migrations
                             Id = 29,
                             Address = "Bali, Indonesia",
                             CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Chi nhánh của The Oberoi tại Bali",
                             HotelId = 29,
                             Name = "Bali",
                             QuantityRoom = 65,
@@ -414,6 +443,7 @@ namespace App.Data.Migrations
                             Id = 30,
                             Address = "Tokyo, Nhật Bản",
                             CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Chi nhánh của Aman tại Tokyo",
                             HotelId = 30,
                             Name = "Tokyo",
                             QuantityRoom = 95,
@@ -423,22 +453,350 @@ namespace App.Data.Migrations
                         new
                         {
                             Id = 31,
-                            Address = "Los Angeles, USA",
+                            Address = "Hà Nội, Việt Nam",
                             CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Los Angeles",
-                            QuantityRoom = 110,
-                            QuantityStaff = 40,
-                            Slug = "los-angeles"
+                            Description = "Chi nhánh của Rex Hotel Saigon tại Hà Nội",
+                            HotelId = 2,
+                            Name = "Hà Nội",
+                            QuantityRoom = 50,
+                            QuantityStaff = 20,
+                            Slug = "ha-noi-2"
                         },
                         new
                         {
                             Id = 32,
-                            Address = "Cairo, Ai Cập",
+                            Address = "TP. Hồ Chí Minh, Việt Nam",
                             CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Cairo",
-                            QuantityRoom = 50,
-                            QuantityStaff = 20,
-                            Slug = "cairo"
+                            Description = "Chi nhánh của Đà Nẵng Golden Bay tại TP. Hồ Chí Minh",
+                            HotelId = 3,
+                            Name = "TP. Hồ Chí Minh",
+                            QuantityRoom = 80,
+                            QuantityStaff = 25,
+                            Slug = "tp-ho-chi-minh-2"
+                        },
+                        new
+                        {
+                            Id = 33,
+                            Address = "Đà Nẵng, Việt Nam",
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Chi nhánh của Nha Trang Lodge tại Đà Nẵng",
+                            HotelId = 4,
+                            Name = "Đà Nẵng",
+                            QuantityRoom = 40,
+                            QuantityStaff = 15,
+                            Slug = "da-nang-2"
+                        },
+                        new
+                        {
+                            Id = 34,
+                            Address = "Nha Trang, Việt Nam",
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Chi nhánh của Imperial Hải Phòng tại Nha Trang",
+                            HotelId = 5,
+                            Name = "Nha Trang",
+                            QuantityRoom = 60,
+                            QuantityStaff = 18,
+                            Slug = "nha-trang-2"
+                        },
+                        new
+                        {
+                            Id = 35,
+                            Address = "Hải Phòng, Việt Nam",
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Chi nhánh của Langham Hotel tại Hải Phòng",
+                            HotelId = 6,
+                            Name = "Hải Phòng",
+                            QuantityRoom = 30,
+                            QuantityStaff = 12,
+                            Slug = "hai-phong-2"
+                        },
+                        new
+                        {
+                            Id = 36,
+                            Address = "New York, USA",
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Chi nhánh của The Peninsula tại New York",
+                            HotelId = 7,
+                            Name = "New York",
+                            QuantityRoom = 100,
+                            QuantityStaff = 40,
+                            Slug = "new-york-2"
+                        },
+                        new
+                        {
+                            Id = 37,
+                            Address = "Tokyo, Nhật Bản",
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Chi nhánh của The Ritz-Carlton tại Tokyo",
+                            HotelId = 8,
+                            Name = "Tokyo",
+                            QuantityRoom = 90,
+                            QuantityStaff = 35,
+                            Slug = "tokyo-2"
+                        },
+                        new
+                        {
+                            Id = 38,
+                            Address = "Cancun, Mexico",
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Chi nhánh của The Biltmore tại Cancun",
+                            HotelId = 9,
+                            Name = "Cancun",
+                            QuantityRoom = 75,
+                            QuantityStaff = 30,
+                            Slug = "cancun-2"
+                        },
+                        new
+                        {
+                            Id = 39,
+                            Address = "Miami, USA",
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Chi nhánh của Shangri-La tại Miami",
+                            HotelId = 10,
+                            Name = "Miami",
+                            QuantityRoom = 60,
+                            QuantityStaff = 28,
+                            Slug = "miami-2"
+                        },
+                        new
+                        {
+                            Id = 40,
+                            Address = "Paris, Pháp",
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Chi nhánh của Grand Hyatt tại Paris",
+                            HotelId = 11,
+                            Name = "Paris",
+                            QuantityRoom = 110,
+                            QuantityStaff = 45,
+                            Slug = "paris-2"
+                        },
+                        new
+                        {
+                            Id = 41,
+                            Address = "Seoul, Hàn Quốc",
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Chi nhánh của Four Seasons tại Seoul",
+                            HotelId = 12,
+                            Name = "Seoul",
+                            QuantityRoom = 120,
+                            QuantityStaff = 50,
+                            Slug = "seoul-2"
+                        },
+                        new
+                        {
+                            Id = 42,
+                            Address = "Bangkok, Thái Lan",
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Chi nhánh của Hilton tại Bangkok",
+                            HotelId = 13,
+                            Name = "Bangkok",
+                            QuantityRoom = 80,
+                            QuantityStaff = 32,
+                            Slug = "bangkok-2"
+                        },
+                        new
+                        {
+                            Id = 43,
+                            Address = "Tokyo, Nhật Bản",
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Chi nhánh của W Hong Kong tại Tokyo",
+                            HotelId = 14,
+                            Name = "Tokyo",
+                            QuantityRoom = 95,
+                            QuantityStaff = 38,
+                            Slug = "tokyo-3"
+                        },
+                        new
+                        {
+                            Id = 44,
+                            Address = "Hong Kong",
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Chi nhánh của The St. Regis tại Hong Kong",
+                            HotelId = 15,
+                            Name = "Hong Kong",
+                            QuantityRoom = 130,
+                            QuantityStaff = 55,
+                            Slug = "hong-kong-2"
+                        },
+                        new
+                        {
+                            Id = 45,
+                            Address = "Bali, Indonesia",
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Chi nhánh của Mandarin Oriental tại Bali",
+                            HotelId = 16,
+                            Name = "Bali",
+                            QuantityRoom = 70,
+                            QuantityStaff = 22,
+                            Slug = "bali-2"
+                        },
+                        new
+                        {
+                            Id = 46,
+                            Address = "Bangkok, Thái Lan",
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Chi nhánh của Ritz tại Bangkok",
+                            HotelId = 17,
+                            Name = "Bangkok",
+                            QuantityRoom = 85,
+                            QuantityStaff = 35,
+                            Slug = "bangkok-3"
+                        },
+                        new
+                        {
+                            Id = 47,
+                            Address = "Paris, Pháp",
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Chi nhánh của The Oberoi tại Paris",
+                            HotelId = 18,
+                            Name = "Paris",
+                            QuantityRoom = 140,
+                            QuantityStaff = 60,
+                            Slug = "paris-3"
+                        },
+                        new
+                        {
+                            Id = 48,
+                            Address = "Mumbai, Ấn Độ",
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Chi nhánh của Park Hyatt tại Mumbai",
+                            HotelId = 19,
+                            Name = "Mumbai",
+                            QuantityRoom = 75,
+                            QuantityStaff = 30,
+                            Slug = "mumbai-2"
+                        },
+                        new
+                        {
+                            Id = 49,
+                            Address = "Sydney, Australia",
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Chi nhánh của The Sukhothai tại Sydney",
+                            HotelId = 20,
+                            Name = "Sydney",
+                            QuantityRoom = 65,
+                            QuantityStaff = 29,
+                            Slug = "sydney-2"
+                        },
+                        new
+                        {
+                            Id = 50,
+                            Address = "Bangkok, Thái Lan",
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Chi nhánh của Ritz tại Bangkok",
+                            HotelId = 21,
+                            Name = "Bangkok",
+                            QuantityRoom = 90,
+                            QuantityStaff = 33,
+                            Slug = "bangkok-4"
+                        },
+                        new
+                        {
+                            Id = 51,
+                            Address = "Bali, Indonesia",
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Chi nhánh của The Leela tại Bali",
+                            HotelId = 22,
+                            Name = "Bali",
+                            QuantityRoom = 65,
+                            QuantityStaff = 25,
+                            Slug = "bali-3"
+                        },
+                        new
+                        {
+                            Id = 52,
+                            Address = "Tokyo, Nhật Bản",
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Chi nhánh của St. Regis tại Tokyo",
+                            HotelId = 23,
+                            Name = "Tokyo",
+                            QuantityRoom = 92,
+                            QuantityStaff = 37,
+                            Slug = "tokyo-4"
+                        },
+                        new
+                        {
+                            Id = 53,
+                            Address = "New York, USA",
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Chi nhánh của Jumeirah tại New York",
+                            HotelId = 24,
+                            Name = "New York",
+                            QuantityRoom = 102,
+                            QuantityStaff = 41,
+                            Slug = "new-york-3"
+                        },
+                        new
+                        {
+                            Id = 54,
+                            Address = "Dubai, UAE",
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Chi nhánh của Belmond Hotel Caruso tại Dubai",
+                            HotelId = 25,
+                            Name = "Dubai",
+                            QuantityRoom = 160,
+                            QuantityStaff = 53,
+                            Slug = "dubai-3"
+                        },
+                        new
+                        {
+                            Id = 55,
+                            Address = "Italy",
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Chi nhánh của Banyan Tree tại Italy",
+                            HotelId = 26,
+                            Name = "Italy",
+                            QuantityRoom = 70,
+                            QuantityStaff = 30,
+                            Slug = "italy-2"
+                        },
+                        new
+                        {
+                            Id = 56,
+                            Address = "Phuket, Thái Lan",
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Chi nhánh của The Address tại Phuket",
+                            HotelId = 27,
+                            Name = "Phuket",
+                            QuantityRoom = 80,
+                            QuantityStaff = 32,
+                            Slug = "phuket-2"
+                        },
+                        new
+                        {
+                            Id = 57,
+                            Address = "Dubai, UAE",
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Chi nhánh của Shangri-La tại Dubai",
+                            HotelId = 28,
+                            Name = "Dubai",
+                            QuantityRoom = 125,
+                            QuantityStaff = 45,
+                            Slug = "dubai-4"
+                        },
+                        new
+                        {
+                            Id = 58,
+                            Address = "Bangkok, Thái Lan",
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Chi nhánh của The Oberoi tại Bangkok",
+                            HotelId = 29,
+                            Name = "Bangkok",
+                            QuantityRoom = 90,
+                            QuantityStaff = 35,
+                            Slug = "bangkok-5"
+                        },
+                        new
+                        {
+                            Id = 59,
+                            Address = "Bali, Indonesia",
+                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Chi nhánh của Aman tại Bali",
+                            HotelId = 30,
+                            Name = "Bali",
+                            QuantityRoom = 68,
+                            QuantityStaff = 27,
+                            Slug = "bali-4"
                         });
                 });
 
@@ -927,7 +1285,7 @@ namespace App.Data.Migrations
                     b.ToTable("AppNews", (string)null);
                 });
 
-            modelBuilder.Entity("App.Data.Entities.News.AppNewsCategories", b =>
+            modelBuilder.Entity("App.Data.Entities.News.AppNewsCategory", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -2198,8 +2556,8 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "admin_test@gmail.com",
                             FullName = "Nguyễn Thanh Long",
-                            PasswordHash = new byte[] { 246, 176, 129, 16, 8, 57, 103, 237, 236, 117, 94, 37, 100, 240, 199, 156, 39, 234, 95, 220, 224, 179, 96, 127, 38, 171, 53, 29, 208, 49, 226, 125, 126, 53, 241, 116, 130, 17, 201, 178, 145, 110, 189, 106, 206, 175, 255, 239, 168, 102, 19, 181, 204, 238, 68, 2, 146, 233, 158, 66, 19, 40, 191, 173 },
-                            PasswordSalt = new byte[] { 254, 47, 25, 224, 107, 163, 255, 108, 106, 7, 79, 190, 147, 5, 74, 125, 113, 212, 53, 231, 223, 247, 251, 139, 93, 154, 7, 187, 7, 83, 215, 171, 181, 168, 71, 62, 185, 4, 208, 87, 60, 232, 131, 177, 182, 132, 104, 214, 244, 184, 126, 196, 44, 207, 149, 3, 24, 175, 51, 79, 45, 209, 199, 44, 65, 162, 221, 43, 95, 36, 173, 49, 246, 63, 48, 115, 61, 43, 123, 47, 44, 211, 193, 87, 36, 223, 31, 120, 177, 100, 169, 255, 194, 128, 247, 171, 72, 163, 138, 119, 252, 100, 30, 70, 199, 10, 219, 251, 145, 202, 169, 160, 136, 77, 253, 253, 113, 10, 198, 185, 88, 175, 131, 197, 78, 28, 255, 237 },
+                            PasswordHash = new byte[] { 157, 199, 87, 161, 23, 158, 217, 31, 172, 84, 223, 91, 110, 135, 220, 26, 200, 231, 210, 185, 107, 108, 162, 120, 235, 36, 242, 4, 42, 187, 209, 48, 59, 233, 84, 174, 42, 149, 238, 112, 0, 130, 140, 195, 220, 218, 93, 186, 44, 119, 225, 12, 146, 211, 173, 213, 46, 195, 85, 25, 171, 15, 71, 157 },
+                            PasswordSalt = new byte[] { 146, 217, 39, 24, 76, 103, 230, 209, 119, 69, 101, 98, 197, 38, 140, 134, 164, 161, 138, 69, 203, 236, 231, 147, 228, 14, 181, 123, 9, 198, 188, 151, 6, 227, 66, 187, 154, 19, 58, 182, 225, 174, 110, 136, 246, 229, 216, 239, 248, 156, 35, 17, 179, 119, 21, 217, 246, 208, 228, 104, 138, 224, 218, 160, 4, 13, 167, 230, 119, 151, 79, 32, 79, 149, 250, 135, 181, 172, 251, 226, 100, 4, 144, 250, 246, 61, 29, 125, 83, 4, 54, 45, 46, 89, 5, 137, 221, 147, 99, 51, 128, 206, 48, 10, 249, 143, 97, 201, 107, 45, 78, 252, 50, 39, 128, 208, 73, 94, 245, 16, 21, 80, 242, 7, 228, 133, 192, 205 },
                             PhoneNumber1 = "+84928666158",
                             PhoneNumber2 = "+84928666156",
                             UpdatedBy = -1,
@@ -2217,8 +2575,8 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "tranthib2001@gmail.com",
                             FullName = "Trần Chí Dũng",
-                            PasswordHash = new byte[] { 246, 176, 129, 16, 8, 57, 103, 237, 236, 117, 94, 37, 100, 240, 199, 156, 39, 234, 95, 220, 224, 179, 96, 127, 38, 171, 53, 29, 208, 49, 226, 125, 126, 53, 241, 116, 130, 17, 201, 178, 145, 110, 189, 106, 206, 175, 255, 239, 168, 102, 19, 181, 204, 238, 68, 2, 146, 233, 158, 66, 19, 40, 191, 173 },
-                            PasswordSalt = new byte[] { 254, 47, 25, 224, 107, 163, 255, 108, 106, 7, 79, 190, 147, 5, 74, 125, 113, 212, 53, 231, 223, 247, 251, 139, 93, 154, 7, 187, 7, 83, 215, 171, 181, 168, 71, 62, 185, 4, 208, 87, 60, 232, 131, 177, 182, 132, 104, 214, 244, 184, 126, 196, 44, 207, 149, 3, 24, 175, 51, 79, 45, 209, 199, 44, 65, 162, 221, 43, 95, 36, 173, 49, 246, 63, 48, 115, 61, 43, 123, 47, 44, 211, 193, 87, 36, 223, 31, 120, 177, 100, 169, 255, 194, 128, 247, 171, 72, 163, 138, 119, 252, 100, 30, 70, 199, 10, 219, 251, 145, 202, 169, 160, 136, 77, 253, 253, 113, 10, 198, 185, 88, 175, 131, 197, 78, 28, 255, 237 },
+                            PasswordHash = new byte[] { 157, 199, 87, 161, 23, 158, 217, 31, 172, 84, 223, 91, 110, 135, 220, 26, 200, 231, 210, 185, 107, 108, 162, 120, 235, 36, 242, 4, 42, 187, 209, 48, 59, 233, 84, 174, 42, 149, 238, 112, 0, 130, 140, 195, 220, 218, 93, 186, 44, 119, 225, 12, 146, 211, 173, 213, 46, 195, 85, 25, 171, 15, 71, 157 },
+                            PasswordSalt = new byte[] { 146, 217, 39, 24, 76, 103, 230, 209, 119, 69, 101, 98, 197, 38, 140, 134, 164, 161, 138, 69, 203, 236, 231, 147, 228, 14, 181, 123, 9, 198, 188, 151, 6, 227, 66, 187, 154, 19, 58, 182, 225, 174, 110, 136, 246, 229, 216, 239, 248, 156, 35, 17, 179, 119, 21, 217, 246, 208, 228, 104, 138, 224, 218, 160, 4, 13, 167, 230, 119, 151, 79, 32, 79, 149, 250, 135, 181, 172, 251, 226, 100, 4, 144, 250, 246, 61, 29, 125, 83, 4, 54, 45, 46, 89, 5, 137, 221, 147, 99, 51, 128, 206, 48, 10, 249, 143, 97, 201, 107, 45, 78, 252, 50, 39, 128, 208, 73, 94, 245, 16, 21, 80, 242, 7, 228, 133, 192, 205 },
                             PhoneNumber1 = "+84928666157",
                             PhoneNumber2 = "+84928666158",
                             UpdatedBy = -1,
@@ -2236,8 +2594,8 @@ namespace App.Data.Migrations
                             Email = "thanhnguyendt2000@gmail.com",
                             FullName = "John Smith",
                             Passport = "123456789",
-                            PasswordHash = new byte[] { 246, 176, 129, 16, 8, 57, 103, 237, 236, 117, 94, 37, 100, 240, 199, 156, 39, 234, 95, 220, 224, 179, 96, 127, 38, 171, 53, 29, 208, 49, 226, 125, 126, 53, 241, 116, 130, 17, 201, 178, 145, 110, 189, 106, 206, 175, 255, 239, 168, 102, 19, 181, 204, 238, 68, 2, 146, 233, 158, 66, 19, 40, 191, 173 },
-                            PasswordSalt = new byte[] { 254, 47, 25, 224, 107, 163, 255, 108, 106, 7, 79, 190, 147, 5, 74, 125, 113, 212, 53, 231, 223, 247, 251, 139, 93, 154, 7, 187, 7, 83, 215, 171, 181, 168, 71, 62, 185, 4, 208, 87, 60, 232, 131, 177, 182, 132, 104, 214, 244, 184, 126, 196, 44, 207, 149, 3, 24, 175, 51, 79, 45, 209, 199, 44, 65, 162, 221, 43, 95, 36, 173, 49, 246, 63, 48, 115, 61, 43, 123, 47, 44, 211, 193, 87, 36, 223, 31, 120, 177, 100, 169, 255, 194, 128, 247, 171, 72, 163, 138, 119, 252, 100, 30, 70, 199, 10, 219, 251, 145, 202, 169, 160, 136, 77, 253, 253, 113, 10, 198, 185, 88, 175, 131, 197, 78, 28, 255, 237 },
+                            PasswordHash = new byte[] { 157, 199, 87, 161, 23, 158, 217, 31, 172, 84, 223, 91, 110, 135, 220, 26, 200, 231, 210, 185, 107, 108, 162, 120, 235, 36, 242, 4, 42, 187, 209, 48, 59, 233, 84, 174, 42, 149, 238, 112, 0, 130, 140, 195, 220, 218, 93, 186, 44, 119, 225, 12, 146, 211, 173, 213, 46, 195, 85, 25, 171, 15, 71, 157 },
+                            PasswordSalt = new byte[] { 146, 217, 39, 24, 76, 103, 230, 209, 119, 69, 101, 98, 197, 38, 140, 134, 164, 161, 138, 69, 203, 236, 231, 147, 228, 14, 181, 123, 9, 198, 188, 151, 6, 227, 66, 187, 154, 19, 58, 182, 225, 174, 110, 136, 246, 229, 216, 239, 248, 156, 35, 17, 179, 119, 21, 217, 246, 208, 228, 104, 138, 224, 218, 160, 4, 13, 167, 230, 119, 151, 79, 32, 79, 149, 250, 135, 181, 172, 251, 226, 100, 4, 144, 250, 246, 61, 29, 125, 83, 4, 54, 45, 46, 89, 5, 137, 221, 147, 99, 51, 128, 206, 48, 10, 249, 143, 97, 201, 107, 45, 78, 252, 50, 39, 128, 208, 73, 94, 245, 16, 21, 80, 242, 7, 228, 133, 192, 205 },
                             PhoneNumber1 = "+12025550123",
                             PhoneNumber2 = "+12027450123",
                             UpdatedBy = -1,
@@ -3333,7 +3691,7 @@ namespace App.Data.Migrations
 
             modelBuilder.Entity("App.Data.Entities.News.AppNews", b =>
                 {
-                    b.HasOne("App.Data.Entities.News.AppNewsCategories", "CategoryNews")
+                    b.HasOne("App.Data.Entities.News.AppNewsCategory", "CategoryNews")
                         .WithMany("NewsNavigation")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.NoAction);
@@ -3548,7 +3906,7 @@ namespace App.Data.Migrations
                     b.Navigation("BranchHotels");
                 });
 
-            modelBuilder.Entity("App.Data.Entities.News.AppNewsCategories", b =>
+            modelBuilder.Entity("App.Data.Entities.News.AppNewsCategory", b =>
                 {
                     b.Navigation("NewsNavigation");
                 });
