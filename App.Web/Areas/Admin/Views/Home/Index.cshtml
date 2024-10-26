@@ -1,0 +1,379 @@
+﻿@{
+	ViewData["Title"] = "Dashboard";
+}
+
+<!-- start page title -->
+<div class="row">
+	<div class="col-12">
+		<div class="page-title-box d-sm-flex align-items-center justify-content-between">
+			<h4 class="mb-sm-0">Bảng tổng quan</h4>
+
+			<div class="page-title-right">
+				<ol class="breadcrumb m-0">
+					<li class="breadcrumb-item"><a asp-action="Index" asp-area="Admin" asp-controller="Home">Bảng tổng quan</a></li>
+					<li class="breadcrumb-item active">Trang chủ</li>
+				</ol>
+			</div>
+
+		</div>
+	</div>
+</div>
+<!-- end page title -->
+<div class="row">
+	<div class="col">
+
+		<div class="h-100">
+			<div class="row mb-3 pb-1">
+				<div class="col-12">
+					<div class="d-flex align-items-lg-center flex-lg-row flex-column">
+						<div class="flex-grow-1">
+							<h4 class="fs-16 mb-1">Ngày mới tốt lành, @Context.User.Identity.Name!</h4>
+							<p class="text-muted mb-0">Đây là trang quản lý đặt phòng khách sạn của bạn.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--end row-->
+
+			<div class="row">
+				<div class="col-xl-3 col-md-6">
+					<!-- card -->
+					<div class="card card-animate">
+						<div class="card-body">
+							<div class="d-flex align-items-center">
+								<div class="flex-grow-1 overflow-hidden">
+									<p class="text-uppercase fw-medium text-muted text-truncate mb-0">
+										Chi nhánh khách sạn
+									</p>
+								</div>
+								<div class="flex-shrink-0">
+									<h5 class="badge badge-soft-info badge-border fs-14 mb-0">
+										Tổng @ViewBag.CountBranchHotel
+									</h5>
+								</div>
+							</div>
+							<div class="d-flex align-items-end justify-content-between mt-4">
+								<div>
+									<h4 class="text-uppercase fw-medium fw-semibold ff-secondary mb-4">
+										Hoạt động: <span class="counter-value" data-target="@ViewBag.CountBranchHotel"></span>
+									</h4>
+									@if (User.IsInPermission(App.Share.Consts.AuthConst.AppBranchHotel.VIEW_LIST))
+									{
+										<a asp-action="Index" asp-controller="AppBranchHotel" asp-area="Admin"
+										   class="text-decoration-underline text-muted">
+											Xem chi tiết
+											<i class="fas fa-arrow-circle-right"></i>
+										</a>
+									}
+									else
+									{
+										<span class="text-muted">Bạn không có quyền xem thêm</span>
+									}
+								</div>
+								<div class="avatar-sm flex-shrink-0">
+									<span class="avatar-title bg-soft-info rounded fs-3">
+										<i class="bx bx-buildings text-info"></i>
+									</span>
+								</div>
+							</div>
+						</div><!-- end card body -->
+					</div><!-- end card -->
+				</div><!-- end col -->
+
+				<div class="col-xl-3 col-md-6">
+					<!-- card -->
+					<div class="card card-animate">
+						<div class="card-body">
+							<div class="d-flex align-items-center">
+								<div class="flex-grow-1 overflow-hidden">
+									<p class="text-uppercase fw-medium text-muted text-truncate mb-0">
+										Khách sạn
+									</p>
+								</div>
+								<div class="flex-shrink-0">
+									<h5 class="badge badge-soft-primary badge-border fs-14 mb-0">
+										Tổng @ViewBag.CountHotel
+									</h5>
+								</div>
+							</div>
+							<div class="d-flex align-items-end justify-content-between mt-4">
+								<div>
+									<h4 class="text-uppercase fw-medium fw-semibold ff-secondary mb-4">
+										Hoạt động: <span class="counter-value" data-target="@ViewBag.CountHotel"></span>
+									</h4>
+									@if (User.IsInPermission(App.Share.Consts.AuthConst.AppHotel.VIEW_LIST))
+									{
+										<a asp-action="Index" asp-controller="AppHotel" asp-area="Admin"
+										   class="text-decoration-underline text-muted">
+											Xem chi tiết
+											<i class="fas fa-arrow-circle-right"></i>
+										</a>
+									}
+									else
+									{
+										<span class="text-muted">Bạn không có quyền xem thêm</span>
+									}
+								</div>
+								<div class="avatar-sm flex-shrink-0">
+									<span class="avatar-title bg-soft-primary rounded fs-3">
+										<i class="bx bx-building text-primary"></i>
+									</span>
+								</div>
+							</div>
+						</div><!-- end card body -->
+					</div><!-- end card -->
+				</div><!-- end col -->
+
+				<div class="col-xl-3 col-md-6">
+					<!-- card -->
+					<div class="card card-animate">
+						<div class="card-body">
+							<div class="d-flex align-items-center">
+								<div class="flex-grow-1 overflow-hidden">
+									<p class="text-uppercase fw-medium text-muted text-truncate mb-0">
+										Tin tức
+									</p>
+								</div>
+								<div class="flex-shrink-0">
+									<h5 class="badge badge-soft-secondary badge-border fs-14 mb-0">
+										Tổng @ViewBag.CountNews
+									</h5>
+								</div>
+							</div>
+							<div class="d-flex align-items-end justify-content-between mt-4">
+								<div>
+									<h4 class="text-uppercase fw-medium fw-semibold ff-secondary mb-4">
+										Đăng tải: <span class="counter-value" data-target="@ViewBag.CountNewsActive"></span>
+									</h4>
+									@if (User.IsInPermission(App.Share.Consts.AuthConst.AppNews.VIEW_LIST))
+									{
+										<a asp-action="Index" asp-controller="AppNews" asp-area="Admin"
+										   class="text-decoration-underline text-muted">
+											Xem chi tiết
+											<i class="fas fa-arrow-circle-right"></i>
+										</a>
+									}
+									else
+									{
+										<span class="text-muted">Bạn không có quyền xem thêm</span>
+									}
+								</div>
+								<div class="avatar-sm flex-shrink-0">
+									<span class="avatar-title bg-soft-dark rounded fs-3">
+										<i class="bx bx-receipt text-dark"></i>
+									</span>
+								</div>
+							</div>
+						</div><!-- end card body -->
+					</div><!-- end card -->
+				</div><!-- end col -->
+
+				<div class="col-xl-3 col-md-6">
+					<!-- card -->
+					<div class="card card-animate">
+						<div class="card-body">
+							<div class="d-flex align-items-center">
+								<div class="flex-grow-1 overflow-hidden">
+									<p class="text-uppercase fw-medium text-muted text-truncate mb-0">
+										Tài khoản
+									</p>
+								</div>
+								<div class="flex-shrink-0">
+									<h5 class="badge badge-soft-secondary badge-border fs-14 mb-0">
+										Tổng @ViewBag.CountUser
+									</h5>
+								</div>
+							</div>
+							<div class="d-flex align-items-end justify-content-between mt-4">
+								<div>
+									<h4 class="text-uppercase fw-medium fw-semibold ff-secondary mb-4">
+										Hoạt động: <span class="counter-value" data-target="@ViewBag.CountUserUnBlock"></span>
+									</h4>
+									@if (User.IsInPermission(App.Share.Consts.AuthConst.AppUser.VIEW_LIST))
+									{
+										<a asp-action="Index" asp-controller="User" asp-area="Admin"
+										   class="text-decoration-underline text-muted">
+											Xem chi tiết
+											<i class="fas fa-arrow-circle-right"></i>
+										</a>
+									}
+									else
+									{
+										<span class="text-muted">Bạn không có quyền xem thêm</span>
+									}
+								</div>
+								<div class="avatar-sm flex-shrink-0">
+									<span class="avatar-title bg-soft-secondary rounded fs-3">
+										<i class="bx bx-user-circle text-secondary"></i>
+									</span>
+								</div>
+							</div>
+						</div><!-- end card body -->
+					</div><!-- end card -->
+				</div><!-- end col -->
+			</div> <!-- end row-->
+
+			<div class="row project-wrapper">
+				<div class="col-xxl-8">
+					<div class="row">
+						<div class="col-xl-4">
+							<div class="card card-animate">
+								<div class="card-body">
+									<div class="d-flex align-items-center">
+										<div class="avatar-sm flex-shrink-0">
+											<span class="avatar-title bg-soft-secondary text-secondary rounded-2 fs-2">
+												<i class="bx bx-coffee text-secondary"></i>
+											</span>
+										</div>
+										<div class="flex-grow-1 overflow-hidden ms-3">
+											<p class="text-uppercase fw-medium text-muted text-truncate mb-3">Loại phòng</p>
+											<div class="d-flex align-items-center mb-3">
+												<h4 class="text-uppercase fs-4 flex-grow-1 mb-0">Hoạt động: <span class="counter-value" data-target="@ViewBag.CountRoomType"></span></h4>
+												<span class="badge badge-soft-secondary badge-border fs-14 text-bold">Tổng @ViewBag.CountRoomType</span>
+											</div>
+											@if (User.IsInPermission(App.Share.Consts.AuthConst.AppRoomType.VIEW_LIST))
+											{
+												<a asp-action="Index" asp-controller="AppRoomType" asp-area="Admin"
+												   class="text-decoration-underline text-muted">
+													Xem chi tiết
+													<i class="fas fa-arrow-circle-right"></i>
+												</a>
+											}
+											else
+											{
+												<span class="text-muted">Bạn không có quyền xem thêm</span>
+											}
+										</div>
+									</div>
+								</div><!-- end card body -->
+							</div>
+						</div><!-- end col -->
+
+						<div class="col-xl-4">
+							<div class="card card-animate">
+								<div class="card-body">
+									<div class="d-flex align-items-center">
+										<div class="avatar-sm flex-shrink-0">
+											<span class="avatar-title bg-soft-info text-info rounded-2 fs-2">
+												<i class="bx bx-bed text-info"></i>
+											</span>
+										</div>
+										<div class="flex-grow-1 ms-3">
+											<p class="text-uppercase fw-medium text-muted mb-3">Phòng</p>
+											<div class="d-flex align-items-center mb-3">
+												<h4 class="text-uppercase fs-4 flex-grow-1 mb-0">Được đặt: <span class="counter-value" data-target="@ViewBag.CountRoomBooking"></span></h4>
+												<span class="badge badge-soft-info badge-border fs-14 text-bold">Tổng @ViewBag.CountRoom</span>
+											</div>
+											@if (User.IsInPermission(App.Share.Consts.AuthConst.AppRoom.VIEW_LIST))
+											{
+												<a asp-action="Index" asp-controller="AppRoom" asp-area="Admin"
+												   class="text-decoration-underline text-muted">
+													Xem chi tiết
+													<i class="fas fa-arrow-circle-right"></i>
+												</a>
+											}
+											else
+											{
+												<span class="text-muted">Bạn không có quyền xem thêm</span>
+											}
+										</div>
+									</div>
+								</div><!-- end card body -->
+							</div>
+						</div><!-- end col -->
+
+						<div class="col-xl-4">
+							<div class="card card-animate">
+								<div class="card-body">
+									<div class="d-flex align-items-center">
+										<div class="avatar-sm flex-shrink-0">
+											<span class="avatar-title bg-soft-primary text-primary rounded-2 fs-2">
+												<i class="bx bx-package text-primary"></i>
+											</span>
+										</div>
+										<div class="flex-grow-1 overflow-hidden ms-3">
+											<p class="text-uppercase fw-medium text-muted text-truncate mb-3">Trang thiết bị</p>
+											<div class="d-flex align-items-center mb-3">
+												<h4 class="text-uppercase fs-4 flex-grow-1 mb-0">Sử dụng: <span class="counter-value" data-target="@ViewBag.CountEquipment"></span></h4>
+												<span class="badge badge-soft-primary badge-border fs-14 text-bold">Tổng @ViewBag.CountEquipment</span>
+											</div>
+											@if (User.IsInPermission(App.Share.Consts.AuthConst.AppEquipment.VIEW_LIST))
+											{
+												<a asp-action="Index" asp-controller="AppEquipment" asp-area="Admin"
+												   class="text-decoration-underline text-muted">
+													Xem chi tiết
+													<i class="fas fa-arrow-circle-right"></i>
+												</a>
+											}
+											else
+											{
+												<span class="text-muted">Bạn không có quyền xem thêm</span>
+											}
+										</div>
+									</div>
+								</div><!-- end card body -->
+							</div>
+						</div><!-- end col -->
+					</div><!-- end row -->
+
+					<div class="row">
+						<div class="col-xl-12">
+							<div class="card">
+								<div class="card-header border-0 align-items-center d-flex">
+									<h4 class="card-title mb-0 flex-grow-1">Projects Overview</h4>
+									<select class="btn btn-soft-secondary btn-sm" id="yearSelector" onchange="updateChartData(currentFilter)">
+										<option value="2023">2023</option>
+										<option value="2022">2022</option>
+									</select>
+
+									<div>
+										<button type="button" class="btn btn-soft-primary btn-sm" id="filter-all" onclick="updateChartData('ALL')">All</button>
+										<button type="button" class="btn btn-soft-secondary btn-sm" onclick="updateChartData('1M')">1 M</button>
+										<button type="button" class="btn btn-soft-secondary btn-sm" onclick="updateChartData('6M')">6 M</button>
+										<button type="button" class="btn btn-soft-secondary btn-sm" onclick="updateChartData('1Y')">1 Y</button>
+									</div>
+								</div><!-- end card header -->
+
+								<div class="card-header p-0 border-0 bg-soft-light">
+									<div class="row g-0 text-center">
+										<div class="col-6 col-sm-4">
+											<div class="p-3 border border-dashed border-start-0">
+												<h5 class="mb-1"><span class="counter-value" data-target="@ViewBag.CountHotel">0</span></h5>
+												<p class="text-muted mb-0">Khách sạn</p>
+											</div>
+										</div>
+										<!--end col-->
+										<div class="col-6 col-sm-4">
+											<div class="p-3 border border-dashed border-start-0">
+												<h5 class="mb-1"><span class="counter-value" data-target="@ViewBag.CountRoom">0</span></h5>
+												<p class="text-muted mb-0">Phòng</p>
+											</div>
+										</div>
+										<!--end col-->
+										<div class="col-6 col-sm-4">
+											<div class="p-3 border border-dashed border-start-0 border-end-0">
+												<h5 class="mb-1 text-success"><span class="counter-value" data-target="10589351">0</span>Đ</h5>
+												<p class="text-muted mb-0">Tổng doanh thu</p>
+											</div>
+										</div>
+										<!--end col-->
+									</div>
+								</div><!-- end card header -->
+								<div class="card-body p-0 pb-2">
+									<div>
+										<div id="projects-overview-chart" data-colors='["--vz-primary", "--vz-warning", "--vz-success"]' class="apex-charts" dir="ltr"></div>
+									</div>
+								</div><!-- end card body -->
+							</div><!-- end card -->
+						</div><!-- end col -->
+					</div><!-- end row -->
+				</div><!-- end col -->
+			</div><!-- end row -->
+
+		</div> <!-- end .h-100-->
+	</div> <!-- end col -->
+</div>
+@section Scripts {
+	<!-- projects js -->
+	<script src="~/adminLTE/js/pages/dashboard-projects.init.js" asp-append-version="true"></script>
+}
