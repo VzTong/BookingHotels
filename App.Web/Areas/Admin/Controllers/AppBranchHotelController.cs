@@ -72,8 +72,9 @@ namespace App.Web.Areas.Admin.Controllers
 			}
 			try
 			{
-				//model.Img = model.Img == null ? $"{HttpContext.Request.Scheme}://{HttpContext.Request.Host}" : model.Img;
-				model.Img = UploadFile(model.ImgPath, env.WebRootPath);
+				model.IdMap = model.IdMap == null ? $"{HttpContext.Request.Scheme}://{HttpContext.Request.Host}" : model.IdMap;
+
+				model.Img = model.IdMap == null ? null : UploadFile(model.ImgPath, env.WebRootPath);
 
 				var now = DateTime.Now;
 				var user = CurrentUserId;
@@ -91,6 +92,88 @@ namespace App.Web.Areas.Admin.Controllers
 				LogException(ex);
 				return RedirectToAction(nameof(Index), ROUTE_FOR_AREA);
 			}
+		}
+
+		[AppAuthorize(AuthConst.AppBranchHotel.UPDATE)]
+		[HttpPost]
+		public async Task<IActionResult> Update(AddOrUpdateBranchHotelVM model, [FromServices] IWebHostEnvironment env)
+		{
+			var branch = await _repository.FindAsync<AppBranchHotel>((int)model.Id);
+			if (!ModelState.IsValid)
+			{
+				SetErrorMesg(MODEL_STATE_INVALID_MESG, true);
+				return RedirectToAction(nameof(Index), ROUTE_FOR_AREA);
+			}
+			if (branch == null)
+			{
+				SetErrorMesg(PAGE_NOT_FOUND_MESG);
+				return RedirectToAction(nameof(Index), ROUTE_FOR_AREA);
+			}
+			if (await _repository.AnyAsync<AppBranchHotel>(u => u.Address.ToLower().Equals(model.Address.ToLower()) && u.Address != branch.Address && u.DeletedDate == null))
+			{
+				SetErrorMesg("Chi nhánh này đã tồn tại!");
+				return RedirectToAction(nameof(Index), ROUTE_FOR_AREA);
+			}
+			try
+			{
+				model.IdMap = model.IdMap == null ? $"{HttpContext.Request.Scheme}://{HttpContext.Request.Host}" : model.IdMap;
+				if (model.ImgPath != null && model.ImgPath.Length > 0)
+				{
+					// Xóa ảnh cũ nếu tồn tại
+					if (!string.IsNullOrEmpty(branch.Img))
+					{
+						var oldImagePath = Path.Combine(env.WebRootPath, branch.Img.TrimStart('/'));
+						if (System.IO.File.Exists(oldImagePath))
+						{
+							System.IO.File.Delete(oldImagePath);
+						}
+					}
+
+					// Tải lên ảnh mới và cập nhật đường dẫn
+					model.Img = UploadFile(model.ImgPath, env.WebRootPath);
+				}
+				else
+				{
+					model.Img = branch.Img;
+				}
+
+				// Cập nhật các thuộc tính khác của branch
+				_mapper.Map<AddOrUpdateBranchHotelVM, AppBranchHotel>(model, branch);
+
+				branch.Slug = branch.Name.Slugify();
+				branch.UpdatedBy = CurrentUserId;
+				branch.UpdatedDate = DateTime.Now;
+
+				await _repository.UpdateAsync(branch);
+				SetSuccessMesg($"Cập nhật chi nhánh ◜{branch.Name} - {branch.Address}◞ thành công!");
+				return RedirectToAction(nameof(Index), ROUTE_FOR_AREA);
+			}
+			catch (Exception ex)
+			{
+				LogException(ex);
+				return RedirectToAction(nameof(Index), ROUTE_FOR_AREA);
+			}
+		}
+
+		[AppAuthorize(AuthConst.AppBranchHotel.DELETE)]
+		public async Task<IActionResult> Delete(int id)
+		{
+			var branch = await _repository.FindAsync<AppBranchHotel>(id);
+			if (branch == null)
+			{
+				SetErrorMesg("Chi nhánh này không tồn tại hoặc đã được xóa trước đó");
+				return RedirectToAction(nameof(Index), ROUTE_FOR_AREA);
+			}
+			// Gỡ khóa ngoại
+			branch.HotelId = null;
+
+			await _repository.DeleteAsync(branch);
+			SetSuccessMesg($"Chi nhánh '{branch.Name}' được xóa thành công");
+			if (Referer != null)
+			{
+				return Redirect(Referer);
+			}
+			return RedirectToAction(nameof(Index), ROUTE_FOR_AREA);
 		}
 	}
 }
