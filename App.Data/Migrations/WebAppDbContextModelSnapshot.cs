@@ -94,7 +94,7 @@ namespace App.Data.Migrations
                         {
                             Id = 1,
                             Address = "123 Phố Lý Thái Tổ, Quận Hoàn Kiếm, Hà Nội, Việt Nam",
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Melia Hà Nội tại Hà Nội",
                             HotelId = 1,
                             Name = "Hà Nội",
@@ -106,7 +106,7 @@ namespace App.Data.Migrations
                         {
                             Id = 2,
                             Address = "456 Đường Nguyễn Huệ, Phường Bến Nghé, Quận 1, TP. Hồ Chí Minh, Việt Nam",
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Rex Hotel Sài Gòn tại TP. Hồ Chí Minh",
                             HotelId = 2,
                             Name = "TP. Hồ Chí Minh",
@@ -118,7 +118,7 @@ namespace App.Data.Migrations
                         {
                             Id = 3,
                             Address = "789 Đường Bạch Đằng, Phường Hải Châu, Đà Nẵng, Việt Nam",
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Đà Nẵng Golden Bay tại Đà Nẵng",
                             HotelId = 3,
                             Name = "Đà Nẵng",
@@ -130,7 +130,7 @@ namespace App.Data.Migrations
                         {
                             Id = 4,
                             Address = "101 Đường Trần Phú, Thành phố Nha Trang, Khánh Hòa, Việt Nam",
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Nha Trang Lodge tại Nha Trang",
                             HotelId = 4,
                             Name = "Nha Trang",
@@ -142,7 +142,7 @@ namespace App.Data.Migrations
                         {
                             Id = 5,
                             Address = "202 Đường Lê Đại Hành, Quận Hồng Bàng, Hải Phòng, Việt Nam",
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Imperial Hải Phòng tại Hải Phòng",
                             HotelId = 5,
                             Name = "Hải Phòng",
@@ -154,7 +154,7 @@ namespace App.Data.Migrations
                         {
                             Id = 6,
                             Address = "600 Đường 5th Ave, New York, NY 10020, USA",
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Langham Hotel tại New York",
                             HotelId = 6,
                             Name = "New York",
@@ -166,7 +166,7 @@ namespace App.Data.Migrations
                         {
                             Id = 7,
                             Address = "123 Đường Chuo, Minato City, Tokyo, Nhật Bản",
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của The Peninsula Tokyo tại Tokyo",
                             HotelId = 7,
                             Name = "Tokyo",
@@ -178,7 +178,7 @@ namespace App.Data.Migrations
                         {
                             Id = 8,
                             Address = "700 Boulevard Kukulcan, Cancun, Mexico",
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của The Ritz-Carlton tại Cancun",
                             HotelId = 8,
                             Name = "Cancun",
@@ -190,7 +190,7 @@ namespace App.Data.Migrations
                         {
                             Id = 9,
                             Address = "500 South Florida Avenue, Miami, FL 33131, USA",
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của The Biltmore Miami tại Miami",
                             HotelId = 9,
                             Name = "Miami",
@@ -202,7 +202,7 @@ namespace App.Data.Migrations
                         {
                             Id = 10,
                             Address = "70 Avenue de La Bourdonnais, 75007 Paris, Pháp",
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Shangri-La tại Paris",
                             HotelId = 10,
                             Name = "Paris",
@@ -214,7 +214,7 @@ namespace App.Data.Migrations
                         {
                             Id = 11,
                             Address = "747-7, Sinsa-dong, Gangnam-gu, Seoul, Hàn Quốc",
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Grand Hyatt tại Seoul",
                             HotelId = 11,
                             Name = "Seoul",
@@ -226,7 +226,7 @@ namespace App.Data.Migrations
                         {
                             Id = 12,
                             Address = "123, 123/1-3, Thanon Ratchadamri, Lumphini, Pathum Wan, Bangkok, Thái Lan",
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Four Seasons tại Bangkok",
                             HotelId = 12,
                             Name = "Bangkok",
@@ -238,7 +238,7 @@ namespace App.Data.Migrations
                         {
                             Id = 13,
                             Address = "2-6-1 Nishishinjuku, Shinjuku City, Tokyo, Nhật Bản",
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Hilton tại Tokyo",
                             HotelId = 13,
                             Name = "Tokyo",
@@ -250,7 +250,7 @@ namespace App.Data.Migrations
                         {
                             Id = 14,
                             Address = "1 Austin Road West, Tsim Sha Tsui, Hong Kong",
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của W Hong Kong tại Hong Kong",
                             HotelId = 14,
                             Name = "Hong Kong",
@@ -262,7 +262,7 @@ namespace App.Data.Migrations
                         {
                             Id = 15,
                             Address = "Nusa Dua, Bali, Indonesia",
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của The St. Regis tại Bali",
                             HotelId = 15,
                             Name = "Bali",
@@ -274,7 +274,7 @@ namespace App.Data.Migrations
                         {
                             Id = 16,
                             Address = "48-5, Thanon Ruam Rudee, Lumphini, Pathum Wan, Bangkok, Thái Lan",
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Mandarin Oriental tại Bangkok",
                             HotelId = 16,
                             Name = "Bangkok",
@@ -286,7 +286,7 @@ namespace App.Data.Migrations
                         {
                             Id = 17,
                             Address = "228 Rue de Rivoli, 75001 Paris, Pháp",
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Le Meurice tại Paris",
                             HotelId = 17,
                             Name = "Paris",
@@ -298,7 +298,7 @@ namespace App.Data.Migrations
                         {
                             Id = 18,
                             Address = "Balaji Towers, Juhu Beach, Mumbai, Ấn Độ",
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của The Oberoi tại Mumbai",
                             HotelId = 18,
                             Name = "Mumbai",
@@ -310,7 +310,7 @@ namespace App.Data.Migrations
                         {
                             Id = 19,
                             Address = "7 Hickson Rd, Millers Point, Sydney, Australia",
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Park Hyatt tại Sydney",
                             HotelId = 19,
                             Name = "Sydney",
@@ -322,7 +322,7 @@ namespace App.Data.Migrations
                         {
                             Id = 20,
                             Address = "5/5-7 Thanon Sukhumvit 23, Khlong Toei Nuea, Watthana, Bangkok, Thái Lan",
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của The Sukhothai tại Bangkok",
                             HotelId = 20,
                             Name = "Bangkok",
@@ -334,7 +334,7 @@ namespace App.Data.Migrations
                         {
                             Id = 21,
                             Address = "15 Place Vendôme, 75001 Paris, Pháp",
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Ritz Paris tại Paris",
                             HotelId = 21,
                             Name = "Paris",
@@ -346,7 +346,7 @@ namespace App.Data.Migrations
                         {
                             Id = 22,
                             Address = "Mahalaxmi, Mumbai, Ấn Độ",
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Taj Mahal Palace tại Mumbai",
                             HotelId = 22,
                             Name = "Mumbai",
@@ -358,7 +358,7 @@ namespace App.Data.Migrations
                         {
                             Id = 23,
                             Address = "New York, USA",
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của St. Regis tại New York",
                             HotelId = 23,
                             Name = "New York",
@@ -370,7 +370,7 @@ namespace App.Data.Migrations
                         {
                             Id = 24,
                             Address = "Dubai, UAE",
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Jumeirah tại Dubai",
                             HotelId = 24,
                             Name = "Dubai",
@@ -382,7 +382,7 @@ namespace App.Data.Migrations
                         {
                             Id = 25,
                             Address = "Italy",
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Belmond Hotel Caruso tại Italy",
                             HotelId = 25,
                             Name = "Italy",
@@ -394,7 +394,7 @@ namespace App.Data.Migrations
                         {
                             Id = 26,
                             Address = "Phuket, Thái Lan",
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Banyan Tree tại Phuket",
                             HotelId = 26,
                             Name = "Phuket",
@@ -406,7 +406,7 @@ namespace App.Data.Migrations
                         {
                             Id = 27,
                             Address = "Dubai, UAE",
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của The Address tại Dubai",
                             HotelId = 27,
                             Name = "Dubai",
@@ -418,7 +418,7 @@ namespace App.Data.Migrations
                         {
                             Id = 28,
                             Address = "Bangkok, Thái Lan",
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Shangri-La tại Bangkok",
                             HotelId = 28,
                             Name = "Bangkok",
@@ -430,7 +430,7 @@ namespace App.Data.Migrations
                         {
                             Id = 29,
                             Address = "Bali, Indonesia",
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của The Oberoi tại Bali",
                             HotelId = 29,
                             Name = "Bali",
@@ -442,7 +442,7 @@ namespace App.Data.Migrations
                         {
                             Id = 30,
                             Address = "Tokyo, Nhật Bản",
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Aman tại Tokyo",
                             HotelId = 30,
                             Name = "Tokyo",
@@ -454,7 +454,7 @@ namespace App.Data.Migrations
                         {
                             Id = 31,
                             Address = "Hà Nội, Việt Nam",
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Rex Hotel Saigon tại Hà Nội",
                             HotelId = 2,
                             Name = "Hà Nội",
@@ -466,7 +466,7 @@ namespace App.Data.Migrations
                         {
                             Id = 32,
                             Address = "TP. Hồ Chí Minh, Việt Nam",
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Đà Nẵng Golden Bay tại TP. Hồ Chí Minh",
                             HotelId = 3,
                             Name = "TP. Hồ Chí Minh",
@@ -478,7 +478,7 @@ namespace App.Data.Migrations
                         {
                             Id = 33,
                             Address = "Đà Nẵng, Việt Nam",
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Nha Trang Lodge tại Đà Nẵng",
                             HotelId = 4,
                             Name = "Đà Nẵng",
@@ -490,7 +490,7 @@ namespace App.Data.Migrations
                         {
                             Id = 34,
                             Address = "Nha Trang, Việt Nam",
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Imperial Hải Phòng tại Nha Trang",
                             HotelId = 5,
                             Name = "Nha Trang",
@@ -502,7 +502,7 @@ namespace App.Data.Migrations
                         {
                             Id = 35,
                             Address = "Hải Phòng, Việt Nam",
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Langham Hotel tại Hải Phòng",
                             HotelId = 6,
                             Name = "Hải Phòng",
@@ -514,7 +514,7 @@ namespace App.Data.Migrations
                         {
                             Id = 36,
                             Address = "New York, USA",
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của The Peninsula tại New York",
                             HotelId = 7,
                             Name = "New York",
@@ -526,7 +526,7 @@ namespace App.Data.Migrations
                         {
                             Id = 37,
                             Address = "Tokyo, Nhật Bản",
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của The Ritz-Carlton tại Tokyo",
                             HotelId = 8,
                             Name = "Tokyo",
@@ -538,7 +538,7 @@ namespace App.Data.Migrations
                         {
                             Id = 38,
                             Address = "Cancun, Mexico",
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của The Biltmore tại Cancun",
                             HotelId = 9,
                             Name = "Cancun",
@@ -550,7 +550,7 @@ namespace App.Data.Migrations
                         {
                             Id = 39,
                             Address = "Miami, USA",
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Shangri-La tại Miami",
                             HotelId = 10,
                             Name = "Miami",
@@ -562,7 +562,7 @@ namespace App.Data.Migrations
                         {
                             Id = 40,
                             Address = "Paris, Pháp",
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Grand Hyatt tại Paris",
                             HotelId = 11,
                             Name = "Paris",
@@ -574,7 +574,7 @@ namespace App.Data.Migrations
                         {
                             Id = 41,
                             Address = "Seoul, Hàn Quốc",
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Four Seasons tại Seoul",
                             HotelId = 12,
                             Name = "Seoul",
@@ -586,7 +586,7 @@ namespace App.Data.Migrations
                         {
                             Id = 42,
                             Address = "Bangkok, Thái Lan",
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Hilton tại Bangkok",
                             HotelId = 13,
                             Name = "Bangkok",
@@ -598,7 +598,7 @@ namespace App.Data.Migrations
                         {
                             Id = 43,
                             Address = "Tokyo, Nhật Bản",
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của W Hong Kong tại Tokyo",
                             HotelId = 14,
                             Name = "Tokyo",
@@ -610,7 +610,7 @@ namespace App.Data.Migrations
                         {
                             Id = 44,
                             Address = "Hong Kong",
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của The St. Regis tại Hong Kong",
                             HotelId = 15,
                             Name = "Hong Kong",
@@ -622,7 +622,7 @@ namespace App.Data.Migrations
                         {
                             Id = 45,
                             Address = "Bali, Indonesia",
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Mandarin Oriental tại Bali",
                             HotelId = 16,
                             Name = "Bali",
@@ -634,7 +634,7 @@ namespace App.Data.Migrations
                         {
                             Id = 46,
                             Address = "Bangkok, Thái Lan",
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Ritz tại Bangkok",
                             HotelId = 17,
                             Name = "Bangkok",
@@ -646,7 +646,7 @@ namespace App.Data.Migrations
                         {
                             Id = 47,
                             Address = "Paris, Pháp",
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của The Oberoi tại Paris",
                             HotelId = 18,
                             Name = "Paris",
@@ -658,7 +658,7 @@ namespace App.Data.Migrations
                         {
                             Id = 48,
                             Address = "Mumbai, Ấn Độ",
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Park Hyatt tại Mumbai",
                             HotelId = 19,
                             Name = "Mumbai",
@@ -670,7 +670,7 @@ namespace App.Data.Migrations
                         {
                             Id = 49,
                             Address = "Sydney, Australia",
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của The Sukhothai tại Sydney",
                             HotelId = 20,
                             Name = "Sydney",
@@ -682,7 +682,7 @@ namespace App.Data.Migrations
                         {
                             Id = 50,
                             Address = "Bangkok, Thái Lan",
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Ritz tại Bangkok",
                             HotelId = 21,
                             Name = "Bangkok",
@@ -694,7 +694,7 @@ namespace App.Data.Migrations
                         {
                             Id = 51,
                             Address = "Bali, Indonesia",
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của The Leela tại Bali",
                             HotelId = 22,
                             Name = "Bali",
@@ -706,7 +706,7 @@ namespace App.Data.Migrations
                         {
                             Id = 52,
                             Address = "Tokyo, Nhật Bản",
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của St. Regis tại Tokyo",
                             HotelId = 23,
                             Name = "Tokyo",
@@ -718,7 +718,7 @@ namespace App.Data.Migrations
                         {
                             Id = 53,
                             Address = "New York, USA",
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Jumeirah tại New York",
                             HotelId = 24,
                             Name = "New York",
@@ -730,7 +730,7 @@ namespace App.Data.Migrations
                         {
                             Id = 54,
                             Address = "Dubai, UAE",
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Belmond Hotel Caruso tại Dubai",
                             HotelId = 25,
                             Name = "Dubai",
@@ -742,7 +742,7 @@ namespace App.Data.Migrations
                         {
                             Id = 55,
                             Address = "Italy",
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Banyan Tree tại Italy",
                             HotelId = 26,
                             Name = "Italy",
@@ -754,7 +754,7 @@ namespace App.Data.Migrations
                         {
                             Id = 56,
                             Address = "Phuket, Thái Lan",
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của The Address tại Phuket",
                             HotelId = 27,
                             Name = "Phuket",
@@ -766,7 +766,7 @@ namespace App.Data.Migrations
                         {
                             Id = 57,
                             Address = "Dubai, UAE",
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Shangri-La tại Dubai",
                             HotelId = 28,
                             Name = "Dubai",
@@ -778,7 +778,7 @@ namespace App.Data.Migrations
                         {
                             Id = 58,
                             Address = "Bangkok, Thái Lan",
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của The Oberoi tại Bangkok",
                             HotelId = 29,
                             Name = "Bangkok",
@@ -790,7 +790,7 @@ namespace App.Data.Migrations
                         {
                             Id = 59,
                             Address = "Bali, Indonesia",
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Aman tại Bali",
                             HotelId = 30,
                             Name = "Bali",
@@ -865,7 +865,7 @@ namespace App.Data.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Khách sạn 5 sao sang trọng tại Hà Nội.",
                             Email = "info@meliahanoi.com",
                             ImgBanner = "https://du-lich.chudu24.com/f/m/2105/20/khach-san-melia-hanoi.jpg",
@@ -876,7 +876,7 @@ namespace App.Data.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Khách sạn lịch sử và sang trọng tại TP. Hồ Chí Minh.",
                             Email = "info@rexhotel.com.vn",
                             ImgBanner = "https://images2.thanhnien.vn/Uploaded/ttt/images/Content/tan-huong/xach-vali-di/2016_12_w2/rex_hotel/Exterior_Rex_9.jpg",
@@ -887,7 +887,7 @@ namespace App.Data.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Khách sạn ven biển tuyệt đẹp tại Đà Nẵng.",
                             Email = "info@goldenbaydanang.com",
                             ImgBanner = "https://www.arttravel.com.vn/upload/news/golden-bay-(4)-9448.jpg",
@@ -898,7 +898,7 @@ namespace App.Data.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Khách sạn với tầm nhìn ra biển tuyệt đẹp tại Nha Trang.",
                             Email = "info@nhatranglodge.com.vn",
                             ImgBanner = "https://cf.bstatic.com/xdata/images/hotel/max1024x768/81022752.jpg?k=d69140451157e29655c5d19999354e86b95d3654c7ffbe68081070bc8e041518&o=&hp=1",
@@ -909,7 +909,7 @@ namespace App.Data.Migrations
                         new
                         {
                             Id = 5,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Khách sạn sang trọng tại trung tâm Hải Phòng.",
                             Email = "info@imperialhotel.com.vn",
                             ImgBanner = "https://cf.bstatic.com/xdata/images/hotel/max1024x768/467550547.webp?k=df9413c20e4dc78e4dd3a98618e2815ca246f2bc27a33edf99d9f1bae10e994c&o=",
@@ -920,7 +920,7 @@ namespace App.Data.Migrations
                         new
                         {
                             Id = 6,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Khách sạn sang trọng tại New York.",
                             Email = "info@langhamhotels.com",
                             ImgBanner = "https://cdn3.ivivu.com/2023/07/The-Langham-New-York-Fifth-Avenue-ivivu.jpg",
@@ -931,7 +931,7 @@ namespace App.Data.Migrations
                         new
                         {
                             Id = 7,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Khách sạn sang trọng tại Tokyo.",
                             Email = "info@peninsula.com",
                             ImgBanner = "https://tokyo-marunouchi.jp/dmo_wp_YfehP9/wp-content/uploads/2017/03/banket_pe_07.jpg",
@@ -942,7 +942,7 @@ namespace App.Data.Migrations
                         new
                         {
                             Id = 8,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Khách sạn sang trọng bên bờ biển Cancun.",
                             Email = "info@ritzcarlton.com",
                             ImgBanner = "https://ritzcarlton.cancunhotelsweb.net/data/Pics/1080x700w/15670/1567035/1567035848/pic-ritz-carlton-hotel-cancun-5.JPEG",
@@ -953,7 +953,7 @@ namespace App.Data.Migrations
                         new
                         {
                             Id = 9,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Khách sạn nổi tiếng tại Miami, Florida.",
                             Email = "info@biltmorehotel.com",
                             ImgBanner = "https://biltmore-coral-gables.hotelmix.vn/data/Photos/1920x1080/2004/200471/200471074/Biltmore-Hotel-Miami-Coral-Gables-Exterior.JPEG",
@@ -964,7 +964,7 @@ namespace App.Data.Migrations
                         new
                         {
                             Id = 10,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Khách sạn cao cấp tại Paris, Pháp.",
                             Email = "info@shangri-la.com",
                             ImgBanner = "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/36/f3/e2/caption.jpg?w=1200&h=-1&s=1",
@@ -975,7 +975,7 @@ namespace App.Data.Migrations
                         new
                         {
                             Id = 11,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Khách sạn sang trọng tại Seoul.",
                             Email = "info@hyatt.com",
                             ImgBanner = "https://www.americanexpress.com/en-us/travel/discover/photos/197/56953/1600/GHS_Exterior.jpg?ch=560",
@@ -986,7 +986,7 @@ namespace App.Data.Migrations
                         new
                         {
                             Id = 12,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Khách sạn sang trọng tại Bangkok.",
                             Email = "info@fourseasons.com",
                             ImgBanner = "https://theluxurytraveller.com/wp-content/uploads/2022/05/FS-Bangkok-144-1080x480.jpg",
@@ -997,7 +997,7 @@ namespace App.Data.Migrations
                         new
                         {
                             Id = 13,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Khách sạn đẳng cấp tại Tokyo.",
                             Email = "info@hilton.com",
                             ImgBanner = "https://cf.bstatic.com/xdata/images/hotel/max1024x768/483824171.jpg?k=3fc70cd0fa564972470a3a08b248feff8fa34e9f8b3f2e0343f5105499238bee&o=&hp=1",
@@ -1008,7 +1008,7 @@ namespace App.Data.Migrations
                         new
                         {
                             Id = 14,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Khách sạn hiện đại tại Hong Kong.",
                             Email = "info@whotels.com",
                             ImgBanner = "https://cache.marriott.com/content/dam/marriott-renditions/HKGWH/hkgwh-pool-exterior-5271-hor-feat.jpg?output-quality=70&interpolation=progressive-bilinear&downsize=1920px:*",
@@ -1019,7 +1019,7 @@ namespace App.Data.Migrations
                         new
                         {
                             Id = 15,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Khách sạn tuyệt đẹp tại Bali.",
                             Email = "info@stregis.com",
                             ImgBanner = "https://res.klook.com/images/fl_lossy.progressive,q_65/c_fill,w_1200,h_630/w_80,x_15,y_15,g_south_west,l_Klook_water_br_trans_yhcmh3/activities/aqglngrp8i0ecxrlwxsm/Tr%E1%BA%A3i%20nghi%E1%BB%87m%20%E1%BA%A9m%20th%E1%BB%B1c%20t%E1%BA%A1i%20The%20St.%20Regis%20Bali%20Resort.jpg",
@@ -1030,7 +1030,7 @@ namespace App.Data.Migrations
                         new
                         {
                             Id = 16,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Khách sạn sang trọng tại Bangkok.",
                             Email = "info@mandarinoriental.com",
                             ImgBanner = "https://upload.wikimedia.org/wikipedia/commons/e/e5/Mandarin_Oriental_Bangkok_Bang_Rak.jpg",
@@ -1041,7 +1041,7 @@ namespace App.Data.Migrations
                         new
                         {
                             Id = 17,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Khách sạn cổ điển tại Paris.",
                             Email = "info@dorchestercollection.com",
                             ImgBanner = "https://strawberrymilkevents.com/wp-content/uploads/2014/03/le-meurice-paris-1.jpg",
@@ -1052,7 +1052,7 @@ namespace App.Data.Migrations
                         new
                         {
                             Id = 18,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Khách sạn sang trọng tại Mumbai.",
                             Email = "info@oberoihotels.com",
                             ImgBanner = "https://cf.bstatic.com/xdata/images/hotel/max500/28759044.jpg?k=4a3e476214895d86a0e71808d9eb5b85acaebe0cbff06bbd2ecdbb3054d98600&o=&hp=1",
@@ -1063,7 +1063,7 @@ namespace App.Data.Migrations
                         new
                         {
                             Id = 19,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Khách sạn ven sông tại Sydney.",
                             Email = "info@hyatt.com",
                             ImgBanner = "https://www.jacadatravel.com/wp-content/uploads/fly-images/157913/park-hyatt-sydney-exterior-1600x500-cc.jpg",
@@ -1074,7 +1074,7 @@ namespace App.Data.Migrations
                         new
                         {
                             Id = 20,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Khách sạn hiện đại tại Bangkok.",
                             Email = "info@sukhothai.com",
                             ImgBanner = "https://kyluc.vn/Userfiles/Upload/images/The%20Sukhothai%20Bangkok.jpg",
@@ -1085,7 +1085,7 @@ namespace App.Data.Migrations
                         new
                         {
                             Id = 21,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Khách sạn sang trọng tại Paris.",
                             Email = "info@ritzparis.com",
                             ImgBanner = "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/H%C3%B4tel_Ritz.jpg/1200px-H%C3%B4tel_Ritz.jpg",
@@ -1096,7 +1096,7 @@ namespace App.Data.Migrations
                         new
                         {
                             Id = 22,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Khách sạn 5 sao tại Mumbai.",
                             Email = "info@theleela.com",
                             ImgBanner = "https://d25wybtmjgh8lz.cloudfront.net/sites/default/files/styles/ph_pdp_subheader_1000_x_333/public/property/img-mastheads/bomlm_4.jpg?h=7bc7d4e1",
@@ -1107,7 +1107,7 @@ namespace App.Data.Migrations
                         new
                         {
                             Id = 23,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Khách sạn sang trọng tại New York.",
                             Email = "info@stregis.com",
                             ImgBanner = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/The_St._Regis_Hotel_New_York.JPG/1200px-The_St._Regis_Hotel_New_York.JPG",
@@ -1118,7 +1118,7 @@ namespace App.Data.Migrations
                         new
                         {
                             Id = 24,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Khách sạn sang trọng tại Dubai.",
                             Email = "info@jumeirah.com",
                             ImgBanner = "https://cf.bstatic.com/xdata/images/district/1020x340/45235.jpg?k=daf29066fcf29a01b738ead0998e878a221a3176c033e82a170da725278bc69c&o=",
@@ -1129,7 +1129,7 @@ namespace App.Data.Migrations
                         new
                         {
                             Id = 25,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Khách sạn cổ điển tại Italy.",
                             Email = "info@belmond.com",
                             ImgBanner = "https://www.truetrips.com/images/api/hotels/Amalfi/Belmond_Hotel_Caruso/The_Balmoral_Caruso_bn_02.jpg",
@@ -1140,7 +1140,7 @@ namespace App.Data.Migrations
                         new
                         {
                             Id = 26,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Khách sạn 5 sao tại Phuket.",
                             Email = "info@banyantree.com",
                             ImgBanner = "https://greenmore.vn/wp-content/uploads/2019/12/canh-quan-resort-nghi-duong-banyan-tree-phuket-05-compressed.jpg",
@@ -1151,7 +1151,7 @@ namespace App.Data.Migrations
                         new
                         {
                             Id = 27,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Khách sạn sang trọng tại Dubai.",
                             Email = "info@theaddress.com",
                             ImgBanner = "https://cf.bstatic.com/xdata/images/hotel/max1024x768/147760688.jpg?k=9604a9318b078228b302c62aaefdfe79aa03688c6d00b953ddc65ab46a337c12&o=&hp=1",
@@ -1162,7 +1162,7 @@ namespace App.Data.Migrations
                         new
                         {
                             Id = 28,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Khách sạn bên bờ sông tại Bangkok.",
                             Email = "info@shangri-la.com",
                             ImgBanner = "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/9c/cc/45/shangri-la-bangkok.jpg?w=700&h=-1&s=1",
@@ -1173,7 +1173,7 @@ namespace App.Data.Migrations
                         new
                         {
                             Id = 29,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Khách sạn tuyệt đẹp tại Bali.",
                             Email = "info@oberoihotels.com",
                             ImgBanner = "https://www.hotelsinheaven.com/wp-content/uploads/2020/05/the-oberoi-beach-resort-bali-main-pool-beach-scaled-1256x1000.jpg",
@@ -1184,7 +1184,7 @@ namespace App.Data.Migrations
                         new
                         {
                             Id = 30,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Khách sạn 5 sao tại Tokyo.",
                             Email = "info@mandarinoriental.com",
                             ImgBanner = "https://cf2.bstatic.com/xdata/images/hotel/max1280x900/565155779.jpg?k=6597ca16a17e31dfa517cd3e90b398fd52a5773dfe28ff2b3e5a0baa15f1d89c&o=&hp=1",
@@ -1383,74 +1383,83 @@ namespace App.Data.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Tivi 4K 55 inch",
                             Name = "Tivi",
                             TypeEquipmentId = 1,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Điều hòa 2 chiều",
                             Name = "Điều hòa",
                             TypeEquipmentId = 1,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 3,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Bàn làm việc gỗ",
                             Name = "Bàn làm việc",
                             TypeEquipmentId = 1,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 4,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Ghế xoay",
                             Name = "Ghế",
                             TypeEquipmentId = 1,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 5,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Tủ lạnh mini 100 lít",
                             Name = "Tủ lạnh mini",
                             TypeEquipmentId = 1,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 6,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Bồn cầu thông minh",
                             Name = "Bồn cầu",
                             TypeEquipmentId = 2,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 7,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Chậu rửa thông minh",
                             Name = "Chậu rửa",
                             TypeEquipmentId = 2,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 8,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Vòi sen tăng áp đảo chiều",
                             Name = "Vòi sen",
                             TypeEquipmentId = 2,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 9,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Bồn tắm nằm",
                             Name = "Bồn tắm",
                             TypeEquipmentId = 2,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
                 });
 
@@ -1493,16 +1502,16 @@ namespace App.Data.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Trang thiết bị phòng khách",
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Thiết bị vệ sinh",
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
                 });
 
@@ -1697,7 +1706,7 @@ namespace App.Data.Migrations
                             Id = 1,
                             BringPet = false,
                             CreatedBy = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Phòng nhỏ cho 1 người, trang bị đầy đủ tiện nghi.",
                             PeopleStay = 1,
                             RoomTypeName = "Phòng Đơn"
@@ -1707,7 +1716,7 @@ namespace App.Data.Migrations
                             Id = 2,
                             BringPet = false,
                             CreatedBy = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Phòng cho 2 người, thích hợp cho cặp đôi hoặc bạn bè.",
                             PeopleStay = 2,
                             RoomTypeName = "Phòng Đôi"
@@ -1717,7 +1726,7 @@ namespace App.Data.Migrations
                             Id = 3,
                             BringPet = true,
                             CreatedBy = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Phòng rộng rãi cho gia đình, có giường đôi và giường đơn.",
                             PeopleStay = 4,
                             RoomTypeName = "Phòng Gia Đình"
@@ -1727,7 +1736,7 @@ namespace App.Data.Migrations
                             Id = 4,
                             BringPet = false,
                             CreatedBy = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Phòng cao cấp với tiện nghi hiện đại và tầm nhìn đẹp.",
                             PeopleStay = 2,
                             RoomTypeName = "Phòng Sang Trọng"
@@ -1737,7 +1746,7 @@ namespace App.Data.Migrations
                             Id = 5,
                             BringPet = false,
                             CreatedBy = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Phòng VIP với các dịch vụ đặc biệt và riêng tư.",
                             PeopleStay = 2,
                             RoomTypeName = "Phòng VIP"
@@ -1792,28 +1801,28 @@ namespace App.Data.Migrations
                         {
                             Id = 3,
                             CanDelete = true,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Khách hàng",
                             Name = "Khách hàng",
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 1,
                             CanDelete = false,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Quản trị toàn bộ hệ thống",
                             Name = "Quản trị hệ thống",
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 2,
                             CanDelete = true,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Desc = "Nhân viên",
-                            Name = "Nhân viên",
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Nhân viên quản lý thiết bị",
+                            Name = "Nhân viên thiết bị",
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
                 });
 
@@ -1862,577 +1871,641 @@ namespace App.Data.Migrations
                         {
                             Id = 1,
                             AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 1101,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 2,
                             AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 1102,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 3,
                             AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 1103,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 4,
                             AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 1104,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 5,
                             AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 1105,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 6,
                             AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 1001,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 7,
                             AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 1002,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 8,
                             AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 1003,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 9,
                             AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 1004,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 10,
                             AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 1005,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 11,
                             AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 1006,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 12,
                             AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 1007,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 13,
                             AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 1008,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 14,
                             AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 1201,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 15,
                             AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 1301,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 16,
                             AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 1302,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 17,
                             AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 1303,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 18,
                             AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 1304,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 19,
                             AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 1305,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 20,
                             AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 1306,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 21,
                             AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 1307,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 22,
                             AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 1401,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 23,
                             AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 1402,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 24,
                             AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 1403,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 25,
                             AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 1404,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 26,
                             AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 1501,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 27,
                             AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 1502,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 28,
                             AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 1503,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 29,
                             AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 1504,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 30,
                             AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 1601,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 31,
                             AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 1602,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 32,
                             AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 1603,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 33,
                             AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 1604,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 34,
                             AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 1605,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 35,
                             AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 1606,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 36,
                             AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 1701,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 37,
                             AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 1702,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 38,
                             AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 1703,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 39,
                             AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 1704,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 40,
                             AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 1705,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 41,
                             AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 1706,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 42,
                             AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 1801,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 43,
                             AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 1802,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 44,
                             AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 1803,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 45,
                             AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 1804,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 46,
                             AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 1901,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 47,
                             AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 1902,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 48,
                             AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 1903,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 49,
                             AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 1904,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 50,
                             AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 2001,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 51,
                             AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 2002,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 52,
                             AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 2003,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 53,
                             AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 2004,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 54,
                             AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 2401,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 55,
                             AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 2402,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 56,
                             AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 2403,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 57,
                             AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 2404,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 58,
                             AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 2101,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 59,
                             AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 2102,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 60,
                             AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 2103,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 61,
                             AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 2104,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 62,
                             AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 2105,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 63,
                             AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 2201,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 64,
                             AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 2202,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 65,
                             AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 2203,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 66,
                             AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 2204,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 67,
                             AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 2205,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 68,
                             AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 2301,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 69,
                             AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 2302,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 70,
                             AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 2303,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 71,
                             AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 2304,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 72,
                             AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 2305,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 73,
+                            AppRoleId = 2,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1901,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 74,
+                            AppRoleId = 2,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1902,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 75,
+                            AppRoleId = 2,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1903,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 76,
+                            AppRoleId = 2,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1904,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 77,
+                            AppRoleId = 2,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 2001,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 78,
+                            AppRoleId = 2,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 2002,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 79,
+                            AppRoleId = 2,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 2003,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 80,
+                            AppRoleId = 2,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 2004,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
                 });
 
@@ -2556,8 +2629,8 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "admin_test@gmail.com",
                             FullName = "Nguyễn Thanh Long",
-                            PasswordHash = new byte[] { 252, 107, 170, 202, 197, 153, 127, 105, 225, 76, 134, 72, 146, 37, 197, 157, 189, 177, 51, 112, 126, 245, 28, 5, 253, 163, 126, 217, 6, 213, 73, 236, 98, 8, 172, 162, 250, 100, 84, 101, 70, 235, 147, 60, 30, 58, 194, 142, 212, 227, 113, 45, 8, 44, 240, 78, 2, 82, 59, 226, 41, 194, 242, 97 },
-                            PasswordSalt = new byte[] { 103, 109, 112, 39, 151, 137, 69, 69, 236, 93, 114, 87, 124, 161, 59, 184, 7, 217, 254, 141, 17, 229, 40, 176, 82, 246, 115, 107, 111, 135, 113, 96, 222, 227, 171, 3, 93, 214, 4, 65, 7, 204, 143, 85, 69, 48, 222, 51, 185, 128, 216, 38, 136, 148, 46, 229, 218, 237, 246, 80, 94, 253, 73, 195, 39, 174, 91, 113, 103, 104, 212, 227, 74, 22, 180, 150, 249, 86, 186, 11, 14, 214, 101, 64, 209, 87, 207, 245, 214, 156, 143, 164, 228, 8, 164, 242, 208, 58, 77, 118, 187, 34, 125, 240, 54, 226, 109, 185, 221, 5, 114, 189, 83, 58, 178, 108, 138, 240, 8, 6, 142, 233, 56, 5, 71, 240, 150, 248 },
+                            PasswordHash = new byte[] { 73, 171, 70, 218, 243, 121, 232, 38, 253, 82, 43, 239, 214, 149, 27, 62, 27, 180, 102, 56, 96, 190, 118, 232, 146, 109, 168, 216, 44, 80, 127, 172, 128, 68, 221, 150, 171, 18, 99, 87, 173, 204, 141, 25, 26, 19, 35, 33, 28, 248, 214, 5, 103, 98, 241, 239, 76, 82, 86, 151, 95, 40, 172, 166 },
+                            PasswordSalt = new byte[] { 199, 175, 100, 164, 127, 202, 68, 241, 207, 250, 167, 95, 42, 61, 129, 44, 202, 151, 79, 148, 196, 54, 108, 173, 26, 240, 105, 252, 147, 17, 88, 179, 156, 105, 91, 154, 174, 105, 231, 223, 40, 233, 109, 143, 192, 25, 57, 181, 206, 106, 2, 9, 101, 54, 235, 234, 234, 26, 244, 40, 94, 135, 146, 75, 241, 102, 65, 67, 133, 76, 179, 114, 240, 83, 107, 147, 249, 227, 9, 118, 75, 15, 89, 89, 155, 241, 145, 255, 236, 109, 224, 75, 18, 11, 222, 188, 50, 192, 55, 90, 113, 229, 166, 22, 255, 150, 245, 215, 44, 143, 209, 215, 18, 216, 170, 183, 100, 211, 40, 207, 182, 69, 89, 154, 230, 12, 11, 144 },
                             PhoneNumber1 = "+84928666158",
                             PhoneNumber2 = "+84928666156",
                             UpdatedBy = -1,
@@ -2575,8 +2648,8 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "tranthib2001@gmail.com",
                             FullName = "Trần Chí Dũng",
-                            PasswordHash = new byte[] { 252, 107, 170, 202, 197, 153, 127, 105, 225, 76, 134, 72, 146, 37, 197, 157, 189, 177, 51, 112, 126, 245, 28, 5, 253, 163, 126, 217, 6, 213, 73, 236, 98, 8, 172, 162, 250, 100, 84, 101, 70, 235, 147, 60, 30, 58, 194, 142, 212, 227, 113, 45, 8, 44, 240, 78, 2, 82, 59, 226, 41, 194, 242, 97 },
-                            PasswordSalt = new byte[] { 103, 109, 112, 39, 151, 137, 69, 69, 236, 93, 114, 87, 124, 161, 59, 184, 7, 217, 254, 141, 17, 229, 40, 176, 82, 246, 115, 107, 111, 135, 113, 96, 222, 227, 171, 3, 93, 214, 4, 65, 7, 204, 143, 85, 69, 48, 222, 51, 185, 128, 216, 38, 136, 148, 46, 229, 218, 237, 246, 80, 94, 253, 73, 195, 39, 174, 91, 113, 103, 104, 212, 227, 74, 22, 180, 150, 249, 86, 186, 11, 14, 214, 101, 64, 209, 87, 207, 245, 214, 156, 143, 164, 228, 8, 164, 242, 208, 58, 77, 118, 187, 34, 125, 240, 54, 226, 109, 185, 221, 5, 114, 189, 83, 58, 178, 108, 138, 240, 8, 6, 142, 233, 56, 5, 71, 240, 150, 248 },
+                            PasswordHash = new byte[] { 73, 171, 70, 218, 243, 121, 232, 38, 253, 82, 43, 239, 214, 149, 27, 62, 27, 180, 102, 56, 96, 190, 118, 232, 146, 109, 168, 216, 44, 80, 127, 172, 128, 68, 221, 150, 171, 18, 99, 87, 173, 204, 141, 25, 26, 19, 35, 33, 28, 248, 214, 5, 103, 98, 241, 239, 76, 82, 86, 151, 95, 40, 172, 166 },
+                            PasswordSalt = new byte[] { 199, 175, 100, 164, 127, 202, 68, 241, 207, 250, 167, 95, 42, 61, 129, 44, 202, 151, 79, 148, 196, 54, 108, 173, 26, 240, 105, 252, 147, 17, 88, 179, 156, 105, 91, 154, 174, 105, 231, 223, 40, 233, 109, 143, 192, 25, 57, 181, 206, 106, 2, 9, 101, 54, 235, 234, 234, 26, 244, 40, 94, 135, 146, 75, 241, 102, 65, 67, 133, 76, 179, 114, 240, 83, 107, 147, 249, 227, 9, 118, 75, 15, 89, 89, 155, 241, 145, 255, 236, 109, 224, 75, 18, 11, 222, 188, 50, 192, 55, 90, 113, 229, 166, 22, 255, 150, 245, 215, 44, 143, 209, 215, 18, 216, 170, 183, 100, 211, 40, 207, 182, 69, 89, 154, 230, 12, 11, 144 },
                             PhoneNumber1 = "+84928666157",
                             PhoneNumber2 = "+84928666158",
                             UpdatedBy = -1,
@@ -2594,8 +2667,8 @@ namespace App.Data.Migrations
                             Email = "thanhnguyendt2000@gmail.com",
                             FullName = "John Smith",
                             Passport = "123456789",
-                            PasswordHash = new byte[] { 252, 107, 170, 202, 197, 153, 127, 105, 225, 76, 134, 72, 146, 37, 197, 157, 189, 177, 51, 112, 126, 245, 28, 5, 253, 163, 126, 217, 6, 213, 73, 236, 98, 8, 172, 162, 250, 100, 84, 101, 70, 235, 147, 60, 30, 58, 194, 142, 212, 227, 113, 45, 8, 44, 240, 78, 2, 82, 59, 226, 41, 194, 242, 97 },
-                            PasswordSalt = new byte[] { 103, 109, 112, 39, 151, 137, 69, 69, 236, 93, 114, 87, 124, 161, 59, 184, 7, 217, 254, 141, 17, 229, 40, 176, 82, 246, 115, 107, 111, 135, 113, 96, 222, 227, 171, 3, 93, 214, 4, 65, 7, 204, 143, 85, 69, 48, 222, 51, 185, 128, 216, 38, 136, 148, 46, 229, 218, 237, 246, 80, 94, 253, 73, 195, 39, 174, 91, 113, 103, 104, 212, 227, 74, 22, 180, 150, 249, 86, 186, 11, 14, 214, 101, 64, 209, 87, 207, 245, 214, 156, 143, 164, 228, 8, 164, 242, 208, 58, 77, 118, 187, 34, 125, 240, 54, 226, 109, 185, 221, 5, 114, 189, 83, 58, 178, 108, 138, 240, 8, 6, 142, 233, 56, 5, 71, 240, 150, 248 },
+                            PasswordHash = new byte[] { 73, 171, 70, 218, 243, 121, 232, 38, 253, 82, 43, 239, 214, 149, 27, 62, 27, 180, 102, 56, 96, 190, 118, 232, 146, 109, 168, 216, 44, 80, 127, 172, 128, 68, 221, 150, 171, 18, 99, 87, 173, 204, 141, 25, 26, 19, 35, 33, 28, 248, 214, 5, 103, 98, 241, 239, 76, 82, 86, 151, 95, 40, 172, 166 },
+                            PasswordSalt = new byte[] { 199, 175, 100, 164, 127, 202, 68, 241, 207, 250, 167, 95, 42, 61, 129, 44, 202, 151, 79, 148, 196, 54, 108, 173, 26, 240, 105, 252, 147, 17, 88, 179, 156, 105, 91, 154, 174, 105, 231, 223, 40, 233, 109, 143, 192, 25, 57, 181, 206, 106, 2, 9, 101, 54, 235, 234, 234, 26, 244, 40, 94, 135, 146, 75, 241, 102, 65, 67, 133, 76, 179, 114, 240, 83, 107, 147, 249, 227, 9, 118, 75, 15, 89, 89, 155, 241, 145, 255, 236, 109, 224, 75, 18, 11, 222, 188, 50, 192, 55, 90, 113, 229, 166, 22, 255, 150, 245, 215, 44, 143, 209, 215, 18, 216, 170, 183, 100, 211, 40, 207, 182, 69, 89, 154, 230, 12, 11, 144 },
                             PhoneNumber1 = "+12025550123",
                             PhoneNumber2 = "+12027450123",
                             UpdatedBy = -1,
@@ -2660,7 +2733,7 @@ namespace App.Data.Migrations
                         {
                             Id = 1101,
                             Code = "VIEW_LIST",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Xem danh sách quyền",
                             GroupName = "Quản lý phân quyền",
                             Table = "AppRole"
@@ -2669,7 +2742,7 @@ namespace App.Data.Migrations
                         {
                             Id = 1102,
                             Code = "VIEW_DETAIL",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Xem chi tiết quyền",
                             GroupName = "Quản lý phân quyền",
                             Table = "AppRole"
@@ -2678,7 +2751,7 @@ namespace App.Data.Migrations
                         {
                             Id = 1103,
                             Code = "CREATE",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Thêm quyền",
                             GroupName = "Quản lý phân quyền",
                             Table = "AppRole"
@@ -2687,7 +2760,7 @@ namespace App.Data.Migrations
                         {
                             Id = 1104,
                             Code = "UPDATE",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Sửa quyền",
                             GroupName = "Quản lý phân quyền",
                             Table = "AppRole"
@@ -2696,7 +2769,7 @@ namespace App.Data.Migrations
                         {
                             Id = 1105,
                             Code = "DELETE",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Xóa quyền",
                             GroupName = "Quản lý phân quyền",
                             Table = "AppRole"
@@ -2705,7 +2778,7 @@ namespace App.Data.Migrations
                         {
                             Id = 1001,
                             Code = "VIEW_LIST",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Xem danh sách người dùng",
                             GroupName = "Quản lý người dùng",
                             Table = "AppUser"
@@ -2714,7 +2787,7 @@ namespace App.Data.Migrations
                         {
                             Id = 1002,
                             Code = "VIEW_DETAIL",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Xem chi tiết người dùng",
                             GroupName = "Quản lý người dùng",
                             Table = "AppUser"
@@ -2723,7 +2796,7 @@ namespace App.Data.Migrations
                         {
                             Id = 1003,
                             Code = "CREATE",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Thêm người dùng",
                             GroupName = "Quản lý người dùng",
                             Table = "AppUser"
@@ -2732,7 +2805,7 @@ namespace App.Data.Migrations
                         {
                             Id = 1004,
                             Code = "UPDATE",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Cập nhật người dùng",
                             GroupName = "Quản lý người dùng",
                             Table = "AppUser"
@@ -2741,7 +2814,7 @@ namespace App.Data.Migrations
                         {
                             Id = 1005,
                             Code = "UPDATE_PWD",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Đổi mật khẩu",
                             GroupName = "Quản lý người dùng",
                             Table = "AppUser"
@@ -2750,7 +2823,7 @@ namespace App.Data.Migrations
                         {
                             Id = 1006,
                             Code = "BLOCK",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Khóa người dùng",
                             GroupName = "Quản lý người dùng",
                             Table = "AppUser"
@@ -2759,7 +2832,7 @@ namespace App.Data.Migrations
                         {
                             Id = 1007,
                             Code = "UNBLOCK",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Mở khóa người dùng",
                             GroupName = "Quản lý người dùng",
                             Table = "AppUser"
@@ -2768,7 +2841,7 @@ namespace App.Data.Migrations
                         {
                             Id = 1008,
                             Code = "DELETE",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Xóa người dùng",
                             GroupName = "Quản lý người dùng",
                             Table = "AppUser"
@@ -2777,7 +2850,7 @@ namespace App.Data.Migrations
                         {
                             Id = 1201,
                             Code = "MANAGER",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Quản lý file hệ thống",
                             GroupName = "Quản lý file",
                             Table = "FileManager"
@@ -2786,7 +2859,7 @@ namespace App.Data.Migrations
                         {
                             Id = 1301,
                             Code = "VIEW_LIST",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Xem danh sách bài viết",
                             GroupName = "Quản lý tin tức",
                             Table = "AppNews"
@@ -2795,7 +2868,7 @@ namespace App.Data.Migrations
                         {
                             Id = 1302,
                             Code = "CREATE",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Thêm bài viết",
                             GroupName = "Quản lý tin tức",
                             Table = "AppNews"
@@ -2804,7 +2877,7 @@ namespace App.Data.Migrations
                         {
                             Id = 1303,
                             Code = "UPDATE",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Cập nhật bài viết",
                             GroupName = "Quản lý tin tức",
                             Table = "AppNews"
@@ -2813,7 +2886,7 @@ namespace App.Data.Migrations
                         {
                             Id = 1304,
                             Code = "DELETE",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Xóa bài viết",
                             GroupName = "Quản lý tin tức",
                             Table = "AppNews"
@@ -2822,7 +2895,7 @@ namespace App.Data.Migrations
                         {
                             Id = 1305,
                             Code = "PUBLIC",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Công khai bài viết",
                             GroupName = "Quản lý tin tức",
                             Table = "AppNews"
@@ -2831,7 +2904,7 @@ namespace App.Data.Migrations
                         {
                             Id = 1306,
                             Code = "UNPUBLIC",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Gỡ bỏ bài viết",
                             GroupName = "Quản lý tin tức",
                             Table = "AppNews"
@@ -2840,7 +2913,7 @@ namespace App.Data.Migrations
                         {
                             Id = 1307,
                             Code = "SENDMAILREGISTER",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Gữi email người đăng ký",
                             GroupName = "Quản lý tin tức",
                             Table = "AppNews"
@@ -2849,7 +2922,7 @@ namespace App.Data.Migrations
                         {
                             Id = 1401,
                             Code = "VIEW_LIST",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Xem danh sách thể loại tin",
                             GroupName = "Quản lý thể loại tin",
                             Table = "AppNewsCategory"
@@ -2858,7 +2931,7 @@ namespace App.Data.Migrations
                         {
                             Id = 1402,
                             Code = "CREATE",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Thêm thể loại bài viết",
                             GroupName = "Quản lý thể loại tin",
                             Table = "AppNewsCategory"
@@ -2867,7 +2940,7 @@ namespace App.Data.Migrations
                         {
                             Id = 1403,
                             Code = "UPDATE",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Cập nhật thể loại bài viết",
                             GroupName = "Quản lý thể loại tin",
                             Table = "AppNewsCategory"
@@ -2876,7 +2949,7 @@ namespace App.Data.Migrations
                         {
                             Id = 1404,
                             Code = "DELETE",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Xóa thể loại bài viết",
                             GroupName = "Quản lý thể loại tin",
                             Table = "AppNewsCategory"
@@ -2885,7 +2958,7 @@ namespace App.Data.Migrations
                         {
                             Id = 1501,
                             Code = "VIEW_LIST",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Xem danh sách chi nhánh khách sạn",
                             GroupName = "Quản lý chi nhánh khách sạn",
                             Table = "AppBranchHotel"
@@ -2894,7 +2967,7 @@ namespace App.Data.Migrations
                         {
                             Id = 1502,
                             Code = "CREATE",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Thêm chi nhánh khách sạn",
                             GroupName = "Quản lý chi nhánh khách sạn",
                             Table = "AppBranchHotel"
@@ -2903,7 +2976,7 @@ namespace App.Data.Migrations
                         {
                             Id = 1503,
                             Code = "UPDATE",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Cập nhật chi nhánh",
                             GroupName = "Quản lý chi nhánh khách sạn",
                             Table = "AppBranchHotel"
@@ -2912,7 +2985,7 @@ namespace App.Data.Migrations
                         {
                             Id = 1504,
                             Code = "DELETE",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Xóa chi nhánh",
                             GroupName = "Quản lý chi nhánh khách sạn",
                             Table = "AppBranchHotel"
@@ -2921,7 +2994,7 @@ namespace App.Data.Migrations
                         {
                             Id = 1601,
                             Code = "VIEW_LIST",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Xem danh sách khách sạn",
                             GroupName = "Quản lý khách sạn",
                             Table = "AppHotel"
@@ -2930,7 +3003,7 @@ namespace App.Data.Migrations
                         {
                             Id = 1602,
                             Code = "CREATE",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Thêm khách sạn",
                             GroupName = "Quản lý khách sạn",
                             Table = "AppHotel"
@@ -2939,7 +3012,7 @@ namespace App.Data.Migrations
                         {
                             Id = 1603,
                             Code = "UPDATE",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Cập nhật khách sạn",
                             GroupName = "Quản lý khách sạn",
                             Table = "AppHotel"
@@ -2948,7 +3021,7 @@ namespace App.Data.Migrations
                         {
                             Id = 1604,
                             Code = "DELETE",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Xóa khách sạn",
                             GroupName = "Quản lý khách sạn",
                             Table = "AppHotel"
@@ -2957,7 +3030,7 @@ namespace App.Data.Migrations
                         {
                             Id = 1605,
                             Code = "PUBLIC",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Công khai khách sạn",
                             GroupName = "Quản lý khách sạn",
                             Table = "AppHotel"
@@ -2966,7 +3039,7 @@ namespace App.Data.Migrations
                         {
                             Id = 1606,
                             Code = "UNPUBLIC",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Gỡ khách sạn xuống",
                             GroupName = "Quản lý khách sạn",
                             Table = "AppHotel"
@@ -2975,7 +3048,7 @@ namespace App.Data.Migrations
                         {
                             Id = 1701,
                             Code = "VIEW_LIST",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Xem danh sách phòng",
                             GroupName = "Quản lý phòng khách sạn",
                             Table = "AppRoom"
@@ -2984,7 +3057,7 @@ namespace App.Data.Migrations
                         {
                             Id = 1702,
                             Code = "CREATE",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Thêm phòng",
                             GroupName = "Quản lý phòng khách sạn",
                             Table = "AppRoom"
@@ -2993,7 +3066,7 @@ namespace App.Data.Migrations
                         {
                             Id = 1703,
                             Code = "UPDATE",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Cập nhật phòng",
                             GroupName = "Quản lý phòng khách sạn",
                             Table = "AppRoom"
@@ -3002,7 +3075,7 @@ namespace App.Data.Migrations
                         {
                             Id = 1704,
                             Code = "DELETE",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Xóa phòng",
                             GroupName = "Quản lý phòng khách sạn",
                             Table = "AppRoom"
@@ -3011,7 +3084,7 @@ namespace App.Data.Migrations
                         {
                             Id = 1705,
                             Code = "PUBLIC",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Công khai phòng",
                             GroupName = "Quản lý phòng khách sạn",
                             Table = "AppRoom"
@@ -3020,7 +3093,7 @@ namespace App.Data.Migrations
                         {
                             Id = 1706,
                             Code = "UNPUBLIC",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Gỡ phòng xuống",
                             GroupName = "Quản lý phòng khách sạn",
                             Table = "AppRoom"
@@ -3029,7 +3102,7 @@ namespace App.Data.Migrations
                         {
                             Id = 1801,
                             Code = "VIEW_LIST",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Quản lý loại phòng",
                             GroupName = "Quản lý loại phòng",
                             Table = "AppRoomType"
@@ -3038,7 +3111,7 @@ namespace App.Data.Migrations
                         {
                             Id = 1802,
                             Code = "CREATE",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Thêm loại phòng",
                             GroupName = "Quản lý loại phòng",
                             Table = "AppRoomType"
@@ -3047,7 +3120,7 @@ namespace App.Data.Migrations
                         {
                             Id = 1803,
                             Code = "UPDATE",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Cập nhật loại phòng",
                             GroupName = "Quản lý loại phòng",
                             Table = "AppRoomType"
@@ -3056,7 +3129,7 @@ namespace App.Data.Migrations
                         {
                             Id = 1804,
                             Code = "DELETE",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Xóa loại phòng",
                             GroupName = "Quản lý loại phòng",
                             Table = "AppRoomType"
@@ -3065,7 +3138,7 @@ namespace App.Data.Migrations
                         {
                             Id = 1901,
                             Code = "VIEW_LIST",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Quản lý trang thiết bị",
                             GroupName = "Quản lý trang thiết bị",
                             Table = "AppEquipment"
@@ -3074,7 +3147,7 @@ namespace App.Data.Migrations
                         {
                             Id = 1902,
                             Code = "CREATE",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Thêm mới trang thiết bị",
                             GroupName = "Quản lý trang thiết bị",
                             Table = "AppEquipment"
@@ -3083,7 +3156,7 @@ namespace App.Data.Migrations
                         {
                             Id = 1903,
                             Code = "UPDATE",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Cập nhật trang thiết bị",
                             GroupName = "Quản lý trang thiết bị",
                             Table = "AppEquipment"
@@ -3092,7 +3165,7 @@ namespace App.Data.Migrations
                         {
                             Id = 1904,
                             Code = "DELETE",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Xóa trang thiết bị",
                             GroupName = "Quản lý trang thiết bị",
                             Table = "AppEquipment"
@@ -3101,7 +3174,7 @@ namespace App.Data.Migrations
                         {
                             Id = 2001,
                             Code = "VIEW_LIST",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Quản lý loại trang thiết bị",
                             GroupName = "Quản lý loại trang thiết bị",
                             Table = "AppEquipmentType"
@@ -3110,7 +3183,7 @@ namespace App.Data.Migrations
                         {
                             Id = 2002,
                             Code = "CREATE",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Thêm mới loại trang thiết bị",
                             GroupName = "Quản lý loại trang thiết bị",
                             Table = "AppEquipmentType"
@@ -3119,7 +3192,7 @@ namespace App.Data.Migrations
                         {
                             Id = 2003,
                             Code = "UPDATE",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Cập nhật loại trang thiết bị",
                             GroupName = "Quản lý loại trang thiết bị",
                             Table = "AppEquipmentType"
@@ -3128,7 +3201,7 @@ namespace App.Data.Migrations
                         {
                             Id = 2004,
                             Code = "DELETE",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Xóa loại trang thiết bị",
                             GroupName = "Quản lý loại trang thiết bị",
                             Table = "AppEquipmentType"
@@ -3137,7 +3210,7 @@ namespace App.Data.Migrations
                         {
                             Id = 2401,
                             Code = "VIEW_LIST",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Xem danh sách đặt phòng",
                             GroupName = "Quản lý đặt phòng",
                             Table = "AppOrder"
@@ -3146,7 +3219,7 @@ namespace App.Data.Migrations
                         {
                             Id = 2402,
                             Code = "DETAILS",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Xem chi tiết phòng được đặt",
                             GroupName = "Quản lý đặt phòng",
                             Table = "AppOrderDetail"
@@ -3155,7 +3228,7 @@ namespace App.Data.Migrations
                         {
                             Id = 2403,
                             Code = "UPDATE",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Cập nhật trang thái đặt phòng",
                             GroupName = "Quản lý đặt phòng",
                             Table = "AppOrder"
@@ -3164,7 +3237,7 @@ namespace App.Data.Migrations
                         {
                             Id = 2404,
                             Code = "DELETE",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Xóa đặt phòng",
                             GroupName = "Quản lý đặt phòng",
                             Table = "AppOrder"
@@ -3173,7 +3246,7 @@ namespace App.Data.Migrations
                         {
                             Id = 2101,
                             Code = "VIEW_LIST",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Xem danh sách lương nhân viên",
                             GroupName = "Quản lý lương nhân viên",
                             Table = "AppPayroll"
@@ -3182,7 +3255,7 @@ namespace App.Data.Migrations
                         {
                             Id = 2102,
                             Code = "VIEW_LIST",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Xem chi tiết lương nhân viên",
                             GroupName = "Quản lý lương nhân viên",
                             Table = "AppPayroll"
@@ -3191,7 +3264,7 @@ namespace App.Data.Migrations
                         {
                             Id = 2103,
                             Code = "CREATE",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Tạo bảng lương mới cho nhân viên",
                             GroupName = "Quản lý lương nhân viên",
                             Table = "AppPayroll"
@@ -3200,7 +3273,7 @@ namespace App.Data.Migrations
                         {
                             Id = 2104,
                             Code = "UPDATE",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Cập nhật bảng lương cho nhân viên",
                             GroupName = "Quản lý lương nhân viên",
                             Table = "AppPayroll"
@@ -3209,7 +3282,7 @@ namespace App.Data.Migrations
                         {
                             Id = 2105,
                             Code = "DELETE",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Xóa bảng lương của nhân viên",
                             GroupName = "Quản lý lương nhân viên",
                             Table = "AppPayroll"
@@ -3218,7 +3291,7 @@ namespace App.Data.Migrations
                         {
                             Id = 2201,
                             Code = "VIEW_LIST",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Xem danh sách lịch làm nhân viên",
                             GroupName = "Quản lý lịch làm nhân viên",
                             Table = "AppWorkSchedule"
@@ -3227,7 +3300,7 @@ namespace App.Data.Migrations
                         {
                             Id = 2202,
                             Code = "VIEW_LIST",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Xem chi tiết lịch làm nhân viên",
                             GroupName = "Quản lý lịch làm nhân viên",
                             Table = "AppWorkSchedule"
@@ -3236,7 +3309,7 @@ namespace App.Data.Migrations
                         {
                             Id = 2203,
                             Code = "CREATE",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Tạo lịch làm cho nhân viên",
                             GroupName = "Quản lý lịch làm nhân viên",
                             Table = "AppWorkSchedule"
@@ -3245,7 +3318,7 @@ namespace App.Data.Migrations
                         {
                             Id = 2204,
                             Code = "UPDATE",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Cập nhật lịch làm cho nhân viên",
                             GroupName = "Quản lý lịch làm nhân viên",
                             Table = "AppWorkSchedule"
@@ -3254,7 +3327,7 @@ namespace App.Data.Migrations
                         {
                             Id = 2205,
                             Code = "DELETE",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Xóa lịch làm của nhân viên",
                             GroupName = "Quản lý lịch làm nhân viên",
                             Table = "AppWorkSchedule"
@@ -3263,7 +3336,7 @@ namespace App.Data.Migrations
                         {
                             Id = 2301,
                             Code = "VIEW_LIST",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Xem danh sách ca làm nhân viên",
                             GroupName = "Quản lý ca làm nhân viên",
                             Table = "AppWorkShift"
@@ -3272,7 +3345,7 @@ namespace App.Data.Migrations
                         {
                             Id = 2302,
                             Code = "VIEW_LIST",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Xem chi tiết ca làm nhân viên",
                             GroupName = "Quản lý ca làm nhân viên",
                             Table = "AppWorkShift"
@@ -3281,7 +3354,7 @@ namespace App.Data.Migrations
                         {
                             Id = 2303,
                             Code = "CREATE",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Tạo ca làm cho nhân viên",
                             GroupName = "Quản lý ca làm nhân viên",
                             Table = "AppWorkShift"
@@ -3290,7 +3363,7 @@ namespace App.Data.Migrations
                         {
                             Id = 2304,
                             Code = "UPDATE",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Cập nhật ca làm cho nhân viên",
                             GroupName = "Quản lý ca làm nhân viên",
                             Table = "AppWorkShift"
@@ -3299,7 +3372,7 @@ namespace App.Data.Migrations
                         {
                             Id = 2305,
                             Code = "DELETE",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Xóa ca làm của nhân viên",
                             GroupName = "Quản lý ca làm nhân viên",
                             Table = "AppWorkShift"
@@ -3308,7 +3381,7 @@ namespace App.Data.Migrations
                         {
                             Id = 2501,
                             Code = "VIEW_LIST",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Xem danh sách các bình luận",
                             GroupName = "Quản lý bình luận người dùng",
                             Table = "AppComment"
@@ -3317,7 +3390,7 @@ namespace App.Data.Migrations
                         {
                             Id = 2502,
                             Code = "DELETE",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Xóa bình luận vi phạn",
                             GroupName = "Quản lý bình luận người dùng",
                             Table = "AppComment"
