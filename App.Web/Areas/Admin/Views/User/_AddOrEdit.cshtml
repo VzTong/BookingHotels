@@ -1,0 +1,161 @@
+﻿@model App.Web.Areas.Admin.ViewModels.User.UserAddOrEditVM
+@{
+	var disabled = ViewContext.GetCurrentActionName() == "Create" ? false : true;
+}
+<div class="row">
+	<div class="col-md-6">
+		<div class="mb-3">
+			<label asp-for="Username" class="form-label">Tên đăng nhập</label>
+			@if (ViewContext.GetCurrentActionName() == "Create")
+			{
+				<input asp-for="Username" type="text" class="form-control" placeholder="Username" required />
+				<div class="invalid-feedback">
+					Vui lòng nhập username.
+				</div>
+			}
+			else
+			{
+				<input value="@Model.Username" disabled class="form-control" />
+			}
+			<span asp-validation-for="Username" class="text-danger"></span>
+		</div>
+	</div>
+	<!--end col-->
+	<div class="col-md-6">
+		<div class="mb-3">
+			<label asp-for="FullName" class="form-label">Họ tên</label>
+			<input asp-for="FullName" class="form-control" placeholder="Họ tên" required />
+			<div class="invalid-feedback">
+				Vui lòng nhập họ và tên.
+			</div>
+			<span asp-validation-for="FullName" class="text-danger"></span>
+		</div>
+	</div>
+	<!--end col-->
+	<div class="col-md-6">
+		<div class="mb-3">
+			<label asp-for="Password" class="form-label">Mật khẩu</label>
+			@if (disabled)
+			{
+				<input class="form-control" type="password" disabled value="********" />
+			}
+			else
+			{
+				<div class="position-relative form auth-pass-inputgroup">
+					<input asp-for="Password" id="new-password-input" type="password" class="form-control pe-5 password-input" onpaste="return false" placeholder="Mật khẩu" required />
+					<button class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon" type="button" id="new-password-input" style="margin-right: 1rem;"><i class="ri-eye-fill align-middle"></i></button>
+				</div>
+
+				<div id="password-contain" class="p-3 bg-light mb-2 rounded">
+					<h5 class="fs-14">Mật khẩu phải:</h5>
+					<p id="pass-length" class="invalid fs-13 mb-2">Tối thiểu <b>4 ký tự (hoặc số)</b></p>
+					<p id="unicode-check" class="invalid fs-13 mb-2">Không được phép chứa ký tự có dấu</p>
+				</div>
+				<span asp-validation-for="Password" class="text-danger"></span>
+			}
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="mb-3">
+			<label asp-for="ConfirmPwd" class="form-label">Xác nhận mật khẩu</label>
+			@if (disabled)
+			{
+				<input class="form-control" type="password" disabled value="********" />
+			}
+			else
+			{
+				<div class="position-relative auth-pass-inputgroup">
+					<input asp-for="ConfirmPwd" type="password" class="form-control" id="confirm-password-input" class="form-control pe-5 password-input" onpaste="return false" placeholder="Xác nhận mật khẩu" required />
+				</div>
+				<span asp-validation-for="ConfirmPwd" class="text-danger"></span>
+			}
+		</div>
+	</div>
+	<!--end col-->
+	<div class="col-md-6">
+		<div class="mb-3">
+			<label asp-for="PhoneNumber1" class="form-label">Số điện thoại 1</label>
+			<input asp-for="PhoneNumber1" class="form-control" id="cleave-delimiter" placeholder="xxx·xxx·xxx·xxx·xxx" required />
+			<div class="invalid-feedback">
+				Vui lòng nhập số điện thoại hợp lệ.
+			</div>
+			<span asp-validation-for="PhoneNumber1" class="text-danger"></span>
+		</div>
+	</div>
+	<!--end col-->
+	<div class="col-md-6">
+		<div class="mb-3">
+			<label asp-for="PhoneNumber2" class="form-label">Số điện thoại 2</label>
+			<input asp-for="PhoneNumber2" class="form-control" id="cleave-delimiter" placeholder="xxx·xxx·xxx·xxx·xxx" />
+			<div class="invalid-feedback">
+				Vui lòng nhập số điện thoại hợp lệ.
+			</div>
+			<span asp-validation-for="PhoneNumber2" class="text-danger"></span>
+		</div>
+	</div>
+	<!--end col-->
+	<div class="col-md-6">
+		<div class="mb-3">
+			<label asp-for="Address" class="control-label">Địa chỉ</label>
+			<input asp-for="Address" class="form-control" placeholder="123 abc thành phố A" required />
+			<div class="invalid-feedback">
+				Vui lòng nhập địa chỉ.
+			</div>
+			<span asp-validation-for="Address" class="text-danger"></span>
+		</div>
+	</div>
+	<!--end col-->
+	<div class="col-md-6">
+		<div class="mb-3">
+			<label asp-for="Email" class="control-label">Email</label>
+			<input asp-for="Email" type="email" class="form-control" placeholder="example@gmail.com" required />
+			<div class="invalid-feedback">
+				Vui lòng nhập email.
+			</div>
+			<span asp-validation-for="Email" class="text-danger"></span>
+		</div>
+	</div>
+	<!--end col-->
+	<div class="col-md-12">
+		<div class="mb-3">
+			<label asp-for="AppRoleId" class="control-label">Vai trò trên trang</label>
+			<select asp-for="AppRoleId" class="form-select" data-choices data-choices-sorting="true">
+				<vc:list-role seleteted-id="@Model?.AppRoleId" exclude-ids="null"></vc:list-role>
+			</select>
+			<span asp-validation-for="AppRoleId" class="text-danger"></span>
+		</div>
+	</div>
+	<!--end col-->
+	<div class="col-md-12">
+		<div class="mb-3">
+			<label asp-for="BranchId" class="form-label">Thuộc chi nhánh khách sạn</label>
+			<select asp-for="BranchId" class="form-select" data-choices data-choices-sorting="true">
+				<vc:list-branch seleteted-id="@Model?.BranchId" exclude-ids="null"></vc:list-branch>
+			</select>
+		</div>
+	</div>
+</div>
+
+<script>
+	document.addEventListener('DOMContentLoaded', function () {
+		var phoneNumber = document.getElementById('cleave-delimiter');
+		phoneNumber.addEventListener('input', function () {
+			phoneNumber.value = phoneNumber.value.replace(/[^0-9+]/g, ''); // Remove all non-numeric characters
+			if (phoneNumber.value.length > 15) {
+				phoneNumber.value = phoneNumber.value.slice(0, 15); // Truncate the input value to 15 characters
+			}
+
+			var isValid = phoneNumber.value.length >= 10 && phoneNumber.value.length <= 15;
+
+			if (isValid) {
+				phoneNumber.setCustomValidity('');
+				phoneNumber.classList.remove('is-invalid');
+				phoneNumber.classList.add('is-valid');
+			} else {
+				phoneNumber.setCustomValidity('Invalid phone number');
+				phoneNumber.classList.remove('is-valid');
+				phoneNumber.classList.add('is-invalid');
+			}
+		});
+	});
+</script>

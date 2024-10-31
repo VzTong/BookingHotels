@@ -1,0 +1,142 @@
+﻿@model IEnumerable<App.Web.Areas.Admin.ViewModels.User.UserListItemVM>
+@{
+	ViewData["Title"] = "Danh sách tài khoản";
+}
+
+<div class="row">
+	<div class="col-12">
+		<div class="page-title-box d-sm-flex align-items-center justify-content-between">
+			<h4 class="mb-sm-0">Quản lý tài khoản người dùng</h4>
+
+			<div class="page-title-right">
+				<ol class="breadcrumb m-0">
+					<li class="breadcrumb-item"><a asp-action="Index" asp-area="Admin" asp-controller="Home">Bảng tổng quan</a></li>
+					<li class="breadcrumb-item active">Tài khoản</li>
+				</ol>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-lg-12">
+		<div class="card">
+			<div class="card-header">
+				<h4 class="card-title mb-0">Tài khoản người dùng</h4>
+			</div><!-- end card header -->
+
+			<div class="card-body">
+				<div id="customerList">
+					<div class="row g-4 mb-3">
+						<div class="col-sm-auto">
+							<div>
+								@if (User.IsInPermission(AuthConst.AppUser.CREATE))
+								{
+									<a asp-action="Create" class="btn btn-success btn-label add-btn">
+										<i class="ri-add-line label-icon align-middle fs-16 me-2"></i> 
+										Thêm người dùng
+									</a>
+								}
+							</div>
+						</div>
+					</div>
+
+					<div class="table-responsive mt-3 mb-1">
+						<table class="table align-middle">
+							<thead class="table-light">
+								<tr>
+									<th>#</th>
+									<th>Tài khoản</th>
+									<th>Họ tên</th>
+									<th>SĐT</th>
+									<th>Email</th>
+									<th>Vai trò</th>
+									<th>Ngày tạo</th>
+									<th>Chức năng</th>
+								</tr>
+							</thead>
+							<tbody class="list form-check-all">
+								@foreach (var item in Model)
+								{
+									<tr>
+										<td>@item.RowIndex</td>
+
+										<td class="id" style="display:none;">
+											<a class="fw-medium link-primary">@item.Id</a>
+										</td>
+
+										<td class="user_name">@item.Username</td>
+										<td class="user_fullName">@item.FullName</td>
+										<td class="phoneNumber">@item.PhoneNumber1</td>
+										<td class="email">@item.Email</td>
+										<td class="roleName">@item.RoleName</td>
+										<td class="createDay">@item.CreatedDate.ToDMY()</td>
+										<td>
+											<div class="d-flex gap-2">
+												@if (User.IsInPermission(AuthConst.AppUser.UNBLOCK))
+												{
+													if (item.IsBlock)
+													{
+														<div>
+															<a asp-action="UnBlockUser" asp-route-id="@item.Id" 
+																title="Mở khóa tài khoản"
+																data-msg="Xác nhận mở khóa tài khoản [@item.Username]?"
+																class="btn btn-sm link-success fs-15">
+																<i class="ri-lock-unlock-line"></i>
+															</a>
+														</div>
+													}
+												}
+												@if (User.IsInPermission(AuthConst.AppUser.BLOCK))
+												{
+													if (!item.IsBlock)
+													{
+														<div>
+															<button type="button" data-id="@item.Id" 
+																data-username="@item.Username" 
+																title="Khóa tài khoản" 
+																data-bs-toggle="modal" data-bs-target="#blockUser"
+																class="btn btn-sm link-warning fs-15 js-block">
+																<i class="ri-lock-2-line"></i>
+															</button>
+														</div>
+													}
+												}
+												@if (User.IsInPermission(AuthConst.AppUser.UPDATE))
+												{
+													<div class="edit">
+														<a asp-action="Edit" asp-route-id="@item.Id"
+															class="btn btn-sm edit-item-btn link-success fs-15">
+															<i class="ri-edit-2-line"></i>
+														</a>
+													</div>
+												}
+											</div>
+										</td>
+									</tr>
+								}
+
+							</tbody>
+						</table>
+					</div>
+
+					<div class="d-flex justify-content-end">
+						<div class="pagination-wrap hstack gap-2">
+							<partial name="_Pager" />
+						</div>
+					</div>
+				</div>
+			</div><!-- end card -->
+		</div>
+		<!-- end col -->
+	</div>
+	<!-- end col -->
+</div>
+
+<partial name="_BlockUser" />
+<!-- end row -->
+@section Scripts {
+	<script src="~/js/admin/user/block_user.js"></script>
+	<script src="~/adminLTE/js/pages/listjs.init.js"></script>
+}

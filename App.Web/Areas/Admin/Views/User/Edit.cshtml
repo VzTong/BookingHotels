@@ -1,0 +1,59 @@
+﻿@model App.Web.Areas.Admin.ViewModels.User.UserAddOrEditVM
+@{
+	ViewData["Title"] = $"Cập nhật tài khoản {Model.Username}";
+}
+
+<div class="row">
+	<div class="col-12">
+		<div class="page-title-box d-sm-flex align-items-center justify-content-between">
+			<h4 class="mb-sm-0">Quản lý tài khoản người dùng</h4>
+
+			<div class="page-title-right">
+				<ol class="breadcrumb m-0">
+					<li class="breadcrumb-item"><a asp-action="Index" asp-area="Admin" asp-controller="Home">Bảng tổng quan</a></li>
+					<li class="breadcrumb-item active"><a asp-action="Index" asp-area="Admin" asp-controller="User">Tài khoản</a></li>
+					<li class="breadcrumb-item active">Cập nhật tài khoản</li>
+				</ol>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-lg-12">
+		<div class="card">
+			<div class="card-header align-items-center d-flex">
+				<h4 class="card-title mb-0">Cập nhật tài khoản</h4>
+				<span class="text-muted small ms-3">Cập nhật lần cuối lúc @Model?.UpdatedDate.ToDMYHM())</span>
+			</div><!-- end card header -->
+
+			<div class="card-body">
+				<div id="customerList">
+					<div class="row gy-4">
+						<form asp-action="Edit" autocomplete="off" class="row g-3 needs-validation" novalidate>
+							<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+							<partial name="_AddOrEdit" />
+							<div class="form-group">
+								<button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Lưu</button>
+								<button type="reset" class="btn btn-default"><i class="fa fa-undo"></i> Nhập lại</button>
+							</div>
+						</form>
+					</div>
+					<div class="d-flex justify-content-end">
+						<div class="pagination-wrap hstack gap-2">
+							<partial name="_BackToList" />
+						</div>
+					</div>
+				</div>
+			</div><!-- end card -->
+		</div>
+		<!-- end col -->
+	</div>
+	<!-- end col -->
+</div>
+<!-- end row -->
+@section Scripts {
+    <script src="~/adminLTE/libs/prismjs/prism.js"></script>
+    <script src="~/adminLTE/js/pages/form-validation.init.js"></script>
+}
