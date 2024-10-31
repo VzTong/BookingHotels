@@ -172,7 +172,7 @@ namespace App.Web.Areas.Admin.Components.MainNavBar
 						new MenuItem
 						{
 							Action = "Index",
-							Controller = "AppUser",
+							Controller = "User",
 							DataKey = "users",
 							DisplayText = "Quản lý tài khoản",
 							Permission = AuthConst.AppUser.VIEW_LIST,
