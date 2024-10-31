@@ -1,0 +1,8 @@
+﻿@model App.Web.Areas.Admin.ViewModels.Equipment.AddOrUpdateEquipmentVM
+
+<select class="form-select" data-choices data-placeholder="Loại thiết bị" data-choices-sorting="true" asp-for="TypeEquipmentId"
+        asp-items="(SelectList)ViewBag.TypeEList"
+        title="Loại thiết bị"
+        id="equipmentType-field"
+        data-choices ata-live-search="true">
+</select>
