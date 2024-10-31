@@ -1,8 +1,8 @@
 ﻿@model App.Web.Areas.Admin.ViewModels.BranchHotel.AddOrUpdateBranchHotelVM
 
-<select class="selectpicker form-control" asp-for="HotelId"
+<select class="form-select" data-choices data-choices-sorting="true" asp-for="HotelId"
 		asp-items="(SelectList)ViewBag.HotelList"
         title="Khách sạn"
-        id="branchAddress-field"
+        id="branchHotelId-field"
         data-choices ata-live-search="true">
 </select>
