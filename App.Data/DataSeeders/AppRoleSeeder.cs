@@ -7,7 +7,7 @@ namespace App.Data.DataSeeders
 	{
 		public static void SeedData(this EntityTypeBuilder<AppRole> builder)
 		{
-			var now = new DateTime(year: 2021, month: 12, day: 10);
+			var now = new DateTime(year: 2024, month: 10, day: 10);
 
 			// Tạo vai trò
 			var roleAdmin = new AppRole
@@ -22,8 +22,8 @@ namespace App.Data.DataSeeders
 			var roleStaff = new AppRole
 			{
 				Id = 2,
-				Name = "Nhân viên",
-				Desc = "Nhân viên",
+				Name = "Nhân viên thiết bị",
+				Desc = "Nhân viên quản lý thiết bị",
 				CreatedDate = now,
 				UpdatedDate = now,
 				CanDelete = true

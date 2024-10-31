@@ -9,7 +9,7 @@ namespace App.Data.DataSeeders
 	{
 		public static void SeedData(this EntityTypeBuilder<AppRolePermission> builder)
 		{
-			var now = new DateTime(year: 2021, month: 12, day: 10);
+			var now = new DateTime(year: 2024, month: 10, day: 10);
 			// Danh sách các class chứa permission
 			Type[] classType = new Type[]
 			{
@@ -30,7 +30,6 @@ namespace App.Data.DataSeeders
 				typeof(AuthConst.AppWorkShift),
 			};
 
-
 			// Cấp quyền cho vai trò
 			var rolePermission = new List<AppRolePermission>();
 			int i = 0;
@@ -50,6 +49,39 @@ namespace App.Data.DataSeeders
 					});
 				}
 			}
+
+			// Grant full permissions of AppEquipment and AppTypeEquipment to an employee
+			var employeeRoleId = 2; // Assuming the employee role has an AppRoleId of 2
+			var employeePermissions = new List<AppRolePermission>();
+
+			var appEquipmentPermissions = GetConstants(typeof(AuthConst.AppEquipment));
+			var appTypeEquipmentPermissions = GetConstants(typeof(AuthConst.AppTypeEquipment));
+
+			foreach (var permission in appEquipmentPermissions)
+			{
+				employeePermissions.Add(new AppRolePermission
+				{
+					Id = ++i,
+					MstPermissionId = Convert.ToInt32(permission.GetRawConstantValue()),
+					UpdatedDate = now,
+					CreatedDate = now,
+					AppRoleId = employeeRoleId,
+				});
+			}
+
+			foreach (var permission in appTypeEquipmentPermissions)
+			{
+				employeePermissions.Add(new AppRolePermission
+				{
+					Id = ++i,
+					MstPermissionId = Convert.ToInt32(permission.GetRawConstantValue()),
+					UpdatedDate = now,
+					CreatedDate = now,
+					AppRoleId = employeeRoleId,
+				});
+			}
+
+			rolePermission.AddRange(employeePermissions);
 
 			builder.HasData(rolePermission);
 		}
