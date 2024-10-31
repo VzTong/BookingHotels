@@ -1,7 +1,10 @@
 ﻿using App.Data.Entities.Hotel;
+using App.Data.Entities.Room;
 using App.Data.Entities.User;
 using App.Web.Areas.Admin.ViewModels.Account;
 using App.Web.Areas.Admin.ViewModels.BranchHotel;
+using App.Web.Areas.Admin.ViewModels.Equipment;
+using App.Web.Areas.Admin.ViewModels.User;
 using App.Web.ViewModels.Account;
 using AutoMapper;
 
@@ -12,10 +15,10 @@ namespace App.Web.WebConfig
 		public AutoMapperProfile()
 		{
 			// Map dữ liệu từ kiểu UserAddOrEditVM sang AppUser
-			//CreateMap<UserAddOrEditVM, AppUser>();
+			CreateMap<UserAddOrEditVM, AppUser>();
 
 			// Map dữ liệu từ kiểu AppUser sang UserAddOrEditVM
-			//CreateMap<AppUser, UserAddOrEditVM>();
+			CreateMap<AppUser, UserAddOrEditVM>();
 			CreateMap<AppUser, UpdateUserViewModel>().ReverseMap();
 			CreateMap<AppUser, UserDataForApp>().ReverseMap();
 			CreateMap<AppUser, AcceptUpdateViewModel>().ReverseMap();
@@ -23,6 +26,8 @@ namespace App.Web.WebConfig
 			CreateMap<AppUser, UserProfileClientVM>().ReverseMap();
 
 			CreateMap<AppBranchHotel, AddOrUpdateBranchHotelVM>().ReverseMap();
+			CreateMap<AppEquipment, AddOrUpdateEquipmentVM>().ReverseMap();
+
 		}
 
 		//public static MapperConfiguration RoleIndexConf = new(mapper =>
@@ -32,12 +37,12 @@ namespace App.Web.WebConfig
 		//});
 
 		// Cấu hình mapping cho UserController, action Index
-		//public static MapperConfiguration UserIndexConf = new(mapper =>
-		//{
-		//	// Map dữ liệu từ AppUser sang UserListItemVM, map thuộc tính RoleName
-		//	mapper.CreateMap<AppUser, UserListItemVM>()
-		//		.ForMember(uItem => uItem.RoleName, opts => opts.MapFrom(uEntity => uEntity.AppRole.Name));
-		//});
+		public static MapperConfiguration UserIndexConf = new(mapper =>
+		{
+			// Map dữ liệu từ AppUser sang UserListItemVM, map thuộc tính RoleName
+			mapper.CreateMap<AppUser, UserListItemVM>()
+				.ForMember(uItem => uItem.RoleName, opts => opts.MapFrom(uEntity => uEntity.AppRole.Name));
+		});
 
 		// Cấu hình mapping cho AccountController, action Login
 		public static MapperConfiguration LoginConf = new(mapper =>
@@ -82,7 +87,13 @@ namespace App.Web.WebConfig
 			mapper.CreateMap<AppBranchHotel, AppBranchHotelListItemVM>();
 		});
 
-
+		// Cấu hình mapping cho AppEquipmentController, action Index
+		public static MapperConfiguration EquipmentIndexConf = new(mapper =>
+		{
+			// Map dữ liệu từ AppEquipment sang EquipmentListItemVM, map thuộc tính TypeEquipmentName
+			mapper.CreateMap<AppEquipment, EquipmentListItemVM>()
+				.ForMember(uItem => uItem.TypeEquipmentName, opts => opts.MapFrom(uEntity => uEntity.TypeEquipment.Name));
+		});
 		//public static MapperConfiguration CategoryNewsConf = new(mapper =>
 		//{
 		//	mapper.CreateMap<AppCategoryNews, ListItemCategoryNewsVM>()
