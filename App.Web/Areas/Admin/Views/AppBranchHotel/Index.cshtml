@@ -79,7 +79,8 @@
 											@{
 												if (item.Img != null)
 												{
-													<img src="/@item.Img" width="350px" height="200px" style="object-fit:cover" />
+													var imgSrc = item.Img.StartsWith("https", StringComparison.OrdinalIgnoreCase) ? item.Img : "/" + item.Img;
+													<img src="@imgSrc" width="250px" height="100px" style="object-fit:cover" />
 												}
 												else
 												{

@@ -11,7 +11,8 @@ namespace App.Web.Areas.Admin.ViewModels.BranchHotel
 		[AppRequired]
 		[AppStringLength(VM.ProductCategoryVM.MIN_LENGTH, DB.AppBranchHotel.NAME_LENGTH)]
 		public string Name { get; set; }
-		
+
+		[AppStringLength(VM.ProductCategoryVM.MIN_LENGTH, DB.AppBranchHotel.DESC_LENGTH)]
 		public string? Description { get; set; }
 		
 		[AppRequired]

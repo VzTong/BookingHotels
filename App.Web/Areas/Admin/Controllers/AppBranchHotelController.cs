@@ -80,7 +80,7 @@ namespace App.Web.Areas.Admin.Controllers
 			{
 				model.IdMap = model.IdMap == null ? $"{HttpContext.Request.Scheme}://{HttpContext.Request.Host}" : model.IdMap;
 
-				model.Img = model.IdMap == null ? null : UploadFile(model.ImgPath, env.WebRootPath);
+				model.Img = model.Img == null ? null : UploadFile(model.ImgPath, env.WebRootPath);
 
 				var now = DateTime.Now;
 				var user = CurrentUserId;
