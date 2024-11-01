@@ -1,6 +1,7 @@
 ﻿using App.Data.Entities.Room;
 using App.Data.Repositories;
 using App.Share.Consts;
+using App.Share.Extensions;
 using App.Web.Areas.Admin.ViewModels.Equipment;
 using App.Web.Common;
 using App.Web.WebConfig;
@@ -9,6 +10,7 @@ using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using X.PagedList;
 
 namespace App.Web.Areas.Admin.Controllers
@@ -20,20 +22,44 @@ namespace App.Web.Areas.Admin.Controllers
 		private readonly ILogger<AppBranchHotelController> _logger;
 		readonly GenericRepository _repository;
 
-        public AppEquipmentController(GenericRepository repository, ILogger<AppBranchHotelController> logger, IMapper mapper) : base(mapper)
+		public AppEquipmentController(GenericRepository repository, ILogger<AppBranchHotelController> logger, IMapper mapper) : base(mapper)
 		{
 			_logger = logger;
 			_repository = repository;
 		}
 
 		[AppAuthorize(AuthConst.AppEquipment.VIEW_LIST)]
-		public async Task<IActionResult> Index(int page = 1, int size = DEFAULT_PAGE_SIZE)
+		public async Task<IActionResult> Index(SearchEquipmentVM search, int page = 1, int size = DEFAULT_PAGE_SIZE)
 		{
-			var data = (await _repository
-				.GetAll<AppEquipment>()
-				.ProjectTo<EquipmentListItemVM>(AutoMapperProfile.EquipmentIndexConf)
-				.ToPagedListAsync(page, size)).GenRowIndex();
+			ViewBag.Name = search.Name;
+			var data = await GetEquipmentAsync(search, page, size);
 			return View(data);
+		}
+
+		private async Task<IPagedList<EquipmentListItemVM>> GetEquipmentAsync(SearchEquipmentVM search, int page, int size)
+		{
+			var defaultWhere = _repository.GetDefaultWhereExpr<AppEquipment>(false);
+			var query = _repository.DbContext
+							.AppEquipment
+							.AsNoTracking()
+							.Where(defaultWhere);
+
+			if (!search.Name.IsNullOrEmpty())
+			{
+				query = query.Where(x => x.Name.Contains(search.Name));
+			}
+			var data = (await query.OrderByDescending(m => m.DisplayOrder)
+									.ThenByDescending(m => m.Id)
+									.ProjectTo<EquipmentListItemVM>(AutoMapperProfile.EquipmentIndexConf)
+									.ToPagedListAsync(page, size)).GenRowIndex();
+
+			// Check if the result is empty and set a flag in ViewBag
+			if (!data.Any())
+			{
+				ViewBag.NoResultsFound = true;
+			}
+
+			return data;
 		}
 
 		[AppAuthorize(AuthConst.AppEquipment.CREATE)]
