@@ -4,6 +4,7 @@ using App.Data.Entities.User;
 using App.Web.Areas.Admin.ViewModels.Account;
 using App.Web.Areas.Admin.ViewModels.BranchHotel;
 using App.Web.Areas.Admin.ViewModels.Equipment;
+using App.Web.Areas.Admin.ViewModels.Hotel;
 using App.Web.Areas.Admin.ViewModels.User;
 using App.Web.ViewModels.Account;
 using AutoMapper;
@@ -82,9 +83,19 @@ namespace App.Web.WebConfig
 		//	mapper.CreateMap<AppRole, RoleDeleteVM>();
 		//});
 
-		public static MapperConfiguration BranchHotelConf = new(mapper =>
+		// Cấu hình mapping cho AppBranchHotelController, action Index
+		public static MapperConfiguration BranchHotelIndexConf = new(mapper =>
 		{
 			mapper.CreateMap<AppBranchHotel, AppBranchHotelListItemVM>();
+		});
+
+		// Cấu hình mapping cho AppHotelController, action Index
+		public static MapperConfiguration HotelIndexConf = new(mapper =>
+		{
+			// Map dữ liệu từ AppHotel sang AppHotelListItemVM, map thuộc tính TypeEquipmentName
+			mapper.CreateMap<AppHotel, AppHotelListItemVM>()
+				.ForMember(uItem => uItem.BranchName, opts => opts.MapFrom(uEntity => uEntity.BranchHotels
+					.Select(bh => bh.Name).ToList()));
 		});
 
 		// Cấu hình mapping cho AppEquipmentController, action Index
