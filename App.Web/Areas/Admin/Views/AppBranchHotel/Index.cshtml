@@ -88,7 +88,17 @@
 												}
 											}
 										</td>
-										<td class="branchHotel_name">@item.Name</td>
+										<td class="branchHotel_name">
+											@item.Name
+											<div>
+												@if (!item.Slug.IsNullOrEmpty())
+												{
+													<span class="badge badge-soft-success badge-border" style="cursor: default;">
+														@item.Slug
+													</span>
+												}
+											</div>
+										</td>
 										<td class="description fit">@item.Description</td>
 										<td class="address">@item.Address</td>
 										<td class="map">@item.IdMap</td>
