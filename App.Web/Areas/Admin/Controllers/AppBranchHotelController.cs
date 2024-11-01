@@ -31,11 +31,11 @@ namespace App.Web.Areas.Admin.Controllers
 		[AppAuthorize(AuthConst.AppBranchHotel.VIEW_LIST)]
 		public async Task<IActionResult> Index(SearchBranchVM search, int page = 1, int size = DEFAULT_PAGE_SIZE)
 		{
-			var data = await GetListBranchAsync(search, page, size);
-
 			ViewBag.Name = search.Name;
+			var data = await GetListBranchAsync(search, page, size);
 			return View(data);
 		}
+
 		private async Task<IPagedList<AppBranchHotelListItemVM>> GetListBranchAsync(SearchBranchVM search, int page, int size)
 		{
 			var defaultWhere = _repository.GetDefaultWhereExpr<AppBranchHotel>(false);
@@ -50,8 +50,14 @@ namespace App.Web.Areas.Admin.Controllers
 			}
 			var data = (await query.OrderByDescending(m => m.DisplayOrder)
 									.ThenByDescending(m => m.Id)
-									.ProjectTo<AppBranchHotelListItemVM>(AutoMapperProfile.BranchHotelConf)
+									.ProjectTo<AppBranchHotelListItemVM>(AutoMapperProfile.BranchHotelIndexConf)
 									.ToPagedListAsync(page, size)).GenRowIndex();
+
+			// Check if the result is empty and set a flag in ViewBag
+			if (!data.Any())
+			{
+				ViewBag.NoResultsFound = true;
+			}
 
 			return data;
 		}
