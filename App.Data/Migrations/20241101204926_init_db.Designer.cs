@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace App.Data.Migrations
 {
     [DbContext(typeof(WebAppDbContext))]
-    [Migration("20241030144840_init_db")]
+    [Migration("20241101204926_init_db")]
     partial class init_db
     {
         /// <inheritdoc />
@@ -100,10 +100,11 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Melia Hà Nội tại Hà Nội",
                             HotelId = 1,
-                            Name = "Hà Nội",
+                            Img = "https://hoanghamobile.com/tin-tuc/wp-content/uploads/2024/04/anh-ha-noi.jpg",
+                            Name = "Hà Nội - Melia Hà Nội",
                             QuantityRoom = 50,
                             QuantityStaff = 20,
-                            Slug = "ha-noi"
+                            Slug = "ha-noi-melia-ha-noi"
                         },
                         new
                         {
@@ -112,10 +113,11 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Rex Hotel Sài Gòn tại TP. Hồ Chí Minh",
                             HotelId = 2,
-                            Name = "TP. Hồ Chí Minh",
+                            Img = "https://cdnphoto.dantri.com.vn/JpeCWtGF6QU37njc1xDZc4wOKbM=/2021/04/28/ubnd-tp-1619582754877.jpg",
+                            Name = "TP. Hồ Chí Minh - Rex Hotel Sài Gòn",
                             QuantityRoom = 80,
                             QuantityStaff = 25,
-                            Slug = "tp-ho-chi-minh"
+                            Slug = "tp-ho-chi-minh-rex-hotel-sai-gon"
                         },
                         new
                         {
@@ -124,10 +126,11 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Đà Nẵng Golden Bay tại Đà Nẵng",
                             HotelId = 3,
-                            Name = "Đà Nẵng",
+                            Img = "https://images2.thanhnien.vn/528068263637045248/2023/4/23/cau-vang-da-nang-16822248307311159361992.jpg",
+                            Name = "Đà Nẵng - Golden Bay",
                             QuantityRoom = 40,
                             QuantityStaff = 15,
-                            Slug = "da-nang"
+                            Slug = "da-nang-golden-bay"
                         },
                         new
                         {
@@ -136,10 +139,11 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Nha Trang Lodge tại Nha Trang",
                             HotelId = 4,
-                            Name = "Nha Trang",
+                            Img = "https://scontent.fvca1-1.fna.fbcdn.net/v/t1.6435-9/105491263_2363218890638032_4176841546494313648_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=2285d6&_nc_ohc=Am6nyPLhFTAQ7kNvgGcHsrl&_nc_zt=23&_nc_ht=scontent.fvca1-1.fna&_nc_gid=AdC-QhHD7kjqPE3Z4nZe9VW&oh=00_AYDLGhjVb-QnzZuzypqiIqVj_rcPwHBSosH70XxLoibW4g&oe=674CB979",
+                            Name = "Nha Trang - Lodge",
                             QuantityRoom = 60,
                             QuantityStaff = 18,
-                            Slug = "nha-trang"
+                            Slug = "nha-trang-lodge"
                         },
                         new
                         {
@@ -148,10 +152,11 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Imperial Hải Phòng tại Hải Phòng",
                             HotelId = 5,
-                            Name = "Hải Phòng",
+                            Img = "https://i0.wp.com/heza.gov.vn/wp-content/uploads/2023/10/hai_phong-scaled.jpg?fit=2560%2C1662&ssl=1",
+                            Name = "Hải Phòng - Imperial",
                             QuantityRoom = 30,
                             QuantityStaff = 12,
-                            Slug = "hai-phong"
+                            Slug = "hai-phong-imperial"
                         },
                         new
                         {
@@ -160,10 +165,11 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Langham Hotel tại New York",
                             HotelId = 6,
-                            Name = "New York",
+                            Img = "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/View_of_Empire_State_Building_from_Rockefeller_Center_New_York_City_dllu.jpg/800px-View_of_Empire_State_Building_from_Rockefeller_Center_New_York_City_dllu.jpg",
+                            Name = "New York - Langham",
                             QuantityRoom = 100,
                             QuantityStaff = 40,
-                            Slug = "new-york"
+                            Slug = "new-york-langham"
                         },
                         new
                         {
@@ -172,10 +178,11 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của The Peninsula Tokyo tại Tokyo",
                             HotelId = 7,
-                            Name = "Tokyo",
+                            Img = "https://www.agoda.com/wp-content/uploads/2024/06/tokyo-japan-1244x700.jpg",
+                            Name = "Tokyo - The Peninsula Tokyo",
                             QuantityRoom = 90,
                             QuantityStaff = 35,
-                            Slug = "tokyo"
+                            Slug = "tokyo-the-peninsula-tokyo"
                         },
                         new
                         {
@@ -184,10 +191,11 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của The Ritz-Carlton tại Cancun",
                             HotelId = 8,
-                            Name = "Cancun",
+                            Img = "https://pantravel.vn/wp-content/uploads/2024/01/cancun-thien-duong-nghi-duong-hang-dau-mexico.jpg",
+                            Name = "Cancun - The Ritz-Carlton",
                             QuantityRoom = 75,
                             QuantityStaff = 30,
-                            Slug = "cancun"
+                            Slug = "cancun-the-ritz-carlton"
                         },
                         new
                         {
@@ -196,10 +204,11 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của The Biltmore Miami tại Miami",
                             HotelId = 9,
-                            Name = "Miami",
+                            Img = "https://a.travel-assets.com/findyours-php/viewfinder/images/res70/471000/471674-Miami.jpg",
+                            Name = "Miami - The Biltmore Miami",
                             QuantityRoom = 60,
                             QuantityStaff = 28,
-                            Slug = "miami"
+                            Slug = "miami-the-biltmore-miami"
                         },
                         new
                         {
@@ -208,10 +217,11 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Shangri-La tại Paris",
                             HotelId = 10,
-                            Name = "Paris",
+                            Img = "https://media.timeout.com/images/106181719/image.jpg",
+                            Name = "Paris - Shangri-La",
                             QuantityRoom = 110,
                             QuantityStaff = 45,
-                            Slug = "paris"
+                            Slug = "paris-shangri-la"
                         },
                         new
                         {
@@ -220,10 +230,11 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Grand Hyatt tại Seoul",
                             HotelId = 11,
-                            Name = "Seoul",
+                            Img = "https://booking.pystravel.vn/uploads/posts/avatar/1693995460.jpg",
+                            Name = "Seoul - Grand Hyatt Seoul",
                             QuantityRoom = 120,
                             QuantityStaff = 50,
-                            Slug = "seoul"
+                            Slug = "seoul-grand-hyatt-seoul"
                         },
                         new
                         {
@@ -232,10 +243,11 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Four Seasons tại Bangkok",
                             HotelId = 12,
-                            Name = "Bangkok",
+                            Img = "https://owa.bestprice.vn/images/destinations/uploads/bangkok-543c92d75fddd.jpg",
+                            Name = "Bangkok - Four Seasons",
                             QuantityRoom = 80,
                             QuantityStaff = 32,
-                            Slug = "bangkok"
+                            Slug = "bangkok-four-seasons"
                         },
                         new
                         {
@@ -244,10 +256,11 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Hilton tại Tokyo",
                             HotelId = 13,
-                            Name = "Tokyo",
+                            Img = "https://media.cntraveler.com/photos/63482b255e7943ad4006df0b/16:9/w_2560%2Cc_limit/tokyoGettyImages-1031467664.jpeg",
+                            Name = "Tokyo - Hilton",
                             QuantityRoom = 95,
                             QuantityStaff = 38,
-                            Slug = "tokyo"
+                            Slug = "tokyo-hilton"
                         },
                         new
                         {
@@ -256,10 +269,11 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của W Hong Kong tại Hong Kong",
                             HotelId = 14,
-                            Name = "Hong Kong",
+                            Img = "https://www.discoverhongkong.com/content/dam/dhk/intl/explore/attractions/the-charm-of-the-bright-city/the-charm-of-the-bright-city-1920x1080.jpg",
+                            Name = "Hong Kong - W Hong Kong",
                             QuantityRoom = 130,
                             QuantityStaff = 55,
-                            Slug = "hong-kong"
+                            Slug = "hong-kong-w-hong-kong"
                         },
                         new
                         {
@@ -268,10 +282,11 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của The St. Regis tại Bali",
                             HotelId = 15,
-                            Name = "Bali",
+                            Img = "https://www.travelandleisure.com/thmb/KE0vV7K8Ngvc_7j-_FGx_jCUdCM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/TAL-bali-lead-image-BALITG1223-101f43c88c044081a4558b737afbd094.jpg",
+                            Name = "Bali - The St. Regis",
                             QuantityRoom = 70,
                             QuantityStaff = 22,
-                            Slug = "bali"
+                            Slug = "bali-the-st-regis"
                         },
                         new
                         {
@@ -280,10 +295,11 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Mandarin Oriental tại Bangkok",
                             HotelId = 16,
-                            Name = "Bangkok",
+                            Img = "https://a0.muscache.com/im/pictures/INTERNAL/INTERNAL-ImageByPlaceId-ChIJ82ENKDJgHTERIEjiXbIAAQE-large_background/original/af044017-e151-4e68-bc01-e79bae614523.jpeg",
+                            Name = "Bangkok - Mandarin Oriental",
                             QuantityRoom = 85,
                             QuantityStaff = 35,
-                            Slug = "bangkok"
+                            Slug = "bangkok-mandarin-oriental"
                         },
                         new
                         {
@@ -292,10 +308,11 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Le Meurice tại Paris",
                             HotelId = 17,
-                            Name = "Paris",
+                            Img = "https://www.vn.kayak.com/rimg/dimg/bd/d1/2f268866-city-36014-162f82486f9.jpg?width=1366&height=768&xhint=2485&yhint=1564&crop=true",
+                            Name = "Paris - Le Meurice",
                             QuantityRoom = 140,
                             QuantityStaff = 60,
-                            Slug = "paris"
+                            Slug = "paris-le-meurice"
                         },
                         new
                         {
@@ -304,10 +321,11 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của The Oberoi tại Mumbai",
                             HotelId = 18,
-                            Name = "Mumbai",
+                            Img = "https://www.agoda.com/wp-content/uploads/2024/04/Chatrapati-Shivaji-Mumbai-India.jpg",
+                            Name = "Mumbai - The Oberoi",
                             QuantityRoom = 75,
                             QuantityStaff = 30,
-                            Slug = "mumbai"
+                            Slug = "mumbai-the-oberoi"
                         },
                         new
                         {
@@ -316,10 +334,11 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Park Hyatt tại Sydney",
                             HotelId = 19,
-                            Name = "Sydney",
+                            Img = "https://media.tatler.com/photos/6141d37b9ce9874a3e40107d/16:9/w_1280,c_limit/social_crop_sydney_opera_house_gettyimages-869714270.jpg",
+                            Name = "Sydney - Park Hyatt",
                             QuantityRoom = 60,
                             QuantityStaff = 29,
-                            Slug = "sydney"
+                            Slug = "sydney-park-hyatt"
                         },
                         new
                         {
@@ -328,10 +347,11 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của The Sukhothai tại Bangkok",
                             HotelId = 20,
-                            Name = "Bangkok",
+                            Img = "https://toplist.vn/images/800px/bangkok-thai-lan-1072633.jpg",
+                            Name = "Bangkok - The Sukhothai",
                             QuantityRoom = 80,
                             QuantityStaff = 33,
-                            Slug = "bangkok"
+                            Slug = "bangkok-the-sukhothai"
                         },
                         new
                         {
@@ -340,10 +360,11 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Ritz Paris tại Paris",
                             HotelId = 21,
-                            Name = "Paris",
+                            Img = "https://i2.ex-cdn.com/crystalbay.com/files/content/2024/07/29/du-lich-paris-1-1540.jpg",
+                            Name = "Paris - Ritz",
                             QuantityRoom = 125,
                             QuantityStaff = 50,
-                            Slug = "paris"
+                            Slug = "paris-ritz"
                         },
                         new
                         {
@@ -352,10 +373,11 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Taj Mahal Palace tại Mumbai",
                             HotelId = 22,
-                            Name = "Mumbai",
+                            Img = "https://thvl.vn/wp-content/uploads/2024/03/Mumbai-tr%E1%BB%9F-th%C3%A0nh-th%C3%A0nh-ph%E1%BB%91-c%C3%B3-nhi%E1%BB%81u-t%E1%BB%B7-ph%C3%BA-nh%E1%BA%A5t-ch%C3%A2u-%C3%81-scaled.jpg",
+                            Name = "Mumbai - Taj Mahal Palace",
                             QuantityRoom = 75,
                             QuantityStaff = 30,
-                            Slug = "mumbai"
+                            Slug = "mumbai-taj-mahal-palace"
                         },
                         new
                         {
@@ -364,10 +386,11 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của St. Regis tại New York",
                             HotelId = 23,
-                            Name = "New York",
+                            Img = "https://jtravel.com.vn/wp-content/uploads/2023/11/new-york.jpg",
+                            Name = "New York - St. Regis",
                             QuantityRoom = 110,
                             QuantityStaff = 42,
-                            Slug = "new-york"
+                            Slug = "new-york-st-regis"
                         },
                         new
                         {
@@ -376,10 +399,11 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Jumeirah tại Dubai",
                             HotelId = 24,
-                            Name = "Dubai",
+                            Img = "https://lp-cms-production.imgix.net/features/2017/09/dubai-marina-skyline-2c8f1708f2a1.jpg?w=1440&h=810&fit=crop&auto=format&q=75",
+                            Name = "Dubai - Jumeirah",
                             QuantityRoom = 150,
                             QuantityStaff = 50,
-                            Slug = "dubai"
+                            Slug = "dubai-jumeirah"
                         },
                         new
                         {
@@ -388,10 +412,11 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Belmond Hotel Caruso tại Italy",
                             HotelId = 25,
-                            Name = "Italy",
+                            Img = "https://cdn.britannica.com/82/195482-050-2373E635/Amalfi-Italy.jpg",
+                            Name = "Italy - Belmond Hotel Caruso",
                             QuantityRoom = 60,
                             QuantityStaff = 28,
-                            Slug = "italy"
+                            Slug = "italy-belmond-hotel-caruso"
                         },
                         new
                         {
@@ -400,10 +425,11 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Banyan Tree tại Phuket",
                             HotelId = 26,
-                            Name = "Phuket",
+                            Img = "https://media-cdn.tripadvisor.com/media/photo-m/1280/1b/4b/5d/c8/caption.jpg",
+                            Name = "Phuket - Banyan Tree",
                             QuantityRoom = 75,
                             QuantityStaff = 30,
-                            Slug = "phuket"
+                            Slug = "phuket-banyan-tree"
                         },
                         new
                         {
@@ -412,10 +438,11 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của The Address tại Dubai",
                             HotelId = 27,
-                            Name = "Dubai",
+                            Img = "https://www.agoda.com/wp-content/uploads/2024/04/Featured-image-Dubai-UAE-1244x700.jpg",
+                            Name = "Dubai - The Address",
                             QuantityRoom = 120,
                             QuantityStaff = 45,
-                            Slug = "dubai"
+                            Slug = "dubai-the-address"
                         },
                         new
                         {
@@ -424,10 +451,11 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Shangri-La tại Bangkok",
                             HotelId = 28,
-                            Name = "Bangkok",
+                            Img = "https://www.flightmate.co.za/pictures/destination/thailand/bangkok/highres/landscape/cheap-trips-to-bangkok-10.jpg",
+                            Name = "Bangkok - Shangri-La",
                             QuantityRoom = 90,
                             QuantityStaff = 35,
-                            Slug = "bangkok"
+                            Slug = "bangkok-shangri-la"
                         },
                         new
                         {
@@ -436,10 +464,11 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của The Oberoi tại Bali",
                             HotelId = 29,
-                            Name = "Bali",
+                            Img = "https://cloudinary.fclmedia.com/fctg/image/fetch/w_1600,c_fill,q_auto,g_auto,fl_progressive/https://live-fcl-site-fcb.pantheonsite.io/sites/default/files/Bingin%20Beach%20Bali%20-%20DESKTOP.jpg",
+                            Name = "Bali - The Oberoi",
                             QuantityRoom = 65,
                             QuantityStaff = 25,
-                            Slug = "bali"
+                            Slug = "bali-the-oberoi"
                         },
                         new
                         {
@@ -448,10 +477,11 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Aman tại Tokyo",
                             HotelId = 30,
-                            Name = "Tokyo",
+                            Img = "https://images.goway.com/production/styles/article_featured_image_2xl/s3/featured_images/japan_tokyo_akihabara_AdobeStock_295310062_Editorial_Use_Only.jpg?h=43fc81ba&itok=k1GsYr-r",
+                            Name = "Tokyo - Aman",
                             QuantityRoom = 95,
                             QuantityStaff = 38,
-                            Slug = "tokyo"
+                            Slug = "tokyo-aman"
                         },
                         new
                         {
@@ -460,10 +490,11 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Rex Hotel Saigon tại Hà Nội",
                             HotelId = 2,
-                            Name = "Hà Nội",
+                            Img = "https://vietbis.vn/Image/Picture/Hanoi/duong-pho-ha-noi-maps.jpg",
+                            Name = "Hà Nội - Rex Hotel",
                             QuantityRoom = 50,
                             QuantityStaff = 20,
-                            Slug = "ha-noi-2"
+                            Slug = "ha-noi-rex-hotel"
                         },
                         new
                         {
@@ -472,10 +503,11 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Đà Nẵng Golden Bay tại TP. Hồ Chí Minh",
                             HotelId = 3,
-                            Name = "TP. Hồ Chí Minh",
+                            Img = "https://nhaf.net.vn/wp-content/uploads/2022/03/thanh-pho-ho-chi-minh-scaled.jpg",
+                            Name = "TP. Hồ Chí Minh - Golden Bay",
                             QuantityRoom = 80,
                             QuantityStaff = 25,
-                            Slug = "tp-ho-chi-minh-2"
+                            Slug = "tp-ho-chi-minh-golden-bay"
                         },
                         new
                         {
@@ -484,10 +516,11 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Nha Trang Lodge tại Đà Nẵng",
                             HotelId = 4,
-                            Name = "Đà Nẵng",
+                            Img = "https://www.vietnamairlines.com/~/media/Images/HeroBannerDestination/Vietnam/Herro%20banner/DANANG/Hero%20banner/1300x450/Danang_banner_2600x1111_0.jpg",
+                            Name = "Đà Nẵng - Lodge",
                             QuantityRoom = 40,
                             QuantityStaff = 15,
-                            Slug = "da-nang-2"
+                            Slug = "da-nang-lodge"
                         },
                         new
                         {
@@ -496,10 +529,11 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Imperial Hải Phòng tại Nha Trang",
                             HotelId = 5,
-                            Name = "Nha Trang",
+                            Img = "https://focusasiatravel.vn/wp-content/uploads/2023/09/eb13dca8-82c2-42c0-8698-c37a468c001b.jpg",
+                            Name = "Nha Trang - Imperial",
                             QuantityRoom = 60,
                             QuantityStaff = 18,
-                            Slug = "nha-trang-2"
+                            Slug = "nha-trang-imperial"
                         },
                         new
                         {
@@ -508,10 +542,11 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Langham Hotel tại Hải Phòng",
                             HotelId = 6,
-                            Name = "Hải Phòng",
+                            Img = "https://file3.qdnd.vn/data/images/0/2023/03/31/nguyenthao/hai%20phong.jpg?dpi=150&quality=100&w=870",
+                            Name = "Hải Phòng - Langham",
                             QuantityRoom = 30,
                             QuantityStaff = 12,
-                            Slug = "hai-phong-2"
+                            Slug = "hai-phong-langham"
                         },
                         new
                         {
@@ -520,10 +555,10 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của The Peninsula tại New York",
                             HotelId = 7,
-                            Name = "New York",
+                            Name = "New York - The Peninsula",
                             QuantityRoom = 100,
                             QuantityStaff = 40,
-                            Slug = "new-york-2"
+                            Slug = "new-york-the-peninsula"
                         },
                         new
                         {
@@ -532,10 +567,11 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của The Ritz-Carlton tại Tokyo",
                             HotelId = 8,
-                            Name = "Tokyo",
+                            Img = "https://tnktravel.com.vn/wp-content/uploads/2022/10/tokyo-nh%E1%BA%ADt-b%E1%BA%A3n.jpg",
+                            Name = "Tokyo - The Ritz-Carlton",
                             QuantityRoom = 90,
                             QuantityStaff = 35,
-                            Slug = "tokyo-2"
+                            Slug = "tokyo-the-ritz-carlton"
                         },
                         new
                         {
@@ -544,10 +580,11 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của The Biltmore tại Cancun",
                             HotelId = 9,
-                            Name = "Cancun",
+                            Img = "https://media.tacdn.com/media/attractions-content--1x-1/12/29/06/2b.jpg",
+                            Name = "Cancun - The Biltmore",
                             QuantityRoom = 75,
                             QuantityStaff = 30,
-                            Slug = "cancun-2"
+                            Slug = "cancun-the-biltmore"
                         },
                         new
                         {
@@ -556,10 +593,11 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Shangri-La tại Miami",
                             HotelId = 10,
-                            Name = "Miami",
+                            Img = "https://i.natgeofe.com/n/5de6e34a-d550-4358-b7ef-4d79a09c680e/aerial-beach-miami-florida.jpg",
+                            Name = "Miami - Shangri-La",
                             QuantityRoom = 60,
                             QuantityStaff = 28,
-                            Slug = "miami-2"
+                            Slug = "miami-shangri-la"
                         },
                         new
                         {
@@ -568,10 +606,11 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Grand Hyatt tại Paris",
                             HotelId = 11,
-                            Name = "Paris",
+                            Img = "https://www.agoda.com/wp-content/uploads/2024/02/Featured-image-Notre-Dame-de-Paris-Cathedral-Paris-France-1244x700.jpg",
+                            Name = "Paris - Grand Hyatt",
                             QuantityRoom = 110,
                             QuantityStaff = 45,
-                            Slug = "paris-2"
+                            Slug = "paris-grand-hyatt"
                         },
                         new
                         {
@@ -580,10 +619,11 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Four Seasons tại Seoul",
                             HotelId = 12,
-                            Name = "Seoul",
+                            Img = "https://www.vietnamairlines.com/~/media/Images/HeroBannerDestination/Korea/Seoul/Hero%20banner/2600x900/Seoul_banner_2600x1111.jpg",
+                            Name = "Seoul - Four Seasons",
                             QuantityRoom = 120,
                             QuantityStaff = 50,
-                            Slug = "seoul-2"
+                            Slug = "seoul-four-seasons"
                         },
                         new
                         {
@@ -592,10 +632,11 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Hilton tại Bangkok",
                             HotelId = 13,
-                            Name = "Bangkok",
+                            Img = "https://saigontimestravel.com/wp-content/uploads/2024/08/bangkok-thai-lan-1.jpg",
+                            Name = "Bangkok - Hilton",
                             QuantityRoom = 80,
                             QuantityStaff = 32,
-                            Slug = "bangkok-2"
+                            Slug = "bangkok-hilton"
                         },
                         new
                         {
@@ -604,10 +645,11 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của W Hong Kong tại Tokyo",
                             HotelId = 14,
-                            Name = "Tokyo",
+                            Img = "https://newswirengr.com/wp-content/uploads/2023/12/Tokyo.jpg",
+                            Name = "Tokyo - W Hong Kong",
                             QuantityRoom = 95,
                             QuantityStaff = 38,
-                            Slug = "tokyo-3"
+                            Slug = "tokyo-w-hong-kong"
                         },
                         new
                         {
@@ -616,10 +658,11 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của The St. Regis tại Hong Kong",
                             HotelId = 15,
-                            Name = "Hong Kong",
+                            Img = "https://upload.wikimedia.org/wikipedia/commons/a/a4/Hong_Kong_Island_Skyline_201108.jpg",
+                            Name = "Hong Kong - The St. Regis",
                             QuantityRoom = 130,
                             QuantityStaff = 55,
-                            Slug = "hong-kong-2"
+                            Slug = "hong-kong-the-st-regis"
                         },
                         new
                         {
@@ -628,10 +671,11 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Mandarin Oriental tại Bali",
                             HotelId = 16,
-                            Name = "Bali",
+                            Img = "https://songhongtourist.vn/upload/2020-02-25/kinh-nghiem-du-lich-bali-1-5.jpg",
+                            Name = "Bali - Mandarin Oriental",
                             QuantityRoom = 70,
                             QuantityStaff = 22,
-                            Slug = "bali-2"
+                            Slug = "bali-mandarin-oriental"
                         },
                         new
                         {
@@ -640,10 +684,11 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Ritz tại Bangkok",
                             HotelId = 17,
-                            Name = "Bangkok",
+                            Img = "https://dichvuxinvisa.com/wp-content/uploads/2020/12/Thoi-gian-tot-nhat-Du-lich-Bangkok.jpg",
+                            Name = "Bangkok - Ritz",
                             QuantityRoom = 85,
                             QuantityStaff = 35,
-                            Slug = "bangkok-3"
+                            Slug = "bangkok-ritz"
                         },
                         new
                         {
@@ -652,10 +697,11 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của The Oberoi tại Paris",
                             HotelId = 18,
-                            Name = "Paris",
+                            Img = "https://static01.nyt.com/images/2023/07/01/travel/22hours-paris-tjzf/22hours-paris-tjzf-videoSixteenByNineJumbo1600.jpg",
+                            Name = "Paris - The Oberoi",
                             QuantityRoom = 140,
                             QuantityStaff = 60,
-                            Slug = "paris-3"
+                            Slug = "paris-the-oberoi"
                         },
                         new
                         {
@@ -664,10 +710,11 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Park Hyatt tại Mumbai",
                             HotelId = 19,
-                            Name = "Mumbai",
+                            Img = "https://res.klook.com/images/fl_lossy.progressive,q_65/c_fill,w_1200,h_630/w_80,x_15,y_15,g_south_west,l_Klook_water_br_trans_yhcmh3/activities/eybjjii82kbb7e4mclya/Highlights%20of%20Mumbai%20Day%20Tour.jpg",
+                            Name = "Mumbai - Park Hyatt",
                             QuantityRoom = 75,
                             QuantityStaff = 30,
-                            Slug = "mumbai-2"
+                            Slug = "mumbai-park-hyatt"
                         },
                         new
                         {
@@ -676,10 +723,11 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của The Sukhothai tại Sydney",
                             HotelId = 20,
-                            Name = "Sydney",
+                            Img = "https://duhocuc.edu.vn/wp-content/uploads/2024/02/du-hoc-uc-tai-sydney.jpg",
+                            Name = "Sydney - The Sukhothai",
                             QuantityRoom = 65,
                             QuantityStaff = 29,
-                            Slug = "sydney-2"
+                            Slug = "sydney-the-sukhothai"
                         },
                         new
                         {
@@ -688,10 +736,11 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Ritz tại Bangkok",
                             HotelId = 21,
-                            Name = "Bangkok",
+                            Img = "https://hieutour.com.vn/public/upload/images/hinhsanpham/hanh-trinh-kham-pha-bangkok-pattaya---5-ngay-4-dem---ho5dtlbk1801-53611705657481.jpg",
+                            Name = "Bangkok - Ritz",
                             QuantityRoom = 90,
                             QuantityStaff = 33,
-                            Slug = "bangkok-4"
+                            Slug = "bangkok-ritz"
                         },
                         new
                         {
@@ -700,10 +749,11 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của The Leela tại Bali",
                             HotelId = 22,
-                            Name = "Bali",
+                            Img = "https://ik.imagekit.io/tvlk/blog/2022/12/dia-diem-du-lich-bali-1.jpg?tr=dpr-2,w-675",
+                            Name = "Bali - The Leela",
                             QuantityRoom = 65,
                             QuantityStaff = 25,
-                            Slug = "bali-3"
+                            Slug = "bali-the-leela"
                         },
                         new
                         {
@@ -712,10 +762,11 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của St. Regis tại Tokyo",
                             HotelId = 23,
-                            Name = "Tokyo",
+                            Img = "https://www.patrickopreis.nl/wp-content/uploads/2018/06/tokyo-5x-zien-en-doen.jpg",
+                            Name = "Tokyo - St. Regis",
                             QuantityRoom = 92,
                             QuantityStaff = 37,
-                            Slug = "tokyo-4"
+                            Slug = "tokyo-st-regis"
                         },
                         new
                         {
@@ -724,10 +775,11 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Jumeirah tại New York",
                             HotelId = 24,
-                            Name = "New York",
+                            Img = "https://a.travel-assets.com/findyours-php/viewfinder/images/res70/471000/471585-New-York.jpg",
+                            Name = "New York - Jumeirah",
                             QuantityRoom = 102,
                             QuantityStaff = 41,
-                            Slug = "new-york-3"
+                            Slug = "new-york-jumeirah"
                         },
                         new
                         {
@@ -736,10 +788,11 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Belmond Hotel Caruso tại Dubai",
                             HotelId = 25,
-                            Name = "Dubai",
+                            Img = "https://cdn3.ivivu.com/2022/06/du-lich-dubai-ivivu.jpg",
+                            Name = "Dubai - Belmond Hotel Caruso",
                             QuantityRoom = 160,
                             QuantityStaff = 53,
-                            Slug = "dubai-3"
+                            Slug = "dubai-belmond-hotel-caruso"
                         },
                         new
                         {
@@ -748,10 +801,11 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Banyan Tree tại Italy",
                             HotelId = 26,
-                            Name = "Italy",
+                            Img = "https://www.hostelworld.com/blog/wp-content/uploads/dreamstime_m_140314930-2048x857.jpg",
+                            Name = "Italy - Banyan Tree",
                             QuantityRoom = 70,
                             QuantityStaff = 30,
-                            Slug = "italy-2"
+                            Slug = "italy-banyan-tree"
                         },
                         new
                         {
@@ -760,10 +814,11 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của The Address tại Phuket",
                             HotelId = 27,
-                            Name = "Phuket",
+                            Img = "https://www.fivestars-thailand.com/images/article/display/a_1709046726.jpg",
+                            Name = "Phuket - The Address",
                             QuantityRoom = 80,
                             QuantityStaff = 32,
-                            Slug = "phuket-2"
+                            Slug = "phuket-the-address"
                         },
                         new
                         {
@@ -772,10 +827,11 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Shangri-La tại Dubai",
                             HotelId = 28,
-                            Name = "Dubai",
+                            Img = "https://www.vietourist.com.vn/public/frontend/uploads/kceditor/images/dao-co-trong-tour-dubai-min.jpg",
+                            Name = "Dubai - Shangri-La",
                             QuantityRoom = 125,
                             QuantityStaff = 45,
-                            Slug = "dubai-4"
+                            Slug = "dubai-shangri-la"
                         },
                         new
                         {
@@ -784,10 +840,11 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của The Oberoi tại Bangkok",
                             HotelId = 29,
-                            Name = "Bangkok",
+                            Img = "https://bizweb.dktcdn.net/thumb/1024x1024/100/093/257/products/nguoi-viet-toi-thai-lan-du-lich-va-chua-benh-duoc-o-90-ngay-04-6338.jpg?v=1544343721263",
+                            Name = "Bangkok - The Oberoi",
                             QuantityRoom = 90,
                             QuantityStaff = 35,
-                            Slug = "bangkok-5"
+                            Slug = "bangkok-the-oberoi"
                         },
                         new
                         {
@@ -796,10 +853,11 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chi nhánh của Aman tại Bali",
                             HotelId = 30,
-                            Name = "Bali",
+                            Img = "https://balidave.com/wp-content/uploads/2022/11/best-hotel-bali.jpeg",
+                            Name = "Bali - Aman",
                             QuantityRoom = 68,
                             QuantityStaff = 27,
-                            Slug = "bali-4"
+                            Slug = "bali-aman"
                         });
                 });
 
@@ -2632,8 +2690,8 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "admin_test@gmail.com",
                             FullName = "Nguyễn Thanh Long",
-                            PasswordHash = new byte[] { 73, 171, 70, 218, 243, 121, 232, 38, 253, 82, 43, 239, 214, 149, 27, 62, 27, 180, 102, 56, 96, 190, 118, 232, 146, 109, 168, 216, 44, 80, 127, 172, 128, 68, 221, 150, 171, 18, 99, 87, 173, 204, 141, 25, 26, 19, 35, 33, 28, 248, 214, 5, 103, 98, 241, 239, 76, 82, 86, 151, 95, 40, 172, 166 },
-                            PasswordSalt = new byte[] { 199, 175, 100, 164, 127, 202, 68, 241, 207, 250, 167, 95, 42, 61, 129, 44, 202, 151, 79, 148, 196, 54, 108, 173, 26, 240, 105, 252, 147, 17, 88, 179, 156, 105, 91, 154, 174, 105, 231, 223, 40, 233, 109, 143, 192, 25, 57, 181, 206, 106, 2, 9, 101, 54, 235, 234, 234, 26, 244, 40, 94, 135, 146, 75, 241, 102, 65, 67, 133, 76, 179, 114, 240, 83, 107, 147, 249, 227, 9, 118, 75, 15, 89, 89, 155, 241, 145, 255, 236, 109, 224, 75, 18, 11, 222, 188, 50, 192, 55, 90, 113, 229, 166, 22, 255, 150, 245, 215, 44, 143, 209, 215, 18, 216, 170, 183, 100, 211, 40, 207, 182, 69, 89, 154, 230, 12, 11, 144 },
+                            PasswordHash = new byte[] { 73, 228, 205, 193, 76, 248, 240, 5, 172, 32, 103, 74, 118, 93, 5, 6, 231, 62, 75, 74, 85, 236, 109, 49, 65, 152, 253, 168, 181, 146, 231, 154, 21, 20, 72, 128, 100, 249, 129, 208, 116, 123, 14, 92, 80, 182, 101, 241, 39, 196, 73, 79, 59, 149, 1, 90, 128, 96, 81, 132, 130, 183, 188, 158 },
+                            PasswordSalt = new byte[] { 61, 164, 98, 104, 174, 91, 251, 107, 125, 64, 119, 33, 27, 17, 200, 252, 176, 21, 29, 8, 85, 6, 170, 108, 96, 19, 5, 140, 176, 134, 65, 210, 7, 58, 184, 31, 157, 73, 190, 120, 220, 61, 172, 125, 217, 11, 141, 140, 73, 236, 89, 153, 42, 73, 2, 170, 240, 125, 114, 237, 34, 197, 194, 245, 133, 97, 110, 203, 127, 211, 129, 193, 197, 48, 255, 238, 247, 138, 90, 219, 43, 159, 140, 83, 28, 98, 192, 168, 183, 41, 147, 202, 153, 28, 40, 163, 129, 241, 44, 141, 73, 60, 141, 155, 126, 42, 21, 243, 175, 65, 1, 9, 158, 112, 216, 111, 168, 133, 92, 168, 132, 150, 43, 57, 30, 12, 3, 27 },
                             PhoneNumber1 = "+84928666158",
                             PhoneNumber2 = "+84928666156",
                             UpdatedBy = -1,
@@ -2651,8 +2709,8 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "tranthib2001@gmail.com",
                             FullName = "Trần Chí Dũng",
-                            PasswordHash = new byte[] { 73, 171, 70, 218, 243, 121, 232, 38, 253, 82, 43, 239, 214, 149, 27, 62, 27, 180, 102, 56, 96, 190, 118, 232, 146, 109, 168, 216, 44, 80, 127, 172, 128, 68, 221, 150, 171, 18, 99, 87, 173, 204, 141, 25, 26, 19, 35, 33, 28, 248, 214, 5, 103, 98, 241, 239, 76, 82, 86, 151, 95, 40, 172, 166 },
-                            PasswordSalt = new byte[] { 199, 175, 100, 164, 127, 202, 68, 241, 207, 250, 167, 95, 42, 61, 129, 44, 202, 151, 79, 148, 196, 54, 108, 173, 26, 240, 105, 252, 147, 17, 88, 179, 156, 105, 91, 154, 174, 105, 231, 223, 40, 233, 109, 143, 192, 25, 57, 181, 206, 106, 2, 9, 101, 54, 235, 234, 234, 26, 244, 40, 94, 135, 146, 75, 241, 102, 65, 67, 133, 76, 179, 114, 240, 83, 107, 147, 249, 227, 9, 118, 75, 15, 89, 89, 155, 241, 145, 255, 236, 109, 224, 75, 18, 11, 222, 188, 50, 192, 55, 90, 113, 229, 166, 22, 255, 150, 245, 215, 44, 143, 209, 215, 18, 216, 170, 183, 100, 211, 40, 207, 182, 69, 89, 154, 230, 12, 11, 144 },
+                            PasswordHash = new byte[] { 73, 228, 205, 193, 76, 248, 240, 5, 172, 32, 103, 74, 118, 93, 5, 6, 231, 62, 75, 74, 85, 236, 109, 49, 65, 152, 253, 168, 181, 146, 231, 154, 21, 20, 72, 128, 100, 249, 129, 208, 116, 123, 14, 92, 80, 182, 101, 241, 39, 196, 73, 79, 59, 149, 1, 90, 128, 96, 81, 132, 130, 183, 188, 158 },
+                            PasswordSalt = new byte[] { 61, 164, 98, 104, 174, 91, 251, 107, 125, 64, 119, 33, 27, 17, 200, 252, 176, 21, 29, 8, 85, 6, 170, 108, 96, 19, 5, 140, 176, 134, 65, 210, 7, 58, 184, 31, 157, 73, 190, 120, 220, 61, 172, 125, 217, 11, 141, 140, 73, 236, 89, 153, 42, 73, 2, 170, 240, 125, 114, 237, 34, 197, 194, 245, 133, 97, 110, 203, 127, 211, 129, 193, 197, 48, 255, 238, 247, 138, 90, 219, 43, 159, 140, 83, 28, 98, 192, 168, 183, 41, 147, 202, 153, 28, 40, 163, 129, 241, 44, 141, 73, 60, 141, 155, 126, 42, 21, 243, 175, 65, 1, 9, 158, 112, 216, 111, 168, 133, 92, 168, 132, 150, 43, 57, 30, 12, 3, 27 },
                             PhoneNumber1 = "+84928666157",
                             PhoneNumber2 = "+84928666158",
                             UpdatedBy = -1,
@@ -2670,8 +2728,8 @@ namespace App.Data.Migrations
                             Email = "thanhnguyendt2000@gmail.com",
                             FullName = "John Smith",
                             Passport = "123456789",
-                            PasswordHash = new byte[] { 73, 171, 70, 218, 243, 121, 232, 38, 253, 82, 43, 239, 214, 149, 27, 62, 27, 180, 102, 56, 96, 190, 118, 232, 146, 109, 168, 216, 44, 80, 127, 172, 128, 68, 221, 150, 171, 18, 99, 87, 173, 204, 141, 25, 26, 19, 35, 33, 28, 248, 214, 5, 103, 98, 241, 239, 76, 82, 86, 151, 95, 40, 172, 166 },
-                            PasswordSalt = new byte[] { 199, 175, 100, 164, 127, 202, 68, 241, 207, 250, 167, 95, 42, 61, 129, 44, 202, 151, 79, 148, 196, 54, 108, 173, 26, 240, 105, 252, 147, 17, 88, 179, 156, 105, 91, 154, 174, 105, 231, 223, 40, 233, 109, 143, 192, 25, 57, 181, 206, 106, 2, 9, 101, 54, 235, 234, 234, 26, 244, 40, 94, 135, 146, 75, 241, 102, 65, 67, 133, 76, 179, 114, 240, 83, 107, 147, 249, 227, 9, 118, 75, 15, 89, 89, 155, 241, 145, 255, 236, 109, 224, 75, 18, 11, 222, 188, 50, 192, 55, 90, 113, 229, 166, 22, 255, 150, 245, 215, 44, 143, 209, 215, 18, 216, 170, 183, 100, 211, 40, 207, 182, 69, 89, 154, 230, 12, 11, 144 },
+                            PasswordHash = new byte[] { 73, 228, 205, 193, 76, 248, 240, 5, 172, 32, 103, 74, 118, 93, 5, 6, 231, 62, 75, 74, 85, 236, 109, 49, 65, 152, 253, 168, 181, 146, 231, 154, 21, 20, 72, 128, 100, 249, 129, 208, 116, 123, 14, 92, 80, 182, 101, 241, 39, 196, 73, 79, 59, 149, 1, 90, 128, 96, 81, 132, 130, 183, 188, 158 },
+                            PasswordSalt = new byte[] { 61, 164, 98, 104, 174, 91, 251, 107, 125, 64, 119, 33, 27, 17, 200, 252, 176, 21, 29, 8, 85, 6, 170, 108, 96, 19, 5, 140, 176, 134, 65, 210, 7, 58, 184, 31, 157, 73, 190, 120, 220, 61, 172, 125, 217, 11, 141, 140, 73, 236, 89, 153, 42, 73, 2, 170, 240, 125, 114, 237, 34, 197, 194, 245, 133, 97, 110, 203, 127, 211, 129, 193, 197, 48, 255, 238, 247, 138, 90, 219, 43, 159, 140, 83, 28, 98, 192, 168, 183, 41, 147, 202, 153, 28, 40, 163, 129, 241, 44, 141, 73, 60, 141, 155, 126, 42, 21, 243, 175, 65, 1, 9, 158, 112, 216, 111, 168, 133, 92, 168, 132, 150, 43, 57, 30, 12, 3, 27 },
                             PhoneNumber1 = "+12025550123",
                             PhoneNumber2 = "+12027450123",
                             UpdatedBy = -1,
