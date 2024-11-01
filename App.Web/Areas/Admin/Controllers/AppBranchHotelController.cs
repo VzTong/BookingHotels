@@ -80,12 +80,12 @@ namespace App.Web.Areas.Admin.Controllers
 			{
 				model.IdMap = model.IdMap == null ? $"{HttpContext.Request.Scheme}://{HttpContext.Request.Host}" : model.IdMap;
 
-				model.Img = model.Img == null ? null : UploadFile(model.ImgPath, env.WebRootPath);
+				model.Img = model.ImgPath != null && model.ImgPath.Length > 0 ? UploadFile(model.ImgPath, env.WebRootPath) : null;
 
 				var now = DateTime.Now;
 				var user = CurrentUserId;
 				var branch = _mapper.Map<AppBranchHotel>(model);
-				branch.Slug = branch.Name.Slugify();
+				branch.Slug = StringExtension.Slugify(branch.Name);
 				branch.CreatedBy = CurrentUserId;
 				branch.CreatedDate = now;
 
@@ -145,8 +145,7 @@ namespace App.Web.Areas.Admin.Controllers
 
 				// Cập nhật các thuộc tính khác của branch
 				_mapper.Map<AddOrUpdateBranchHotelVM, AppBranchHotel>(model, branch);
-
-				branch.Slug = branch.Name.Slugify();
+				branch.Slug = StringExtension.Slugify(branch.Name);
 				branch.UpdatedBy = CurrentUserId;
 				branch.UpdatedDate = DateTime.Now;
 
