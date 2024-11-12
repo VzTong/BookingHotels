@@ -27,6 +27,7 @@
 	<link href="~/lib/bs4-toast-snackbar/css/toast-snackbar.css" rel="stylesheet" asp-append-version="true" />
 	<link href="~/adminLTE/css/custom.min.css" rel="stylesheet" asp-append-version="true" />
 	<link href="~/css/logo-text.css" rel="stylesheet" asp-append-version="true" />
+	<link href="~/css/site.css" rel="stylesheet" asp-append-version="true" />
 	@RenderSection("Css", false)
 </head>
 
@@ -65,14 +66,12 @@
 	<partial name="_ChangePassword" model="null" />
 
 	<!-- JAVASCRIPT -->
+	<script src="~/adminlte/libs/bootstrap/js/bootstrap.bundle.min.js" asp-append-version="true"></script>
 	<script src="~/lib/jquery/dist/jquery.min.js" asp-append-version="true"></script>
-	<script src="~/adminLTE/libs/jquery/jquery.min.js" asp-append-version="true"></script>
-	<script src="~/adminLTE/libs/bootstrap/js/bootstrap.bundle.min.js" asp-append-version="true"></script>
 	<script src="~/adminLTE/libs/simplebar/simplebar.min.js" asp-append-version="true"></script>
 	<script src="~/adminLTE/libs/node-waves/waves.min.js" asp-append-version="true"></script>
 	<script src="~/adminLTE/libs/feather-icons/feather.min.js" asp-append-version="true"></script>
 	<script src="~/adminLTE/js/pages/plugins/lord-icon-2.1.0.js" asp-append-version="true"></script>
-	<script src="~/adminLTE/js/plugins.js" asp-append-version="true"></script>
 	<!-- apexcharts -->
 	<script src="~/adminLTE/libs/apexcharts/apexcharts.min.js" asp-append-version="true"></script>
 	<!-- Vector map-->
@@ -83,6 +82,9 @@
 	<!-- Dashboard init -->
 	<script src="~/adminLTE/js/pages/dashboard-ecommerce.init.js" asp-append-version="true"></script>
 	<!-- App js -->
+
+	<script type="text/javascript" src="@Url.Content("~/adminLTE/libs/choices.js/public/assets/scripts/choices.min.js")"></script>
+	<script type="text/javascript" src="@Url.Content("~/adminLTE/libs/flatpickr/flatpickr.min.js")"></script>
 	<script src="~/adminLTE/js/app.js" asp-append-version="true"></script>
 	<!-- notifications init -->
 	<script src="~/adminLTE/js/pages/notifications.init.js" asp-append-version="true"></script>
