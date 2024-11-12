@@ -97,6 +97,7 @@
 			public const short PHONE_LENGTH					= 15;
 			public const short EMAIL_LENGTH					= 200;
 			public const short IMG_BANNER_LENGTH			= 500;
+			public const bool ISACTIVE						= true;
 		}
 
 		public static class AppBranchHotel
@@ -125,7 +126,6 @@
 
 		public static class RoomStatus
 		{
-
 			public const string STATUS_PENDING_NAME			= "Phòng đang được sửa chữa";
 			public const string STATUS_PROCESSING_NAME		= "Phòng đang được dọn dẹp";
 			public const string STATUS_BOOKING_NAME			= "Phòng đang được đặt";
@@ -174,9 +174,16 @@
 			public const string TABLE_NAME					= "AppOrder";
 			public const short TOTAL_LENGTH					= 10;
 			public const short DEPOSIT_LENGTH				= 100;
-		}
+			public const short STATUS_LENGTH				= 100;
+        }
 
-		public static class AppOrderDetail
+        public static class OrderStatus
+        {
+            public const string STATUS_PROCESSING_NAME = "Hóa đơn đang được chờ thanh toán";
+            public const string STATUS_DONE_NAME = "Hóa đơn đã thanh toán";
+        }
+
+        public static class AppOrderDetail
 		{
 			public const string TABLE_NAME					= "AppOrderDetail";
 			public const short ROOM_NAME_LENGTH				= 5;
