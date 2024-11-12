@@ -1,4 +1,6 @@
-﻿<!-- Modal -->
+﻿@using App.Web.Areas.Admin.ViewModels.BranchHotel
+@model AddOrUpdateBranchHotelVM
+<!-- Modal -->
 <div class="modal fade zoomIn" id="addBranchHotel" tabindex="-1" aria-labelledby="addBranchHotelLabel" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered modal-lg">
 		<div class="modal-content">
@@ -7,7 +9,7 @@
 				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>
 			<hr />
-			<form asp-action="Create" asp-controller="AppBranchHotel" asp-area="Admin" method="POST" enctype="multipart/form-data">
+			<form asp-action="Create" asp-controller="AppBranchHotel" asp-area="Admin" method="POST" enctype="multipart/form-data" autocomplete="off" class="row g-3 needs-validation" novalidate>
 				<div class="modal-body">
 					<input type="hidden" id="idBranchHotel" name="Id" />
 					<div class="modal-body ml-4 col-sm-12 justify-content-center align-items-center d-flex">
@@ -15,23 +17,38 @@
 							<div class="mb-3">
 								<label for="branchName-field" class="form-label">Tên chi nhánh</label>
 								<input type="text" id="branchName-field" class="form-control" name="Name" placeholder="Tên chi nhánh" required />
+								<div class="invalid-feedback">
+									Vui lòng nhập tên chi nhánh.
+								</div>
 							</div>
 							<div class="mb-3">
 								<label for="branchAddress-field" class="form-label">Địa chỉ</label>
 								<input type="text" id="branchAddress-field" class="form-control" name="Address" placeholder="Tên địa chỉ" required />
+								<div class="invalid-feedback">
+									Vui lòng nhập địa chỉ.
+								</div>
 							</div>
 							<div class="mb-3">
 								<label for="branchIdMap-field" class="form-label">Địa chỉ trên Map</label>
 								<input type="text" id="branchIdMap-field" class="form-control" name="IdMap" placeholder="Đường dẫn map" required />
+								<div class="invalid-feedback">
+									Vui lòng nhập số địa chỉ map.
+								</div>
 							</div>
 							<div class="mb-3 d-flex">
 								<div class="col-5" style="margin-right: 0.7rem;">
 									<label for="branchQuantityStaff-field" class="form-label">Số lượng nhân viên</label>
 									<input type="number" id="branchQuantityStaff-field" class="form-control" name="QuantityStaff" placeholder="Số lượng nhân viên" required />
+									<div class="invalid-feedback">
+										Vui lòng nhập số lượng nhân viên.
+									</div>
 								</div>
 								<div class="col-5 ms-5">
 									<label for="branchQuantityRoom-field" class="form-label">Số lượng phòng</label>
 									<input type="number" id="branchQuantityRoom-field" class="form-control" name="QuantityRoom" placeholder="Số lượng phòng" required />
+									<div class="invalid-feedback">
+										Vui lòng nhập số lượng phòng.
+									</div>
 								</div>
 							</div>
 							<div class="mb-3">
@@ -42,10 +59,13 @@
 										_for = "HotelId",
 										allowNull = false
 									})
+								<div class="invalid-feedback">
+									Vui lòng chọn khách sạn.
+								</div>
 							</div>
 							<div class="mb-3">
 								<label for="branchDesc-field" class="form-label">Mô tả</label>
-								<textarea textarea type="text" id="branchDesc-field" class="form-control" col="3" name="Description" placeholder="Mô tả" required></textarea>
+								<textarea textarea type="text" id="branchDesc-field" class="form-control" col="3" name="Description" placeholder="Mô tả"></textarea>
 							</div>
 						</div>
 						<div class="position-relative col-8 col-sm-6 ms-5">
@@ -55,6 +75,9 @@
 									<i id="iconPreview" class="fas fa-cloud-upload-alt" style="font-size: 90px; color: rgb(10, 176, 202); margin-top:40px"></i>
 								</div>
 								<input name="ImgPath" class="form-control border border-secondary position-absolute" type="file" id="fileInput" style="width: 21.875rem; height: 12.5rem; opacity: 0; top: 0" required />
+								<div class="invalid-feedback">
+									Vui lòng nhập ảnh.
+								</div>
 							</div>
 						</div>
 					</div>
@@ -62,7 +85,6 @@
 				<div class="modal-footer">
 					<div class="hstack gap-2 justify-content-end">
 						<button type="submit" class="btn btn-success" id="add-btn">Thêm chi nhánh</button>
-						<button type="reset" class="btn btn-default"><i class="fa fa-undo"></i>Làm mới</button>
 					</div>
 				</div>
 			</form>

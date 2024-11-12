@@ -66,6 +66,7 @@ namespace App.Web.Areas.Admin.Controllers
 		[HttpPost]
 		public async Task<IActionResult> Create(AddOrUpdateBranchHotelVM model, [FromServices] IWebHostEnvironment env)
 		{
+			var refererUrl = Request.Headers["Referer"].ToString();
 			if (!ModelState.IsValid)
 			{
 				SetErrorMesg(MODEL_STATE_INVALID_MESG, true);
@@ -91,12 +92,13 @@ namespace App.Web.Areas.Admin.Controllers
 
 				await _repository.AddAsync(branch);
 				SetSuccessMesg($"Thêm chi nhánh '{branch.Name}' thành công");
-				return RedirectToAction(nameof(Index), ROUTE_FOR_AREA);
+				return Redirect(refererUrl);
+
 			}
 			catch (Exception ex)
 			{
 				LogException(ex);
-				return RedirectToAction(nameof(Index), ROUTE_FOR_AREA);
+				return Redirect(refererUrl);
 			}
 		}
 
@@ -104,7 +106,7 @@ namespace App.Web.Areas.Admin.Controllers
 		[HttpPost]
 		public async Task<IActionResult> Update(AddOrUpdateBranchHotelVM model, [FromServices] IWebHostEnvironment env)
 		{
-			var branch = await _repository.FindAsync<AppBranchHotel>((int)model.Id);
+            var branch = await _repository.FindAsync<AppBranchHotel>((int)model.Id);
 			if (!ModelState.IsValid)
 			{
 				SetErrorMesg(MODEL_STATE_INVALID_MESG, true);

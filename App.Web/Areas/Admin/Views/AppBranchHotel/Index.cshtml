@@ -91,11 +91,19 @@
 										<td class="branchHotel_name">
 											@item.Name
 											<div>
-												@if (!item.Slug.IsNullOrEmpty())
-												{
-													<span class="badge badge-soft-success badge-border" style="cursor: default;">
-														@item.Slug
-													</span>
+												@{
+													if (!item.Slug.IsNullOrEmpty())
+													{
+														<span class="badge badge-soft-success badge-border" style="cursor: default;">
+															@item.Slug
+														</span>
+													}
+													if (!item.HotelName.IsNullOrEmpty())
+													{
+														<span class="badge badge-soft-info" style="cursor: default;">
+															<i class=" ri-hotel-line"></i> @item.HotelName
+														</span>
+													}
 												}
 											</div>
 										</td>
@@ -109,11 +117,12 @@
 												@if (User.IsInPermission(AuthConst.AppBranchHotel.UPDATE))
 												{
 													<div class="edit">
-														<button class="btn btn-sm edit-item-btn link-success fs-15" 
-																data-bs-toggle="modal" 
+														<button class="btn btn-sm edit-item-btn link-success fs-15"
+																data-bs-toggle="modal"
 																data-bs-target="#updateBranchHotel"
 																onclick="UpdateBranch('@item.Id', '@item.Name', '@item.Address', '@item.IdMap', '@item.QuantityStaff', '@item.QuantityRoom', '@item.HotelId', '@item.Description', '@item.Img')">
-														<i class="ri-edit-2-line"></i></button>
+															<i class="ri-edit-2-line"></i>
+														</button>
 													</div>
 												}
 												@if (User.IsInPermission(AuthConst.AppBranchHotel.DELETE))
@@ -167,63 +176,13 @@
 <partial name="_DeleteBranchHotelModal" model="null" />
 
 @section Scripts {
-	<script>
-		const fileInput = $('#fileInput');
-		const fileInput2 = $('#fileInput2');
-		const imagePreview = $('#imagePreview');
-		const iconPreview = $('#iconPreview');
+	<script src="~/adminLTE/libs/prismjs/prism.js"></script>
+	<script src="~/adminLTE/js/pages/form-validation.init.js"></script>
+	<script src="~/js/admin/branchhotel/branch-validate.js"></script>
+	<script src="~/js/admin/branchhotel/branch-modal.js"></script>
+	<!-- Include Choices CSS -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" />
 
-		// Sử dụng .on thay vì addEventListener để đăng ký sự kiện trong jQuery
-		fileInput.on('change', function (ev) {
-			const file = fileInput[0].files[0];
-			if (file) {
-				imagePreview.show(); // Hiển thị thẻ img
-				iconPreview.hide(); // Ẩn thẻ icon
-				imagePreview.attr('src', URL.createObjectURL(file));
-			}
-		});
-
-		fileInput2.on('change', function (ev) {
-			const file = fileInput2[0].files[0];
-			if (file) {
-				$('#updateBranchHotel #imagePreview').show(); // Hiển thị thẻ img
-				$('#updateBranchHotel #iconPreview').hide(); // Ẩn thẻ icon
-				$('#updateBranchHotel #imagePreview').attr('src', URL.createObjectURL(file));
-			}
-		});
-
-		function UpdateBranch(id, name, address, iMap, quantityStaff, quantityRoom, hotelId, description, imgPath) {
-			// Đặt các giá trị trong modal cập nhật
-			$('#updateBranchHotel #idEdit').val(id);
-			$('#updateBranchHotel #branchName-field').val(name);
-			$('#updateBranchHotel #branchAddress-field').val(address);
-			$('#updateBranchHotel #branchIdMap-field').val(iMap);
-			$('#updateBranchHotel #branchQuantityStaff-field').val(quantityStaff);
-			$('#updateBranchHotel #branchQuantityRoom-field').val(quantityRoom);
-			$('#updateBranchHotel #branchDesc-field').val(description);
-
-			// Đặt giá trị cho dropdown khách sạn
-			$('#updateBranchHotel select[name="HotelId"]').val(hotelId);
-
-			// Đặt ảnh xem trước
-			if (imgPath) {
-				$('#updateBranchHotel #imagePreview').attr('src', '/' + imgPath).show();
-				$('#updateBranchHotel #iconPreview').hide();
-			} else {
-				$('#updateBranchHotel #imagePreview').hide();
-				$('#updateBranchHotel #iconPreview').show();
-			}
-
-			// Xóa giá trị của file input
-			$('#updateBranchHotel #fileInput2').val('');
-		}
-
-		function setDeleteId(id) {
-			const deleteConfirmBtn = document.getElementById('deleteConfirmBtn');
-			deleteConfirmBtn.href = `/Admin/AppBranchHotel/Delete/${id}`;
-		}
-	</script>
-	<script src="~/adminLTE/js/pages/listjs.init.js"></script>
-	<script src="@Url.Content("~/adminLTE/libs/@simonwep/pickr/pickr.min.js")"></script>
-	<script src="~/adminlte/js/pages/form-pickers.init.js"></script>
+	<!-- Include Choices JS -->
+	<script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
 }
