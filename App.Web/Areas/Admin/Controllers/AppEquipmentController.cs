@@ -117,7 +117,7 @@ namespace App.Web.Areas.Admin.Controllers
 			}
 			try
 			{
-				// Cập nhật các thuộc tính khác của branch
+				// Cập nhật các thuộc tính khác của equipment
 				_mapper.Map<AddOrUpdateEquipmentVM, AppEquipment>(model, equipment);
 				equipment.UpdatedBy = CurrentUserId;
 				equipment.UpdatedDate = DateTime.Now;
