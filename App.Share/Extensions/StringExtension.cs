@@ -1,4 +1,6 @@
-﻿namespace App.Share.Extensions
+﻿using System.Text;
+
+namespace App.Share.Extensions
 {
 	public static class StringExtension
 	{
@@ -24,10 +26,34 @@
 
 		public static string Slugify(this string phrase)
 		{
-			string str = phrase.ToLowerInvariant();
-			str = System.Text.RegularExpressions.Regex.Replace(str, @"\s+", "-"); // Replace spaces with hyphens
-			str = System.Text.RegularExpressions.Regex.Replace(str, @"[^\w\-]+", ""); // Remove all non-word characters
-			str = System.Text.RegularExpressions.Regex.Replace(str, @"\-\-+", "-"); // Replace multiple hyphens with a single hyphen
+			// Normalize the string to decompose combined characters into base characters and diacritics
+			string normalizedString = phrase.Normalize(NormalizationForm.FormD);
+			var stringBuilder = new System.Text.StringBuilder();
+
+			foreach (var c in normalizedString)
+			{
+				var unicodeCategory = System.Globalization.CharUnicodeInfo.GetUnicodeCategory(c);
+				if (unicodeCategory != System.Globalization.UnicodeCategory.NonSpacingMark)
+				{
+					stringBuilder.Append(c);
+				}
+			}
+
+			// Convert the string back to a composed form
+			string str = stringBuilder.ToString().Normalize(NormalizationForm.FormC);
+
+			// Convert to lower case
+			str = str.ToLowerInvariant();
+
+			// Replace spaces with hyphens
+			str = System.Text.RegularExpressions.Regex.Replace(str, @"\s+", "-");
+
+			// Remove all non-word characters
+			str = System.Text.RegularExpressions.Regex.Replace(str, @"[^\w\-]+", "");
+
+			// Replace multiple hyphens with a single hyphen
+			str = System.Text.RegularExpressions.Regex.Replace(str, @"\-\-+", "-");
+
 			return str;
 		}
 	}
