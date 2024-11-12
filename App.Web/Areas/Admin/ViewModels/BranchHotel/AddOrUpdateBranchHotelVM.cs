@@ -22,7 +22,7 @@ namespace App.Web.Areas.Admin.ViewModels.BranchHotel
 		public int? QuantityRoom { get; set; }
 		public string? Img { get; set; }
 		public IFormFile? ImgPath { get; set; }
-		public int? HotelId { get; set; }
+		public int HotelId { get; set; }
         public string? IdMap { get; set; }
     }
 }

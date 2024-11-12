@@ -1,4 +1,6 @@
-﻿namespace App.Web.Areas.Admin.ViewModels.BranchHotel
+﻿using App.Data.Entities.Hotel;
+
+namespace App.Web.Areas.Admin.ViewModels.BranchHotel
 {
     public class AppBranchHotelListItemVM : ListItemBaseVM
     {
@@ -11,5 +13,6 @@
         public int? QuantityRoom { get; set; }
         public string? Img { get; set; }
         public int? HotelId { get; set; }
+        public string? HotelName { get; set; }
 	}
 }
