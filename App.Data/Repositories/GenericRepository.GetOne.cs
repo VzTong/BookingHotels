@@ -114,5 +114,16 @@ namespace App.Data.Repositories
 			LogDebugQuery(query);
 			return await query.SingleOrDefaultAsync();
 		}
-	}
+        public virtual async Task<TEntity> GetByIdAsync<TEntity>(int id, bool selectFromTrash = false)
+    where TEntity : AppEntityBase
+        {
+            var defaultWhere = GetDefaultWhereExpr<TEntity>(selectFromTrash);
+            var query = _db.Set<TEntity>()
+                        .AsNoTracking()
+                        .Where(defaultWhere)
+                        .Where(m => m.Id == id);
+            LogDebugQuery(query);
+            return await query.FirstOrDefaultAsync();
+        }
+    }
 }

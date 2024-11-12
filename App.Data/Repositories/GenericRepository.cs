@@ -6,7 +6,7 @@ using System.Linq.Expressions;
 
 namespace App.Data.Repositories
 {
-	public partial class GenericRepository
+    public partial class GenericRepository
 	{
 		protected readonly WebAppDbContext _db;
 		protected readonly IHttpContextAccessor _httpContext;
