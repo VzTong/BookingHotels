@@ -83,7 +83,7 @@
 			public const int UPDATE						= 1903;
 			public const int DELETE						= 1904;
 		}
-		public static class AppTypeEquipment
+		public static class AppEquipmentType
 		{
 			public const int VIEW_LIST					= 2001;
 			public const int CREATE						= 2002;

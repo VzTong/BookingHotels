@@ -520,12 +520,12 @@ namespace App.Data.DataSeeders
 			#endregion
 			
 			#region Data quản lý loại trang thiết bị
-			// Permission liên quan đến bảng AppTypeEquipment
+			// Permission liên quan đến bảng AppEquipmentType
 			groupName = "Quản lý loại trang thiết bị";
 			builder.HasData(
 				new MstPermission
 				{
-					Id = AuthConst.AppTypeEquipment.VIEW_LIST,
+					Id = AuthConst.AppEquipmentType.VIEW_LIST,
 					Code = "VIEW_LIST",
 					Table = DB.AppEquipmentType.TABLE_NAME,
 					GroupName = groupName,
@@ -534,7 +534,7 @@ namespace App.Data.DataSeeders
 				},
 				new MstPermission
 				{
-					Id = AuthConst.AppTypeEquipment.CREATE,
+					Id = AuthConst.AppEquipmentType.CREATE,
 					Code = "CREATE",
 					Table = DB.AppEquipmentType.TABLE_NAME,
 					GroupName = groupName,
@@ -543,7 +543,7 @@ namespace App.Data.DataSeeders
 				},
 				new MstPermission
 				{
-					Id = AuthConst.AppTypeEquipment.UPDATE,
+					Id = AuthConst.AppEquipmentType.UPDATE,
 					Code = "UPDATE",
 					Table = DB.AppEquipmentType.TABLE_NAME,
 					GroupName = groupName,
@@ -552,7 +552,7 @@ namespace App.Data.DataSeeders
 				},
 				new MstPermission
 				{
-					Id = AuthConst.AppTypeEquipment.DELETE,
+					Id = AuthConst.AppEquipmentType.DELETE,
 					Code = "DELETE",
 					Table = DB.AppEquipmentType.TABLE_NAME,
 					GroupName = groupName,

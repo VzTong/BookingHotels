@@ -23,7 +23,7 @@ namespace App.Data.DataSeeders
 				typeof(AuthConst.AppRoom),
 				typeof(AuthConst.AppRoomType),
 				typeof(AuthConst.AppEquipment),
-				typeof(AuthConst.AppTypeEquipment),
+				typeof(AuthConst.AppEquipmentType),
 				typeof(AuthConst.AppOrder),
 				typeof(AuthConst.AppPayroll),
 				typeof(AuthConst.AppWorkSchedule),
@@ -50,12 +50,12 @@ namespace App.Data.DataSeeders
 				}
 			}
 
-			// Grant full permissions of AppEquipment and AppTypeEquipment to an employee
+			// Grant full permissions of AppEquipment and AppEquipmentType to an employee
 			var employeeRoleId = 2; // Assuming the employee role has an AppRoleId of 2
 			var employeePermissions = new List<AppRolePermission>();
 
 			var appEquipmentPermissions = GetConstants(typeof(AuthConst.AppEquipment));
-			var appTypeEquipmentPermissions = GetConstants(typeof(AuthConst.AppTypeEquipment));
+			var appTypeEquipmentPermissions = GetConstants(typeof(AuthConst.AppEquipmentType));
 
 			foreach (var permission in appEquipmentPermissions)
 			{
