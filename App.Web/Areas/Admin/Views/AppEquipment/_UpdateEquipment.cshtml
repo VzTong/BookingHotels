@@ -7,17 +7,23 @@
 				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>
 			<hr />
-			<form asp-action="Update" asp-controller="AppEquipment" asp-area="Admin" method="POST">
+			<form asp-action="Update" asp-controller="AppEquipment" asp-area="Admin" method="POST" autocomplete="off">
 				<div class="modal-body">
-					<input type ="hidden" id="idEdit" name="Id" />
+					<input type="hidden" id="idEdit" name="Id" />
 					<div class="modal-body ml-4 col-sm-12 justify-content-center align-items-center">
 						<div class="mb-3">
 							<label for="equipmentName-field" class="form-label">Tên thiết bị</label>
 							<input type="text" id="equipmentName-field" class="form-control" name="Name" placeholder="Tên chi nhánh" required />
+							<div class="invalid-feedback">
+								Vui lòng nhập tên thiết bị.
+							</div>
 						</div>
 						<div class="mb-3">
 							<label for="equipmentDesc-field" class="form-label">Mô tả</label>
 							<textarea textarea type="text" id="equipmentDesc-field" class="form-control" col="3" name="Description" placeholder="Mô tả" required></textarea>
+							<div class="invalid-feedback">
+								Vui lòng nhập mô tả.
+							</div>
 						</div>
 						<div class="mb-3">
 							<label for="equipmentType-field" class="form-label">Thuộc loại</label>
@@ -27,13 +33,15 @@
 									_for = "TypeEquipmentId",
 									allowNull = false
 								})
+							<div class="invalid-feedback">
+								Vui lòng chọn loại thiết bị.
+							</div>
 						</div>
 					</div>
 				</div>
 				<div class="modal-footer">
 					<div class="hstack gap-2 justify-content-end">
-						<button type="submit" class="btn btn-success" id="add-btn">Thêm thiết bị</button>
-						<button type="reset" class="btn btn-default"><i class="fa fa-undo"></i>Làm mới</button>
+						<button type="submit" class="btn btn-success" id="add-btn">Cập nhật thiết bị</button>
 					</div>
 				</div>
 			</form>

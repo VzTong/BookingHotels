@@ -139,21 +139,13 @@
 <partial name="_DeleteEquipmentModal" model="null" />
 
 @section Scripts {
-	<script>
-		function UpdateEquipment(id, name, description, typeEquipmentId) {
-			// Đặt các giá trị trong modal cập nhật
-			$('#updateEquipment #idEdit').val(id);
-			$('#updateEquipment #equipmentName-field').val(name);
-			$('#updateEquipment #equipmentDesc-field').val(description);
+	<script src="~/adminLTE/libs/prismjs/prism.js"></script>
+	<script src="~/adminLTE/js/pages/form-validation.init.js"></script>
+	<script src="~/js/admin/equipment/equipment-validate.js"></script>
+	<script src="~/js/admin/equipment/equipment-modal.js"></script>
+	<!-- Include Choices CSS -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" />
 
-			// Đặt giá trị cho dropdown khách sạn
-			$('#updateEquipment select[name="TypeEquipmentId"]').val(typeEquipmentId);
-		}
-
-		function setDeleteId(id) {
-			const deleteConfirmBtn = document.getElementById('deleteConfirmBtn');
-			deleteConfirmBtn.href = `/Admin/AppEquipment/Delete/${id}`;
-		}
-	</script>
-	<script src="~/adminLTE/js/pages/listjs.init.js"></script>
+	<!-- Include Choices JS -->
+	<script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
 }
