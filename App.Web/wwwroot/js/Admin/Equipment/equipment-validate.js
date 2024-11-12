@@ -9,7 +9,7 @@
             name[0].setCustomValidity('');
             name.removeClass('is-invalid').addClass('is-valid');
         } else {
-            name[0].setCustomValidity('Invalid equipment name');
+            name[0].setCustomValidity('Tên thiết bị không hợp lệ');
             name.removeClass('is-valid').addClass('is-invalid');
         }
     });
@@ -24,7 +24,7 @@
             description[0].setCustomValidity('');
             description.removeClass('is-invalid').addClass('is-valid');
         } else {
-            description[0].setCustomValidity('Invalid description');
+            description[0].setCustomValidity('Mô tả không hợp lệ');
             description.removeClass('is-valid').addClass('is-invalid');
         }
     });
@@ -39,7 +39,7 @@
             typeSelect[0].setCustomValidity('');
             typeSelect.removeClass('is-invalid').addClass('is-valid');
         } else {
-            typeSelect[0].setCustomValidity('Invalid type selection');
+            typeSelect[0].setCustomValidity('Lựa chọn loại không hợp lệ');
             typeSelect.removeClass('is-valid').addClass('is-invalid');
         }
     });

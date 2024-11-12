@@ -15,7 +15,7 @@
             phoneNumber[0].setCustomValidity('');
             phoneNumber.removeClass('is-invalid').addClass('is-valid');
         } else {
-            phoneNumber[0].setCustomValidity('Invalid phone number');
+            phoneNumber[0].setCustomValidity('Số điện thoại không hợp lệ');
             phoneNumber.removeClass('is-valid').addClass('is-invalid');
         }
     });   
@@ -35,7 +35,7 @@
             phoneNumber[0].setCustomValidity('');
             phoneNumber.removeClass('is-invalid').addClass('is-valid');
         } else {
-            phoneNumber[0].setCustomValidity('Invalid phone number');
+            phoneNumber[0].setCustomValidity('Số điện thoại không hợp lệ');
             phoneNumber.removeClass('is-valid').addClass('is-invalid');
         }
     });
@@ -50,7 +50,7 @@
             email[0].setCustomValidity('');
             email.removeClass('is-invalid').addClass('is-valid');
         } else {
-            email[0].setCustomValidity('Invalid email address');
+            email[0].setCustomValidity('Địa chỉ email không hợp lệ');
             email.removeClass('is-valid').addClass('is-invalid');
         }
     });
@@ -65,7 +65,7 @@
             fileInput[0].setCustomValidity('');
             fileInput.removeClass('is-invalid').addClass('is-valid');
         } else {
-            fileInput[0].setCustomValidity('Invalid image file');
+            fileInput[0].setCustomValidity('Tệp hình ảnh không hợp lệ');
             fileInput.removeClass('is-valid').addClass('is-invalid');
         }
     });
@@ -80,7 +80,7 @@
             name[0].setCustomValidity('');
             name.removeClass('is-invalid').addClass('is-valid');
         } else {
-            name[0].setCustomValidity('Invalid name');
+            name[0].setCustomValidity('Tên không hợp lệ');
             name.removeClass('is-valid').addClass('is-invalid');
         }
     });

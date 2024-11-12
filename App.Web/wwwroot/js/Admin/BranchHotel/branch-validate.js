@@ -9,7 +9,7 @@
             name[0].setCustomValidity('');
             name.removeClass('is-invalid').addClass('is-valid');
         } else {
-            name[0].setCustomValidity('Invalid branch name');
+            name[0].setCustomValidity('Tên chi nhánh không hợp lệ');
             name.removeClass('is-valid').addClass('is-invalid');
         }
     });
@@ -24,7 +24,7 @@
             address[0].setCustomValidity('');
             address.removeClass('is-invalid').addClass('is-valid');
         } else {
-            address[0].setCustomValidity('Invalid address');
+            address[0].setCustomValidity('Địa chỉ không hợp lệ');
             address.removeClass('is-valid').addClass('is-invalid');
         }
     });
@@ -39,7 +39,7 @@
             idMap[0].setCustomValidity('');
             idMap.removeClass('is-invalid').addClass('is-valid');
         } else {
-            idMap[0].setCustomValidity('Invalid map ID');
+            idMap[0].setCustomValidity('ID bản đồ không hợp lệ');
             idMap.removeClass('is-valid').addClass('is-invalid');
         }
     });
@@ -54,7 +54,7 @@
             quantityStaff[0].setCustomValidity('');
             quantityStaff.removeClass('is-invalid').addClass('is-valid');
         } else {
-            quantityStaff[0].setCustomValidity('Invalid quantity');
+            quantityStaff[0].setCustomValidity('Số lượng không hợp lệ');
             quantityStaff.removeClass('is-valid').addClass('is-invalid');
         }
     });
@@ -69,7 +69,7 @@
             quantityRoom[0].setCustomValidity('');
             quantityRoom.removeClass('is-invalid').addClass('is-valid');
         } else {
-            quantityRoom[0].setCustomValidity('Invalid quantity');
+            quantityRoom[0].setCustomValidity('Số lượng không hợp lệ');
             quantityRoom.removeClass('is-valid').addClass('is-invalid');
         }
     });
@@ -84,7 +84,7 @@
             description[0].setCustomValidity('');
             description.removeClass('is-invalid').addClass('is-valid');
         } else {
-            description[0].setCustomValidity('Invalid description');
+            description[0].setCustomValidity('Mô tả không hợp lệ');
             description.removeClass('is-valid').addClass('is-invalid');
         }
     });
@@ -99,7 +99,7 @@
             fileInput[0].setCustomValidity('');
             fileInput.removeClass('is-invalid').addClass('is-valid');
         } else {
-            fileInput[0].setCustomValidity('Invalid image file');
+            fileInput[0].setCustomValidity('Tệp hình ảnh không hợp lệ');
             fileInput.removeClass('is-valid').addClass('is-invalid');
         }
     });
@@ -114,7 +114,7 @@
             hotelSelect[0].setCustomValidity('');
             hotelSelect.removeClass('is-invalid').addClass('is-valid');
         } else {
-            hotelSelect[0].setCustomValidity('Invalid hotel selection');
+            hotelSelect[0].setCustomValidity('Lựa chọn khách sạn không hợp lệ');
             hotelSelect.removeClass('is-valid').addClass('is-invalid');
         }
     });
