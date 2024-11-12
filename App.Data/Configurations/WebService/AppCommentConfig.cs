@@ -15,12 +15,6 @@ namespace App.Data.Configurations.WebService
 			builder.Property(x => x.Description)
 				.IsRequired()
 				.HasMaxLength(DB.AppComment.DESC_LENGTH);
-
-			// FK - AppRoom
-			builder.HasOne(x => x.Room)
-				.WithMany(x => x.Comments)
-				.HasForeignKey(x => x.RoomId)
-				.OnDelete(DeleteBehavior.Restrict);
 		}
 	}
 }

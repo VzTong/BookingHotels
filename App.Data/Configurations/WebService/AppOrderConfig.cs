@@ -29,8 +29,12 @@ namespace App.Data.Configurations.WebService
 				.IsRequired()
 				.HasMaxLength(DB.AppOrder.TOTAL_LENGTH);
 
-			// FK - AppUser
-			builder.HasOne(x => x.Employee)
+            builder.Property(x => x.Status)
+                .IsRequired()
+                .HasMaxLength(DB.AppOrder.STATUS_LENGTH);
+
+            // FK - AppUser
+            builder.HasOne(x => x.Employee)
 				.WithMany(x => x.VerifiedOrders)
 				.HasForeignKey(x => x.EmployeeId)
 				.OnDelete(DeleteBehavior.Restrict);
