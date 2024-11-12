@@ -14,28 +14,28 @@ namespace App.Web.Areas.Admin.Components.SelectLists
 			repository = _db;
 		}
 
-		public async Task<IViewComponentResult> InvokeAsync(List<int>? selectedValue, string _for, bool allowNull)
-		{
-			var hotelList = await repository
-				.GetAll<AppHotel>()
-				.OrderByDescending(s => s.CreatedDate)
-				.ToListAsync();
+        public async Task<IViewComponentResult> InvokeAsync(List<int>? selectedValue, string _for, bool allowNull)
+        {
+            var hotelList = await repository
+                .GetAll<AppHotel>()
+                .OrderByDescending(s => s.CreatedDate)
+                .ToListAsync();
 
-			if (hotelList == null || !hotelList.Any())
-			{
+            if (hotelList == null || !hotelList.Any())
+            {
 				// Xử lý khi proCate là null hoặc không có phần tử nào
 				throw new Exception("Thuộc khách sạn không được để rỗng");
-			}
+            }
 
 			var listHotel = new SelectList(hotelList, "Id", "Name", -1);
 			if (selectedValue != null)
-			{
+            {
 				listHotel = new SelectList(hotelList, "Id", "Name", selectedValue);
 			};
 			ViewBag.HotelList = listHotel;
-			ViewBag.For = _for;
-			ViewBag.AllowNull = allowNull;
+            ViewBag.For = _for;
+            ViewBag.AllowNull = allowNull;
 			return View();
-		}
-	}
+        }
+    }
 }
