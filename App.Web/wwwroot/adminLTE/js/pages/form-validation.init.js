@@ -1,1 +1,13 @@
-﻿!function(){"use strict";window.addEventListener("load",function(){var t=document.getElementsByClassName("needs-validation");t&&Array.prototype.filter.call(t,function(e){e.addEventListener("submit",function(t){!1===e.checkValidity()&&(t.preventDefault(),t.stopPropagation()),e.classList.add("was-validated")},!1)})},!1)}();
+﻿$(document).ready(function () {
+    "use strict";
+    var forms = $(".needs-validation");
+    forms.each(function () {
+        $(this).on("submit", function (event) {
+            if (this.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+            $(this).addClass("was-validated");
+        });
+    });
+});
