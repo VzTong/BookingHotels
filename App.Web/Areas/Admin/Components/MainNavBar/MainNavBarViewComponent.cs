@@ -87,10 +87,10 @@ namespace App.Web.Areas.Admin.Components.MainNavBar
 						new MenuItem
 						{
 							Action = "Index",
-							Controller = "AppTypeEquipment",
+							Controller = "AppEType",
 							DataKey = "type-equipments",
 							DisplayText = "Loại trang thiết bị",
-							Permission = AuthConst.AppTypeEquipment.VIEW_LIST
+							Permission = AuthConst.AppEquipmentType.VIEW_LIST
 						},
 						new MenuItem
 						{
