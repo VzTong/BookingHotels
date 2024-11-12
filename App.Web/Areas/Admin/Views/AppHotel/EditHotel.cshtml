@@ -1,0 +1,81 @@
+﻿@model App.Web.Areas.Admin.ViewModels.Hotel.AddOrUpdateHotelVM
+@{
+	ViewData["Title"] = "Cập nhật khách sạn";
+}
+<div class="row">
+	<div class="col-12">
+		<div class="page-title-box d-sm-flex align-items-center justify-content-between">
+			<h4 class="mb-sm-0">Quản lý khách sạn</h4>
+
+			<div class="page-title-right">
+				<ol class="breadcrumb m-0">
+					<li class="breadcrumb-item"><a asp-action="Index" asp-area="Admin" asp-controller="Home">Bảng tổng quan</a></li>
+					<li class="breadcrumb-item active"><a asp-action="Index" asp-area="Admin" asp-controller="AppHotel">Khách sạn</a></li>
+					<li class="breadcrumb-item active">Thêm khách sạn</li>
+				</ol>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-lg-12">
+		<div class="card">
+			<div class="card-header align-items-center d-flex">
+				<h4 class="card-title mb-0">Cập nhật khách sạn</h4>
+			</div><!-- end card header -->
+
+			<div class="card-body">
+				<div id="customerList">
+					<div class="row gy-4">
+						<form asp-action="EditHotel" enctype="multipart/form-data" autocomplete="off" class="row g-3 needs-validation" novalidate>
+							<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+							<partial name="_AddOrEditHotel" />
+							<div class="form-group">
+								<button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Lưu</button>
+							</div>
+						</form>
+					</div>
+					<div class="d-flex justify-content-end">
+						<div class="pagination-wrap hstack gap-2">
+							<partial name="_BackToList" />
+						</div>
+					</div>
+				</div>
+			</div><!-- end card -->
+		</div>
+		<!-- end col -->
+	</div>
+	<!-- end col -->
+</div>
+<!-- end row -->
+
+@section Scripts {
+	<script src="~/adminLTE/libs/prismjs/prism.js"></script>
+	<script src="~/adminLTE/js/pages/form-validation.init.js"></script>
+	<script src="~/js/admin/hotel/hotel-validate.js" asp-append-version="true"></script>
+	<script>
+		$(document).ready(function () {
+			// Check if there's an existing image and display it
+			var existingImgSrc = '@(Model.ImgBanner.StartsWith("https", StringComparison.OrdinalIgnoreCase) || Model.ImgBanner.StartsWith("/", StringComparison.OrdinalIgnoreCase) ? Model.ImgBanner : "/" + Model.ImgBanner)';
+			if (existingImgSrc) {
+				$('#imgHotelPreview_update').show().attr('src', existingImgSrc);
+				$('#iconHotelPreview_update').hide();
+			}
+			// File input change event
+			$('#fileHotelInput_update').on('change', function () {
+				var fileInput = $(this);
+				var file = fileInput[0].files[0];
+				console.log(file);
+				if (file) {
+					$('#imgHotelPreview_update').show().attr('src', URL.createObjectURL(file));
+					$('#iconHotelPreview_update').hide();
+				} else {
+					$('#imgHotelPreview_update').css('display', 'none').attr('src', '');
+					$('#iconHotelPreview_update').hide();
+				}
+			});
+		});
+	</script>
+}

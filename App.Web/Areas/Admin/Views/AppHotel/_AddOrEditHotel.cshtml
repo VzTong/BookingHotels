@@ -1,0 +1,94 @@
+﻿@model App.Web.Areas.Admin.ViewModels.Hotel.AddOrUpdateHotelVM
+@{
+	var isCreateAction = ViewContext.GetCurrentActionName() == "CreateHotel";
+}
+<div class="row">
+	<div class="col-md-6">
+		<div class="mb-3">
+			<div class="mb-3">
+				<label asp-for="Name" class="form-label">Tên khách sạn</label>
+				<input asp-for="Name" type="text" class="form-control" id="hotelName-field" placeholder="Tên khách sạn" required />
+				<div class="invalid-feedback">
+					Vui lòng nhập tên khách sạn.
+				</div>
+				<span asp-validation-for="Name" class="text-danger"></span>
+			</div>
+
+			<!--end col-->
+			<div class="mb-3">
+				<label asp-for="PhoneNumber1" class="form-label">Số điện thoại 1</label>
+				<input asp-for="PhoneNumber1" type="number" class="form-control" id="phoneNumber-field" placeholder="xxx·xxx·xxx·xxx·xxx" required />
+				<div class="invalid-feedback">
+					Vui lòng nhập số điện thoại hợp lệ.
+				</div>
+				<span asp-validation-for="PhoneNumber1" class="text-danger"></span>
+			</div>
+
+			<!--end col-->
+			<div class="mb-3">
+				<label asp-for="PhoneNumber2" class="form-label">Số điện thoại 2</label>
+				<input asp-for="PhoneNumber2" type="number" class="form-control" id="phoneNumber-field-2" placeholder="xxx·xxx·xxx·xxx·xxx" />
+				<div class="invalid-feedback">
+					Vui lòng nhập số điện thoại hợp lệ.
+				</div>
+				<span asp-validation-for="PhoneNumber2" class="text-danger"></span>
+			</div>
+
+		</div>
+	</div>
+	<!--end col-->
+	<div class="col-md-6">
+		<div class="mb-3">
+			<div style="opacity: 1">
+				<label asp-for="ImgPath" class="form-label">Ảnh bìa</label>
+				<div class="text-center justify-content-center align-items-center" style="border: dotted 2px rgb(139, 139, 139); height: 12.5rem">
+					@if (Model != null && !string.IsNullOrEmpty(Model.ImgBanner))
+					{
+						var imgSrc = Model.ImgBanner.StartsWith("https", StringComparison.OrdinalIgnoreCase) ? Model.ImgBanner : "/" + Model.ImgBanner;
+						<img id="imgHotelPreview_update" src="@imgSrc" alt="" style="height: 12.25rem; width: 40.625rem; object-fit:cover; display: none">
+						<i id="iconHotelPreview_update" class="fas fa-cloud-upload-alt" style="font-size: 90px; color: rgb(10, 176, 202); margin-top:40px"></i>
+						<input name="ImgPath" class="form-control border border-secondary position-absolute" type="file" id="fileHotelInput_update"
+							   accept="image/*" style="width: 21.875rem; height: 12.5rem; opacity: 0; top: 0" required />
+					}
+					else
+					{
+						<img id="imgHotelPreview" src="/" alt="" style="height: 12.25rem; width: 40.625rem; object-fit:cover; display: none">
+						<i id="iconHotelPreview" class="fas fa-cloud-upload-alt" style="font-size: 90px; color: rgb(10, 176, 202); margin-top:40px"></i>
+						<input name="ImgPath" class="form-control border border-secondary position-absolute" type="file" id="fileHotelInput"
+							   accept="image/*" style="width: 21.875rem; height: 12.5rem; opacity: 0; top: 0" required />
+					}
+				</div>
+				<div class="invalid-feedback">
+					Vui lòng thêm ảnh.
+				</div>
+			</div>
+			<span asp-validation-for="ImgBanner" class="text-danger"></span>
+		</div>
+	</div>
+	<!--end col-->
+	<div class="col-md-6">
+		<div class="mb-3">
+			<label asp-for="Email" class="control-label">Email</label>
+			<input asp-for="Email" type="email" id="hotelEmail-field" class="form-control" placeholder="example@gmail.com" required />
+			<div class="invalid-feedback">
+				Vui lòng nhập email hợp lệ.
+			</div>
+			<span asp-validation-for="Email" class="text-danger"></span>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="mb-3">
+			<span class="small text-secondary">
+				Chi nhánh của khách sạn phải được tạo sau khi tạo khách sạn !!
+			</span>
+		</div>
+	</div>
+	<!--end col-->
+	<div class="col-md-12">
+		<div class="mb-3">
+			<label asp-for="Description" class="control-label">Mô tả</label>
+			<textarea asp-for="Description" type="text" id="hotelDescription-field" class="form-control" placeholder="Thông tin mô tả về khách sạn"></textarea>
+			<span asp-validation-for="Description" class="text-danger"></span>
+		</div>
+	</div>
+</div>

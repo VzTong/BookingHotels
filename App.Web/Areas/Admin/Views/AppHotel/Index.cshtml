@@ -34,7 +34,7 @@
 							<div>
 								@if (User.IsInPermission(AuthConst.AppHotel.CREATE))
 								{
-									<a asp-action="Create" class="btn btn-success btn-label add-btn">
+									<a asp-action="CreateHotel" class="btn btn-success btn-label add-btn">
 										<i class="ri-add-line label-icon align-middle fs-16 me-2"></i>
 										Thêm khách sạn
 									</a>
@@ -90,19 +90,32 @@
 											}
 										</td>
 										<td class="hotel_name">
-											@item.Name
+											@if (item.IsActive)
+											{
+												<i class="fas fa-globe text-secondary"></i>
+											}
+											else
+											{
+												<i class="fas fa-lock text-secondary"></i>
+											}
+
+											@if (item.DisplayOrder != null)
+											{
+												<span title="Đã ghim" class="ml-1 text-secondary small" style="cursor: default;">
+													<i class="ri-pushpin-2-fill"></i>
+												</span>
+											}
+											<span style="cursor: default;">@item.Name</span>
+
+											<environment names="Development">
+												<small class="text-secondary" style="cursor: default; font-size: x-small">(id @item.Id)</small>
+											</environment>
+
 											<div>
 												@if (!item.Slug.IsNullOrEmpty())
 												{
 													<span class="badge badge-soft-success badge-border" style="cursor: default;">
 														@item.Slug
-													</span>
-												}
-
-												@if (item.DisplayOrder != null)
-												{
-													<span title="Đã ghim" class="ml-1 text-secondary small" style="cursor: default;">
-														<i class="ri-pushpin-2-fill"></i>
 													</span>
 												}
 											</div>
@@ -137,10 +150,47 @@
 										<td class="email">@item.Email</td>
 										<td>
 											<div class="d-flex gap-2">
+												@if (item.IsActive)
+												{
+													if (User.IsInPermission(AuthConst.AppHotel.UNPUBLIC))
+													{
+														<a asp-action="UnPublicHotel" asp-route-id="@item.Id"
+														   title="Không công khai khách sạn"
+														   class="btn btn-sm edit-item-btn link-warning fs-15 js-delete-confirm"
+														   data-msg="Xác nhận ẩn khách sạn ⌈ @item.Name ⌋ khỏi hệ thống?">
+															<i class="fas fa-lock"></i>
+														</a>
+													}
+												}
+												else
+												{
+													if (User.IsInPermission(AuthConst.AppHotel.PUBLIC))
+													{
+														<a asp-action="PublicHotel" asp-route-id="@item.Id"
+														   title="Công khai khách sạn"
+														   class="btn btn-sm edit-item-btn link-secondary fs-15 js-delete-confirm"
+														   data-msg="Xác nhận công khai khách sạn ⌈ @item.Name ⌋ ?">
+															<i class="fas fa-globe"></i>
+														</a>
+													}
+												}
 												@if (User.IsInPermission(AuthConst.AppHotel.UPDATE))
 												{
+													<div class="pin">
+														@if (item.DisplayOrder == null)
+														{
+															<a title="Ghim khách sạn lên đầu danh sách" asp-action="hotelPin" asp-route-id="@item.Id"
+															   class="btn btn-sm edit-item-btn link-secondary fs-15"><i class="fas fa-arrow-alt-circle-up"></i></a>
+														}
+														else
+														{
+															<a title="Bỏ ghim khách sạn" asp-action="hotelUnPin" asp-route-id="@item.Id"
+															   class="btn btn-sm edit-item-btn link-secondary fs-15"><i class="fas fa-arrow-alt-circle-down"></i></a>
+														}
+													</div>
+
 													<div class="edit">
-														<a asp-action="Edit" asp-route-id="@item.Id"
+														<a asp-action="EditHotel" asp-route-id="@item.Id"
 														   class="btn btn-sm edit-item-btn link-success fs-15">
 															<i class="ri-edit-2-line"></i>
 														</a>

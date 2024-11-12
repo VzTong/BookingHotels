@@ -62,43 +62,118 @@ namespace App.Web.Areas.Admin.Controllers
 			return data;
 		}
 
+		[AppAuthorize(AuthConst.AppHotel.CREATE)]
+		public IActionResult CreateHotel() => View();
 
-		//[AppAuthorize(AuthConst.AppHotel.CREATE)]
-		//[HttpPost]
-		//public async Task<IActionResult> Create(AddOrUpdateHotelVM model, [FromServices] IWebHostEnvironment env)
-		//{
-		//	if (!ModelState.IsValid)
-		//	{
-		//		SetErrorMesg(MODEL_STATE_INVALID_MESG, true);
-		//		return RedirectToAction(nameof(Index), ROUTE_FOR_AREA);
-		//	}
-		//	if (_repository.GetAll<AppHotel>().Any(s => s.Name.Equals(model.Name)))
-		//	{
-		//		SetErrorMesg("Khách sạn này đã tồn tại !");
-		//		return RedirectToAction(nameof(Index), ROUTE_FOR_AREA);
-		//	}
-		//	try
-		//	{
-		//		model.Img = model.Img == null ? null : UploadFile(model.ImgPath, env.WebRootPath);
+        [HttpPost]
+        [AppAuthorize(AuthConst.AppHotel.CREATE)]
+        public async Task<IActionResult> CreateHotel(AddOrUpdateHotelVM model, [FromServices] IWebHostEnvironment env)
+        {
+            if (!ModelState.IsValid)
+            {
+                SetErrorMesg(MODEL_STATE_INVALID_MESG, true);
+                return RedirectToAction(nameof(Index), ROUTE_FOR_AREA);
+            }
+            if (_repository.GetAll<AppHotel>().Any(s => s.Name.Equals(model.Name)))
+            {
+                SetErrorMesg("Khách sạn này đã tồn tại !");
+                return RedirectToAction(nameof(Index), ROUTE_FOR_AREA);
+            }
+            try
+            {
+                model.ImgBanner = model.ImgPath != null && model.ImgPath.Length > 0 ? UploadFile(model.ImgPath, env.WebRootPath) : null;
 
-		//		var now = DateTime.Now;
-		//		var user = CurrentUserId;
-		//		var hotel = _mapper.Map<AppHotel>(model);
-		//		hotel.Slug = StringExtension.Slugify(hotel.Name);
-		//		hotel.CreatedBy = CurrentUserId;
-		//		hotel.CreatedDate = now;
+                var now = DateTime.Now;
+                var user = CurrentUserId;
 
-		//		await _repository.AddAsync(hotel);
-		//		SetSuccessMesg($"Thêm chi nhánh '{hotel.Name}' thành công");
-		//		return RedirectToAction(nameof(Index), ROUTE_FOR_AREA);
-		//	}
-		//	catch (Exception ex)
-		//	{
-		//		LogException(ex);
-		//		return RedirectToAction(nameof(Index), ROUTE_FOR_AREA);
-		//	}
-		//}
+                var hotel = _mapper.Map<AppHotel>(model);
+                hotel.ImgBanner = model.ImgBanner;
+                hotel.Slug = StringExtension.Slugify(hotel.Name);
+                hotel.CreatedBy = CurrentUserId;
+                hotel.CreatedDate = now;
 
+                await _repository.AddAsync(hotel);
 
+                SetSuccessMesg($"Thêm khách sạn '{hotel.Name}' thành công");
+                return RedirectToAction(nameof(Index), ROUTE_FOR_AREA);
+            }
+            catch (Exception ex)
+            {
+                LogException(ex);
+                return RedirectToAction(nameof(Index), ROUTE_FOR_AREA);
+            }
+        }
+		[AppAuthorize(AuthConst.AppHotel.UPDATE)]
+		public async Task<IActionResult> EditHotel(int id)
+		{
+			var user = await _repository.FindAsync<AppHotel>(id);
+			if (user == null)
+			{
+				SetErrorMesg(PAGE_NOT_FOUND_MESG);
+				return RedirectToAction(nameof(Index));
+			}
+			var userEditVM = _mapper.Map<AddOrUpdateHotelVM>(user);
+			return View(userEditVM);
+		}
+
+		[HttpPost]
+		[AppAuthorize(AuthConst.AppUser.UPDATE)]
+		public async Task<IActionResult> EditHotel(AddOrUpdateHotelVM model, [FromServices] IWebHostEnvironment env)
+		{
+			var hotel = await _repository.FindAsync<AppHotel>((int)model.Id);
+			if (!ModelState.IsValid)
+			{
+				SetErrorMesg(MODEL_STATE_INVALID_MESG, true);
+				return View(model);
+			}
+			if (hotel == null)
+			{
+				SetErrorMesg(PAGE_NOT_FOUND_MESG);
+				return RedirectToAction(nameof(Index));
+			}
+
+			try
+			{
+				model.ImgBanner = model.ImgPath != null && model.ImgPath.Length > 0 ? UploadFile(model.ImgPath, env.WebRootPath) : null;
+
+				if (model.ImgPath != null && model.ImgPath.Length > 0)
+				{
+					// Xóa ảnh cũ nếu tồn tại
+					if (!string.IsNullOrEmpty(hotel.ImgBanner))
+					{
+						var oldImagePath = Path.Combine(env.WebRootPath, hotel.ImgBanner.TrimStart('/'));
+						if (System.IO.File.Exists(oldImagePath))
+						{
+							System.IO.File.Delete(oldImagePath);
+						}
+					}
+
+					// Tải lên ảnh mới và cập nhật đường dẫn
+					model.ImgBanner = UploadFile(model.ImgPath, env.WebRootPath);
+				}
+				else
+				{
+					model.ImgBanner = hotel.ImgBanner;
+				}
+
+				// Cập nhật các thuộc tính khác của hotel
+				_mapper.Map<AddOrUpdateHotelVM, AppHotel>(model, hotel);
+
+				var now = DateTime.Now;
+				var user = CurrentUserId;
+				hotel.Slug = StringExtension.Slugify(hotel.Name);
+				hotel.UpdatedBy = CurrentUserId;
+				hotel.UpdatedDate = now;
+
+				await _repository.UpdateAsync(hotel);
+				SetSuccessMesg($"Cập nhật khách sạn [{hotel.Name}] thành công");
+				return RedirectToAction(nameof(Index));
+			}
+			catch (Exception ex)
+			{
+				LogException(ex);
+				return View(model);
+			}
+		}
 	}
 }
