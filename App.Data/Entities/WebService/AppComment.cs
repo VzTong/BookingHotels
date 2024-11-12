@@ -10,9 +10,6 @@ namespace App.Data.Entities.service
 			CommentDetails = new HashSet<AppCommentDetail>();
 		}
 		public string Description { get; set; }
-		public int RoomId { get; set; }
-
-		public AppRoom Room { get; set; }
 		public ICollection<AppCommentDetail> CommentDetails { get; set; }
 	}
 }

@@ -14,6 +14,7 @@ namespace App.Data.Entities.Hotel
 		public string PhoneNumber1 { get; set; }
 		public string? PhoneNumber2 { get; set; }
 		public string Email { get; set; }
+		public bool IsActive { get; set; }
 		public string? ImgBanner { get; set; }
 
 		public ICollection<AppBranchHotel> BranchHotels { get; set; }

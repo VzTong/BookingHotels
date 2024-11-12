@@ -14,6 +14,7 @@ namespace App.Data.Entities.service
         public DateTime TimeStay { get; set; }
         public double TotalPrice { get; set; }
         public double Deposit { get; set; }
+        public string Status { get; set; }
 		public int? EmployeeId { get; set; }
 
 		public AppUser Employee { get; set; }
