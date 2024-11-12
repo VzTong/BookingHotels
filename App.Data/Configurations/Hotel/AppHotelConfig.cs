@@ -33,6 +33,10 @@ namespace App.Data.Configurations
 				.IsRequired()
 				.HasMaxLength(DB.AppHotel.EMAIL_LENGTH);
 
+			builder.Property(m => m.IsActive)
+			  .HasDefaultValue(DB.AppHotel.ISACTIVE)
+			  .IsRequired();
+
 			builder.Property(x => x.ImgBanner)
 				.HasMaxLength(DB.AppHotel.IMG_BANNER_LENGTH);
 		}
