@@ -1,22 +1,4 @@
-﻿$(function () {
-    // Tự động ẩn cảnh báo sau 5.5 giây
-    $(".alert.js-alert").delay(5500).slideUp(300, function () {
-        $(this).alert('close');
-    });
-
-    $(".bs-autocomplete").bsautocomplete();
-
-    // ẩn menu cha nếu không có menu con
-    $(".nav-treeview").each(function (i, item) {
-        item = $(item);
-        if (item.find(".nav-item").length == 0) {
-            item.closest(".nav-item").hide();
-        }
-    });
-});
-
-
-$(document).on("click", ".js-delete-confirm", function (ev) {
+﻿$(document).on("click", ".js-delete-confirm", function (ev) {
     ev.preventDefault();
     let btnDelete = $(this);
     let msg = btnDelete.data('msg');
@@ -50,7 +32,6 @@ $("#chkAll").click(function () {
         }
     });
 });
-
 
 $("#chkAllowBulkDel").change(function (ev) {
     var isCheck = $(this).is(":checked");
