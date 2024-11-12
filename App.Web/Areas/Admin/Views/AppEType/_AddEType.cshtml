@@ -1,0 +1,32 @@
+﻿<!-- Modal -->
+<div class="modal fade zoomIn" id="addEType" tabindex="-1" aria-labelledby="addETypeLabel" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="addETypeLabel">Thêm loại trang thiết bị</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<hr />
+			<form asp-action="Create" asp-controller="AppEType" asp-area="Admin" method="POST" autocomplete="off">
+				<div class="modal-body">
+					<input type="hidden" id="idEType" name="Id" />
+					<div class="modal-body ml-4 col-sm-12 justify-content-center align-items-center">
+						<div class="mb-3">
+							<label for="eTypeName-field" class="form-label">Tên loại</label>
+							<input type="text" id="eTypeName-field" class="form-control" name="Name" placeholder="Tên thiết bị" required />
+							<div class="invalid-feedback">
+								Vui lòng nhập tên loại trang thiết bị.
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<div class="hstack gap-2 justify-content-end">
+						<button type="submit" class="btn btn-success" id="add-btn">Thêm loại</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<!--end modal -->
