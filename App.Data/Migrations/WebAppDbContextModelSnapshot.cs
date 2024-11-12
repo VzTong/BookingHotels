@@ -891,6 +891,11 @@ namespace App.Data.Migrations
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
 
+                    b.Property<bool>("IsActive")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true);
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(200)
@@ -927,6 +932,7 @@ namespace App.Data.Migrations
                             Description = "Khách sạn 5 sao sang trọng tại Hà Nội.",
                             Email = "info@meliahanoi.com",
                             ImgBanner = "https://du-lich.chudu24.com/f/m/2105/20/khach-san-melia-hanoi.jpg",
+                            IsActive = false,
                             Name = "Khách Sạn Melia Hanoi",
                             PhoneNumber1 = "+842438223333",
                             Slug = "khach-san-melia-hanoi"
@@ -938,6 +944,7 @@ namespace App.Data.Migrations
                             Description = "Khách sạn lịch sử và sang trọng tại TP. Hồ Chí Minh.",
                             Email = "info@rexhotel.com.vn",
                             ImgBanner = "https://images2.thanhnien.vn/Uploaded/ttt/images/Content/tan-huong/xach-vali-di/2016_12_w2/rex_hotel/Exterior_Rex_9.jpg",
+                            IsActive = false,
                             Name = "Rex Hotel Saigon",
                             PhoneNumber1 = "+842838292185",
                             Slug = "rex-hotel-saigon"
@@ -949,6 +956,7 @@ namespace App.Data.Migrations
                             Description = "Khách sạn ven biển tuyệt đẹp tại Đà Nẵng.",
                             Email = "info@goldenbaydanang.com",
                             ImgBanner = "https://www.arttravel.com.vn/upload/news/golden-bay-(4)-9448.jpg",
+                            IsActive = false,
                             Name = "Khách Sạn Đà Nẵng Golden Bay",
                             PhoneNumber1 = "+842363921888",
                             Slug = "khach-san-da-nang-golden-bay"
@@ -960,6 +968,7 @@ namespace App.Data.Migrations
                             Description = "Khách sạn với tầm nhìn ra biển tuyệt đẹp tại Nha Trang.",
                             Email = "info@nhatranglodge.com.vn",
                             ImgBanner = "https://cf.bstatic.com/xdata/images/hotel/max1024x768/81022752.jpg?k=d69140451157e29655c5d19999354e86b95d3654c7ffbe68081070bc8e041518&o=&hp=1",
+                            IsActive = false,
                             Name = "Khách Sạn Nha Trang Lodge",
                             PhoneNumber1 = "+842583525555",
                             Slug = "khach-san-nha-trang-lodge"
@@ -971,6 +980,7 @@ namespace App.Data.Migrations
                             Description = "Khách sạn sang trọng tại trung tâm Hải Phòng.",
                             Email = "info@imperialhotel.com.vn",
                             ImgBanner = "https://cf.bstatic.com/xdata/images/hotel/max1024x768/467550547.webp?k=df9413c20e4dc78e4dd3a98618e2815ca246f2bc27a33edf99d9f1bae10e994c&o=",
+                            IsActive = false,
                             Name = "Khách Sạn Imperial Hải Phòng",
                             PhoneNumber1 = "+842253888888",
                             Slug = "khach-san-imperial-hai-phong"
@@ -982,6 +992,7 @@ namespace App.Data.Migrations
                             Description = "Khách sạn sang trọng tại New York.",
                             Email = "info@langhamhotels.com",
                             ImgBanner = "https://cdn3.ivivu.com/2023/07/The-Langham-New-York-Fifth-Avenue-ivivu.jpg",
+                            IsActive = false,
                             Name = "Khách Sạn Langham, New York",
                             PhoneNumber1 = "+12123338888",
                             Slug = "langham-new-york"
@@ -993,6 +1004,7 @@ namespace App.Data.Migrations
                             Description = "Khách sạn sang trọng tại Tokyo.",
                             Email = "info@peninsula.com",
                             ImgBanner = "https://tokyo-marunouchi.jp/dmo_wp_YfehP9/wp-content/uploads/2017/03/banket_pe_07.jpg",
+                            IsActive = false,
                             Name = "Khách Sạn The Peninsula Tokyo",
                             PhoneNumber1 = "+81362701000",
                             Slug = "the-peninsula-tokyo"
@@ -1004,6 +1016,7 @@ namespace App.Data.Migrations
                             Description = "Khách sạn sang trọng bên bờ biển Cancun.",
                             Email = "info@ritzcarlton.com",
                             ImgBanner = "https://ritzcarlton.cancunhotelsweb.net/data/Pics/1080x700w/15670/1567035/1567035848/pic-ritz-carlton-hotel-cancun-5.JPEG",
+                            IsActive = false,
                             Name = "Khách Sạn The Ritz-Carlton, Cancun",
                             PhoneNumber1 = "+5219988916200",
                             Slug = "ritz-carlton-cancun"
@@ -1015,6 +1028,7 @@ namespace App.Data.Migrations
                             Description = "Khách sạn nổi tiếng tại Miami, Florida.",
                             Email = "info@biltmorehotel.com",
                             ImgBanner = "https://biltmore-coral-gables.hotelmix.vn/data/Photos/1920x1080/2004/200471/200471074/Biltmore-Hotel-Miami-Coral-Gables-Exterior.JPEG",
+                            IsActive = false,
                             Name = "Khách Sạn The Biltmore Miami",
                             PhoneNumber1 = "+13055284500",
                             Slug = "the-biltmore-miami"
@@ -1026,6 +1040,7 @@ namespace App.Data.Migrations
                             Description = "Khách sạn cao cấp tại Paris, Pháp.",
                             Email = "info@shangri-la.com",
                             ImgBanner = "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/36/f3/e2/caption.jpg?w=1200&h=-1&s=1",
+                            IsActive = false,
                             Name = "Khách Sạn Shangri-La, Paris",
                             PhoneNumber1 = "+33153003030",
                             Slug = "shangri-la-paris"
@@ -1037,6 +1052,7 @@ namespace App.Data.Migrations
                             Description = "Khách sạn sang trọng tại Seoul.",
                             Email = "info@hyatt.com",
                             ImgBanner = "https://www.americanexpress.com/en-us/travel/discover/photos/197/56953/1600/GHS_Exterior.jpg?ch=560",
+                            IsActive = false,
                             Name = "Khách Sạn Grand Hyatt Seoul",
                             PhoneNumber1 = "+8227971234",
                             Slug = "grand-hyatt-seoul"
@@ -1048,6 +1064,7 @@ namespace App.Data.Migrations
                             Description = "Khách sạn sang trọng tại Bangkok.",
                             Email = "info@fourseasons.com",
                             ImgBanner = "https://theluxurytraveller.com/wp-content/uploads/2022/05/FS-Bangkok-144-1080x480.jpg",
+                            IsActive = false,
                             Name = "Khách Sạn Four Seasons Bangkok",
                             PhoneNumber1 = "+6622501000",
                             Slug = "four-seasons-bangkok"
@@ -1059,6 +1076,7 @@ namespace App.Data.Migrations
                             Description = "Khách sạn đẳng cấp tại Tokyo.",
                             Email = "info@hilton.com",
                             ImgBanner = "https://cf.bstatic.com/xdata/images/hotel/max1024x768/483824171.jpg?k=3fc70cd0fa564972470a3a08b248feff8fa34e9f8b3f2e0343f5105499238bee&o=&hp=1",
+                            IsActive = false,
                             Name = "Khách Sạn Hilton Tokyo",
                             PhoneNumber1 = "+81333451111",
                             Slug = "hilton-tokyo"
@@ -1070,6 +1088,7 @@ namespace App.Data.Migrations
                             Description = "Khách sạn hiện đại tại Hong Kong.",
                             Email = "info@whotels.com",
                             ImgBanner = "https://cache.marriott.com/content/dam/marriott-renditions/HKGWH/hkgwh-pool-exterior-5271-hor-feat.jpg?output-quality=70&interpolation=progressive-bilinear&downsize=1920px:*",
+                            IsActive = false,
                             Name = "Khách Sạn W Hong Kong",
                             PhoneNumber1 = "+85237170000",
                             Slug = "w-hong-kong"
@@ -1081,6 +1100,7 @@ namespace App.Data.Migrations
                             Description = "Khách sạn tuyệt đẹp tại Bali.",
                             Email = "info@stregis.com",
                             ImgBanner = "https://res.klook.com/images/fl_lossy.progressive,q_65/c_fill,w_1200,h_630/w_80,x_15,y_15,g_south_west,l_Klook_water_br_trans_yhcmh3/activities/aqglngrp8i0ecxrlwxsm/Tr%E1%BA%A3i%20nghi%E1%BB%87m%20%E1%BA%A9m%20th%E1%BB%B1c%20t%E1%BA%A1i%20The%20St.%20Regis%20Bali%20Resort.jpg",
+                            IsActive = false,
                             Name = "Khách Sạn The St. Regis Bali",
                             PhoneNumber1 = "+62361775200",
                             Slug = "st-regis-bali"
@@ -1092,6 +1112,7 @@ namespace App.Data.Migrations
                             Description = "Khách sạn sang trọng tại Bangkok.",
                             Email = "info@mandarinoriental.com",
                             ImgBanner = "https://upload.wikimedia.org/wikipedia/commons/e/e5/Mandarin_Oriental_Bangkok_Bang_Rak.jpg",
+                            IsActive = false,
                             Name = "Khách Sạn Mandarin Oriental Bangkok",
                             PhoneNumber1 = "+6626599000",
                             Slug = "mandarin-oriental-bangkok"
@@ -1103,6 +1124,7 @@ namespace App.Data.Migrations
                             Description = "Khách sạn cổ điển tại Paris.",
                             Email = "info@dorchestercollection.com",
                             ImgBanner = "https://strawberrymilkevents.com/wp-content/uploads/2014/03/le-meurice-paris-1.jpg",
+                            IsActive = false,
                             Name = "Khách Sạn Le Meurice, Paris",
                             PhoneNumber1 = "+33144723456",
                             Slug = "le-meurice-paris"
@@ -1114,6 +1136,7 @@ namespace App.Data.Migrations
                             Description = "Khách sạn sang trọng tại Mumbai.",
                             Email = "info@oberoihotels.com",
                             ImgBanner = "https://cf.bstatic.com/xdata/images/hotel/max500/28759044.jpg?k=4a3e476214895d86a0e71808d9eb5b85acaebe0cbff06bbd2ecdbb3054d98600&o=&hp=1",
+                            IsActive = false,
                             Name = "Khách Sạn The Oberoi, Mumbai",
                             PhoneNumber1 = "+912266202020",
                             Slug = "the-oberoi-mumbai"
@@ -1125,6 +1148,7 @@ namespace App.Data.Migrations
                             Description = "Khách sạn ven sông tại Sydney.",
                             Email = "info@hyatt.com",
                             ImgBanner = "https://www.jacadatravel.com/wp-content/uploads/fly-images/157913/park-hyatt-sydney-exterior-1600x500-cc.jpg",
+                            IsActive = false,
                             Name = "Khách Sạn Park Hyatt Sydney",
                             PhoneNumber1 = "+61292561111",
                             Slug = "park-hyatt-sydney"
@@ -1136,6 +1160,7 @@ namespace App.Data.Migrations
                             Description = "Khách sạn hiện đại tại Bangkok.",
                             Email = "info@sukhothai.com",
                             ImgBanner = "https://kyluc.vn/Userfiles/Upload/images/The%20Sukhothai%20Bangkok.jpg",
+                            IsActive = false,
                             Name = "Khách Sạn The Sukhothai Bangkok",
                             PhoneNumber1 = "+6623448888",
                             Slug = "the-sukhothai-bangkok"
@@ -1147,6 +1172,7 @@ namespace App.Data.Migrations
                             Description = "Khách sạn sang trọng tại Paris.",
                             Email = "info@ritzparis.com",
                             ImgBanner = "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/H%C3%B4tel_Ritz.jpg/1200px-H%C3%B4tel_Ritz.jpg",
+                            IsActive = false,
                             Name = "Khách Sạn Ritz Paris",
                             PhoneNumber1 = "+33143261800",
                             Slug = "ritz-paris"
@@ -1158,6 +1184,7 @@ namespace App.Data.Migrations
                             Description = "Khách sạn 5 sao tại Mumbai.",
                             Email = "info@theleela.com",
                             ImgBanner = "https://d25wybtmjgh8lz.cloudfront.net/sites/default/files/styles/ph_pdp_subheader_1000_x_333/public/property/img-mastheads/bomlm_4.jpg?h=7bc7d4e1",
+                            IsActive = false,
                             Name = "Khách Sạn The Leela, Mumbai",
                             PhoneNumber1 = "+912266486000",
                             Slug = "the-leela-mumbai"
@@ -1169,6 +1196,7 @@ namespace App.Data.Migrations
                             Description = "Khách sạn sang trọng tại New York.",
                             Email = "info@stregis.com",
                             ImgBanner = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/The_St._Regis_Hotel_New_York.JPG/1200px-The_St._Regis_Hotel_New_York.JPG",
+                            IsActive = false,
                             Name = "Khách Sạn St. Regis New York",
                             PhoneNumber1 = "+12125450500",
                             Slug = "st-regis-new-york"
@@ -1180,6 +1208,7 @@ namespace App.Data.Migrations
                             Description = "Khách sạn sang trọng tại Dubai.",
                             Email = "info@jumeirah.com",
                             ImgBanner = "https://cf.bstatic.com/xdata/images/district/1020x340/45235.jpg?k=daf29066fcf29a01b738ead0998e878a221a3176c033e82a170da725278bc69c&o=",
+                            IsActive = false,
                             Name = "Khách Sạn Jumeirah, Dubai",
                             PhoneNumber1 = "+97144028888",
                             Slug = "jumeirah-dubai"
@@ -1191,6 +1220,7 @@ namespace App.Data.Migrations
                             Description = "Khách sạn cổ điển tại Italy.",
                             Email = "info@belmond.com",
                             ImgBanner = "https://www.truetrips.com/images/api/hotels/Amalfi/Belmond_Hotel_Caruso/The_Balmoral_Caruso_bn_02.jpg",
+                            IsActive = false,
                             Name = "Khách Sạn Belmond Hotel Caruso",
                             PhoneNumber1 = "+39089812345",
                             Slug = "belmond-caruso"
@@ -1202,6 +1232,7 @@ namespace App.Data.Migrations
                             Description = "Khách sạn 5 sao tại Phuket.",
                             Email = "info@banyantree.com",
                             ImgBanner = "https://greenmore.vn/wp-content/uploads/2019/12/canh-quan-resort-nghi-duong-banyan-tree-phuket-05-compressed.jpg",
+                            IsActive = false,
                             Name = "Khách Sạn Banyan Tree, Phuket",
                             PhoneNumber1 = "+6676377888",
                             Slug = "banyan-tree-phuket"
@@ -1213,6 +1244,7 @@ namespace App.Data.Migrations
                             Description = "Khách sạn sang trọng tại Dubai.",
                             Email = "info@theaddress.com",
                             ImgBanner = "https://cf.bstatic.com/xdata/images/hotel/max1024x768/147760688.jpg?k=9604a9318b078228b302c62aaefdfe79aa03688c6d00b953ddc65ab46a337c12&o=&hp=1",
+                            IsActive = false,
                             Name = "Khách Sạn The Address, Dubai",
                             PhoneNumber1 = "+97144087777",
                             Slug = "the-address-dubai"
@@ -1224,6 +1256,7 @@ namespace App.Data.Migrations
                             Description = "Khách sạn bên bờ sông tại Bangkok.",
                             Email = "info@shangri-la.com",
                             ImgBanner = "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/9c/cc/45/shangri-la-bangkok.jpg?w=700&h=-1&s=1",
+                            IsActive = false,
                             Name = "Khách Sạn Shangri-La, Bangkok",
                             PhoneNumber1 = "+6622367777",
                             Slug = "shangri-la-bangkok"
@@ -1235,6 +1268,7 @@ namespace App.Data.Migrations
                             Description = "Khách sạn tuyệt đẹp tại Bali.",
                             Email = "info@oberoihotels.com",
                             ImgBanner = "https://www.hotelsinheaven.com/wp-content/uploads/2020/05/the-oberoi-beach-resort-bali-main-pool-beach-scaled-1256x1000.jpg",
+                            IsActive = false,
                             Name = "Khách Sạn The Oberoi, Bali",
                             PhoneNumber1 = "+62361775688",
                             Slug = "the-oberoi-bali"
@@ -1246,6 +1280,7 @@ namespace App.Data.Migrations
                             Description = "Khách sạn 5 sao tại Tokyo.",
                             Email = "info@mandarinoriental.com",
                             ImgBanner = "https://cf2.bstatic.com/xdata/images/hotel/max1280x900/565155779.jpg?k=6597ca16a17e31dfa517cd3e90b398fd52a5773dfe28ff2b3e5a0baa15f1d89c&o=&hp=1",
+                            IsActive = false,
                             Name = "Khách Sạn Mandarin Oriental, Tokyo",
                             PhoneNumber1 = "+81357770000",
                             Slug = "mandarin-oriental-tokyo"
@@ -2687,8 +2722,8 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "admin_test@gmail.com",
                             FullName = "Nguyễn Thanh Long",
-                            PasswordHash = new byte[] { 73, 228, 205, 193, 76, 248, 240, 5, 172, 32, 103, 74, 118, 93, 5, 6, 231, 62, 75, 74, 85, 236, 109, 49, 65, 152, 253, 168, 181, 146, 231, 154, 21, 20, 72, 128, 100, 249, 129, 208, 116, 123, 14, 92, 80, 182, 101, 241, 39, 196, 73, 79, 59, 149, 1, 90, 128, 96, 81, 132, 130, 183, 188, 158 },
-                            PasswordSalt = new byte[] { 61, 164, 98, 104, 174, 91, 251, 107, 125, 64, 119, 33, 27, 17, 200, 252, 176, 21, 29, 8, 85, 6, 170, 108, 96, 19, 5, 140, 176, 134, 65, 210, 7, 58, 184, 31, 157, 73, 190, 120, 220, 61, 172, 125, 217, 11, 141, 140, 73, 236, 89, 153, 42, 73, 2, 170, 240, 125, 114, 237, 34, 197, 194, 245, 133, 97, 110, 203, 127, 211, 129, 193, 197, 48, 255, 238, 247, 138, 90, 219, 43, 159, 140, 83, 28, 98, 192, 168, 183, 41, 147, 202, 153, 28, 40, 163, 129, 241, 44, 141, 73, 60, 141, 155, 126, 42, 21, 243, 175, 65, 1, 9, 158, 112, 216, 111, 168, 133, 92, 168, 132, 150, 43, 57, 30, 12, 3, 27 },
+                            PasswordHash = new byte[] { 234, 4, 180, 39, 67, 157, 47, 236, 147, 253, 140, 227, 187, 154, 180, 81, 52, 50, 11, 202, 226, 188, 227, 106, 20, 180, 189, 91, 47, 109, 189, 206, 60, 14, 192, 227, 104, 149, 60, 227, 45, 20, 210, 42, 148, 184, 118, 120, 175, 140, 217, 16, 81, 2, 0, 157, 67, 14, 42, 140, 222, 36, 129, 97 },
+                            PasswordSalt = new byte[] { 211, 197, 173, 255, 146, 233, 164, 83, 146, 16, 112, 157, 79, 135, 116, 108, 91, 102, 249, 19, 23, 127, 73, 154, 101, 227, 72, 132, 35, 218, 118, 152, 133, 223, 85, 77, 48, 191, 159, 166, 146, 185, 100, 89, 252, 86, 223, 102, 139, 124, 32, 77, 28, 88, 206, 26, 185, 101, 108, 251, 250, 29, 124, 232, 82, 230, 108, 112, 76, 56, 108, 162, 22, 173, 148, 19, 76, 218, 78, 136, 157, 129, 104, 134, 126, 224, 132, 183, 47, 60, 47, 58, 91, 180, 61, 100, 115, 209, 225, 20, 102, 170, 209, 114, 35, 78, 208, 42, 199, 207, 30, 223, 29, 245, 76, 252, 154, 58, 33, 239, 209, 67, 229, 206, 242, 252, 67, 199 },
                             PhoneNumber1 = "+84928666158",
                             PhoneNumber2 = "+84928666156",
                             UpdatedBy = -1,
@@ -2706,8 +2741,8 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "tranthib2001@gmail.com",
                             FullName = "Trần Chí Dũng",
-                            PasswordHash = new byte[] { 73, 228, 205, 193, 76, 248, 240, 5, 172, 32, 103, 74, 118, 93, 5, 6, 231, 62, 75, 74, 85, 236, 109, 49, 65, 152, 253, 168, 181, 146, 231, 154, 21, 20, 72, 128, 100, 249, 129, 208, 116, 123, 14, 92, 80, 182, 101, 241, 39, 196, 73, 79, 59, 149, 1, 90, 128, 96, 81, 132, 130, 183, 188, 158 },
-                            PasswordSalt = new byte[] { 61, 164, 98, 104, 174, 91, 251, 107, 125, 64, 119, 33, 27, 17, 200, 252, 176, 21, 29, 8, 85, 6, 170, 108, 96, 19, 5, 140, 176, 134, 65, 210, 7, 58, 184, 31, 157, 73, 190, 120, 220, 61, 172, 125, 217, 11, 141, 140, 73, 236, 89, 153, 42, 73, 2, 170, 240, 125, 114, 237, 34, 197, 194, 245, 133, 97, 110, 203, 127, 211, 129, 193, 197, 48, 255, 238, 247, 138, 90, 219, 43, 159, 140, 83, 28, 98, 192, 168, 183, 41, 147, 202, 153, 28, 40, 163, 129, 241, 44, 141, 73, 60, 141, 155, 126, 42, 21, 243, 175, 65, 1, 9, 158, 112, 216, 111, 168, 133, 92, 168, 132, 150, 43, 57, 30, 12, 3, 27 },
+                            PasswordHash = new byte[] { 234, 4, 180, 39, 67, 157, 47, 236, 147, 253, 140, 227, 187, 154, 180, 81, 52, 50, 11, 202, 226, 188, 227, 106, 20, 180, 189, 91, 47, 109, 189, 206, 60, 14, 192, 227, 104, 149, 60, 227, 45, 20, 210, 42, 148, 184, 118, 120, 175, 140, 217, 16, 81, 2, 0, 157, 67, 14, 42, 140, 222, 36, 129, 97 },
+                            PasswordSalt = new byte[] { 211, 197, 173, 255, 146, 233, 164, 83, 146, 16, 112, 157, 79, 135, 116, 108, 91, 102, 249, 19, 23, 127, 73, 154, 101, 227, 72, 132, 35, 218, 118, 152, 133, 223, 85, 77, 48, 191, 159, 166, 146, 185, 100, 89, 252, 86, 223, 102, 139, 124, 32, 77, 28, 88, 206, 26, 185, 101, 108, 251, 250, 29, 124, 232, 82, 230, 108, 112, 76, 56, 108, 162, 22, 173, 148, 19, 76, 218, 78, 136, 157, 129, 104, 134, 126, 224, 132, 183, 47, 60, 47, 58, 91, 180, 61, 100, 115, 209, 225, 20, 102, 170, 209, 114, 35, 78, 208, 42, 199, 207, 30, 223, 29, 245, 76, 252, 154, 58, 33, 239, 209, 67, 229, 206, 242, 252, 67, 199 },
                             PhoneNumber1 = "+84928666157",
                             PhoneNumber2 = "+84928666158",
                             UpdatedBy = -1,
@@ -2725,8 +2760,8 @@ namespace App.Data.Migrations
                             Email = "thanhnguyendt2000@gmail.com",
                             FullName = "John Smith",
                             Passport = "123456789",
-                            PasswordHash = new byte[] { 73, 228, 205, 193, 76, 248, 240, 5, 172, 32, 103, 74, 118, 93, 5, 6, 231, 62, 75, 74, 85, 236, 109, 49, 65, 152, 253, 168, 181, 146, 231, 154, 21, 20, 72, 128, 100, 249, 129, 208, 116, 123, 14, 92, 80, 182, 101, 241, 39, 196, 73, 79, 59, 149, 1, 90, 128, 96, 81, 132, 130, 183, 188, 158 },
-                            PasswordSalt = new byte[] { 61, 164, 98, 104, 174, 91, 251, 107, 125, 64, 119, 33, 27, 17, 200, 252, 176, 21, 29, 8, 85, 6, 170, 108, 96, 19, 5, 140, 176, 134, 65, 210, 7, 58, 184, 31, 157, 73, 190, 120, 220, 61, 172, 125, 217, 11, 141, 140, 73, 236, 89, 153, 42, 73, 2, 170, 240, 125, 114, 237, 34, 197, 194, 245, 133, 97, 110, 203, 127, 211, 129, 193, 197, 48, 255, 238, 247, 138, 90, 219, 43, 159, 140, 83, 28, 98, 192, 168, 183, 41, 147, 202, 153, 28, 40, 163, 129, 241, 44, 141, 73, 60, 141, 155, 126, 42, 21, 243, 175, 65, 1, 9, 158, 112, 216, 111, 168, 133, 92, 168, 132, 150, 43, 57, 30, 12, 3, 27 },
+                            PasswordHash = new byte[] { 234, 4, 180, 39, 67, 157, 47, 236, 147, 253, 140, 227, 187, 154, 180, 81, 52, 50, 11, 202, 226, 188, 227, 106, 20, 180, 189, 91, 47, 109, 189, 206, 60, 14, 192, 227, 104, 149, 60, 227, 45, 20, 210, 42, 148, 184, 118, 120, 175, 140, 217, 16, 81, 2, 0, 157, 67, 14, 42, 140, 222, 36, 129, 97 },
+                            PasswordSalt = new byte[] { 211, 197, 173, 255, 146, 233, 164, 83, 146, 16, 112, 157, 79, 135, 116, 108, 91, 102, 249, 19, 23, 127, 73, 154, 101, 227, 72, 132, 35, 218, 118, 152, 133, 223, 85, 77, 48, 191, 159, 166, 146, 185, 100, 89, 252, 86, 223, 102, 139, 124, 32, 77, 28, 88, 206, 26, 185, 101, 108, 251, 250, 29, 124, 232, 82, 230, 108, 112, 76, 56, 108, 162, 22, 173, 148, 19, 76, 218, 78, 136, 157, 129, 104, 134, 126, 224, 132, 183, 47, 60, 47, 58, 91, 180, 61, 100, 115, 209, 225, 20, 102, 170, 209, 114, 35, 78, 208, 42, 199, 207, 30, 223, 29, 245, 76, 252, 154, 58, 33, 239, 209, 67, 229, 206, 242, 252, 67, 199 },
                             PhoneNumber1 = "+12025550123",
                             PhoneNumber2 = "+12027450123",
                             UpdatedBy = -1,
@@ -3591,6 +3626,9 @@ namespace App.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<int?>("AppRoomId")
+                        .HasColumnType("int");
+
                     b.Property<int?>("CreatedBy")
                         .HasColumnType("int");
 
@@ -3608,9 +3646,6 @@ namespace App.Data.Migrations
                     b.Property<int?>("DisplayOrder")
                         .HasColumnType("int");
 
-                    b.Property<int>("RoomId")
-                        .HasColumnType("int");
-
                     b.Property<int?>("UpdatedBy")
                         .HasColumnType("int");
 
@@ -3619,7 +3654,7 @@ namespace App.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("RoomId");
+                    b.HasIndex("AppRoomId");
 
                     b.ToTable("AppComment", (string)null);
                 });
@@ -3713,6 +3748,11 @@ namespace App.Data.Migrations
 
                     b.Property<int?>("EmployeeId")
                         .HasColumnType("int");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<DateTime>("TimeStay")
                         .HasColumnType("datetime2");
@@ -3962,13 +4002,9 @@ namespace App.Data.Migrations
 
             modelBuilder.Entity("App.Data.Entities.service.AppComment", b =>
                 {
-                    b.HasOne("App.Data.Entities.Room.AppRoom", "Room")
+                    b.HasOne("App.Data.Entities.Room.AppRoom", null)
                         .WithMany("Comments")
-                        .HasForeignKey("RoomId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("Room");
+                        .HasForeignKey("AppRoomId");
                 });
 
             modelBuilder.Entity("App.Data.Entities.service.AppCommentDetail", b =>

@@ -44,6 +44,7 @@ namespace App.Data.Migrations
                     PhoneNumber1 = table.Column<string>(type: "nvarchar(15)", maxLength: 15, nullable: false),
                     PhoneNumber2 = table.Column<string>(type: "nvarchar(15)", maxLength: 15, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false, defaultValue: true),
                     ImgBanner = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: true),
                     DisplayOrder = table.Column<int>(type: "int", nullable: true),
                     CreatedBy = table.Column<int>(type: "int", nullable: true),
@@ -326,7 +327,7 @@ namespace App.Data.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Description = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
-                    RoomId = table.Column<int>(type: "int", nullable: false),
+                    AppRoomId = table.Column<int>(type: "int", nullable: true),
                     DisplayOrder = table.Column<int>(type: "int", nullable: true),
                     CreatedBy = table.Column<int>(type: "int", nullable: true),
                     UpdatedBy = table.Column<int>(type: "int", nullable: true),
@@ -338,11 +339,10 @@ namespace App.Data.Migrations
                 {
                     table.PrimaryKey("PK_AppComment", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_AppComment_AppRoom_RoomId",
-                        column: x => x.RoomId,
+                        name: "FK_AppComment_AppRoom_AppRoomId",
+                        column: x => x.AppRoomId,
                         principalTable: "AppRoom",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -449,6 +449,7 @@ namespace App.Data.Migrations
                     TimeStay = table.Column<DateTime>(type: "datetime2", nullable: false),
                     TotalPrice = table.Column<double>(type: "float", maxLength: 10, nullable: false),
                     Deposit = table.Column<double>(type: "float", maxLength: 10, nullable: false),
+                    Status = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     EmployeeId = table.Column<int>(type: "int", nullable: true),
                     DisplayOrder = table.Column<int>(type: "int", nullable: true),
                     CreatedBy = table.Column<int>(type: "int", nullable: true),
@@ -963,9 +964,9 @@ namespace App.Data.Migrations
                 columns: new[] { "Id", "Address", "AppRoleId", "Avatar", "BlockedBy", "BlockedTo", "BranchId", "CitizenId", "CreatedBy", "CreatedDate", "DeletedDate", "DisplayOrder", "Email", "FullName", "Passport", "PasswordHash", "PasswordSalt", "Permanent", "PhoneNumber1", "PhoneNumber2", "UpdatedBy", "UpdatedDate", "Username" },
                 values: new object[,]
                 {
-                    { 1, "Thành phố Hồ Chí Minh", 1, null, null, null, 1, 912345678, -1, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "admin_test@gmail.com", "Nguyễn Thanh Long", null, new byte[] { 73, 228, 205, 193, 76, 248, 240, 5, 172, 32, 103, 74, 118, 93, 5, 6, 231, 62, 75, 74, 85, 236, 109, 49, 65, 152, 253, 168, 181, 146, 231, 154, 21, 20, 72, 128, 100, 249, 129, 208, 116, 123, 14, 92, 80, 182, 101, 241, 39, 196, 73, 79, 59, 149, 1, 90, 128, 96, 81, 132, 130, 183, 188, 158 }, new byte[] { 61, 164, 98, 104, 174, 91, 251, 107, 125, 64, 119, 33, 27, 17, 200, 252, 176, 21, 29, 8, 85, 6, 170, 108, 96, 19, 5, 140, 176, 134, 65, 210, 7, 58, 184, 31, 157, 73, 190, 120, 220, 61, 172, 125, 217, 11, 141, 140, 73, 236, 89, 153, 42, 73, 2, 170, 240, 125, 114, 237, 34, 197, 194, 245, 133, 97, 110, 203, 127, 211, 129, 193, 197, 48, 255, 238, 247, 138, 90, 219, 43, 159, 140, 83, 28, 98, 192, 168, 183, 41, 147, 202, 153, 28, 40, 163, 129, 241, 44, 141, 73, 60, 141, 155, 126, 42, 21, 243, 175, 65, 1, 9, 158, 112, 216, 111, 168, 133, 92, 168, 132, 150, 43, 57, 30, 12, 3, 27 }, null, "+84928666158", "+84928666156", -1, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), "admin" },
-                    { 2, "Thành phố Cần Thơ", 2, null, null, null, 1, 917635678, -1, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "tranthib2001@gmail.com", "Trần Chí Dũng", null, new byte[] { 73, 228, 205, 193, 76, 248, 240, 5, 172, 32, 103, 74, 118, 93, 5, 6, 231, 62, 75, 74, 85, 236, 109, 49, 65, 152, 253, 168, 181, 146, 231, 154, 21, 20, 72, 128, 100, 249, 129, 208, 116, 123, 14, 92, 80, 182, 101, 241, 39, 196, 73, 79, 59, 149, 1, 90, 128, 96, 81, 132, 130, 183, 188, 158 }, new byte[] { 61, 164, 98, 104, 174, 91, 251, 107, 125, 64, 119, 33, 27, 17, 200, 252, 176, 21, 29, 8, 85, 6, 170, 108, 96, 19, 5, 140, 176, 134, 65, 210, 7, 58, 184, 31, 157, 73, 190, 120, 220, 61, 172, 125, 217, 11, 141, 140, 73, 236, 89, 153, 42, 73, 2, 170, 240, 125, 114, 237, 34, 197, 194, 245, 133, 97, 110, 203, 127, 211, 129, 193, 197, 48, 255, 238, 247, 138, 90, 219, 43, 159, 140, 83, 28, 98, 192, 168, 183, 41, 147, 202, 153, 28, 40, 163, 129, 241, 44, 141, 73, 60, 141, 155, 126, 42, 21, 243, 175, 65, 1, 9, 158, 112, 216, 111, 168, 133, 92, 168, 132, 150, 43, 57, 30, 12, 3, 27 }, null, "+84928666157", "+84928666158", -1, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), "staff" },
-                    { 3, "New York City", 3, null, null, null, 1, null, -1, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "thanhnguyendt2000@gmail.com", "John Smith", "123456789", new byte[] { 73, 228, 205, 193, 76, 248, 240, 5, 172, 32, 103, 74, 118, 93, 5, 6, 231, 62, 75, 74, 85, 236, 109, 49, 65, 152, 253, 168, 181, 146, 231, 154, 21, 20, 72, 128, 100, 249, 129, 208, 116, 123, 14, 92, 80, 182, 101, 241, 39, 196, 73, 79, 59, 149, 1, 90, 128, 96, 81, 132, 130, 183, 188, 158 }, new byte[] { 61, 164, 98, 104, 174, 91, 251, 107, 125, 64, 119, 33, 27, 17, 200, 252, 176, 21, 29, 8, 85, 6, 170, 108, 96, 19, 5, 140, 176, 134, 65, 210, 7, 58, 184, 31, 157, 73, 190, 120, 220, 61, 172, 125, 217, 11, 141, 140, 73, 236, 89, 153, 42, 73, 2, 170, 240, 125, 114, 237, 34, 197, 194, 245, 133, 97, 110, 203, 127, 211, 129, 193, 197, 48, 255, 238, 247, 138, 90, 219, 43, 159, 140, 83, 28, 98, 192, 168, 183, 41, 147, 202, 153, 28, 40, 163, 129, 241, 44, 141, 73, 60, 141, 155, 126, 42, 21, 243, 175, 65, 1, 9, 158, 112, 216, 111, 168, 133, 92, 168, 132, 150, 43, 57, 30, 12, 3, 27 }, null, "+12025550123", "+12027450123", -1, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), "user1" }
+                    { 1, "Thành phố Hồ Chí Minh", 1, null, null, null, 1, 912345678, -1, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "admin_test@gmail.com", "Nguyễn Thanh Long", null, new byte[] { 234, 4, 180, 39, 67, 157, 47, 236, 147, 253, 140, 227, 187, 154, 180, 81, 52, 50, 11, 202, 226, 188, 227, 106, 20, 180, 189, 91, 47, 109, 189, 206, 60, 14, 192, 227, 104, 149, 60, 227, 45, 20, 210, 42, 148, 184, 118, 120, 175, 140, 217, 16, 81, 2, 0, 157, 67, 14, 42, 140, 222, 36, 129, 97 }, new byte[] { 211, 197, 173, 255, 146, 233, 164, 83, 146, 16, 112, 157, 79, 135, 116, 108, 91, 102, 249, 19, 23, 127, 73, 154, 101, 227, 72, 132, 35, 218, 118, 152, 133, 223, 85, 77, 48, 191, 159, 166, 146, 185, 100, 89, 252, 86, 223, 102, 139, 124, 32, 77, 28, 88, 206, 26, 185, 101, 108, 251, 250, 29, 124, 232, 82, 230, 108, 112, 76, 56, 108, 162, 22, 173, 148, 19, 76, 218, 78, 136, 157, 129, 104, 134, 126, 224, 132, 183, 47, 60, 47, 58, 91, 180, 61, 100, 115, 209, 225, 20, 102, 170, 209, 114, 35, 78, 208, 42, 199, 207, 30, 223, 29, 245, 76, 252, 154, 58, 33, 239, 209, 67, 229, 206, 242, 252, 67, 199 }, null, "+84928666158", "+84928666156", -1, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), "admin" },
+                    { 2, "Thành phố Cần Thơ", 2, null, null, null, 1, 917635678, -1, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "tranthib2001@gmail.com", "Trần Chí Dũng", null, new byte[] { 234, 4, 180, 39, 67, 157, 47, 236, 147, 253, 140, 227, 187, 154, 180, 81, 52, 50, 11, 202, 226, 188, 227, 106, 20, 180, 189, 91, 47, 109, 189, 206, 60, 14, 192, 227, 104, 149, 60, 227, 45, 20, 210, 42, 148, 184, 118, 120, 175, 140, 217, 16, 81, 2, 0, 157, 67, 14, 42, 140, 222, 36, 129, 97 }, new byte[] { 211, 197, 173, 255, 146, 233, 164, 83, 146, 16, 112, 157, 79, 135, 116, 108, 91, 102, 249, 19, 23, 127, 73, 154, 101, 227, 72, 132, 35, 218, 118, 152, 133, 223, 85, 77, 48, 191, 159, 166, 146, 185, 100, 89, 252, 86, 223, 102, 139, 124, 32, 77, 28, 88, 206, 26, 185, 101, 108, 251, 250, 29, 124, 232, 82, 230, 108, 112, 76, 56, 108, 162, 22, 173, 148, 19, 76, 218, 78, 136, 157, 129, 104, 134, 126, 224, 132, 183, 47, 60, 47, 58, 91, 180, 61, 100, 115, 209, 225, 20, 102, 170, 209, 114, 35, 78, 208, 42, 199, 207, 30, 223, 29, 245, 76, 252, 154, 58, 33, 239, 209, 67, 229, 206, 242, 252, 67, 199 }, null, "+84928666157", "+84928666158", -1, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), "staff" },
+                    { 3, "New York City", 3, null, null, null, 1, null, -1, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "thanhnguyendt2000@gmail.com", "John Smith", "123456789", new byte[] { 234, 4, 180, 39, 67, 157, 47, 236, 147, 253, 140, 227, 187, 154, 180, 81, 52, 50, 11, 202, 226, 188, 227, 106, 20, 180, 189, 91, 47, 109, 189, 206, 60, 14, 192, 227, 104, 149, 60, 227, 45, 20, 210, 42, 148, 184, 118, 120, 175, 140, 217, 16, 81, 2, 0, 157, 67, 14, 42, 140, 222, 36, 129, 97 }, new byte[] { 211, 197, 173, 255, 146, 233, 164, 83, 146, 16, 112, 157, 79, 135, 116, 108, 91, 102, 249, 19, 23, 127, 73, 154, 101, 227, 72, 132, 35, 218, 118, 152, 133, 223, 85, 77, 48, 191, 159, 166, 146, 185, 100, 89, 252, 86, 223, 102, 139, 124, 32, 77, 28, 88, 206, 26, 185, 101, 108, 251, 250, 29, 124, 232, 82, 230, 108, 112, 76, 56, 108, 162, 22, 173, 148, 19, 76, 218, 78, 136, 157, 129, 104, 134, 126, 224, 132, 183, 47, 60, 47, 58, 91, 180, 61, 100, 115, 209, 225, 20, 102, 170, 209, 114, 35, 78, 208, 42, 199, 207, 30, 223, 29, 245, 76, 252, 154, 58, 33, 239, 209, 67, 229, 206, 242, 252, 67, 199 }, null, "+12025550123", "+12027450123", -1, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), "user1" }
                 });
 
             migrationBuilder.CreateIndex(
@@ -974,9 +975,9 @@ namespace App.Data.Migrations
                 column: "HotelId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_AppComment_RoomId",
+                name: "IX_AppComment_AppRoomId",
                 table: "AppComment",
-                column: "RoomId");
+                column: "AppRoomId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AppCommentDetail_CommentId",
