@@ -4,6 +4,7 @@ using App.Data.Entities.User;
 using App.Web.Areas.Admin.ViewModels.Account;
 using App.Web.Areas.Admin.ViewModels.BranchHotel;
 using App.Web.Areas.Admin.ViewModels.Equipment;
+using App.Web.Areas.Admin.ViewModels.EquipmentType;
 using App.Web.Areas.Admin.ViewModels.Hotel;
 using App.Web.Areas.Admin.ViewModels.User;
 using App.Web.ViewModels.Account;
@@ -26,11 +27,18 @@ namespace App.Web.WebConfig
 			CreateMap<AppUser, UserRegisterVM>().ReverseMap();
 			CreateMap<AppUser, UserProfileClientVM>().ReverseMap();
 
+			// Map dữ liệu của AppHotel
 			CreateMap<AddOrUpdateHotelVM, AppHotel>().ReverseMap();
 			CreateMap<AppHotel, AddOrUpdateHotelVM>().ReverseMap();
 
+			// Map dữ liệu của AppBranchHotel
 			CreateMap<AppBranchHotel, AddOrUpdateBranchHotelVM>().ReverseMap();
+
+			// Map dữ liệu của AppEquipment
 			CreateMap<AppEquipment, AddOrUpdateEquipmentVM>().ReverseMap();
+
+			// Map dữ liệu của AppEquipmentType
+			CreateMap<AppEquipmentType, AddOrUpdateETypeVM>().ReverseMap();
 		}
 
 		//public static MapperConfiguration RoleIndexConf = new(mapper =>
@@ -108,6 +116,15 @@ namespace App.Web.WebConfig
 			mapper.CreateMap<AppEquipment, EquipmentListItemVM>()
 				.ForMember(uItem => uItem.TypeEquipmentName, opts => opts.MapFrom(uEntity => uEntity.TypeEquipment.Name));
 		});
+
+		// Cấu hình mapping cho AppETypeController, action Index
+		public static MapperConfiguration ETypeIndexConf = new(mapper =>
+		{
+			mapper.CreateMap<AppEquipmentType, ETypeListItemVM>()
+				.ForMember(uItem => uItem.EquipmentName, opts => opts.MapFrom(uEntity => uEntity.Equipments
+					.Select(e => e.Name).ToList()));
+		});
+
 		//public static MapperConfiguration CategoryNewsConf = new(mapper =>
 		//{
 		//	mapper.CreateMap<AppCategoryNews, ListItemCategoryNewsVM>()
@@ -184,19 +201,6 @@ namespace App.Web.WebConfig
 		//public static MapperConfiguration CatalogueConf = new(mapper =>
 		//{
 		//	mapper.CreateMap<AppCatalogue, ListItemCatalogueVM>().ReverseMap();
-		//});
-
-		//public static MapperConfiguration MstBrandConf = new(mapper =>
-		//{
-		//	mapper.CreateMap<MstProductBrand, ListItemProductBrandVM>()
-		//		.ForMember(item => item.CountProduct, options => options.MapFrom(entity =>
-		//			entity.Products.Where(p => p.IsActive == true && p.DeletedDate == null).Count()
-		//		));
-
-		//	mapper.CreateMap<MstProductBrand, MstProductBrandListItemVM>()
-		//		.ForMember(item => item.Quality, options => options.MapFrom(entity =>
-		//			entity.Products.Where(p => p.DeletedDate == null).Count()
-		//		)).ReverseMap();
 		//});
 	}
 }
