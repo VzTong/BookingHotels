@@ -26,9 +26,11 @@ namespace App.Web.WebConfig
 			CreateMap<AppUser, UserRegisterVM>().ReverseMap();
 			CreateMap<AppUser, UserProfileClientVM>().ReverseMap();
 
+			CreateMap<AddOrUpdateHotelVM, AppHotel>().ReverseMap();
+			CreateMap<AppHotel, AddOrUpdateHotelVM>().ReverseMap();
+
 			CreateMap<AppBranchHotel, AddOrUpdateBranchHotelVM>().ReverseMap();
 			CreateMap<AppEquipment, AddOrUpdateEquipmentVM>().ReverseMap();
-
 		}
 
 		//public static MapperConfiguration RoleIndexConf = new(mapper =>
@@ -86,7 +88,8 @@ namespace App.Web.WebConfig
 		// Cấu hình mapping cho AppBranchHotelController, action Index
 		public static MapperConfiguration BranchHotelIndexConf = new(mapper =>
 		{
-			mapper.CreateMap<AppBranchHotel, AppBranchHotelListItemVM>();
+			mapper.CreateMap<AppBranchHotel, AppBranchHotelListItemVM>()
+				.ForMember(uItem => uItem.HotelName, opts => opts.MapFrom(uEntity => uEntity.Hotel.Name));
 		});
 
 		// Cấu hình mapping cho AppHotelController, action Index
