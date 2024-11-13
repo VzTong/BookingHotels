@@ -96,7 +96,7 @@
 											}
 											else
 											{
-												<i class="fas fa-lock text-secondary"></i>
+												<i class="fas fa-lock text-warning"></i>
 											}
 
 											@if (item.DisplayOrder != null)
@@ -179,12 +179,12 @@
 													<div class="pin">
 														@if (item.DisplayOrder == null)
 														{
-															<a title="Ghim khách sạn lên đầu danh sách" asp-action="hotelPin" asp-route-id="@item.Id"
+															<a title="Ghim khách sạn lên đầu danh sách" asp-action="HotelPin" asp-route-id="@item.Id"
 															   class="btn btn-sm edit-item-btn link-secondary fs-15"><i class="fas fa-arrow-alt-circle-up"></i></a>
 														}
 														else
 														{
-															<a title="Bỏ ghim khách sạn" asp-action="hotelUnPin" asp-route-id="@item.Id"
+															<a title="Bỏ ghim khách sạn" asp-action="HotelUnPin" asp-route-id="@item.Id"
 															   class="btn btn-sm edit-item-btn link-secondary fs-15"><i class="fas fa-arrow-alt-circle-down"></i></a>
 														}
 													</div>
@@ -202,7 +202,7 @@
 														<button class="btn btn-sm remove-item-btn link-danger fs-15"
 																data-bs-toggle="modal"
 																data-bs-target="#deleteHotelModal"
-																onclick="setDeleteId('@item.Id')">
+																onclick="setDeleteId('@item.Id', '@ViewBag.BranchCounts[item.Id]')">
 															<i class="ri-delete-bin-line"></i>
 														</button>
 													</div>
@@ -245,10 +245,10 @@
 
 @section Scripts {
 	<script>
-		function setDeleteId(id) {
+		function setDeleteId(id, branchCount) {
 			const deleteConfirmBtn = document.getElementById('deleteConfirmBtn');
 			deleteConfirmBtn.href = `/Admin/AppHotel/Delete/${id}`;
+			document.getElementById('branchCount').innerText = branchCount;
 		}
 	</script>
-	<script src="~/adminLTE/js/pages/listjs.init.js"></script>
 }
