@@ -34,6 +34,87 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\af.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\ar-dz.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\ar-kw.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\ar-ly.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\ar-ma.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\ar-sa.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\ar-tn.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\ar.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\az.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\bg.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\bn.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\bs.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\ca.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\cs.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\cy.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\da.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\de-at.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\de.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\el.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\en-au.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\en-gb.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\en-nz.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\eo.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\es-us.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\es.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\et.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\eu.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\fa.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\fi.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\fr-ca.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\fr-ch.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\fr.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\gl.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\he.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\hi.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\hr.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\hu.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\hy-am.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\id.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\is.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\it.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\ja.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\ka.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\kk.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\km.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\ko.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\ku.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\lb.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\lt.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\lv.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\mk.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\ms.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\nb.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\ne.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\nl.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\nn.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\pl.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\pt-br.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\pt.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\ro.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\ru.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\si-lk.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\sk.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\sl.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\sm.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\sq.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\sr-cyrl.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\sr.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\sv.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\ta-in.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\th.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\tr.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\ug.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\uk.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\uz.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\vi.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\zh-cn.js" />
+    <None Include="wwwroot\adminLTE\libs\fullcalendar\locales\zh-tw.js" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Update="Views\Home\404.cshtml">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
