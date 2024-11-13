@@ -33,6 +33,7 @@ namespace App.Web.Areas.Admin.Controllers
 		{
 			ViewBag.Name = search.Name;
 			var data = await GetListHotelAsync(search, page, size);
+			ViewBag.BranchCounts = data.ToDictionary(h => h.Id, h => h.BranchName.Count);
 			return View(data);
 		}
 
@@ -103,16 +104,17 @@ namespace App.Web.Areas.Admin.Controllers
                 return RedirectToAction(nameof(Index), ROUTE_FOR_AREA);
             }
         }
+		
 		[AppAuthorize(AuthConst.AppHotel.UPDATE)]
 		public async Task<IActionResult> EditHotel(int id)
 		{
-			var user = await _repository.FindAsync<AppHotel>(id);
-			if (user == null)
+			var hotel = await _repository.FindAsync<AppHotel>(id);
+			if (hotel == null)
 			{
 				SetErrorMesg(PAGE_NOT_FOUND_MESG);
 				return RedirectToAction(nameof(Index));
 			}
-			var userEditVM = _mapper.Map<AddOrUpdateHotelVM>(user);
+			var userEditVM = _mapper.Map<AddOrUpdateHotelVM>(hotel);
 			return View(userEditVM);
 		}
 
@@ -166,7 +168,7 @@ namespace App.Web.Areas.Admin.Controllers
 				hotel.UpdatedDate = now;
 
 				await _repository.UpdateAsync(hotel);
-				SetSuccessMesg($"Cập nhật khách sạn [{hotel.Name}] thành công");
+				SetSuccessMesg($"Cập nhật khách sạn '{hotel.Name}' thành công");
 				return RedirectToAction(nameof(Index));
 			}
 			catch (Exception ex)
@@ -175,5 +177,84 @@ namespace App.Web.Areas.Admin.Controllers
 				return View(model);
 			}
 		}
+
+		[AppAuthorize(AuthConst.AppHotel.DELETE)]
+		public async Task<IActionResult> Delete(int id)
+		{
+			var hotel = await _repository.FindAsync<AppHotel>(id);
+			if (hotel == null)
+			{
+				SetErrorMesg("Khách sạn này không tồn tại hoặc đã được xóa trước đó");
+				return RedirectToAction(nameof(Index), ROUTE_FOR_AREA);
+			}
+			// Delete associated branches
+			var branches = await _repository.GetAll<AppBranchHotel>().Where(b => b.HotelId == id).ToListAsync();
+			foreach (var branch in branches)
+			{
+				await _repository.DeleteAsync(branch);
+			}
+
+			await _repository.DeleteAsync(hotel);
+			SetSuccessMesg($"Khách sạn '{hotel.Name}' được xóa thành công");
+			if (Referer != null)
+			{
+				return Redirect(Referer);
+			}
+			return RedirectToAction(nameof(Index), ROUTE_FOR_AREA);
+		}
+
+		[AppAuthorize(AuthConst.AppHotel.PUBLIC)]
+		public async Task<IActionResult> PublicHotel(int id)
+		{
+			var hotel = await _repository.FindAsync<AppHotel>(id);
+			if (hotel == null)
+			{
+				SetErrorMesg(PAGE_NOT_FOUND_MESG);
+				return RedirectToAction(nameof(Index), ROUTE_FOR_AREA);
+			}
+			hotel.IsActive = true;
+			await _repository.UpdateAsync(hotel);
+			SetSuccessMesg($"Công khai khách sạn '{hotel.Name}' thành công");
+			return RedirectToAction(nameof(Index), ROUTE_FOR_AREA);
+		}
+
+		[AppAuthorize(AuthConst.AppHotel.UNPUBLIC)]
+		public async Task<IActionResult> UnPublicHotel(int id)
+		{
+			var hotel = await _repository.FindAsync<AppHotel>(id);
+			if (hotel == null)
+			{
+				SetErrorMesg(PAGE_NOT_FOUND_MESG);
+				return RedirectToAction(nameof(Index), ROUTE_FOR_AREA);
+			}
+			hotel.IsActive = false;
+			await _repository.UpdateAsync(hotel);
+			SetSuccessMesg($"Gỡ khách sạn '{hotel.Name}' thành công");
+			return RedirectToAction(nameof(Index), ROUTE_FOR_AREA);
+		}
+
+		public async Task<IActionResult> HotelPin(int id = 0)
+		{
+			if (id > 0)
+			{
+				var hotel = await _repository.FindAsync<AppHotel>(id);
+				var maxDisplayOrder = _repository
+						.DbContext.AppHotels.Max(x => x.DisplayOrder);
+				hotel.DisplayOrder = maxDisplayOrder != null ? maxDisplayOrder + 1 : 1;
+				await _repository.UpdateAsync(hotel);
+			}
+			return Redirect(Referer);
+		}
+		public async Task<IActionResult> HotelUnPin(int id = 0)
+		{
+			if (id > 0)
+			{
+				var hotel = await _repository.FindAsync<AppHotel>(id);
+				hotel.DisplayOrder = null;
+				await _repository.UpdateAsync(hotel);
+			}
+			return Redirect(Referer);
+		}
+
 	}
 }
