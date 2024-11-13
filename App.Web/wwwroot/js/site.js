@@ -18,6 +18,12 @@
             location.href = $(this).attr("href");
         }
     });
+
+    function confirm(message, callback) {
+        if (window.confirm(message)) {
+            callback();
+        }
+    }
 });
 
 // Các hàm liên quan xóa nhiều
