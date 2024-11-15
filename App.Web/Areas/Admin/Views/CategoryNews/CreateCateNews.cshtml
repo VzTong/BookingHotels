@@ -1,0 +1,74 @@
+﻿@model App.Web.Areas.Admin.ViewModels.CategoryNews.AddOrUpdateCategoryNewsVM
+@{
+	ViewData["Title"] = "Thêm thể loại";
+}
+<div class="row">
+	<div class="col-12">
+		<div class="page-title-box d-sm-flex align-items-center justify-content-between">
+			<h4 class="mb-sm-0">Quản lý thể loại</h4>
+
+			<div class="page-title-right">
+				<ol class="breadcrumb m-0">
+					<li class="breadcrumb-item"><a asp-action="Index" asp-area="Admin" asp-controller="Home">Bảng tổng quan</a></li>
+					<li class="breadcrumb-item active"><a asp-action="Index" asp-area="Admin" asp-controller="CategoryNews">Thể loại</a></li>
+					<li class="breadcrumb-item active">Thêm thể loại</li>
+				</ol>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-lg-12">
+		<div class="card">
+			<div class="card-header align-items-center d-flex">
+				<h4 class="card-title mb-0">Thêm mới thể loại</h4>
+			</div><!-- end card header -->
+
+			<div class="card-body">
+				<div id="customerList">
+					<div class="row gy-4">
+						<form asp-action="CreateCateNews" enctype="multipart/form-data" autocomplete="off" class="row g-3 needs-validation" novalidate>
+							<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+							<partial name="_AddOrEditCateNews" />
+							<div class="form-group">
+								<button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Lưu</button>
+							</div>
+						</form>
+					</div>
+					<div class="d-flex justify-content-end">
+						<div class="pagination-wrap hstack gap-2">
+							<partial name="_BackToList" />
+						</div>
+					</div>
+				</div>
+			</div><!-- end card -->
+		</div>
+		<!-- end col -->
+	</div>
+	<!-- end col -->
+</div>
+<!-- end row -->
+@section Scripts {
+	<script src="~/adminLTE/libs/prismjs/prism.js"></script>
+	<script src="~/adminLTE/js/pages/form-validation.init.js"></script>
+	<script src="~/js/admin/cateNews/cateNews-validate.js" asp-append-version="true"></script>
+	<script>
+		$(document).ready(function () {
+			// File input change event
+			$('#fileCateNewsInput').on('change', function () {
+				var fileInput = $(this);
+				var file = fileInput[0].files[0];
+				console.log(file);
+				if (file) {
+					$('#imgCateNewsPreview').show().attr('src', URL.createObjectURL(file));
+					$('#iconCateNewsPreview').hide();
+				} else {
+					$('#imgCateNewsPreview').css('display', 'none').attr('src', '');
+					$('#iconCateNewsPreview').hide();
+				}
+			});
+		});
+	</script>
+}

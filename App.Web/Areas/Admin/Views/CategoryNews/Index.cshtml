@@ -1,0 +1,143 @@
+﻿@model IEnumerable<App.Web.Areas.Admin.ViewModels.CategoryNews.ListItemCategoryNewsVM>
+@{
+	ViewData["Title"] = "Danh sách thể loại tin tức";
+}
+
+<div class="row">
+	<div class="col-12">
+		<div class="page-title-box d-sm-flex align-items-center justify-content-between">
+			<h4 class="mb-sm-0">Quản lý thể loại tin tức</h4>
+
+			<div class="page-title-right">
+				<ol class="breadcrumb m-0">
+					<li class="breadcrumb-item"><a asp-action="Index" asp-area="Admin" asp-controller="Home">Bảng tổng quan</a></li>
+					<li class="breadcrumb-item active">Thể loại tin tức</li>
+				</ol>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-lg-12">
+		<div class="card">
+			<div class="card-header">
+				<h4 class="card-title mb-0">Thể loại tin tức</h4>
+			</div><!-- end card header -->
+
+			<div class="card-body">
+				<div id="customerList">
+					<div class="row g-4 mb-3">
+						<div class="col-sm-auto">
+							<div>
+								@if (User.IsInPermission(AuthConst.AppCategoryNews.CREATE))
+								{
+									<a asp-action="CreateCateNews" class="btn btn-success btn-label add-btn">
+										<i class="ri-add-line label-icon align-middle fs-16 me-2"></i>
+										Thêm mới thể loại
+									</a>
+								}
+							</div>
+						</div>
+					</div>
+
+					<div class="table-responsive mt-3 mb-1">
+						<table class="table align-middle" id="ETypeTable">
+							<thead class="table-light">
+								<tr>
+									<th>#</th>
+									<th>Img</th>
+									<th>Tiêu đề</th>
+									<th>Nội dung</th>
+									<th>Chức năng</th>
+								</tr>
+							</thead>
+							<tbody class="list form-check-all">
+								@foreach (var item in Model)
+								{
+									<tr>
+										<td>@item.RowIndex</td>
+
+										<td class="id" style="display:none;">
+											<a class="fw-medium link-primary">@item.Id</a>
+										</td>
+										<td>
+											@{
+												if (item.CoverImgPath != null)
+												{
+													var imgSrc = item.CoverImgPath.StartsWith("https", StringComparison.OrdinalIgnoreCase) ? item.CoverImgPath : "/" + item.CoverImgPath;
+													<img src="@imgSrc" width="250px" height="100px" style="object-fit:cover" />
+												}
+												else
+												{
+													<span>Hiện không có ảnh</span>
+												}
+											}
+										</td>
+										<td class="CateNews_Title">
+											<span style="cursor: default;">@item.Title</span>
+											<div>
+												@if (!item.Slug.IsNullOrEmpty())
+												{
+													<span class="badge badge-soft-success badge-border" style="cursor: default;">
+														@item.Slug
+													</span>
+												}
+											</div>
+										</td>
+										<td class="content fit">@item.Content</td>
+										<td>
+											<div class="d-flex gap-2">
+												@if (User.IsInPermission(AuthConst.AppCategoryNews.UPDATE))
+												{
+													<div class="edit">
+														<a asp-action="EditCateNews" asp-route-id="@item.Id"
+														   class="btn btn-sm edit-item-btn link-success fs-15">
+															<i class="ri-edit-2-line"></i>
+														</a>
+													</div>
+												}
+												@if (User.IsInPermission(AuthConst.AppCategoryNews.DELETE))
+												{
+													<div class="remove">
+														<button class="btn btn-sm remove-item-btn link-danger fs-15"
+																data-bs-toggle="modal"
+																data-bs-target="#deleteCateNewsModal"
+																onclick="setDeleteId('@item.Id')">
+															<i class="ri-delete-bin-line"></i>
+														</button>
+													</div>
+												}
+											</div>
+										</td>
+									</tr>
+								}
+
+							</tbody>
+						</table>
+					</div>
+					<div class="d-flex justify-content-end">
+						<div class="pagination-wrap hstack gap-2">
+							<partial name="_Pager" />
+						</div>
+					</div>
+				</div>
+			</div><!-- end card -->
+		</div>
+		<!-- end col -->
+	</div>
+	<!-- end col -->
+</div>
+<!-- end row -->
+
+<partial name="_DeleteCateNewsModal" model="null" />
+
+@section Scripts {
+	<script>
+		function setDeleteId(id) {
+			const deleteConfirmBtn = document.getElementById('deleteConfirmBtn');
+			deleteConfirmBtn.href = `/Admin/CategoryNews/Delete/${id}`;
+		}
+	</script>
+}

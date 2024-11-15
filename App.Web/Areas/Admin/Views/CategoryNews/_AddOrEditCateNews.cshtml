@@ -1,0 +1,50 @@
+﻿@model App.Web.Areas.Admin.ViewModels.CategoryNews.AddOrUpdateCategoryNewsVM
+
+<div class="row">
+	<div class="col-md-6">
+		<div class="mb-3">
+			<label asp-for="Title" class="form-label">Tiêu đề</label>
+			<input asp-for="Title" type="text" class="form-control" id="cateNewsTitle-field" placeholder="Tiêu đề" required />
+			<div class="invalid-feedback">
+				Vui lòng nhập tiêu đề.
+			</div>
+			<span asp-validation-for="Title" class="text-danger"></span>
+		</div>
+		<div class="mb-3">
+			<label asp-for="Content" class="form-label">Nội dung</label>
+			<textarea asp-for="Content" type="text" id="cateNewsContent-field" class="form-control" placeholder="Nội dung" required></textarea>
+			<div class="invalid-feedback">
+				Vui lòng nhập nội dung.
+			</div>
+			<span asp-validation-for="Content" class="text-danger"></span>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="form-group group-container">
+			<div style="opacity: 1">
+				<label asp-for="CoverImgPath" class="form-label">Ảnh bìa</label>
+				<div class="text-center justify-content-center align-items-center" style="border: dotted 2px rgb(139, 139, 139); height: 12.5rem">
+					@if (Model != null && !string.IsNullOrEmpty(Model.CoverImgPath))
+					{
+						var imgSrc = Model.CoverImgPath.StartsWith("https", StringComparison.OrdinalIgnoreCase) ? Model.CoverImgPath : "/" + Model.CoverImgPath;
+						<img id="imgCateNewsPreview_update" src="@imgSrc" alt="" style="height: 12.25rem; width: 40.625rem; object-fit:cover; display: none">
+						<i id="iconCateNewsPreview_update" class="fas fa-cloud-upload-alt" style="font-size: 90px; color: rgb(10, 176, 202); margin-top:40px"></i>
+						<input name="ImgPath" class="form-control border border-secondary position-absolute" type="file" id="fileCateNewsInput_update"
+							   accept="image/*" style="width: 21.875rem; height: 12.5rem; opacity: 0; top: 0" required />
+					}
+					else
+					{
+						<img id="imgCateNewsPreview" src="/" alt="" style="height: 12.25rem; width: 40.625rem; object-fit:cover; display: none">
+						<i id="iconCateNewsPreview" class="fas fa-cloud-upload-alt" style="font-size: 90px; color: rgb(10, 176, 202); margin-top:40px"></i>
+						<input name="ImgPath" class="form-control border border-secondary position-absolute" type="file" id="fileCateNewsInput"
+							   accept="image/*" style="width: 21.875rem; height: 12.5rem; opacity: 0; top: 0" required />
+					}
+				</div>
+				<div class="invalid-feedback">
+					Vui lòng thêm ảnh.
+				</div>
+			</div>
+			<span asp-validation-for="CoverImgPath" class="text-danger"></span>
+		</div>
+	</div>
+</div>
