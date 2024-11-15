@@ -17,7 +17,7 @@ namespace App.Data
 {
 	public class WebAppDbContext : DbContext
 	{
-		public DbSet<AppBranchHotel> AppBrancheHotels { get; set; }
+		public DbSet<AppBranchHotel> AppBranchHotels { get; set; }
 		public DbSet<AppHotel> AppHotels { get; set; }
 		public DbSet<AppEquipment> AppEquipment { get; set; }
 		public DbSet<AppEquipmentType> AppEquipmentTypes { get; set; }
@@ -45,38 +45,38 @@ namespace App.Data
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
-			modelBuilder.ApplyConfiguration(new AppBranchHotelConfig());
-			modelBuilder.ApplyConfiguration(new AppHotelConfig());
-			modelBuilder.ApplyConfiguration(new AppEquipmentConfig());
-			modelBuilder.ApplyConfiguration(new AppEquipmentTypeConfig());
-			modelBuilder.ApplyConfiguration(new AppImgRoomConfig());
-			modelBuilder.ApplyConfiguration(new AppRoomConfig());
-			modelBuilder.ApplyConfiguration(new AppRoomEquipmentConfig());
-			modelBuilder.ApplyConfiguration(new AppRoomTypeConfig());
-			modelBuilder.ApplyConfiguration(new AppPayrollConfig());
-			modelBuilder.ApplyConfiguration(new AppWorkScheduleConfig());
-			modelBuilder.ApplyConfiguration(new AppWorkShiftConfig());
-			modelBuilder.ApplyConfiguration(new AppRoleConfig());
-			modelBuilder.ApplyConfiguration(new AppRolePermissionConfig());
-			modelBuilder.ApplyConfiguration(new AppUserConfig());
-			modelBuilder.ApplyConfiguration(new MstPermissionConfig());
-			modelBuilder.ApplyConfiguration(new AppNewsCategoryConfig());
-			modelBuilder.ApplyConfiguration(new AppCommentConfig());
-			modelBuilder.ApplyConfiguration(new AppCommentDetailConfig());
-			modelBuilder.ApplyConfiguration(new AppNewsConfig());
-			modelBuilder.ApplyConfiguration(new AppOrderConfig());
-			modelBuilder.ApplyConfiguration(new AppOrderDetailConfig());
+            modelBuilder.ApplyConfiguration(new AppBranchHotelConfig());
+            modelBuilder.ApplyConfiguration(new AppHotelConfig());
+            modelBuilder.ApplyConfiguration(new AppEquipmentConfig());
+            modelBuilder.ApplyConfiguration(new AppEquipmentTypeConfig());
+            modelBuilder.ApplyConfiguration(new AppImgRoomConfig());
+            modelBuilder.ApplyConfiguration(new AppRoomConfig());
+            modelBuilder.ApplyConfiguration(new AppRoomEquipmentConfig());
+            modelBuilder.ApplyConfiguration(new AppRoomTypeConfig());
+            modelBuilder.ApplyConfiguration(new AppPayrollConfig());
+            modelBuilder.ApplyConfiguration(new AppWorkScheduleConfig());
+            modelBuilder.ApplyConfiguration(new AppWorkShiftConfig());
+            modelBuilder.ApplyConfiguration(new AppRoleConfig());
+            modelBuilder.ApplyConfiguration(new AppRolePermissionConfig());
+            modelBuilder.ApplyConfiguration(new AppUserConfig());
+            modelBuilder.ApplyConfiguration(new MstPermissionConfig());
+            modelBuilder.ApplyConfiguration(new AppNewsCategoryConfig());
+            modelBuilder.ApplyConfiguration(new AppCommentConfig());
+            modelBuilder.ApplyConfiguration(new AppCommentDetailConfig());
+            modelBuilder.ApplyConfiguration(new AppNewsConfig());
+            modelBuilder.ApplyConfiguration(new AppOrderConfig());
+            modelBuilder.ApplyConfiguration(new AppOrderDetailConfig());
 
-			// Tạo dữ liệu
-			modelBuilder.Entity<AppHotel>().SeedData();
-			modelBuilder.Entity<AppBranchHotel>().SeedData();
-			modelBuilder.Entity<MstPermission>().SeedData();
-			modelBuilder.Entity<AppRole>().SeedData();
-			modelBuilder.Entity<AppRolePermission>().SeedData();
-			modelBuilder.Entity<AppUser>().SeedData();
-			modelBuilder.Entity<AppEquipmentType>().SeedData();
-			modelBuilder.Entity<AppEquipment>().SeedData();
-			modelBuilder.Entity<AppRoomType>().SeedData();
-		}
+            // Tạo dữ liệu
+            modelBuilder.Entity<AppHotel>().SeedData();
+            modelBuilder.Entity<AppBranchHotel>().SeedData();
+            modelBuilder.Entity<MstPermission>().SeedData();
+            modelBuilder.Entity<AppRole>().SeedData();
+            modelBuilder.Entity<AppRolePermission>().SeedData();
+            modelBuilder.Entity<AppUser>().SeedData();
+            modelBuilder.Entity<AppEquipmentType>().SeedData();
+            modelBuilder.Entity<AppEquipment>().SeedData();
+            modelBuilder.Entity<AppRoomType>().SeedData();
+        }
 	}
 }
