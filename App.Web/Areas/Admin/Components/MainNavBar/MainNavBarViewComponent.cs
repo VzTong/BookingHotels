@@ -113,7 +113,7 @@ namespace App.Web.Areas.Admin.Components.MainNavBar
 						new MenuItem
 						{
 							Action = "Index",
-							Controller = "AppCategoryNews",
+							Controller = "CategoryNews",
 							DataKey = "category-news",
 							DisplayText = "Quản lý thể loại tin",
 							Permission = AuthConst.AppCategoryNews.VIEW_LIST
