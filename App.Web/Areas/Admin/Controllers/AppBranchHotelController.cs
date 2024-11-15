@@ -40,7 +40,7 @@ namespace App.Web.Areas.Admin.Controllers
 		{
 			var defaultWhere = _repository.GetDefaultWhereExpr<AppBranchHotel>(false);
 			var query = _repository.DbContext
-							.AppBrancheHotels
+							.AppBranchHotels
 							.AsNoTracking()
 							.Where(defaultWhere);
 
