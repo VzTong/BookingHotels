@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace App.Data.Migrations
 {
     [DbContext(typeof(WebAppDbContext))]
-    [Migration("20241115134826_init_db")]
-    partial class init_db
+    [Migration("20241117011149_init-db")]
+    partial class initdb
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -1302,7 +1302,8 @@ namespace App.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Content")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
 
                     b.Property<string>("CoverImgPath")
                         .HasColumnType("nvarchar(max)");
@@ -1342,8 +1343,7 @@ namespace App.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Summary")
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -1898,8 +1898,8 @@ namespace App.Data.Migrations
                             Id = 3,
                             CanDelete = true,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Desc = "Khách hàng",
-                            Name = "Khách hàng",
+                            Desc = "Khách hàng thuộc chi nhánh 'Hà Nội - Melia Hà Nội'",
+                            Name = "Khách hàng - Chi nhánh 'Hà Nội - Melia Hà Nội'",
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -1907,8 +1907,8 @@ namespace App.Data.Migrations
                             Id = 1,
                             CanDelete = false,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Desc = "Quản trị toàn bộ hệ thống",
-                            Name = "Quản trị hệ thống",
+                            Desc = "Quản trị quản lý toàn bộ hệ thống",
+                            Name = "Quản trị toàn hệ thống",
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -1916,8 +1916,62 @@ namespace App.Data.Migrations
                             Id = 2,
                             CanDelete = true,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Desc = "Nhân viên quản lý thiết bị",
-                            Name = "Nhân viên thiết bị",
+                            Desc = "Quản trị quản lý toàn bộ về loại và thiết bị",
+                            Name = "Quản trị toàn bộ thiết bị",
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CanDelete = true,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Quản trị toàn bộ hệ thống thuộc chi nhánh 'Hà Nội - Melia Hà Nội'",
+                            Name = "Quản trị - Chi nhánh 'Hà Nội - Melia Hà Nội'",
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CanDelete = true,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Quản trị toàn bộ về thể loại và tin tức",
+                            Name = "Quản trị toàn bộ tin tức",
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 6,
+                            CanDelete = true,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Quản trị toàn bộ thể loại tin tức",
+                            Name = "Quản trị thể loại tin tức",
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 7,
+                            CanDelete = true,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Quản trị toàn bộ tin tức",
+                            Name = "Quản trị tin tức",
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 8,
+                            CanDelete = true,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Quản trị quản lý toàn bộ về loại trang thiết bị",
+                            Name = "Quản trị loại thiết bị",
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 9,
+                            CanDelete = true,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Quản trị quản lý toàn bộ về trang thiết bị",
+                            Name = "Quản trị thiết bị",
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
                 });
@@ -2550,9 +2604,9 @@ namespace App.Data.Migrations
                         new
                         {
                             Id = 74,
-                            AppRoleId = 2,
+                            AppRoleId = 9,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1902,
+                            MstPermissionId = 1901,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2560,15 +2614,15 @@ namespace App.Data.Migrations
                             Id = 75,
                             AppRoleId = 2,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1903,
+                            MstPermissionId = 1902,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 76,
-                            AppRoleId = 2,
+                            AppRoleId = 9,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1904,
+                            MstPermissionId = 1902,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2576,15 +2630,15 @@ namespace App.Data.Migrations
                             Id = 77,
                             AppRoleId = 2,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 2001,
+                            MstPermissionId = 1903,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 78,
-                            AppRoleId = 2,
+                            AppRoleId = 9,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 2002,
+                            MstPermissionId = 1903,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2592,15 +2646,831 @@ namespace App.Data.Migrations
                             Id = 79,
                             AppRoleId = 2,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 2003,
+                            MstPermissionId = 1904,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 80,
+                            AppRoleId = 9,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1904,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 81,
+                            AppRoleId = 2,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 2001,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 82,
+                            AppRoleId = 8,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 2001,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 83,
+                            AppRoleId = 2,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 2002,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 84,
+                            AppRoleId = 8,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 2002,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 85,
+                            AppRoleId = 2,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 2003,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 86,
+                            AppRoleId = 8,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 2003,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 87,
                             AppRoleId = 2,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 2004,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 88,
+                            AppRoleId = 8,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 2004,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 89,
+                            AppRoleId = 5,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1301,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 90,
+                            AppRoleId = 7,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1301,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 91,
+                            AppRoleId = 5,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1302,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 92,
+                            AppRoleId = 7,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1302,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 93,
+                            AppRoleId = 5,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1303,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 94,
+                            AppRoleId = 7,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1303,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 95,
+                            AppRoleId = 5,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1304,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 96,
+                            AppRoleId = 7,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1304,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 97,
+                            AppRoleId = 5,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1305,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 98,
+                            AppRoleId = 7,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1305,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 99,
+                            AppRoleId = 5,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1306,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 100,
+                            AppRoleId = 7,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1306,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 101,
+                            AppRoleId = 5,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1307,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 102,
+                            AppRoleId = 7,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1307,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 103,
+                            AppRoleId = 5,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1401,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 104,
+                            AppRoleId = 6,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1401,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 105,
+                            AppRoleId = 5,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1402,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 106,
+                            AppRoleId = 6,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1402,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 107,
+                            AppRoleId = 5,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1403,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 108,
+                            AppRoleId = 6,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1403,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 109,
+                            AppRoleId = 5,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1404,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 110,
+                            AppRoleId = 6,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1404,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 111,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1101,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 112,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1102,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 113,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1103,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 114,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1104,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 115,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1105,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 116,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1001,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 117,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1002,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 118,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1003,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 119,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1004,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 120,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1005,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 121,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1006,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 122,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1007,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 123,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1008,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 124,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1201,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 125,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1301,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 126,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1302,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 127,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1303,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 128,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1304,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 129,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1305,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 130,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1306,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 131,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1307,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 132,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1401,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 133,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1402,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 134,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1403,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 135,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1404,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 136,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1501,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 137,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1502,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 138,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1503,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 139,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1504,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 140,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1601,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 141,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1602,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 142,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1603,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 143,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1604,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 144,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1605,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 145,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1606,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 146,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1701,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 147,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1702,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 148,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1703,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 149,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1704,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 150,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1705,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 151,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1706,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 152,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1801,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 153,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1802,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 154,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1803,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 155,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1804,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 156,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1901,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 157,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1902,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 158,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1903,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 159,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 1904,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 160,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 2001,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 161,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 2002,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 162,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 2003,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 163,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 2004,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 164,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 2401,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 165,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 2402,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 166,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 2403,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 167,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 2404,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 168,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 2101,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 169,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 2102,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 170,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 2103,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 171,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 2104,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 172,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 2105,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 173,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 2201,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 174,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 2202,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 175,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 2203,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 176,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 2204,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 177,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 2205,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 178,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 2301,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 179,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 2302,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 180,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 2303,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 181,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 2304,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 182,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 2305,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
                 });
@@ -2631,7 +3501,7 @@ namespace App.Data.Migrations
                     b.Property<DateTime?>("BlockedTo")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("BranchId")
+                    b.Property<int?>("BranchId")
                         .HasColumnType("int");
 
                     b.Property<int?>("CitizenId")
@@ -2717,40 +3587,38 @@ namespace App.Data.Migrations
                         new
                         {
                             Id = 1,
-                            Address = "Thành phố Hồ Chí Minh",
+                            Address = "Kiên Giang",
                             AppRoleId = 1,
-                            BranchId = 1,
                             CitizenId = 912345678,
                             CreatedBy = -1,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "admin_test@gmail.com",
+                            Email = "administrator@gmail.com",
                             FullName = "Nguyễn Thanh Long",
-                            PasswordHash = new byte[] { 205, 203, 115, 155, 90, 121, 30, 7, 189, 135, 82, 16, 50, 158, 5, 59, 21, 170, 107, 188, 73, 188, 42, 69, 80, 86, 68, 158, 106, 219, 71, 133, 242, 234, 141, 243, 98, 35, 125, 135, 134, 153, 204, 43, 107, 71, 54, 233, 81, 184, 64, 54, 8, 31, 115, 249, 135, 71, 112, 10, 185, 4, 9, 61 },
-                            PasswordSalt = new byte[] { 125, 43, 33, 88, 7, 128, 40, 204, 88, 16, 3, 4, 46, 218, 95, 90, 45, 252, 70, 248, 115, 88, 47, 143, 224, 92, 64, 41, 27, 215, 221, 16, 120, 38, 45, 228, 199, 81, 187, 152, 192, 116, 59, 61, 19, 110, 120, 26, 92, 172, 7, 189, 36, 156, 130, 136, 228, 185, 108, 184, 162, 5, 135, 162, 107, 28, 250, 66, 43, 7, 200, 186, 31, 9, 157, 141, 227, 209, 15, 147, 59, 110, 148, 145, 96, 141, 47, 113, 125, 145, 230, 134, 210, 87, 3, 90, 134, 96, 57, 27, 10, 70, 119, 171, 239, 224, 66, 218, 227, 68, 219, 16, 173, 198, 213, 92, 193, 248, 227, 244, 162, 90, 185, 59, 29, 3, 94, 110 },
+                            PasswordHash = new byte[] { 133, 176, 252, 157, 171, 83, 3, 138, 22, 54, 206, 224, 110, 209, 31, 148, 228, 224, 248, 239, 48, 178, 13, 7, 172, 173, 135, 159, 230, 113, 102, 236, 243, 7, 195, 201, 146, 86, 132, 175, 53, 232, 215, 48, 98, 67, 37, 96, 71, 105, 223, 28, 28, 1, 181, 149, 120, 169, 88, 3, 145, 89, 20, 238 },
+                            PasswordSalt = new byte[] { 230, 251, 150, 180, 254, 82, 139, 87, 33, 169, 11, 56, 249, 26, 162, 89, 50, 141, 25, 196, 179, 9, 68, 184, 124, 208, 115, 137, 142, 127, 3, 195, 180, 225, 30, 200, 138, 237, 77, 227, 35, 10, 74, 112, 30, 141, 235, 6, 63, 236, 208, 62, 37, 111, 162, 37, 231, 101, 175, 140, 147, 121, 170, 254, 247, 218, 212, 177, 171, 124, 69, 141, 33, 67, 223, 81, 221, 149, 92, 123, 40, 205, 168, 203, 16, 13, 152, 192, 106, 151, 44, 9, 157, 219, 1, 97, 189, 120, 159, 17, 46, 175, 208, 237, 84, 93, 53, 89, 53, 61, 90, 93, 34, 116, 220, 64, 224, 255, 63, 61, 20, 60, 209, 238, 89, 79, 82, 67 },
                             PhoneNumber1 = "+84928666158",
                             PhoneNumber2 = "+84928666156",
                             UpdatedBy = -1,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Username = "admin"
+                            Username = "administrator"
                         },
                         new
                         {
                             Id = 2,
                             Address = "Thành phố Cần Thơ",
                             AppRoleId = 2,
-                            BranchId = 1,
                             CitizenId = 917635678,
                             CreatedBy = -1,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "tranthib2001@gmail.com",
+                            Email = "fullequipmentmanagement@gmail.com",
                             FullName = "Trần Chí Dũng",
-                            PasswordHash = new byte[] { 205, 203, 115, 155, 90, 121, 30, 7, 189, 135, 82, 16, 50, 158, 5, 59, 21, 170, 107, 188, 73, 188, 42, 69, 80, 86, 68, 158, 106, 219, 71, 133, 242, 234, 141, 243, 98, 35, 125, 135, 134, 153, 204, 43, 107, 71, 54, 233, 81, 184, 64, 54, 8, 31, 115, 249, 135, 71, 112, 10, 185, 4, 9, 61 },
-                            PasswordSalt = new byte[] { 125, 43, 33, 88, 7, 128, 40, 204, 88, 16, 3, 4, 46, 218, 95, 90, 45, 252, 70, 248, 115, 88, 47, 143, 224, 92, 64, 41, 27, 215, 221, 16, 120, 38, 45, 228, 199, 81, 187, 152, 192, 116, 59, 61, 19, 110, 120, 26, 92, 172, 7, 189, 36, 156, 130, 136, 228, 185, 108, 184, 162, 5, 135, 162, 107, 28, 250, 66, 43, 7, 200, 186, 31, 9, 157, 141, 227, 209, 15, 147, 59, 110, 148, 145, 96, 141, 47, 113, 125, 145, 230, 134, 210, 87, 3, 90, 134, 96, 57, 27, 10, 70, 119, 171, 239, 224, 66, 218, 227, 68, 219, 16, 173, 198, 213, 92, 193, 248, 227, 244, 162, 90, 185, 59, 29, 3, 94, 110 },
+                            PasswordHash = new byte[] { 133, 176, 252, 157, 171, 83, 3, 138, 22, 54, 206, 224, 110, 209, 31, 148, 228, 224, 248, 239, 48, 178, 13, 7, 172, 173, 135, 159, 230, 113, 102, 236, 243, 7, 195, 201, 146, 86, 132, 175, 53, 232, 215, 48, 98, 67, 37, 96, 71, 105, 223, 28, 28, 1, 181, 149, 120, 169, 88, 3, 145, 89, 20, 238 },
+                            PasswordSalt = new byte[] { 230, 251, 150, 180, 254, 82, 139, 87, 33, 169, 11, 56, 249, 26, 162, 89, 50, 141, 25, 196, 179, 9, 68, 184, 124, 208, 115, 137, 142, 127, 3, 195, 180, 225, 30, 200, 138, 237, 77, 227, 35, 10, 74, 112, 30, 141, 235, 6, 63, 236, 208, 62, 37, 111, 162, 37, 231, 101, 175, 140, 147, 121, 170, 254, 247, 218, 212, 177, 171, 124, 69, 141, 33, 67, 223, 81, 221, 149, 92, 123, 40, 205, 168, 203, 16, 13, 152, 192, 106, 151, 44, 9, 157, 219, 1, 97, 189, 120, 159, 17, 46, 175, 208, 237, 84, 93, 53, 89, 53, 61, 90, 93, 34, 116, 220, 64, 224, 255, 63, 61, 20, 60, 209, 238, 89, 79, 82, 67 },
                             PhoneNumber1 = "+84928666157",
                             PhoneNumber2 = "+84928666158",
                             UpdatedBy = -1,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Username = "staff"
+                            Username = "full_equipment_management"
                         },
                         new
                         {
@@ -2760,16 +3628,125 @@ namespace App.Data.Migrations
                             BranchId = 1,
                             CreatedBy = -1,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "thanhnguyendt2000@gmail.com",
+                            Email = "johnsmith1992@gmail.com",
                             FullName = "John Smith",
                             Passport = "123456789",
-                            PasswordHash = new byte[] { 205, 203, 115, 155, 90, 121, 30, 7, 189, 135, 82, 16, 50, 158, 5, 59, 21, 170, 107, 188, 73, 188, 42, 69, 80, 86, 68, 158, 106, 219, 71, 133, 242, 234, 141, 243, 98, 35, 125, 135, 134, 153, 204, 43, 107, 71, 54, 233, 81, 184, 64, 54, 8, 31, 115, 249, 135, 71, 112, 10, 185, 4, 9, 61 },
-                            PasswordSalt = new byte[] { 125, 43, 33, 88, 7, 128, 40, 204, 88, 16, 3, 4, 46, 218, 95, 90, 45, 252, 70, 248, 115, 88, 47, 143, 224, 92, 64, 41, 27, 215, 221, 16, 120, 38, 45, 228, 199, 81, 187, 152, 192, 116, 59, 61, 19, 110, 120, 26, 92, 172, 7, 189, 36, 156, 130, 136, 228, 185, 108, 184, 162, 5, 135, 162, 107, 28, 250, 66, 43, 7, 200, 186, 31, 9, 157, 141, 227, 209, 15, 147, 59, 110, 148, 145, 96, 141, 47, 113, 125, 145, 230, 134, 210, 87, 3, 90, 134, 96, 57, 27, 10, 70, 119, 171, 239, 224, 66, 218, 227, 68, 219, 16, 173, 198, 213, 92, 193, 248, 227, 244, 162, 90, 185, 59, 29, 3, 94, 110 },
+                            PasswordHash = new byte[] { 133, 176, 252, 157, 171, 83, 3, 138, 22, 54, 206, 224, 110, 209, 31, 148, 228, 224, 248, 239, 48, 178, 13, 7, 172, 173, 135, 159, 230, 113, 102, 236, 243, 7, 195, 201, 146, 86, 132, 175, 53, 232, 215, 48, 98, 67, 37, 96, 71, 105, 223, 28, 28, 1, 181, 149, 120, 169, 88, 3, 145, 89, 20, 238 },
+                            PasswordSalt = new byte[] { 230, 251, 150, 180, 254, 82, 139, 87, 33, 169, 11, 56, 249, 26, 162, 89, 50, 141, 25, 196, 179, 9, 68, 184, 124, 208, 115, 137, 142, 127, 3, 195, 180, 225, 30, 200, 138, 237, 77, 227, 35, 10, 74, 112, 30, 141, 235, 6, 63, 236, 208, 62, 37, 111, 162, 37, 231, 101, 175, 140, 147, 121, 170, 254, 247, 218, 212, 177, 171, 124, 69, 141, 33, 67, 223, 81, 221, 149, 92, 123, 40, 205, 168, 203, 16, 13, 152, 192, 106, 151, 44, 9, 157, 219, 1, 97, 189, 120, 159, 17, 46, 175, 208, 237, 84, 93, 53, 89, 53, 61, 90, 93, 34, 116, 220, 64, 224, 255, 63, 61, 20, 60, 209, 238, 89, 79, 82, 67 },
                             PhoneNumber1 = "+12025550123",
                             PhoneNumber2 = "+12027450123",
                             UpdatedBy = -1,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Username = "user1"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Address = "Hà Nội",
+                            AppRoleId = 4,
+                            BranchId = 1,
+                            CitizenId = 917625678,
+                            CreatedBy = -1,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "adminmeliahanoi@gmail.com",
+                            FullName = "Hồ Thành Nhân",
+                            PasswordHash = new byte[] { 133, 176, 252, 157, 171, 83, 3, 138, 22, 54, 206, 224, 110, 209, 31, 148, 228, 224, 248, 239, 48, 178, 13, 7, 172, 173, 135, 159, 230, 113, 102, 236, 243, 7, 195, 201, 146, 86, 132, 175, 53, 232, 215, 48, 98, 67, 37, 96, 71, 105, 223, 28, 28, 1, 181, 149, 120, 169, 88, 3, 145, 89, 20, 238 },
+                            PasswordSalt = new byte[] { 230, 251, 150, 180, 254, 82, 139, 87, 33, 169, 11, 56, 249, 26, 162, 89, 50, 141, 25, 196, 179, 9, 68, 184, 124, 208, 115, 137, 142, 127, 3, 195, 180, 225, 30, 200, 138, 237, 77, 227, 35, 10, 74, 112, 30, 141, 235, 6, 63, 236, 208, 62, 37, 111, 162, 37, 231, 101, 175, 140, 147, 121, 170, 254, 247, 218, 212, 177, 171, 124, 69, 141, 33, 67, 223, 81, 221, 149, 92, 123, 40, 205, 168, 203, 16, 13, 152, 192, 106, 151, 44, 9, 157, 219, 1, 97, 189, 120, 159, 17, 46, 175, 208, 237, 84, 93, 53, 89, 53, 61, 90, 93, 34, 116, 220, 64, 224, 255, 63, 61, 20, 60, 209, 238, 89, 79, 82, 67 },
+                            PhoneNumber1 = "+84725136123",
+                            PhoneNumber2 = "+84227450123",
+                            UpdatedBy = -1,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Username = "admin_cn_melia_ha_noi"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Address = "Hà Nội",
+                            AppRoleId = 5,
+                            CitizenId = 917673478,
+                            CreatedBy = -1,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "fullnewsmanager@gmail.com",
+                            FullName = "Trần Thúy Hồng",
+                            PasswordHash = new byte[] { 133, 176, 252, 157, 171, 83, 3, 138, 22, 54, 206, 224, 110, 209, 31, 148, 228, 224, 248, 239, 48, 178, 13, 7, 172, 173, 135, 159, 230, 113, 102, 236, 243, 7, 195, 201, 146, 86, 132, 175, 53, 232, 215, 48, 98, 67, 37, 96, 71, 105, 223, 28, 28, 1, 181, 149, 120, 169, 88, 3, 145, 89, 20, 238 },
+                            PasswordSalt = new byte[] { 230, 251, 150, 180, 254, 82, 139, 87, 33, 169, 11, 56, 249, 26, 162, 89, 50, 141, 25, 196, 179, 9, 68, 184, 124, 208, 115, 137, 142, 127, 3, 195, 180, 225, 30, 200, 138, 237, 77, 227, 35, 10, 74, 112, 30, 141, 235, 6, 63, 236, 208, 62, 37, 111, 162, 37, 231, 101, 175, 140, 147, 121, 170, 254, 247, 218, 212, 177, 171, 124, 69, 141, 33, 67, 223, 81, 221, 149, 92, 123, 40, 205, 168, 203, 16, 13, 152, 192, 106, 151, 44, 9, 157, 219, 1, 97, 189, 120, 159, 17, 46, 175, 208, 237, 84, 93, 53, 89, 53, 61, 90, 93, 34, 116, 220, 64, 224, 255, 63, 61, 20, 60, 209, 238, 89, 79, 82, 67 },
+                            PhoneNumber1 = "+84728756123",
+                            PhoneNumber2 = "+84227459233",
+                            UpdatedBy = -1,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Username = "full_news_manager"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Address = "Thành phố Hồ Chí Minh",
+                            AppRoleId = 6,
+                            CitizenId = 917674628,
+                            CreatedBy = -1,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "catenewsmanager@gmail.com",
+                            FullName = "Nguyên Văn Toàn",
+                            PasswordHash = new byte[] { 133, 176, 252, 157, 171, 83, 3, 138, 22, 54, 206, 224, 110, 209, 31, 148, 228, 224, 248, 239, 48, 178, 13, 7, 172, 173, 135, 159, 230, 113, 102, 236, 243, 7, 195, 201, 146, 86, 132, 175, 53, 232, 215, 48, 98, 67, 37, 96, 71, 105, 223, 28, 28, 1, 181, 149, 120, 169, 88, 3, 145, 89, 20, 238 },
+                            PasswordSalt = new byte[] { 230, 251, 150, 180, 254, 82, 139, 87, 33, 169, 11, 56, 249, 26, 162, 89, 50, 141, 25, 196, 179, 9, 68, 184, 124, 208, 115, 137, 142, 127, 3, 195, 180, 225, 30, 200, 138, 237, 77, 227, 35, 10, 74, 112, 30, 141, 235, 6, 63, 236, 208, 62, 37, 111, 162, 37, 231, 101, 175, 140, 147, 121, 170, 254, 247, 218, 212, 177, 171, 124, 69, 141, 33, 67, 223, 81, 221, 149, 92, 123, 40, 205, 168, 203, 16, 13, 152, 192, 106, 151, 44, 9, 157, 219, 1, 97, 189, 120, 159, 17, 46, 175, 208, 237, 84, 93, 53, 89, 53, 61, 90, 93, 34, 116, 220, 64, 224, 255, 63, 61, 20, 60, 209, 238, 89, 79, 82, 67 },
+                            PhoneNumber1 = "+84728864923",
+                            PhoneNumber2 = "+84227459873",
+                            UpdatedBy = -1,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Username = "cate_news_manager"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Address = "Phú Quốc",
+                            AppRoleId = 7,
+                            CitizenId = 917987628,
+                            CreatedBy = -1,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "newsmanager@gmail.com",
+                            FullName = "Lê Thanh Hà",
+                            PasswordHash = new byte[] { 133, 176, 252, 157, 171, 83, 3, 138, 22, 54, 206, 224, 110, 209, 31, 148, 228, 224, 248, 239, 48, 178, 13, 7, 172, 173, 135, 159, 230, 113, 102, 236, 243, 7, 195, 201, 146, 86, 132, 175, 53, 232, 215, 48, 98, 67, 37, 96, 71, 105, 223, 28, 28, 1, 181, 149, 120, 169, 88, 3, 145, 89, 20, 238 },
+                            PasswordSalt = new byte[] { 230, 251, 150, 180, 254, 82, 139, 87, 33, 169, 11, 56, 249, 26, 162, 89, 50, 141, 25, 196, 179, 9, 68, 184, 124, 208, 115, 137, 142, 127, 3, 195, 180, 225, 30, 200, 138, 237, 77, 227, 35, 10, 74, 112, 30, 141, 235, 6, 63, 236, 208, 62, 37, 111, 162, 37, 231, 101, 175, 140, 147, 121, 170, 254, 247, 218, 212, 177, 171, 124, 69, 141, 33, 67, 223, 81, 221, 149, 92, 123, 40, 205, 168, 203, 16, 13, 152, 192, 106, 151, 44, 9, 157, 219, 1, 97, 189, 120, 159, 17, 46, 175, 208, 237, 84, 93, 53, 89, 53, 61, 90, 93, 34, 116, 220, 64, 224, 255, 63, 61, 20, 60, 209, 238, 89, 79, 82, 67 },
+                            PhoneNumber1 = "+84752364923",
+                            PhoneNumber2 = "+84208739873",
+                            UpdatedBy = -1,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Username = "news_manager"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Address = "Phú Quốc",
+                            AppRoleId = 8,
+                            CitizenId = 917987986,
+                            CreatedBy = -1,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "cateequipmentmanagement@gmail.com",
+                            FullName = "Lê Thành Dương",
+                            PasswordHash = new byte[] { 133, 176, 252, 157, 171, 83, 3, 138, 22, 54, 206, 224, 110, 209, 31, 148, 228, 224, 248, 239, 48, 178, 13, 7, 172, 173, 135, 159, 230, 113, 102, 236, 243, 7, 195, 201, 146, 86, 132, 175, 53, 232, 215, 48, 98, 67, 37, 96, 71, 105, 223, 28, 28, 1, 181, 149, 120, 169, 88, 3, 145, 89, 20, 238 },
+                            PasswordSalt = new byte[] { 230, 251, 150, 180, 254, 82, 139, 87, 33, 169, 11, 56, 249, 26, 162, 89, 50, 141, 25, 196, 179, 9, 68, 184, 124, 208, 115, 137, 142, 127, 3, 195, 180, 225, 30, 200, 138, 237, 77, 227, 35, 10, 74, 112, 30, 141, 235, 6, 63, 236, 208, 62, 37, 111, 162, 37, 231, 101, 175, 140, 147, 121, 170, 254, 247, 218, 212, 177, 171, 124, 69, 141, 33, 67, 223, 81, 221, 149, 92, 123, 40, 205, 168, 203, 16, 13, 152, 192, 106, 151, 44, 9, 157, 219, 1, 97, 189, 120, 159, 17, 46, 175, 208, 237, 84, 93, 53, 89, 53, 61, 90, 93, 34, 116, 220, 64, 224, 255, 63, 61, 20, 60, 209, 238, 89, 79, 82, 67 },
+                            PhoneNumber1 = "+84752369852",
+                            PhoneNumber2 = "+84208739842",
+                            UpdatedBy = -1,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Username = "cate_equipment_management"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Address = "Hà Tiên",
+                            AppRoleId = 9,
+                            CitizenId = 987987986,
+                            CreatedBy = -1,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "equipmentmanagement@gmail.com",
+                            FullName = "Huỳnh Dương Trấn",
+                            PasswordHash = new byte[] { 133, 176, 252, 157, 171, 83, 3, 138, 22, 54, 206, 224, 110, 209, 31, 148, 228, 224, 248, 239, 48, 178, 13, 7, 172, 173, 135, 159, 230, 113, 102, 236, 243, 7, 195, 201, 146, 86, 132, 175, 53, 232, 215, 48, 98, 67, 37, 96, 71, 105, 223, 28, 28, 1, 181, 149, 120, 169, 88, 3, 145, 89, 20, 238 },
+                            PasswordSalt = new byte[] { 230, 251, 150, 180, 254, 82, 139, 87, 33, 169, 11, 56, 249, 26, 162, 89, 50, 141, 25, 196, 179, 9, 68, 184, 124, 208, 115, 137, 142, 127, 3, 195, 180, 225, 30, 200, 138, 237, 77, 227, 35, 10, 74, 112, 30, 141, 235, 6, 63, 236, 208, 62, 37, 111, 162, 37, 231, 101, 175, 140, 147, 121, 170, 254, 247, 218, 212, 177, 171, 124, 69, 141, 33, 67, 223, 81, 221, 149, 92, 123, 40, 205, 168, 203, 16, 13, 152, 192, 106, 151, 44, 9, 157, 219, 1, 97, 189, 120, 159, 17, 46, 175, 208, 237, 84, 93, 53, 89, 53, 61, 90, 93, 34, 116, 220, 64, 224, 255, 63, 61, 20, 60, 209, 238, 89, 79, 82, 67 },
+                            PhoneNumber1 = "+84758576323",
+                            PhoneNumber2 = "+84208739823",
+                            UpdatedBy = -1,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Username = "equipment_management"
                         });
                 });
 
@@ -3629,9 +4606,6 @@ namespace App.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("AppRoomId")
-                        .HasColumnType("int");
-
                     b.Property<int?>("CreatedBy")
                         .HasColumnType("int");
 
@@ -3656,8 +4630,6 @@ namespace App.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("AppRoomId");
 
                     b.ToTable("AppComment", (string)null);
                 });
@@ -3865,7 +4837,7 @@ namespace App.Data.Migrations
 
             modelBuilder.Entity("App.Data.Entities.News.AppNews", b =>
                 {
-                    b.HasOne("App.Data.Entities.News.AppNewsCategory", "CategoryNews")
+                    b.HasOne("App.Data.Entities.News.AppNewsCategory", "NewsCategory")
                         .WithMany("NewsNavigation")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.NoAction);
@@ -3876,7 +4848,7 @@ namespace App.Data.Migrations
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
-                    b.Navigation("CategoryNews");
+                    b.Navigation("NewsCategory");
 
                     b.Navigation("Users");
                 });
@@ -3963,8 +4935,7 @@ namespace App.Data.Migrations
                     b.HasOne("App.Data.Entities.Hotel.AppBranchHotel", "Branch")
                         .WithMany("Users")
                         .HasForeignKey("BranchId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.Navigation("AppRole");
 
@@ -4001,13 +4972,6 @@ namespace App.Data.Migrations
                         .OnDelete(DeleteBehavior.Restrict);
 
                     b.Navigation("WorkSchedule");
-                });
-
-            modelBuilder.Entity("App.Data.Entities.service.AppComment", b =>
-                {
-                    b.HasOne("App.Data.Entities.Room.AppRoom", null)
-                        .WithMany("Comments")
-                        .HasForeignKey("AppRoomId");
                 });
 
             modelBuilder.Entity("App.Data.Entities.service.AppCommentDetail", b =>
@@ -4093,8 +5057,6 @@ namespace App.Data.Migrations
 
             modelBuilder.Entity("App.Data.Entities.Room.AppRoom", b =>
                 {
-                    b.Navigation("Comments");
-
                     b.Navigation("ImgRooms");
 
                     b.Navigation("OrderDetails");

@@ -8,11 +8,30 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace App.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class init_db : Migration
+    public partial class initdb : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "AppComment",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Description = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    DisplayOrder = table.Column<int>(type: "int", nullable: true),
+                    CreatedBy = table.Column<int>(type: "int", nullable: true),
+                    UpdatedBy = table.Column<int>(type: "int", nullable: true),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DeletedDate = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AppComment", x => x.Id);
+                });
+
             migrationBuilder.CreateTable(
                 name: "AppEquipmentType",
                 columns: table => new
@@ -296,7 +315,7 @@ namespace App.Data.Migrations
                     CitizenId = table.Column<int>(type: "int", maxLength: 12, nullable: true),
                     Passport = table.Column<string>(type: "nvarchar(12)", maxLength: 12, nullable: true),
                     Permanent = table.Column<string>(type: "nvarchar(15)", maxLength: 15, nullable: true),
-                    BranchId = table.Column<int>(type: "int", nullable: false),
+                    BranchId = table.Column<int>(type: "int", nullable: true),
                     AppRoleId = table.Column<int>(type: "int", nullable: true),
                     DisplayOrder = table.Column<int>(type: "int", nullable: true),
                     CreatedBy = table.Column<int>(type: "int", nullable: true),
@@ -317,31 +336,6 @@ namespace App.Data.Migrations
                         name: "FK_AppUser_AppRole_AppRoleId",
                         column: x => x.AppRoleId,
                         principalTable: "AppRole",
-                        principalColumn: "Id");
-                });
-
-            migrationBuilder.CreateTable(
-                name: "AppComment",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Description = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
-                    AppRoomId = table.Column<int>(type: "int", nullable: true),
-                    DisplayOrder = table.Column<int>(type: "int", nullable: true),
-                    CreatedBy = table.Column<int>(type: "int", nullable: true),
-                    UpdatedBy = table.Column<int>(type: "int", nullable: true),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    DeletedDate = table.Column<DateTime>(type: "datetime2", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_AppComment", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_AppComment_AppRoom_AppRoomId",
-                        column: x => x.AppRoomId,
-                        principalTable: "AppRoom",
                         principalColumn: "Id");
                 });
 
@@ -398,6 +392,41 @@ namespace App.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "AppCommentDetail",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CmtDesc = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    UserName = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
+                    RoomName = table.Column<string>(type: "nvarchar(5)", maxLength: 5, nullable: false),
+                    RoomNumber = table.Column<int>(type: "int", maxLength: 6, nullable: false),
+                    CommentId = table.Column<int>(type: "int", nullable: false),
+                    DisplayOrder = table.Column<int>(type: "int", nullable: true),
+                    CreatedBy = table.Column<int>(type: "int", nullable: true),
+                    UpdatedBy = table.Column<int>(type: "int", nullable: true),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DeletedDate = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AppCommentDetail", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_AppCommentDetail_AppComment_CommentId",
+                        column: x => x.CommentId,
+                        principalTable: "AppComment",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_AppCommentDetail_AppUser_CreatedBy",
+                        column: x => x.CreatedBy,
+                        principalTable: "AppUser",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AppNews",
                 columns: table => new
                 {
@@ -405,8 +434,8 @@ namespace App.Data.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Title = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
                     Slug = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    Summary = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: true),
-                    Content = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Summary = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Content = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: true),
                     Views = table.Column<long>(type: "bigint", nullable: false, defaultValue: 0L),
                     Votes = table.Column<float>(type: "real", nullable: false, defaultValue: 0f),
                     Published = table.Column<bool>(type: "bit", nullable: false, defaultValue: true),
@@ -528,41 +557,6 @@ namespace App.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "AppCommentDetail",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    CmtDesc = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
-                    UserName = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
-                    RoomName = table.Column<string>(type: "nvarchar(5)", maxLength: 5, nullable: false),
-                    RoomNumber = table.Column<int>(type: "int", maxLength: 6, nullable: false),
-                    CommentId = table.Column<int>(type: "int", nullable: false),
-                    DisplayOrder = table.Column<int>(type: "int", nullable: true),
-                    CreatedBy = table.Column<int>(type: "int", nullable: true),
-                    UpdatedBy = table.Column<int>(type: "int", nullable: true),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    DeletedDate = table.Column<DateTime>(type: "datetime2", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_AppCommentDetail", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_AppCommentDetail_AppComment_CommentId",
-                        column: x => x.CommentId,
-                        principalTable: "AppComment",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_AppCommentDetail_AppUser_CreatedBy",
-                        column: x => x.CreatedBy,
-                        principalTable: "AppUser",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "AppOrderDetail",
                 columns: table => new
                 {
@@ -681,9 +675,15 @@ namespace App.Data.Migrations
                 columns: new[] { "Id", "CanDelete", "CreatedBy", "CreatedDate", "DeletedDate", "Desc", "DisplayOrder", "Name", "UpdatedBy", "UpdatedDate" },
                 values: new object[,]
                 {
-                    { 1, false, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "Quản trị toàn bộ hệ thống", null, "Quản trị hệ thống", null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 2, true, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "Nhân viên quản lý thiết bị", null, "Nhân viên thiết bị", null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 3, true, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "Khách hàng", null, "Khách hàng", null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) }
+                    { 1, false, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "Quản trị quản lý toàn bộ hệ thống", null, "Quản trị toàn hệ thống", null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 2, true, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "Quản trị quản lý toàn bộ về loại và thiết bị", null, "Quản trị toàn bộ thiết bị", null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 3, true, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "Khách hàng thuộc chi nhánh 'Hà Nội - Melia Hà Nội'", null, "Khách hàng - Chi nhánh 'Hà Nội - Melia Hà Nội'", null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 4, true, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "Quản trị toàn bộ hệ thống thuộc chi nhánh 'Hà Nội - Melia Hà Nội'", null, "Quản trị - Chi nhánh 'Hà Nội - Melia Hà Nội'", null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 5, true, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "Quản trị toàn bộ về thể loại và tin tức", null, "Quản trị toàn bộ tin tức", null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 6, true, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "Quản trị toàn bộ thể loại tin tức", null, "Quản trị thể loại tin tức", null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 7, true, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "Quản trị toàn bộ tin tức", null, "Quản trị tin tức", null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 8, true, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "Quản trị quản lý toàn bộ về loại trang thiết bị", null, "Quản trị loại thiết bị", null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 9, true, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "Quản trị quản lý toàn bộ về trang thiết bị", null, "Quản trị thiết bị", null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) }
                 });
 
             migrationBuilder.InsertData(
@@ -950,13 +950,115 @@ namespace App.Data.Migrations
                     { 71, 1, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 2304, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
                     { 72, 1, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 2305, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
                     { 73, 2, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1901, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 74, 2, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1902, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 75, 2, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1903, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 76, 2, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1904, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 77, 2, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 2001, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 78, 2, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 2002, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 79, 2, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 2003, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 80, 2, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 2004, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) }
+                    { 74, 9, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1901, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 75, 2, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1902, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 76, 9, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1902, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 77, 2, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1903, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 78, 9, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1903, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 79, 2, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1904, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 80, 9, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1904, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 81, 2, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 2001, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 82, 8, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 2001, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 83, 2, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 2002, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 84, 8, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 2002, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 85, 2, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 2003, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 86, 8, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 2003, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 87, 2, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 2004, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 88, 8, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 2004, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 89, 5, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1301, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 90, 7, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1301, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 91, 5, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1302, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 92, 7, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1302, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 93, 5, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1303, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 94, 7, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1303, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 95, 5, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1304, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 96, 7, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1304, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 97, 5, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1305, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 98, 7, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1305, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 99, 5, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1306, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 100, 7, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1306, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 101, 5, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1307, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 102, 7, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1307, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 103, 5, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1401, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 104, 6, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1401, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 105, 5, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1402, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 106, 6, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1402, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 107, 5, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1403, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 108, 6, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1403, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 109, 5, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1404, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 110, 6, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1404, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 111, 4, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1101, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 112, 4, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1102, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 113, 4, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1103, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 114, 4, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1104, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 115, 4, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1105, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 116, 4, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1001, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 117, 4, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1002, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 118, 4, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1003, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 119, 4, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1004, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 120, 4, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1005, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 121, 4, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1006, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 122, 4, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1007, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 123, 4, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1008, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 124, 4, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1201, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 125, 4, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1301, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 126, 4, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1302, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 127, 4, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1303, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 128, 4, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1304, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 129, 4, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1305, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 130, 4, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1306, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 131, 4, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1307, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 132, 4, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1401, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 133, 4, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1402, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 134, 4, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1403, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 135, 4, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1404, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 136, 4, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1501, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 137, 4, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1502, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 138, 4, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1503, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 139, 4, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1504, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 140, 4, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1601, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 141, 4, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1602, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 142, 4, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1603, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 143, 4, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1604, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 144, 4, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1605, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 145, 4, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1606, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 146, 4, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1701, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 147, 4, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1702, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 148, 4, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1703, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 149, 4, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1704, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 150, 4, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1705, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 151, 4, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1706, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 152, 4, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1801, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 153, 4, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1802, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 154, 4, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1803, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 155, 4, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1804, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 156, 4, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1901, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 157, 4, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1902, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 158, 4, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1903, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 159, 4, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1904, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 160, 4, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 2001, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 161, 4, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 2002, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 162, 4, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 2003, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 163, 4, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 2004, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 164, 4, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 2401, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 165, 4, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 2402, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 166, 4, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 2403, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 167, 4, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 2404, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 168, 4, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 2101, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 169, 4, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 2102, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 170, 4, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 2103, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 171, 4, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 2104, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 172, 4, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 2105, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 173, 4, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 2201, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 174, 4, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 2202, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 175, 4, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 2203, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 176, 4, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 2204, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 177, 4, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 2205, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 178, 4, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 2301, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 179, 4, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 2302, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 180, 4, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 2303, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 181, 4, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 2304, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 182, 4, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 2305, null, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) }
                 });
 
             migrationBuilder.InsertData(
@@ -964,20 +1066,21 @@ namespace App.Data.Migrations
                 columns: new[] { "Id", "Address", "AppRoleId", "Avatar", "BlockedBy", "BlockedTo", "BranchId", "CitizenId", "CreatedBy", "CreatedDate", "DeletedDate", "DisplayOrder", "Email", "FullName", "Passport", "PasswordHash", "PasswordSalt", "Permanent", "PhoneNumber1", "PhoneNumber2", "UpdatedBy", "UpdatedDate", "Username" },
                 values: new object[,]
                 {
-                    { 1, "Thành phố Hồ Chí Minh", 1, null, null, null, 1, 912345678, -1, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "admin_test@gmail.com", "Nguyễn Thanh Long", null, new byte[] { 205, 203, 115, 155, 90, 121, 30, 7, 189, 135, 82, 16, 50, 158, 5, 59, 21, 170, 107, 188, 73, 188, 42, 69, 80, 86, 68, 158, 106, 219, 71, 133, 242, 234, 141, 243, 98, 35, 125, 135, 134, 153, 204, 43, 107, 71, 54, 233, 81, 184, 64, 54, 8, 31, 115, 249, 135, 71, 112, 10, 185, 4, 9, 61 }, new byte[] { 125, 43, 33, 88, 7, 128, 40, 204, 88, 16, 3, 4, 46, 218, 95, 90, 45, 252, 70, 248, 115, 88, 47, 143, 224, 92, 64, 41, 27, 215, 221, 16, 120, 38, 45, 228, 199, 81, 187, 152, 192, 116, 59, 61, 19, 110, 120, 26, 92, 172, 7, 189, 36, 156, 130, 136, 228, 185, 108, 184, 162, 5, 135, 162, 107, 28, 250, 66, 43, 7, 200, 186, 31, 9, 157, 141, 227, 209, 15, 147, 59, 110, 148, 145, 96, 141, 47, 113, 125, 145, 230, 134, 210, 87, 3, 90, 134, 96, 57, 27, 10, 70, 119, 171, 239, 224, 66, 218, 227, 68, 219, 16, 173, 198, 213, 92, 193, 248, 227, 244, 162, 90, 185, 59, 29, 3, 94, 110 }, null, "+84928666158", "+84928666156", -1, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), "admin" },
-                    { 2, "Thành phố Cần Thơ", 2, null, null, null, 1, 917635678, -1, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "tranthib2001@gmail.com", "Trần Chí Dũng", null, new byte[] { 205, 203, 115, 155, 90, 121, 30, 7, 189, 135, 82, 16, 50, 158, 5, 59, 21, 170, 107, 188, 73, 188, 42, 69, 80, 86, 68, 158, 106, 219, 71, 133, 242, 234, 141, 243, 98, 35, 125, 135, 134, 153, 204, 43, 107, 71, 54, 233, 81, 184, 64, 54, 8, 31, 115, 249, 135, 71, 112, 10, 185, 4, 9, 61 }, new byte[] { 125, 43, 33, 88, 7, 128, 40, 204, 88, 16, 3, 4, 46, 218, 95, 90, 45, 252, 70, 248, 115, 88, 47, 143, 224, 92, 64, 41, 27, 215, 221, 16, 120, 38, 45, 228, 199, 81, 187, 152, 192, 116, 59, 61, 19, 110, 120, 26, 92, 172, 7, 189, 36, 156, 130, 136, 228, 185, 108, 184, 162, 5, 135, 162, 107, 28, 250, 66, 43, 7, 200, 186, 31, 9, 157, 141, 227, 209, 15, 147, 59, 110, 148, 145, 96, 141, 47, 113, 125, 145, 230, 134, 210, 87, 3, 90, 134, 96, 57, 27, 10, 70, 119, 171, 239, 224, 66, 218, 227, 68, 219, 16, 173, 198, 213, 92, 193, 248, 227, 244, 162, 90, 185, 59, 29, 3, 94, 110 }, null, "+84928666157", "+84928666158", -1, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), "staff" },
-                    { 3, "New York City", 3, null, null, null, 1, null, -1, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "thanhnguyendt2000@gmail.com", "John Smith", "123456789", new byte[] { 205, 203, 115, 155, 90, 121, 30, 7, 189, 135, 82, 16, 50, 158, 5, 59, 21, 170, 107, 188, 73, 188, 42, 69, 80, 86, 68, 158, 106, 219, 71, 133, 242, 234, 141, 243, 98, 35, 125, 135, 134, 153, 204, 43, 107, 71, 54, 233, 81, 184, 64, 54, 8, 31, 115, 249, 135, 71, 112, 10, 185, 4, 9, 61 }, new byte[] { 125, 43, 33, 88, 7, 128, 40, 204, 88, 16, 3, 4, 46, 218, 95, 90, 45, 252, 70, 248, 115, 88, 47, 143, 224, 92, 64, 41, 27, 215, 221, 16, 120, 38, 45, 228, 199, 81, 187, 152, 192, 116, 59, 61, 19, 110, 120, 26, 92, 172, 7, 189, 36, 156, 130, 136, 228, 185, 108, 184, 162, 5, 135, 162, 107, 28, 250, 66, 43, 7, 200, 186, 31, 9, 157, 141, 227, 209, 15, 147, 59, 110, 148, 145, 96, 141, 47, 113, 125, 145, 230, 134, 210, 87, 3, 90, 134, 96, 57, 27, 10, 70, 119, 171, 239, 224, 66, 218, 227, 68, 219, 16, 173, 198, 213, 92, 193, 248, 227, 244, 162, 90, 185, 59, 29, 3, 94, 110 }, null, "+12025550123", "+12027450123", -1, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), "user1" }
+                    { 1, "Kiên Giang", 1, null, null, null, null, 912345678, -1, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "administrator@gmail.com", "Nguyễn Thanh Long", null, new byte[] { 133, 176, 252, 157, 171, 83, 3, 138, 22, 54, 206, 224, 110, 209, 31, 148, 228, 224, 248, 239, 48, 178, 13, 7, 172, 173, 135, 159, 230, 113, 102, 236, 243, 7, 195, 201, 146, 86, 132, 175, 53, 232, 215, 48, 98, 67, 37, 96, 71, 105, 223, 28, 28, 1, 181, 149, 120, 169, 88, 3, 145, 89, 20, 238 }, new byte[] { 230, 251, 150, 180, 254, 82, 139, 87, 33, 169, 11, 56, 249, 26, 162, 89, 50, 141, 25, 196, 179, 9, 68, 184, 124, 208, 115, 137, 142, 127, 3, 195, 180, 225, 30, 200, 138, 237, 77, 227, 35, 10, 74, 112, 30, 141, 235, 6, 63, 236, 208, 62, 37, 111, 162, 37, 231, 101, 175, 140, 147, 121, 170, 254, 247, 218, 212, 177, 171, 124, 69, 141, 33, 67, 223, 81, 221, 149, 92, 123, 40, 205, 168, 203, 16, 13, 152, 192, 106, 151, 44, 9, 157, 219, 1, 97, 189, 120, 159, 17, 46, 175, 208, 237, 84, 93, 53, 89, 53, 61, 90, 93, 34, 116, 220, 64, 224, 255, 63, 61, 20, 60, 209, 238, 89, 79, 82, 67 }, null, "+84928666158", "+84928666156", -1, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), "administrator" },
+                    { 2, "Thành phố Cần Thơ", 2, null, null, null, null, 917635678, -1, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "fullequipmentmanagement@gmail.com", "Trần Chí Dũng", null, new byte[] { 133, 176, 252, 157, 171, 83, 3, 138, 22, 54, 206, 224, 110, 209, 31, 148, 228, 224, 248, 239, 48, 178, 13, 7, 172, 173, 135, 159, 230, 113, 102, 236, 243, 7, 195, 201, 146, 86, 132, 175, 53, 232, 215, 48, 98, 67, 37, 96, 71, 105, 223, 28, 28, 1, 181, 149, 120, 169, 88, 3, 145, 89, 20, 238 }, new byte[] { 230, 251, 150, 180, 254, 82, 139, 87, 33, 169, 11, 56, 249, 26, 162, 89, 50, 141, 25, 196, 179, 9, 68, 184, 124, 208, 115, 137, 142, 127, 3, 195, 180, 225, 30, 200, 138, 237, 77, 227, 35, 10, 74, 112, 30, 141, 235, 6, 63, 236, 208, 62, 37, 111, 162, 37, 231, 101, 175, 140, 147, 121, 170, 254, 247, 218, 212, 177, 171, 124, 69, 141, 33, 67, 223, 81, 221, 149, 92, 123, 40, 205, 168, 203, 16, 13, 152, 192, 106, 151, 44, 9, 157, 219, 1, 97, 189, 120, 159, 17, 46, 175, 208, 237, 84, 93, 53, 89, 53, 61, 90, 93, 34, 116, 220, 64, 224, 255, 63, 61, 20, 60, 209, 238, 89, 79, 82, 67 }, null, "+84928666157", "+84928666158", -1, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), "full_equipment_management" },
+                    { 5, "Hà Nội", 5, null, null, null, null, 917673478, -1, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "fullnewsmanager@gmail.com", "Trần Thúy Hồng", null, new byte[] { 133, 176, 252, 157, 171, 83, 3, 138, 22, 54, 206, 224, 110, 209, 31, 148, 228, 224, 248, 239, 48, 178, 13, 7, 172, 173, 135, 159, 230, 113, 102, 236, 243, 7, 195, 201, 146, 86, 132, 175, 53, 232, 215, 48, 98, 67, 37, 96, 71, 105, 223, 28, 28, 1, 181, 149, 120, 169, 88, 3, 145, 89, 20, 238 }, new byte[] { 230, 251, 150, 180, 254, 82, 139, 87, 33, 169, 11, 56, 249, 26, 162, 89, 50, 141, 25, 196, 179, 9, 68, 184, 124, 208, 115, 137, 142, 127, 3, 195, 180, 225, 30, 200, 138, 237, 77, 227, 35, 10, 74, 112, 30, 141, 235, 6, 63, 236, 208, 62, 37, 111, 162, 37, 231, 101, 175, 140, 147, 121, 170, 254, 247, 218, 212, 177, 171, 124, 69, 141, 33, 67, 223, 81, 221, 149, 92, 123, 40, 205, 168, 203, 16, 13, 152, 192, 106, 151, 44, 9, 157, 219, 1, 97, 189, 120, 159, 17, 46, 175, 208, 237, 84, 93, 53, 89, 53, 61, 90, 93, 34, 116, 220, 64, 224, 255, 63, 61, 20, 60, 209, 238, 89, 79, 82, 67 }, null, "+84728756123", "+84227459233", -1, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), "full_news_manager" },
+                    { 6, "Thành phố Hồ Chí Minh", 6, null, null, null, null, 917674628, -1, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "catenewsmanager@gmail.com", "Nguyên Văn Toàn", null, new byte[] { 133, 176, 252, 157, 171, 83, 3, 138, 22, 54, 206, 224, 110, 209, 31, 148, 228, 224, 248, 239, 48, 178, 13, 7, 172, 173, 135, 159, 230, 113, 102, 236, 243, 7, 195, 201, 146, 86, 132, 175, 53, 232, 215, 48, 98, 67, 37, 96, 71, 105, 223, 28, 28, 1, 181, 149, 120, 169, 88, 3, 145, 89, 20, 238 }, new byte[] { 230, 251, 150, 180, 254, 82, 139, 87, 33, 169, 11, 56, 249, 26, 162, 89, 50, 141, 25, 196, 179, 9, 68, 184, 124, 208, 115, 137, 142, 127, 3, 195, 180, 225, 30, 200, 138, 237, 77, 227, 35, 10, 74, 112, 30, 141, 235, 6, 63, 236, 208, 62, 37, 111, 162, 37, 231, 101, 175, 140, 147, 121, 170, 254, 247, 218, 212, 177, 171, 124, 69, 141, 33, 67, 223, 81, 221, 149, 92, 123, 40, 205, 168, 203, 16, 13, 152, 192, 106, 151, 44, 9, 157, 219, 1, 97, 189, 120, 159, 17, 46, 175, 208, 237, 84, 93, 53, 89, 53, 61, 90, 93, 34, 116, 220, 64, 224, 255, 63, 61, 20, 60, 209, 238, 89, 79, 82, 67 }, null, "+84728864923", "+84227459873", -1, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), "cate_news_manager" },
+                    { 7, "Phú Quốc", 7, null, null, null, null, 917987628, -1, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "newsmanager@gmail.com", "Lê Thanh Hà", null, new byte[] { 133, 176, 252, 157, 171, 83, 3, 138, 22, 54, 206, 224, 110, 209, 31, 148, 228, 224, 248, 239, 48, 178, 13, 7, 172, 173, 135, 159, 230, 113, 102, 236, 243, 7, 195, 201, 146, 86, 132, 175, 53, 232, 215, 48, 98, 67, 37, 96, 71, 105, 223, 28, 28, 1, 181, 149, 120, 169, 88, 3, 145, 89, 20, 238 }, new byte[] { 230, 251, 150, 180, 254, 82, 139, 87, 33, 169, 11, 56, 249, 26, 162, 89, 50, 141, 25, 196, 179, 9, 68, 184, 124, 208, 115, 137, 142, 127, 3, 195, 180, 225, 30, 200, 138, 237, 77, 227, 35, 10, 74, 112, 30, 141, 235, 6, 63, 236, 208, 62, 37, 111, 162, 37, 231, 101, 175, 140, 147, 121, 170, 254, 247, 218, 212, 177, 171, 124, 69, 141, 33, 67, 223, 81, 221, 149, 92, 123, 40, 205, 168, 203, 16, 13, 152, 192, 106, 151, 44, 9, 157, 219, 1, 97, 189, 120, 159, 17, 46, 175, 208, 237, 84, 93, 53, 89, 53, 61, 90, 93, 34, 116, 220, 64, 224, 255, 63, 61, 20, 60, 209, 238, 89, 79, 82, 67 }, null, "+84752364923", "+84208739873", -1, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), "news_manager" },
+                    { 8, "Phú Quốc", 8, null, null, null, null, 917987986, -1, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "cateequipmentmanagement@gmail.com", "Lê Thành Dương", null, new byte[] { 133, 176, 252, 157, 171, 83, 3, 138, 22, 54, 206, 224, 110, 209, 31, 148, 228, 224, 248, 239, 48, 178, 13, 7, 172, 173, 135, 159, 230, 113, 102, 236, 243, 7, 195, 201, 146, 86, 132, 175, 53, 232, 215, 48, 98, 67, 37, 96, 71, 105, 223, 28, 28, 1, 181, 149, 120, 169, 88, 3, 145, 89, 20, 238 }, new byte[] { 230, 251, 150, 180, 254, 82, 139, 87, 33, 169, 11, 56, 249, 26, 162, 89, 50, 141, 25, 196, 179, 9, 68, 184, 124, 208, 115, 137, 142, 127, 3, 195, 180, 225, 30, 200, 138, 237, 77, 227, 35, 10, 74, 112, 30, 141, 235, 6, 63, 236, 208, 62, 37, 111, 162, 37, 231, 101, 175, 140, 147, 121, 170, 254, 247, 218, 212, 177, 171, 124, 69, 141, 33, 67, 223, 81, 221, 149, 92, 123, 40, 205, 168, 203, 16, 13, 152, 192, 106, 151, 44, 9, 157, 219, 1, 97, 189, 120, 159, 17, 46, 175, 208, 237, 84, 93, 53, 89, 53, 61, 90, 93, 34, 116, 220, 64, 224, 255, 63, 61, 20, 60, 209, 238, 89, 79, 82, 67 }, null, "+84752369852", "+84208739842", -1, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), "cate_equipment_management" },
+                    { 9, "Hà Tiên", 9, null, null, null, null, 987987986, -1, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "equipmentmanagement@gmail.com", "Huỳnh Dương Trấn", null, new byte[] { 133, 176, 252, 157, 171, 83, 3, 138, 22, 54, 206, 224, 110, 209, 31, 148, 228, 224, 248, 239, 48, 178, 13, 7, 172, 173, 135, 159, 230, 113, 102, 236, 243, 7, 195, 201, 146, 86, 132, 175, 53, 232, 215, 48, 98, 67, 37, 96, 71, 105, 223, 28, 28, 1, 181, 149, 120, 169, 88, 3, 145, 89, 20, 238 }, new byte[] { 230, 251, 150, 180, 254, 82, 139, 87, 33, 169, 11, 56, 249, 26, 162, 89, 50, 141, 25, 196, 179, 9, 68, 184, 124, 208, 115, 137, 142, 127, 3, 195, 180, 225, 30, 200, 138, 237, 77, 227, 35, 10, 74, 112, 30, 141, 235, 6, 63, 236, 208, 62, 37, 111, 162, 37, 231, 101, 175, 140, 147, 121, 170, 254, 247, 218, 212, 177, 171, 124, 69, 141, 33, 67, 223, 81, 221, 149, 92, 123, 40, 205, 168, 203, 16, 13, 152, 192, 106, 151, 44, 9, 157, 219, 1, 97, 189, 120, 159, 17, 46, 175, 208, 237, 84, 93, 53, 89, 53, 61, 90, 93, 34, 116, 220, 64, 224, 255, 63, 61, 20, 60, 209, 238, 89, 79, 82, 67 }, null, "+84758576323", "+84208739823", -1, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), "equipment_management" },
+                    { 3, "New York City", 3, null, null, null, 1, null, -1, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "johnsmith1992@gmail.com", "John Smith", "123456789", new byte[] { 133, 176, 252, 157, 171, 83, 3, 138, 22, 54, 206, 224, 110, 209, 31, 148, 228, 224, 248, 239, 48, 178, 13, 7, 172, 173, 135, 159, 230, 113, 102, 236, 243, 7, 195, 201, 146, 86, 132, 175, 53, 232, 215, 48, 98, 67, 37, 96, 71, 105, 223, 28, 28, 1, 181, 149, 120, 169, 88, 3, 145, 89, 20, 238 }, new byte[] { 230, 251, 150, 180, 254, 82, 139, 87, 33, 169, 11, 56, 249, 26, 162, 89, 50, 141, 25, 196, 179, 9, 68, 184, 124, 208, 115, 137, 142, 127, 3, 195, 180, 225, 30, 200, 138, 237, 77, 227, 35, 10, 74, 112, 30, 141, 235, 6, 63, 236, 208, 62, 37, 111, 162, 37, 231, 101, 175, 140, 147, 121, 170, 254, 247, 218, 212, 177, 171, 124, 69, 141, 33, 67, 223, 81, 221, 149, 92, 123, 40, 205, 168, 203, 16, 13, 152, 192, 106, 151, 44, 9, 157, 219, 1, 97, 189, 120, 159, 17, 46, 175, 208, 237, 84, 93, 53, 89, 53, 61, 90, 93, 34, 116, 220, 64, 224, 255, 63, 61, 20, 60, 209, 238, 89, 79, 82, 67 }, null, "+12025550123", "+12027450123", -1, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), "user1" },
+                    { 4, "Hà Nội", 4, null, null, null, 1, 917625678, -1, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "adminmeliahanoi@gmail.com", "Hồ Thành Nhân", null, new byte[] { 133, 176, 252, 157, 171, 83, 3, 138, 22, 54, 206, 224, 110, 209, 31, 148, 228, 224, 248, 239, 48, 178, 13, 7, 172, 173, 135, 159, 230, 113, 102, 236, 243, 7, 195, 201, 146, 86, 132, 175, 53, 232, 215, 48, 98, 67, 37, 96, 71, 105, 223, 28, 28, 1, 181, 149, 120, 169, 88, 3, 145, 89, 20, 238 }, new byte[] { 230, 251, 150, 180, 254, 82, 139, 87, 33, 169, 11, 56, 249, 26, 162, 89, 50, 141, 25, 196, 179, 9, 68, 184, 124, 208, 115, 137, 142, 127, 3, 195, 180, 225, 30, 200, 138, 237, 77, 227, 35, 10, 74, 112, 30, 141, 235, 6, 63, 236, 208, 62, 37, 111, 162, 37, 231, 101, 175, 140, 147, 121, 170, 254, 247, 218, 212, 177, 171, 124, 69, 141, 33, 67, 223, 81, 221, 149, 92, 123, 40, 205, 168, 203, 16, 13, 152, 192, 106, 151, 44, 9, 157, 219, 1, 97, 189, 120, 159, 17, 46, 175, 208, 237, 84, 93, 53, 89, 53, 61, 90, 93, 34, 116, 220, 64, 224, 255, 63, 61, 20, 60, 209, 238, 89, 79, 82, 67 }, null, "+84725136123", "+84227450123", -1, new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), "admin_cn_melia_ha_noi" }
                 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AppBranchHotel_HotelId",
                 table: "AppBranchHotel",
                 column: "HotelId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_AppComment_AppRoomId",
-                table: "AppComment",
-                column: "AppRoomId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AppCommentDetail_CommentId",
@@ -1140,19 +1243,19 @@ namespace App.Data.Migrations
                 name: "AppEquipment");
 
             migrationBuilder.DropTable(
-                name: "AppWorkSchedule");
+                name: "AppRoom");
 
             migrationBuilder.DropTable(
-                name: "AppRoom");
+                name: "AppWorkSchedule");
 
             migrationBuilder.DropTable(
                 name: "AppEquipmentType");
 
             migrationBuilder.DropTable(
-                name: "AppUser");
+                name: "AppRoomType");
 
             migrationBuilder.DropTable(
-                name: "AppRoomType");
+                name: "AppUser");
 
             migrationBuilder.DropTable(
                 name: "AppBranchHotel");
