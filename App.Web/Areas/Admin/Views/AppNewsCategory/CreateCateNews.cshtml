@@ -12,7 +12,7 @@
 				<div class="page-title-right">
 					<ol class="breadcrumb m-0">
 						<li class="breadcrumb-item"><a asp-action="Index" asp-area="Admin" asp-controller="Home">Bảng tổng quan</a></li>
-						<li class="breadcrumb-item active"><a asp-action="Index" asp-area="Admin" asp-controller="CategoryNews">Thể loại</a></li>
+						<li class="breadcrumb-item active"><a asp-action="Index" asp-area="Admin" asp-controller="AppNewsCategory">Thể loại</a></li>
 						<li class="breadcrumb-item active">Thêm thể loại</li>
 					</ol>
 				</div>
@@ -56,7 +56,7 @@
 @section Scripts {
 	<script src="~/adminLTE/libs/prismjs/prism.js"></script>
 	<script src="~/adminLTE/js/pages/form-validation.init.js"></script>
-	<script src="~/js/admin/cateNews/cateNews-validate.js" asp-append-version="true"></script>
+	<script src="~/js/admin/catenews/catenews-validate.js" asp-append-version="true"></script>
 	<script>
 		$(document).ready(function () {
 			// File input change event
