@@ -2219,7 +2219,7 @@ namespace App.Data.Migrations
                             Id = 26,
                             AppRoleId = 1,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1501,
+                            MstPermissionId = 2501,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2227,7 +2227,7 @@ namespace App.Data.Migrations
                             Id = 27,
                             AppRoleId = 1,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1502,
+                            MstPermissionId = 2502,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2235,7 +2235,7 @@ namespace App.Data.Migrations
                             Id = 28,
                             AppRoleId = 1,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1503,
+                            MstPermissionId = 1501,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2243,7 +2243,7 @@ namespace App.Data.Migrations
                             Id = 29,
                             AppRoleId = 1,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1504,
+                            MstPermissionId = 1502,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2251,7 +2251,7 @@ namespace App.Data.Migrations
                             Id = 30,
                             AppRoleId = 1,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1601,
+                            MstPermissionId = 1503,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2259,7 +2259,7 @@ namespace App.Data.Migrations
                             Id = 31,
                             AppRoleId = 1,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1602,
+                            MstPermissionId = 1504,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2267,7 +2267,7 @@ namespace App.Data.Migrations
                             Id = 32,
                             AppRoleId = 1,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1603,
+                            MstPermissionId = 1601,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2275,7 +2275,7 @@ namespace App.Data.Migrations
                             Id = 33,
                             AppRoleId = 1,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1604,
+                            MstPermissionId = 1602,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2283,7 +2283,7 @@ namespace App.Data.Migrations
                             Id = 34,
                             AppRoleId = 1,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1605,
+                            MstPermissionId = 1603,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2291,7 +2291,7 @@ namespace App.Data.Migrations
                             Id = 35,
                             AppRoleId = 1,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1606,
+                            MstPermissionId = 1604,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2299,7 +2299,7 @@ namespace App.Data.Migrations
                             Id = 36,
                             AppRoleId = 1,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1701,
+                            MstPermissionId = 1605,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2307,7 +2307,7 @@ namespace App.Data.Migrations
                             Id = 37,
                             AppRoleId = 1,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1702,
+                            MstPermissionId = 1606,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2315,7 +2315,7 @@ namespace App.Data.Migrations
                             Id = 38,
                             AppRoleId = 1,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1703,
+                            MstPermissionId = 1701,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2323,7 +2323,7 @@ namespace App.Data.Migrations
                             Id = 39,
                             AppRoleId = 1,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1704,
+                            MstPermissionId = 1702,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2331,7 +2331,7 @@ namespace App.Data.Migrations
                             Id = 40,
                             AppRoleId = 1,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1705,
+                            MstPermissionId = 1703,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2339,7 +2339,7 @@ namespace App.Data.Migrations
                             Id = 41,
                             AppRoleId = 1,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1706,
+                            MstPermissionId = 1704,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2347,7 +2347,7 @@ namespace App.Data.Migrations
                             Id = 42,
                             AppRoleId = 1,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1801,
+                            MstPermissionId = 1705,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2355,7 +2355,7 @@ namespace App.Data.Migrations
                             Id = 43,
                             AppRoleId = 1,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1802,
+                            MstPermissionId = 1706,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2363,7 +2363,7 @@ namespace App.Data.Migrations
                             Id = 44,
                             AppRoleId = 1,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1803,
+                            MstPermissionId = 1801,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2371,7 +2371,7 @@ namespace App.Data.Migrations
                             Id = 45,
                             AppRoleId = 1,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1804,
+                            MstPermissionId = 1802,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2379,7 +2379,7 @@ namespace App.Data.Migrations
                             Id = 46,
                             AppRoleId = 1,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1901,
+                            MstPermissionId = 1803,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2387,7 +2387,7 @@ namespace App.Data.Migrations
                             Id = 47,
                             AppRoleId = 1,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1902,
+                            MstPermissionId = 1804,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2395,7 +2395,7 @@ namespace App.Data.Migrations
                             Id = 48,
                             AppRoleId = 1,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1903,
+                            MstPermissionId = 1901,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2403,7 +2403,7 @@ namespace App.Data.Migrations
                             Id = 49,
                             AppRoleId = 1,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1904,
+                            MstPermissionId = 1902,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2411,7 +2411,7 @@ namespace App.Data.Migrations
                             Id = 50,
                             AppRoleId = 1,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 2001,
+                            MstPermissionId = 1903,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2419,7 +2419,7 @@ namespace App.Data.Migrations
                             Id = 51,
                             AppRoleId = 1,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 2002,
+                            MstPermissionId = 1904,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2427,7 +2427,7 @@ namespace App.Data.Migrations
                             Id = 52,
                             AppRoleId = 1,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 2003,
+                            MstPermissionId = 2001,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2435,7 +2435,7 @@ namespace App.Data.Migrations
                             Id = 53,
                             AppRoleId = 1,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 2004,
+                            MstPermissionId = 2002,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2443,7 +2443,7 @@ namespace App.Data.Migrations
                             Id = 54,
                             AppRoleId = 1,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 2401,
+                            MstPermissionId = 2003,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2451,7 +2451,7 @@ namespace App.Data.Migrations
                             Id = 55,
                             AppRoleId = 1,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 2402,
+                            MstPermissionId = 2004,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2459,7 +2459,7 @@ namespace App.Data.Migrations
                             Id = 56,
                             AppRoleId = 1,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 2403,
+                            MstPermissionId = 2401,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2467,7 +2467,7 @@ namespace App.Data.Migrations
                             Id = 57,
                             AppRoleId = 1,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 2404,
+                            MstPermissionId = 2402,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2475,7 +2475,7 @@ namespace App.Data.Migrations
                             Id = 58,
                             AppRoleId = 1,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 2101,
+                            MstPermissionId = 2403,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2483,7 +2483,7 @@ namespace App.Data.Migrations
                             Id = 59,
                             AppRoleId = 1,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 2102,
+                            MstPermissionId = 2404,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2491,7 +2491,7 @@ namespace App.Data.Migrations
                             Id = 60,
                             AppRoleId = 1,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 2103,
+                            MstPermissionId = 2101,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2499,7 +2499,7 @@ namespace App.Data.Migrations
                             Id = 61,
                             AppRoleId = 1,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 2104,
+                            MstPermissionId = 2102,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2507,7 +2507,7 @@ namespace App.Data.Migrations
                             Id = 62,
                             AppRoleId = 1,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 2105,
+                            MstPermissionId = 2103,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2515,7 +2515,7 @@ namespace App.Data.Migrations
                             Id = 63,
                             AppRoleId = 1,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 2201,
+                            MstPermissionId = 2104,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2523,7 +2523,7 @@ namespace App.Data.Migrations
                             Id = 64,
                             AppRoleId = 1,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 2202,
+                            MstPermissionId = 2105,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2531,7 +2531,7 @@ namespace App.Data.Migrations
                             Id = 65,
                             AppRoleId = 1,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 2203,
+                            MstPermissionId = 2201,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2539,7 +2539,7 @@ namespace App.Data.Migrations
                             Id = 66,
                             AppRoleId = 1,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 2204,
+                            MstPermissionId = 2202,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2547,7 +2547,7 @@ namespace App.Data.Migrations
                             Id = 67,
                             AppRoleId = 1,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 2205,
+                            MstPermissionId = 2203,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2555,7 +2555,7 @@ namespace App.Data.Migrations
                             Id = 68,
                             AppRoleId = 1,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 2301,
+                            MstPermissionId = 2204,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2563,7 +2563,7 @@ namespace App.Data.Migrations
                             Id = 69,
                             AppRoleId = 1,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 2302,
+                            MstPermissionId = 2205,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2571,7 +2571,7 @@ namespace App.Data.Migrations
                             Id = 70,
                             AppRoleId = 1,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 2303,
+                            MstPermissionId = 2301,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2579,7 +2579,7 @@ namespace App.Data.Migrations
                             Id = 71,
                             AppRoleId = 1,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 2304,
+                            MstPermissionId = 2302,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2587,23 +2587,23 @@ namespace App.Data.Migrations
                             Id = 72,
                             AppRoleId = 1,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 2305,
+                            MstPermissionId = 2303,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 73,
-                            AppRoleId = 2,
+                            AppRoleId = 1,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1901,
+                            MstPermissionId = 2304,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 74,
-                            AppRoleId = 9,
+                            AppRoleId = 1,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1901,
+                            MstPermissionId = 2305,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2611,7 +2611,7 @@ namespace App.Data.Migrations
                             Id = 75,
                             AppRoleId = 2,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1902,
+                            MstPermissionId = 1901,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2619,7 +2619,7 @@ namespace App.Data.Migrations
                             Id = 76,
                             AppRoleId = 9,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1902,
+                            MstPermissionId = 1901,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2627,7 +2627,7 @@ namespace App.Data.Migrations
                             Id = 77,
                             AppRoleId = 2,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1903,
+                            MstPermissionId = 1902,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2635,7 +2635,7 @@ namespace App.Data.Migrations
                             Id = 78,
                             AppRoleId = 9,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1903,
+                            MstPermissionId = 1902,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2643,7 +2643,7 @@ namespace App.Data.Migrations
                             Id = 79,
                             AppRoleId = 2,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1904,
+                            MstPermissionId = 1903,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2651,7 +2651,7 @@ namespace App.Data.Migrations
                             Id = 80,
                             AppRoleId = 9,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1904,
+                            MstPermissionId = 1903,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2659,15 +2659,15 @@ namespace App.Data.Migrations
                             Id = 81,
                             AppRoleId = 2,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 2001,
+                            MstPermissionId = 1904,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 82,
-                            AppRoleId = 8,
+                            AppRoleId = 9,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 2001,
+                            MstPermissionId = 1904,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2675,7 +2675,7 @@ namespace App.Data.Migrations
                             Id = 83,
                             AppRoleId = 2,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 2002,
+                            MstPermissionId = 2001,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2683,7 +2683,7 @@ namespace App.Data.Migrations
                             Id = 84,
                             AppRoleId = 8,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 2002,
+                            MstPermissionId = 2001,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2691,7 +2691,7 @@ namespace App.Data.Migrations
                             Id = 85,
                             AppRoleId = 2,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 2003,
+                            MstPermissionId = 2002,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2699,7 +2699,7 @@ namespace App.Data.Migrations
                             Id = 86,
                             AppRoleId = 8,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 2003,
+                            MstPermissionId = 2002,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2707,7 +2707,7 @@ namespace App.Data.Migrations
                             Id = 87,
                             AppRoleId = 2,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 2004,
+                            MstPermissionId = 2003,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2715,23 +2715,23 @@ namespace App.Data.Migrations
                             Id = 88,
                             AppRoleId = 8,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 2004,
+                            MstPermissionId = 2003,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 89,
-                            AppRoleId = 5,
+                            AppRoleId = 2,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1301,
+                            MstPermissionId = 2004,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 90,
-                            AppRoleId = 7,
+                            AppRoleId = 8,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1301,
+                            MstPermissionId = 2004,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2739,7 +2739,7 @@ namespace App.Data.Migrations
                             Id = 91,
                             AppRoleId = 5,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1302,
+                            MstPermissionId = 1301,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2747,7 +2747,7 @@ namespace App.Data.Migrations
                             Id = 92,
                             AppRoleId = 7,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1302,
+                            MstPermissionId = 1301,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2755,7 +2755,7 @@ namespace App.Data.Migrations
                             Id = 93,
                             AppRoleId = 5,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1303,
+                            MstPermissionId = 1302,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2763,7 +2763,7 @@ namespace App.Data.Migrations
                             Id = 94,
                             AppRoleId = 7,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1303,
+                            MstPermissionId = 1302,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2771,7 +2771,7 @@ namespace App.Data.Migrations
                             Id = 95,
                             AppRoleId = 5,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1304,
+                            MstPermissionId = 1303,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2779,7 +2779,7 @@ namespace App.Data.Migrations
                             Id = 96,
                             AppRoleId = 7,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1304,
+                            MstPermissionId = 1303,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2787,7 +2787,7 @@ namespace App.Data.Migrations
                             Id = 97,
                             AppRoleId = 5,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1305,
+                            MstPermissionId = 1304,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2795,7 +2795,7 @@ namespace App.Data.Migrations
                             Id = 98,
                             AppRoleId = 7,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1305,
+                            MstPermissionId = 1304,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2803,7 +2803,7 @@ namespace App.Data.Migrations
                             Id = 99,
                             AppRoleId = 5,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1306,
+                            MstPermissionId = 1305,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2811,7 +2811,7 @@ namespace App.Data.Migrations
                             Id = 100,
                             AppRoleId = 7,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1306,
+                            MstPermissionId = 1305,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2819,7 +2819,7 @@ namespace App.Data.Migrations
                             Id = 101,
                             AppRoleId = 5,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1307,
+                            MstPermissionId = 1306,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2827,7 +2827,7 @@ namespace App.Data.Migrations
                             Id = 102,
                             AppRoleId = 7,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1307,
+                            MstPermissionId = 1306,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2835,15 +2835,15 @@ namespace App.Data.Migrations
                             Id = 103,
                             AppRoleId = 5,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1401,
+                            MstPermissionId = 1307,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 104,
-                            AppRoleId = 6,
+                            AppRoleId = 7,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1401,
+                            MstPermissionId = 1307,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2851,7 +2851,7 @@ namespace App.Data.Migrations
                             Id = 105,
                             AppRoleId = 5,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1402,
+                            MstPermissionId = 1401,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2859,7 +2859,7 @@ namespace App.Data.Migrations
                             Id = 106,
                             AppRoleId = 6,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1402,
+                            MstPermissionId = 1401,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2867,7 +2867,7 @@ namespace App.Data.Migrations
                             Id = 107,
                             AppRoleId = 5,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1403,
+                            MstPermissionId = 1402,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2875,7 +2875,7 @@ namespace App.Data.Migrations
                             Id = 108,
                             AppRoleId = 6,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1403,
+                            MstPermissionId = 1402,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2883,7 +2883,7 @@ namespace App.Data.Migrations
                             Id = 109,
                             AppRoleId = 5,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1404,
+                            MstPermissionId = 1403,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2891,23 +2891,23 @@ namespace App.Data.Migrations
                             Id = 110,
                             AppRoleId = 6,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1404,
+                            MstPermissionId = 1403,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 111,
-                            AppRoleId = 4,
+                            AppRoleId = 5,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1101,
+                            MstPermissionId = 1404,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 112,
-                            AppRoleId = 4,
+                            AppRoleId = 6,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1102,
+                            MstPermissionId = 1404,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2915,7 +2915,7 @@ namespace App.Data.Migrations
                             Id = 113,
                             AppRoleId = 4,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1103,
+                            MstPermissionId = 1101,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2923,7 +2923,7 @@ namespace App.Data.Migrations
                             Id = 114,
                             AppRoleId = 4,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1104,
+                            MstPermissionId = 1102,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2931,7 +2931,7 @@ namespace App.Data.Migrations
                             Id = 115,
                             AppRoleId = 4,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1105,
+                            MstPermissionId = 1103,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2939,7 +2939,7 @@ namespace App.Data.Migrations
                             Id = 116,
                             AppRoleId = 4,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1001,
+                            MstPermissionId = 1104,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2947,7 +2947,7 @@ namespace App.Data.Migrations
                             Id = 117,
                             AppRoleId = 4,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1002,
+                            MstPermissionId = 1105,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2955,7 +2955,7 @@ namespace App.Data.Migrations
                             Id = 118,
                             AppRoleId = 4,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1003,
+                            MstPermissionId = 1001,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2963,7 +2963,7 @@ namespace App.Data.Migrations
                             Id = 119,
                             AppRoleId = 4,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1004,
+                            MstPermissionId = 1002,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2971,7 +2971,7 @@ namespace App.Data.Migrations
                             Id = 120,
                             AppRoleId = 4,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1005,
+                            MstPermissionId = 1003,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2979,7 +2979,7 @@ namespace App.Data.Migrations
                             Id = 121,
                             AppRoleId = 4,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1006,
+                            MstPermissionId = 1004,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2987,7 +2987,7 @@ namespace App.Data.Migrations
                             Id = 122,
                             AppRoleId = 4,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1007,
+                            MstPermissionId = 1005,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -2995,7 +2995,7 @@ namespace App.Data.Migrations
                             Id = 123,
                             AppRoleId = 4,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1008,
+                            MstPermissionId = 1006,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -3003,7 +3003,7 @@ namespace App.Data.Migrations
                             Id = 124,
                             AppRoleId = 4,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1201,
+                            MstPermissionId = 1007,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -3011,7 +3011,7 @@ namespace App.Data.Migrations
                             Id = 125,
                             AppRoleId = 4,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1301,
+                            MstPermissionId = 1008,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -3019,7 +3019,7 @@ namespace App.Data.Migrations
                             Id = 126,
                             AppRoleId = 4,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1302,
+                            MstPermissionId = 1201,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -3027,7 +3027,7 @@ namespace App.Data.Migrations
                             Id = 127,
                             AppRoleId = 4,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1303,
+                            MstPermissionId = 1301,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -3035,7 +3035,7 @@ namespace App.Data.Migrations
                             Id = 128,
                             AppRoleId = 4,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1304,
+                            MstPermissionId = 1302,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -3043,7 +3043,7 @@ namespace App.Data.Migrations
                             Id = 129,
                             AppRoleId = 4,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1305,
+                            MstPermissionId = 1303,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -3051,7 +3051,7 @@ namespace App.Data.Migrations
                             Id = 130,
                             AppRoleId = 4,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1306,
+                            MstPermissionId = 1304,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -3059,7 +3059,7 @@ namespace App.Data.Migrations
                             Id = 131,
                             AppRoleId = 4,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1307,
+                            MstPermissionId = 1305,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -3067,7 +3067,7 @@ namespace App.Data.Migrations
                             Id = 132,
                             AppRoleId = 4,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1401,
+                            MstPermissionId = 1306,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -3075,7 +3075,7 @@ namespace App.Data.Migrations
                             Id = 133,
                             AppRoleId = 4,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1402,
+                            MstPermissionId = 1307,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -3083,7 +3083,7 @@ namespace App.Data.Migrations
                             Id = 134,
                             AppRoleId = 4,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1403,
+                            MstPermissionId = 1401,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -3091,7 +3091,7 @@ namespace App.Data.Migrations
                             Id = 135,
                             AppRoleId = 4,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1404,
+                            MstPermissionId = 1402,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -3099,7 +3099,7 @@ namespace App.Data.Migrations
                             Id = 136,
                             AppRoleId = 4,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1501,
+                            MstPermissionId = 1403,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -3107,7 +3107,7 @@ namespace App.Data.Migrations
                             Id = 137,
                             AppRoleId = 4,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1502,
+                            MstPermissionId = 1404,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -3115,7 +3115,7 @@ namespace App.Data.Migrations
                             Id = 138,
                             AppRoleId = 4,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1503,
+                            MstPermissionId = 2501,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -3123,7 +3123,7 @@ namespace App.Data.Migrations
                             Id = 139,
                             AppRoleId = 4,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1504,
+                            MstPermissionId = 2502,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -3131,7 +3131,7 @@ namespace App.Data.Migrations
                             Id = 140,
                             AppRoleId = 4,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1601,
+                            MstPermissionId = 1501,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -3139,7 +3139,7 @@ namespace App.Data.Migrations
                             Id = 141,
                             AppRoleId = 4,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1602,
+                            MstPermissionId = 1502,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -3147,7 +3147,7 @@ namespace App.Data.Migrations
                             Id = 142,
                             AppRoleId = 4,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1603,
+                            MstPermissionId = 1503,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -3155,7 +3155,7 @@ namespace App.Data.Migrations
                             Id = 143,
                             AppRoleId = 4,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1604,
+                            MstPermissionId = 1504,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -3163,7 +3163,7 @@ namespace App.Data.Migrations
                             Id = 144,
                             AppRoleId = 4,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1605,
+                            MstPermissionId = 1601,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -3171,7 +3171,7 @@ namespace App.Data.Migrations
                             Id = 145,
                             AppRoleId = 4,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1606,
+                            MstPermissionId = 1602,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -3179,7 +3179,7 @@ namespace App.Data.Migrations
                             Id = 146,
                             AppRoleId = 4,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1701,
+                            MstPermissionId = 1603,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -3187,7 +3187,7 @@ namespace App.Data.Migrations
                             Id = 147,
                             AppRoleId = 4,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1702,
+                            MstPermissionId = 1604,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -3195,7 +3195,7 @@ namespace App.Data.Migrations
                             Id = 148,
                             AppRoleId = 4,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1703,
+                            MstPermissionId = 1605,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -3203,7 +3203,7 @@ namespace App.Data.Migrations
                             Id = 149,
                             AppRoleId = 4,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1704,
+                            MstPermissionId = 1606,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -3211,7 +3211,7 @@ namespace App.Data.Migrations
                             Id = 150,
                             AppRoleId = 4,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1705,
+                            MstPermissionId = 1701,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -3219,7 +3219,7 @@ namespace App.Data.Migrations
                             Id = 151,
                             AppRoleId = 4,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1706,
+                            MstPermissionId = 1702,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -3227,7 +3227,7 @@ namespace App.Data.Migrations
                             Id = 152,
                             AppRoleId = 4,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1801,
+                            MstPermissionId = 1703,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -3235,7 +3235,7 @@ namespace App.Data.Migrations
                             Id = 153,
                             AppRoleId = 4,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1802,
+                            MstPermissionId = 1704,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -3243,7 +3243,7 @@ namespace App.Data.Migrations
                             Id = 154,
                             AppRoleId = 4,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1803,
+                            MstPermissionId = 1705,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -3251,7 +3251,7 @@ namespace App.Data.Migrations
                             Id = 155,
                             AppRoleId = 4,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1804,
+                            MstPermissionId = 1706,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -3259,7 +3259,7 @@ namespace App.Data.Migrations
                             Id = 156,
                             AppRoleId = 4,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1901,
+                            MstPermissionId = 1801,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -3267,7 +3267,7 @@ namespace App.Data.Migrations
                             Id = 157,
                             AppRoleId = 4,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1902,
+                            MstPermissionId = 1802,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -3275,7 +3275,7 @@ namespace App.Data.Migrations
                             Id = 158,
                             AppRoleId = 4,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1903,
+                            MstPermissionId = 1803,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -3283,7 +3283,7 @@ namespace App.Data.Migrations
                             Id = 159,
                             AppRoleId = 4,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1904,
+                            MstPermissionId = 1804,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -3291,7 +3291,7 @@ namespace App.Data.Migrations
                             Id = 160,
                             AppRoleId = 4,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 2001,
+                            MstPermissionId = 1901,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -3299,7 +3299,7 @@ namespace App.Data.Migrations
                             Id = 161,
                             AppRoleId = 4,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 2002,
+                            MstPermissionId = 1902,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -3307,7 +3307,7 @@ namespace App.Data.Migrations
                             Id = 162,
                             AppRoleId = 4,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 2003,
+                            MstPermissionId = 1903,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -3315,7 +3315,7 @@ namespace App.Data.Migrations
                             Id = 163,
                             AppRoleId = 4,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 2004,
+                            MstPermissionId = 1904,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -3323,7 +3323,7 @@ namespace App.Data.Migrations
                             Id = 164,
                             AppRoleId = 4,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 2401,
+                            MstPermissionId = 2001,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -3331,7 +3331,7 @@ namespace App.Data.Migrations
                             Id = 165,
                             AppRoleId = 4,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 2402,
+                            MstPermissionId = 2002,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -3339,7 +3339,7 @@ namespace App.Data.Migrations
                             Id = 166,
                             AppRoleId = 4,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 2403,
+                            MstPermissionId = 2003,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -3347,7 +3347,7 @@ namespace App.Data.Migrations
                             Id = 167,
                             AppRoleId = 4,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 2404,
+                            MstPermissionId = 2004,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -3355,7 +3355,7 @@ namespace App.Data.Migrations
                             Id = 168,
                             AppRoleId = 4,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 2101,
+                            MstPermissionId = 2401,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -3363,7 +3363,7 @@ namespace App.Data.Migrations
                             Id = 169,
                             AppRoleId = 4,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 2102,
+                            MstPermissionId = 2402,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -3371,7 +3371,7 @@ namespace App.Data.Migrations
                             Id = 170,
                             AppRoleId = 4,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 2103,
+                            MstPermissionId = 2403,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -3379,7 +3379,7 @@ namespace App.Data.Migrations
                             Id = 171,
                             AppRoleId = 4,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 2104,
+                            MstPermissionId = 2404,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -3387,7 +3387,7 @@ namespace App.Data.Migrations
                             Id = 172,
                             AppRoleId = 4,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 2105,
+                            MstPermissionId = 2101,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -3395,7 +3395,7 @@ namespace App.Data.Migrations
                             Id = 173,
                             AppRoleId = 4,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 2201,
+                            MstPermissionId = 2102,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -3403,7 +3403,7 @@ namespace App.Data.Migrations
                             Id = 174,
                             AppRoleId = 4,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 2202,
+                            MstPermissionId = 2103,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -3411,7 +3411,7 @@ namespace App.Data.Migrations
                             Id = 175,
                             AppRoleId = 4,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 2203,
+                            MstPermissionId = 2104,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -3419,7 +3419,7 @@ namespace App.Data.Migrations
                             Id = 176,
                             AppRoleId = 4,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 2204,
+                            MstPermissionId = 2105,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -3427,7 +3427,7 @@ namespace App.Data.Migrations
                             Id = 177,
                             AppRoleId = 4,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 2205,
+                            MstPermissionId = 2201,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -3435,7 +3435,7 @@ namespace App.Data.Migrations
                             Id = 178,
                             AppRoleId = 4,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 2301,
+                            MstPermissionId = 2202,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -3443,7 +3443,7 @@ namespace App.Data.Migrations
                             Id = 179,
                             AppRoleId = 4,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 2302,
+                            MstPermissionId = 2203,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -3451,7 +3451,7 @@ namespace App.Data.Migrations
                             Id = 180,
                             AppRoleId = 4,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 2303,
+                            MstPermissionId = 2204,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -3459,12 +3459,44 @@ namespace App.Data.Migrations
                             Id = 181,
                             AppRoleId = 4,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 2304,
+                            MstPermissionId = 2205,
                             UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 182,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 2301,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 183,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 2302,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 184,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 2303,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 185,
+                            AppRoleId = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MstPermissionId = 2304,
+                            UpdatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 186,
                             AppRoleId = 4,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 2305,
@@ -3591,8 +3623,8 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "administrator@gmail.com",
                             FullName = "Nguyễn Thanh Long",
-                            PasswordHash = new byte[] { 133, 176, 252, 157, 171, 83, 3, 138, 22, 54, 206, 224, 110, 209, 31, 148, 228, 224, 248, 239, 48, 178, 13, 7, 172, 173, 135, 159, 230, 113, 102, 236, 243, 7, 195, 201, 146, 86, 132, 175, 53, 232, 215, 48, 98, 67, 37, 96, 71, 105, 223, 28, 28, 1, 181, 149, 120, 169, 88, 3, 145, 89, 20, 238 },
-                            PasswordSalt = new byte[] { 230, 251, 150, 180, 254, 82, 139, 87, 33, 169, 11, 56, 249, 26, 162, 89, 50, 141, 25, 196, 179, 9, 68, 184, 124, 208, 115, 137, 142, 127, 3, 195, 180, 225, 30, 200, 138, 237, 77, 227, 35, 10, 74, 112, 30, 141, 235, 6, 63, 236, 208, 62, 37, 111, 162, 37, 231, 101, 175, 140, 147, 121, 170, 254, 247, 218, 212, 177, 171, 124, 69, 141, 33, 67, 223, 81, 221, 149, 92, 123, 40, 205, 168, 203, 16, 13, 152, 192, 106, 151, 44, 9, 157, 219, 1, 97, 189, 120, 159, 17, 46, 175, 208, 237, 84, 93, 53, 89, 53, 61, 90, 93, 34, 116, 220, 64, 224, 255, 63, 61, 20, 60, 209, 238, 89, 79, 82, 67 },
+                            PasswordHash = new byte[] { 87, 76, 39, 78, 135, 185, 14, 28, 86, 245, 81, 179, 174, 18, 182, 34, 116, 84, 74, 180, 92, 56, 146, 19, 229, 119, 230, 157, 6, 238, 220, 103, 83, 251, 117, 48, 37, 6, 185, 144, 34, 2, 90, 123, 220, 91, 245, 68, 19, 115, 232, 34, 36, 154, 100, 91, 89, 26, 158, 173, 242, 110, 148, 244 },
+                            PasswordSalt = new byte[] { 109, 203, 33, 1, 63, 156, 132, 44, 168, 178, 25, 83, 20, 192, 158, 93, 175, 172, 144, 29, 248, 99, 148, 212, 246, 194, 41, 241, 161, 90, 105, 25, 196, 110, 210, 218, 27, 29, 199, 35, 83, 227, 154, 59, 120, 15, 239, 130, 55, 95, 253, 251, 106, 172, 54, 33, 53, 33, 16, 191, 231, 189, 243, 225, 26, 225, 169, 235, 117, 43, 10, 149, 95, 204, 178, 44, 225, 213, 251, 230, 109, 72, 79, 212, 119, 170, 100, 136, 220, 48, 99, 81, 178, 65, 245, 100, 12, 244, 83, 146, 205, 75, 221, 250, 116, 53, 213, 176, 221, 26, 159, 133, 74, 90, 202, 33, 205, 146, 221, 155, 2, 44, 45, 155, 92, 224, 10, 1 },
                             PhoneNumber1 = "+84928666158",
                             PhoneNumber2 = "+84928666156",
                             UpdatedBy = -1,
@@ -3609,8 +3641,8 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "fullequipmentmanagement@gmail.com",
                             FullName = "Trần Chí Dũng",
-                            PasswordHash = new byte[] { 133, 176, 252, 157, 171, 83, 3, 138, 22, 54, 206, 224, 110, 209, 31, 148, 228, 224, 248, 239, 48, 178, 13, 7, 172, 173, 135, 159, 230, 113, 102, 236, 243, 7, 195, 201, 146, 86, 132, 175, 53, 232, 215, 48, 98, 67, 37, 96, 71, 105, 223, 28, 28, 1, 181, 149, 120, 169, 88, 3, 145, 89, 20, 238 },
-                            PasswordSalt = new byte[] { 230, 251, 150, 180, 254, 82, 139, 87, 33, 169, 11, 56, 249, 26, 162, 89, 50, 141, 25, 196, 179, 9, 68, 184, 124, 208, 115, 137, 142, 127, 3, 195, 180, 225, 30, 200, 138, 237, 77, 227, 35, 10, 74, 112, 30, 141, 235, 6, 63, 236, 208, 62, 37, 111, 162, 37, 231, 101, 175, 140, 147, 121, 170, 254, 247, 218, 212, 177, 171, 124, 69, 141, 33, 67, 223, 81, 221, 149, 92, 123, 40, 205, 168, 203, 16, 13, 152, 192, 106, 151, 44, 9, 157, 219, 1, 97, 189, 120, 159, 17, 46, 175, 208, 237, 84, 93, 53, 89, 53, 61, 90, 93, 34, 116, 220, 64, 224, 255, 63, 61, 20, 60, 209, 238, 89, 79, 82, 67 },
+                            PasswordHash = new byte[] { 87, 76, 39, 78, 135, 185, 14, 28, 86, 245, 81, 179, 174, 18, 182, 34, 116, 84, 74, 180, 92, 56, 146, 19, 229, 119, 230, 157, 6, 238, 220, 103, 83, 251, 117, 48, 37, 6, 185, 144, 34, 2, 90, 123, 220, 91, 245, 68, 19, 115, 232, 34, 36, 154, 100, 91, 89, 26, 158, 173, 242, 110, 148, 244 },
+                            PasswordSalt = new byte[] { 109, 203, 33, 1, 63, 156, 132, 44, 168, 178, 25, 83, 20, 192, 158, 93, 175, 172, 144, 29, 248, 99, 148, 212, 246, 194, 41, 241, 161, 90, 105, 25, 196, 110, 210, 218, 27, 29, 199, 35, 83, 227, 154, 59, 120, 15, 239, 130, 55, 95, 253, 251, 106, 172, 54, 33, 53, 33, 16, 191, 231, 189, 243, 225, 26, 225, 169, 235, 117, 43, 10, 149, 95, 204, 178, 44, 225, 213, 251, 230, 109, 72, 79, 212, 119, 170, 100, 136, 220, 48, 99, 81, 178, 65, 245, 100, 12, 244, 83, 146, 205, 75, 221, 250, 116, 53, 213, 176, 221, 26, 159, 133, 74, 90, 202, 33, 205, 146, 221, 155, 2, 44, 45, 155, 92, 224, 10, 1 },
                             PhoneNumber1 = "+84928666157",
                             PhoneNumber2 = "+84928666158",
                             UpdatedBy = -1,
@@ -3628,8 +3660,8 @@ namespace App.Data.Migrations
                             Email = "johnsmith1992@gmail.com",
                             FullName = "John Smith",
                             Passport = "123456789",
-                            PasswordHash = new byte[] { 133, 176, 252, 157, 171, 83, 3, 138, 22, 54, 206, 224, 110, 209, 31, 148, 228, 224, 248, 239, 48, 178, 13, 7, 172, 173, 135, 159, 230, 113, 102, 236, 243, 7, 195, 201, 146, 86, 132, 175, 53, 232, 215, 48, 98, 67, 37, 96, 71, 105, 223, 28, 28, 1, 181, 149, 120, 169, 88, 3, 145, 89, 20, 238 },
-                            PasswordSalt = new byte[] { 230, 251, 150, 180, 254, 82, 139, 87, 33, 169, 11, 56, 249, 26, 162, 89, 50, 141, 25, 196, 179, 9, 68, 184, 124, 208, 115, 137, 142, 127, 3, 195, 180, 225, 30, 200, 138, 237, 77, 227, 35, 10, 74, 112, 30, 141, 235, 6, 63, 236, 208, 62, 37, 111, 162, 37, 231, 101, 175, 140, 147, 121, 170, 254, 247, 218, 212, 177, 171, 124, 69, 141, 33, 67, 223, 81, 221, 149, 92, 123, 40, 205, 168, 203, 16, 13, 152, 192, 106, 151, 44, 9, 157, 219, 1, 97, 189, 120, 159, 17, 46, 175, 208, 237, 84, 93, 53, 89, 53, 61, 90, 93, 34, 116, 220, 64, 224, 255, 63, 61, 20, 60, 209, 238, 89, 79, 82, 67 },
+                            PasswordHash = new byte[] { 87, 76, 39, 78, 135, 185, 14, 28, 86, 245, 81, 179, 174, 18, 182, 34, 116, 84, 74, 180, 92, 56, 146, 19, 229, 119, 230, 157, 6, 238, 220, 103, 83, 251, 117, 48, 37, 6, 185, 144, 34, 2, 90, 123, 220, 91, 245, 68, 19, 115, 232, 34, 36, 154, 100, 91, 89, 26, 158, 173, 242, 110, 148, 244 },
+                            PasswordSalt = new byte[] { 109, 203, 33, 1, 63, 156, 132, 44, 168, 178, 25, 83, 20, 192, 158, 93, 175, 172, 144, 29, 248, 99, 148, 212, 246, 194, 41, 241, 161, 90, 105, 25, 196, 110, 210, 218, 27, 29, 199, 35, 83, 227, 154, 59, 120, 15, 239, 130, 55, 95, 253, 251, 106, 172, 54, 33, 53, 33, 16, 191, 231, 189, 243, 225, 26, 225, 169, 235, 117, 43, 10, 149, 95, 204, 178, 44, 225, 213, 251, 230, 109, 72, 79, 212, 119, 170, 100, 136, 220, 48, 99, 81, 178, 65, 245, 100, 12, 244, 83, 146, 205, 75, 221, 250, 116, 53, 213, 176, 221, 26, 159, 133, 74, 90, 202, 33, 205, 146, 221, 155, 2, 44, 45, 155, 92, 224, 10, 1 },
                             PhoneNumber1 = "+12025550123",
                             PhoneNumber2 = "+12027450123",
                             UpdatedBy = -1,
@@ -3647,8 +3679,8 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "adminmeliahanoi@gmail.com",
                             FullName = "Hồ Thành Nhân",
-                            PasswordHash = new byte[] { 133, 176, 252, 157, 171, 83, 3, 138, 22, 54, 206, 224, 110, 209, 31, 148, 228, 224, 248, 239, 48, 178, 13, 7, 172, 173, 135, 159, 230, 113, 102, 236, 243, 7, 195, 201, 146, 86, 132, 175, 53, 232, 215, 48, 98, 67, 37, 96, 71, 105, 223, 28, 28, 1, 181, 149, 120, 169, 88, 3, 145, 89, 20, 238 },
-                            PasswordSalt = new byte[] { 230, 251, 150, 180, 254, 82, 139, 87, 33, 169, 11, 56, 249, 26, 162, 89, 50, 141, 25, 196, 179, 9, 68, 184, 124, 208, 115, 137, 142, 127, 3, 195, 180, 225, 30, 200, 138, 237, 77, 227, 35, 10, 74, 112, 30, 141, 235, 6, 63, 236, 208, 62, 37, 111, 162, 37, 231, 101, 175, 140, 147, 121, 170, 254, 247, 218, 212, 177, 171, 124, 69, 141, 33, 67, 223, 81, 221, 149, 92, 123, 40, 205, 168, 203, 16, 13, 152, 192, 106, 151, 44, 9, 157, 219, 1, 97, 189, 120, 159, 17, 46, 175, 208, 237, 84, 93, 53, 89, 53, 61, 90, 93, 34, 116, 220, 64, 224, 255, 63, 61, 20, 60, 209, 238, 89, 79, 82, 67 },
+                            PasswordHash = new byte[] { 87, 76, 39, 78, 135, 185, 14, 28, 86, 245, 81, 179, 174, 18, 182, 34, 116, 84, 74, 180, 92, 56, 146, 19, 229, 119, 230, 157, 6, 238, 220, 103, 83, 251, 117, 48, 37, 6, 185, 144, 34, 2, 90, 123, 220, 91, 245, 68, 19, 115, 232, 34, 36, 154, 100, 91, 89, 26, 158, 173, 242, 110, 148, 244 },
+                            PasswordSalt = new byte[] { 109, 203, 33, 1, 63, 156, 132, 44, 168, 178, 25, 83, 20, 192, 158, 93, 175, 172, 144, 29, 248, 99, 148, 212, 246, 194, 41, 241, 161, 90, 105, 25, 196, 110, 210, 218, 27, 29, 199, 35, 83, 227, 154, 59, 120, 15, 239, 130, 55, 95, 253, 251, 106, 172, 54, 33, 53, 33, 16, 191, 231, 189, 243, 225, 26, 225, 169, 235, 117, 43, 10, 149, 95, 204, 178, 44, 225, 213, 251, 230, 109, 72, 79, 212, 119, 170, 100, 136, 220, 48, 99, 81, 178, 65, 245, 100, 12, 244, 83, 146, 205, 75, 221, 250, 116, 53, 213, 176, 221, 26, 159, 133, 74, 90, 202, 33, 205, 146, 221, 155, 2, 44, 45, 155, 92, 224, 10, 1 },
                             PhoneNumber1 = "+84725136123",
                             PhoneNumber2 = "+84227450123",
                             UpdatedBy = -1,
@@ -3665,8 +3697,8 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "fullnewsmanager@gmail.com",
                             FullName = "Trần Thúy Hồng",
-                            PasswordHash = new byte[] { 133, 176, 252, 157, 171, 83, 3, 138, 22, 54, 206, 224, 110, 209, 31, 148, 228, 224, 248, 239, 48, 178, 13, 7, 172, 173, 135, 159, 230, 113, 102, 236, 243, 7, 195, 201, 146, 86, 132, 175, 53, 232, 215, 48, 98, 67, 37, 96, 71, 105, 223, 28, 28, 1, 181, 149, 120, 169, 88, 3, 145, 89, 20, 238 },
-                            PasswordSalt = new byte[] { 230, 251, 150, 180, 254, 82, 139, 87, 33, 169, 11, 56, 249, 26, 162, 89, 50, 141, 25, 196, 179, 9, 68, 184, 124, 208, 115, 137, 142, 127, 3, 195, 180, 225, 30, 200, 138, 237, 77, 227, 35, 10, 74, 112, 30, 141, 235, 6, 63, 236, 208, 62, 37, 111, 162, 37, 231, 101, 175, 140, 147, 121, 170, 254, 247, 218, 212, 177, 171, 124, 69, 141, 33, 67, 223, 81, 221, 149, 92, 123, 40, 205, 168, 203, 16, 13, 152, 192, 106, 151, 44, 9, 157, 219, 1, 97, 189, 120, 159, 17, 46, 175, 208, 237, 84, 93, 53, 89, 53, 61, 90, 93, 34, 116, 220, 64, 224, 255, 63, 61, 20, 60, 209, 238, 89, 79, 82, 67 },
+                            PasswordHash = new byte[] { 87, 76, 39, 78, 135, 185, 14, 28, 86, 245, 81, 179, 174, 18, 182, 34, 116, 84, 74, 180, 92, 56, 146, 19, 229, 119, 230, 157, 6, 238, 220, 103, 83, 251, 117, 48, 37, 6, 185, 144, 34, 2, 90, 123, 220, 91, 245, 68, 19, 115, 232, 34, 36, 154, 100, 91, 89, 26, 158, 173, 242, 110, 148, 244 },
+                            PasswordSalt = new byte[] { 109, 203, 33, 1, 63, 156, 132, 44, 168, 178, 25, 83, 20, 192, 158, 93, 175, 172, 144, 29, 248, 99, 148, 212, 246, 194, 41, 241, 161, 90, 105, 25, 196, 110, 210, 218, 27, 29, 199, 35, 83, 227, 154, 59, 120, 15, 239, 130, 55, 95, 253, 251, 106, 172, 54, 33, 53, 33, 16, 191, 231, 189, 243, 225, 26, 225, 169, 235, 117, 43, 10, 149, 95, 204, 178, 44, 225, 213, 251, 230, 109, 72, 79, 212, 119, 170, 100, 136, 220, 48, 99, 81, 178, 65, 245, 100, 12, 244, 83, 146, 205, 75, 221, 250, 116, 53, 213, 176, 221, 26, 159, 133, 74, 90, 202, 33, 205, 146, 221, 155, 2, 44, 45, 155, 92, 224, 10, 1 },
                             PhoneNumber1 = "+84728756123",
                             PhoneNumber2 = "+84227459233",
                             UpdatedBy = -1,
@@ -3683,8 +3715,8 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "catenewsmanager@gmail.com",
                             FullName = "Nguyên Văn Toàn",
-                            PasswordHash = new byte[] { 133, 176, 252, 157, 171, 83, 3, 138, 22, 54, 206, 224, 110, 209, 31, 148, 228, 224, 248, 239, 48, 178, 13, 7, 172, 173, 135, 159, 230, 113, 102, 236, 243, 7, 195, 201, 146, 86, 132, 175, 53, 232, 215, 48, 98, 67, 37, 96, 71, 105, 223, 28, 28, 1, 181, 149, 120, 169, 88, 3, 145, 89, 20, 238 },
-                            PasswordSalt = new byte[] { 230, 251, 150, 180, 254, 82, 139, 87, 33, 169, 11, 56, 249, 26, 162, 89, 50, 141, 25, 196, 179, 9, 68, 184, 124, 208, 115, 137, 142, 127, 3, 195, 180, 225, 30, 200, 138, 237, 77, 227, 35, 10, 74, 112, 30, 141, 235, 6, 63, 236, 208, 62, 37, 111, 162, 37, 231, 101, 175, 140, 147, 121, 170, 254, 247, 218, 212, 177, 171, 124, 69, 141, 33, 67, 223, 81, 221, 149, 92, 123, 40, 205, 168, 203, 16, 13, 152, 192, 106, 151, 44, 9, 157, 219, 1, 97, 189, 120, 159, 17, 46, 175, 208, 237, 84, 93, 53, 89, 53, 61, 90, 93, 34, 116, 220, 64, 224, 255, 63, 61, 20, 60, 209, 238, 89, 79, 82, 67 },
+                            PasswordHash = new byte[] { 87, 76, 39, 78, 135, 185, 14, 28, 86, 245, 81, 179, 174, 18, 182, 34, 116, 84, 74, 180, 92, 56, 146, 19, 229, 119, 230, 157, 6, 238, 220, 103, 83, 251, 117, 48, 37, 6, 185, 144, 34, 2, 90, 123, 220, 91, 245, 68, 19, 115, 232, 34, 36, 154, 100, 91, 89, 26, 158, 173, 242, 110, 148, 244 },
+                            PasswordSalt = new byte[] { 109, 203, 33, 1, 63, 156, 132, 44, 168, 178, 25, 83, 20, 192, 158, 93, 175, 172, 144, 29, 248, 99, 148, 212, 246, 194, 41, 241, 161, 90, 105, 25, 196, 110, 210, 218, 27, 29, 199, 35, 83, 227, 154, 59, 120, 15, 239, 130, 55, 95, 253, 251, 106, 172, 54, 33, 53, 33, 16, 191, 231, 189, 243, 225, 26, 225, 169, 235, 117, 43, 10, 149, 95, 204, 178, 44, 225, 213, 251, 230, 109, 72, 79, 212, 119, 170, 100, 136, 220, 48, 99, 81, 178, 65, 245, 100, 12, 244, 83, 146, 205, 75, 221, 250, 116, 53, 213, 176, 221, 26, 159, 133, 74, 90, 202, 33, 205, 146, 221, 155, 2, 44, 45, 155, 92, 224, 10, 1 },
                             PhoneNumber1 = "+84728864923",
                             PhoneNumber2 = "+84227459873",
                             UpdatedBy = -1,
@@ -3701,8 +3733,8 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "newsmanager@gmail.com",
                             FullName = "Lê Thanh Hà",
-                            PasswordHash = new byte[] { 133, 176, 252, 157, 171, 83, 3, 138, 22, 54, 206, 224, 110, 209, 31, 148, 228, 224, 248, 239, 48, 178, 13, 7, 172, 173, 135, 159, 230, 113, 102, 236, 243, 7, 195, 201, 146, 86, 132, 175, 53, 232, 215, 48, 98, 67, 37, 96, 71, 105, 223, 28, 28, 1, 181, 149, 120, 169, 88, 3, 145, 89, 20, 238 },
-                            PasswordSalt = new byte[] { 230, 251, 150, 180, 254, 82, 139, 87, 33, 169, 11, 56, 249, 26, 162, 89, 50, 141, 25, 196, 179, 9, 68, 184, 124, 208, 115, 137, 142, 127, 3, 195, 180, 225, 30, 200, 138, 237, 77, 227, 35, 10, 74, 112, 30, 141, 235, 6, 63, 236, 208, 62, 37, 111, 162, 37, 231, 101, 175, 140, 147, 121, 170, 254, 247, 218, 212, 177, 171, 124, 69, 141, 33, 67, 223, 81, 221, 149, 92, 123, 40, 205, 168, 203, 16, 13, 152, 192, 106, 151, 44, 9, 157, 219, 1, 97, 189, 120, 159, 17, 46, 175, 208, 237, 84, 93, 53, 89, 53, 61, 90, 93, 34, 116, 220, 64, 224, 255, 63, 61, 20, 60, 209, 238, 89, 79, 82, 67 },
+                            PasswordHash = new byte[] { 87, 76, 39, 78, 135, 185, 14, 28, 86, 245, 81, 179, 174, 18, 182, 34, 116, 84, 74, 180, 92, 56, 146, 19, 229, 119, 230, 157, 6, 238, 220, 103, 83, 251, 117, 48, 37, 6, 185, 144, 34, 2, 90, 123, 220, 91, 245, 68, 19, 115, 232, 34, 36, 154, 100, 91, 89, 26, 158, 173, 242, 110, 148, 244 },
+                            PasswordSalt = new byte[] { 109, 203, 33, 1, 63, 156, 132, 44, 168, 178, 25, 83, 20, 192, 158, 93, 175, 172, 144, 29, 248, 99, 148, 212, 246, 194, 41, 241, 161, 90, 105, 25, 196, 110, 210, 218, 27, 29, 199, 35, 83, 227, 154, 59, 120, 15, 239, 130, 55, 95, 253, 251, 106, 172, 54, 33, 53, 33, 16, 191, 231, 189, 243, 225, 26, 225, 169, 235, 117, 43, 10, 149, 95, 204, 178, 44, 225, 213, 251, 230, 109, 72, 79, 212, 119, 170, 100, 136, 220, 48, 99, 81, 178, 65, 245, 100, 12, 244, 83, 146, 205, 75, 221, 250, 116, 53, 213, 176, 221, 26, 159, 133, 74, 90, 202, 33, 205, 146, 221, 155, 2, 44, 45, 155, 92, 224, 10, 1 },
                             PhoneNumber1 = "+84752364923",
                             PhoneNumber2 = "+84208739873",
                             UpdatedBy = -1,
@@ -3719,8 +3751,8 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "cateequipmentmanagement@gmail.com",
                             FullName = "Lê Thành Dương",
-                            PasswordHash = new byte[] { 133, 176, 252, 157, 171, 83, 3, 138, 22, 54, 206, 224, 110, 209, 31, 148, 228, 224, 248, 239, 48, 178, 13, 7, 172, 173, 135, 159, 230, 113, 102, 236, 243, 7, 195, 201, 146, 86, 132, 175, 53, 232, 215, 48, 98, 67, 37, 96, 71, 105, 223, 28, 28, 1, 181, 149, 120, 169, 88, 3, 145, 89, 20, 238 },
-                            PasswordSalt = new byte[] { 230, 251, 150, 180, 254, 82, 139, 87, 33, 169, 11, 56, 249, 26, 162, 89, 50, 141, 25, 196, 179, 9, 68, 184, 124, 208, 115, 137, 142, 127, 3, 195, 180, 225, 30, 200, 138, 237, 77, 227, 35, 10, 74, 112, 30, 141, 235, 6, 63, 236, 208, 62, 37, 111, 162, 37, 231, 101, 175, 140, 147, 121, 170, 254, 247, 218, 212, 177, 171, 124, 69, 141, 33, 67, 223, 81, 221, 149, 92, 123, 40, 205, 168, 203, 16, 13, 152, 192, 106, 151, 44, 9, 157, 219, 1, 97, 189, 120, 159, 17, 46, 175, 208, 237, 84, 93, 53, 89, 53, 61, 90, 93, 34, 116, 220, 64, 224, 255, 63, 61, 20, 60, 209, 238, 89, 79, 82, 67 },
+                            PasswordHash = new byte[] { 87, 76, 39, 78, 135, 185, 14, 28, 86, 245, 81, 179, 174, 18, 182, 34, 116, 84, 74, 180, 92, 56, 146, 19, 229, 119, 230, 157, 6, 238, 220, 103, 83, 251, 117, 48, 37, 6, 185, 144, 34, 2, 90, 123, 220, 91, 245, 68, 19, 115, 232, 34, 36, 154, 100, 91, 89, 26, 158, 173, 242, 110, 148, 244 },
+                            PasswordSalt = new byte[] { 109, 203, 33, 1, 63, 156, 132, 44, 168, 178, 25, 83, 20, 192, 158, 93, 175, 172, 144, 29, 248, 99, 148, 212, 246, 194, 41, 241, 161, 90, 105, 25, 196, 110, 210, 218, 27, 29, 199, 35, 83, 227, 154, 59, 120, 15, 239, 130, 55, 95, 253, 251, 106, 172, 54, 33, 53, 33, 16, 191, 231, 189, 243, 225, 26, 225, 169, 235, 117, 43, 10, 149, 95, 204, 178, 44, 225, 213, 251, 230, 109, 72, 79, 212, 119, 170, 100, 136, 220, 48, 99, 81, 178, 65, 245, 100, 12, 244, 83, 146, 205, 75, 221, 250, 116, 53, 213, 176, 221, 26, 159, 133, 74, 90, 202, 33, 205, 146, 221, 155, 2, 44, 45, 155, 92, 224, 10, 1 },
                             PhoneNumber1 = "+84752369852",
                             PhoneNumber2 = "+84208739842",
                             UpdatedBy = -1,
@@ -3737,8 +3769,8 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "equipmentmanagement@gmail.com",
                             FullName = "Huỳnh Dương Trấn",
-                            PasswordHash = new byte[] { 133, 176, 252, 157, 171, 83, 3, 138, 22, 54, 206, 224, 110, 209, 31, 148, 228, 224, 248, 239, 48, 178, 13, 7, 172, 173, 135, 159, 230, 113, 102, 236, 243, 7, 195, 201, 146, 86, 132, 175, 53, 232, 215, 48, 98, 67, 37, 96, 71, 105, 223, 28, 28, 1, 181, 149, 120, 169, 88, 3, 145, 89, 20, 238 },
-                            PasswordSalt = new byte[] { 230, 251, 150, 180, 254, 82, 139, 87, 33, 169, 11, 56, 249, 26, 162, 89, 50, 141, 25, 196, 179, 9, 68, 184, 124, 208, 115, 137, 142, 127, 3, 195, 180, 225, 30, 200, 138, 237, 77, 227, 35, 10, 74, 112, 30, 141, 235, 6, 63, 236, 208, 62, 37, 111, 162, 37, 231, 101, 175, 140, 147, 121, 170, 254, 247, 218, 212, 177, 171, 124, 69, 141, 33, 67, 223, 81, 221, 149, 92, 123, 40, 205, 168, 203, 16, 13, 152, 192, 106, 151, 44, 9, 157, 219, 1, 97, 189, 120, 159, 17, 46, 175, 208, 237, 84, 93, 53, 89, 53, 61, 90, 93, 34, 116, 220, 64, 224, 255, 63, 61, 20, 60, 209, 238, 89, 79, 82, 67 },
+                            PasswordHash = new byte[] { 87, 76, 39, 78, 135, 185, 14, 28, 86, 245, 81, 179, 174, 18, 182, 34, 116, 84, 74, 180, 92, 56, 146, 19, 229, 119, 230, 157, 6, 238, 220, 103, 83, 251, 117, 48, 37, 6, 185, 144, 34, 2, 90, 123, 220, 91, 245, 68, 19, 115, 232, 34, 36, 154, 100, 91, 89, 26, 158, 173, 242, 110, 148, 244 },
+                            PasswordSalt = new byte[] { 109, 203, 33, 1, 63, 156, 132, 44, 168, 178, 25, 83, 20, 192, 158, 93, 175, 172, 144, 29, 248, 99, 148, 212, 246, 194, 41, 241, 161, 90, 105, 25, 196, 110, 210, 218, 27, 29, 199, 35, 83, 227, 154, 59, 120, 15, 239, 130, 55, 95, 253, 251, 106, 172, 54, 33, 53, 33, 16, 191, 231, 189, 243, 225, 26, 225, 169, 235, 117, 43, 10, 149, 95, 204, 178, 44, 225, 213, 251, 230, 109, 72, 79, 212, 119, 170, 100, 136, 220, 48, 99, 81, 178, 65, 245, 100, 12, 244, 83, 146, 205, 75, 221, 250, 116, 53, 213, 176, 221, 26, 159, 133, 74, 90, 202, 33, 205, 146, 221, 155, 2, 44, 45, 155, 92, 224, 10, 1 },
                             PhoneNumber1 = "+84758576323",
                             PhoneNumber2 = "+84208739823",
                             UpdatedBy = -1,
