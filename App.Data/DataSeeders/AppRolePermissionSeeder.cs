@@ -50,38 +50,132 @@ namespace App.Data.DataSeeders
 				}
 			}
 
-			// Grant full permissions of AppEquipment and AppEquipmentType to an employee
-			var employeeRoleId = 2; // Assuming the employee role has an AppRoleId of 2
-			var employeePermissions = new List<AppRolePermission>();
+			#region Cấp quyền AppEquipment và AppEquipmentType cho nhân viên hệ thống
+			var staff_FullEquipmentRoleId = 2; // Assuming the employee role has an AppRoleId of 2
+			var staff_CateEquipmentRoleId = 8; // Assuming the employee role has an AppRoleId of 2
+			var staff_EquipmentRoleId = 9; // Assuming the employee role has an AppRoleId of 2
+			var staff_FullEquipmentPermissions = new List<AppRolePermission>();
 
 			var appEquipmentPermissions = GetConstants(typeof(AuthConst.AppEquipment));
 			var appTypeEquipmentPermissions = GetConstants(typeof(AuthConst.AppEquipmentType));
 
 			foreach (var permission in appEquipmentPermissions)
 			{
-				employeePermissions.Add(new AppRolePermission
+				staff_FullEquipmentPermissions.Add(new AppRolePermission
 				{
 					Id = ++i,
 					MstPermissionId = Convert.ToInt32(permission.GetRawConstantValue()),
 					UpdatedDate = now,
 					CreatedDate = now,
-					AppRoleId = employeeRoleId,
+					AppRoleId = staff_FullEquipmentRoleId,
+				});
+				staff_FullEquipmentPermissions.Add(new AppRolePermission
+				{
+					Id = ++i,
+					MstPermissionId = Convert.ToInt32(permission.GetRawConstantValue()),
+					UpdatedDate = now,
+					CreatedDate = now,
+					AppRoleId = staff_EquipmentRoleId,
 				});
 			}
 
 			foreach (var permission in appTypeEquipmentPermissions)
 			{
-				employeePermissions.Add(new AppRolePermission
+				staff_FullEquipmentPermissions.Add(new AppRolePermission
 				{
 					Id = ++i,
 					MstPermissionId = Convert.ToInt32(permission.GetRawConstantValue()),
 					UpdatedDate = now,
 					CreatedDate = now,
-					AppRoleId = employeeRoleId,
+					AppRoleId = staff_FullEquipmentRoleId,
+				});
+				staff_FullEquipmentPermissions.Add(new AppRolePermission
+				{
+					Id = ++i,
+					MstPermissionId = Convert.ToInt32(permission.GetRawConstantValue()),
+					UpdatedDate = now,
+					CreatedDate = now,
+					AppRoleId = staff_CateEquipmentRoleId,
 				});
 			}
 
-			rolePermission.AddRange(employeePermissions);
+			rolePermission.AddRange(staff_FullEquipmentPermissions);
+			#endregion
+
+			#region Cấp quyền AppNewsCategory và AppNews cho nhân viên hệ thống'
+			var staff_FullNewsRoleId = 5; // Assuming the employee role has an AppRoleId of 2
+			var staff_CateNewsRoleId = 6; // Assuming the employee role has an AppRoleId of 2
+			var staff_NewsRoleId = 7; // Assuming the employee role has an AppRoleId of 2
+			var staff_FullNewsPermissions = new List<AppRolePermission>();
+
+			var appNewsPermissions = GetConstants(typeof(AuthConst.AppNews));
+			var appNewsCategoryPermissions = GetConstants(typeof(AuthConst.AppCategoryNews));
+
+			foreach (var permission in appNewsPermissions)
+			{
+				staff_FullNewsPermissions.Add(new AppRolePermission
+				{
+					Id = ++i,
+					MstPermissionId = Convert.ToInt32(permission.GetRawConstantValue()),
+					UpdatedDate = now,
+					CreatedDate = now,
+					AppRoleId = staff_FullNewsRoleId,
+				});
+				staff_FullNewsPermissions.Add(new AppRolePermission
+				{
+					Id = ++i,
+					MstPermissionId = Convert.ToInt32(permission.GetRawConstantValue()),
+					UpdatedDate = now,
+					CreatedDate = now,
+					AppRoleId = staff_NewsRoleId,
+				});
+			}
+
+			foreach (var permission in appNewsCategoryPermissions)
+			{
+				staff_FullNewsPermissions.Add(new AppRolePermission
+				{
+					Id = ++i,
+					MstPermissionId = Convert.ToInt32(permission.GetRawConstantValue()),
+					UpdatedDate = now,
+					CreatedDate = now,
+					AppRoleId = staff_FullNewsRoleId,
+				});
+				staff_FullNewsPermissions.Add(new AppRolePermission
+				{
+					Id = ++i,
+					MstPermissionId = Convert.ToInt32(permission.GetRawConstantValue()),
+					UpdatedDate = now,
+					CreatedDate = now,
+					AppRoleId = staff_CateNewsRoleId,
+				});
+			}
+
+			rolePermission.AddRange(staff_FullNewsPermissions);
+			#endregion
+
+			#region Cấp toàn quyền cho admin thuộc chi nhánh 'Hà Nội - Melia Hà Nội'
+			var adminBranch1RoleId = 4; // Assuming the employee role has an AppRoleId of 2
+			var adminBranch1Permissions = new List<AppRolePermission>();
+
+			foreach (var type in classType)
+			{
+				var allPermission = GetConstants(type);
+				foreach (var permission in allPermission)
+				{
+					adminBranch1Permissions.Add(new AppRolePermission
+					{
+						Id = ++i,
+						MstPermissionId = Convert.ToInt32(permission.GetRawConstantValue()),
+						UpdatedDate = now,
+						CreatedDate = now,
+						AppRoleId = adminBranch1RoleId,      // Vai trò được tạo ở AppRoleSeeder
+					});
+				}
+			}
+
+			rolePermission.AddRange(adminBranch1Permissions);
+			#endregion
 
 			builder.HasData(rolePermission);
 		}
