@@ -1,0 +1,139 @@
+﻿@model App.Web.Areas.Admin.ViewModels.News.AddOrUpdateNewsVM
+
+<div class="row">
+	<div class="col-md-6">
+		<div class="mb-3">
+			<label asp-for="Title" class="form-label">Tiêu đề</label>
+			<input asp-for="Title" type="text" class="form-control" id="newsTitle-field" placeholder="Tiêu đề" required />
+			<div class="invalid-feedback">
+				Vui lòng nhập tiêu đề.
+			</div>
+			<span asp-validation-for="Title" class="text-danger"></span>
+		</div>
+		<div class="mb-3">
+			<label asp-for="Content" class="form-label">Tóm tắt</label>
+			<textarea asp-for="Content" type="text" id="newsContent-field" class="form-control" placeholder="Tóm tắt nội dung" required></textarea>
+			<div class="invalid-feedback">
+				Vui lòng nhập nội dung tóm tắt.
+			</div>
+			<span asp-validation-for="Content" class="text-danger"></span>
+		</div>
+		<div class="mb-3">
+			<label asp-for="Summary" class="form-label">Nội dung</label>
+			<div name="Summary" type="text" id="newsSummary-field" class="ckeditor-classic"></div>
+			<textarea asp-for="Summary" type="text" id="newsSummary-field-textarea" class="form-control d-none" placeholder="Nội dung" required></textarea>
+			<div class="invalid-feedback">
+				Vui lòng nhập nội dung.
+			</div>
+			<span asp-validation-for="Summary" class="text-danger"></span>
+		</div>
+	</div>
+
+	<div class="col-md-6">
+		<div class="mb-3">
+			<!-- Ảnh bìa -->
+			<div class="form-group group-container">
+				<div style="opacity: 1">
+					<label asp-for="CoverImgThumbnailPath" class="form-label">Ảnh bìa</label>
+					<div class="text-center justify-content-center align-items-center" style="border: dotted 2px rgb(139, 139, 139); height: 12.5rem">
+						@if (Model != null && !string.IsNullOrEmpty(Model.CoverImgThumbnailPath))
+						{
+							var imgSrc = Model.CoverImgThumbnailPath.StartsWith("https", StringComparison.OrdinalIgnoreCase) ? Model.CoverImgThumbnailPath : "/" + Model.CoverImgThumbnailPath;
+							<img id="imgNewsPreview_Thumbnail_update" src="@imgSrc" alt="" style="height: 12.25rem; width: 40.625rem; object-fit:cover; display: none">
+							<i id="iconNewsPreview_Thumbnail_update" class="fas fa-cloud-upload-alt" style="font-size: 90px; color: rgb(10, 176, 202); margin-top:40px"></i>
+							<input name="ImgThumbnailPath" class="form-control border border-secondary position-absolute" type="file" id="fileNewsInput_Thumbnail_update"
+								   accept="image/*" style="width: 21.875rem; height: 12.5rem; opacity: 0; top: 0" required />
+						}
+						else
+						{
+							<img id="imgNewsPreview_Thumbnail" src="/" alt="" style="height: 12.25rem; width: 40.625rem; object-fit:cover; display: none">
+							<i id="iconNewsPreview_Thumbnail" class="fas fa-cloud-upload-alt" style="font-size: 90px; color: rgb(10, 176, 202); margin-top:40px"></i>
+							<input name="ImgThumbnailPath" class="form-control border border-secondary position-absolute" type="file" id="fileNewsInput_Thumbnail"
+								   accept="image/*" style="width: 21.875rem; height: 12.5rem; opacity: 0; top: 0" required />
+						}
+					</div>
+					<div class="invalid-feedback">
+						Vui lòng thêm ảnh bìa.
+					</div>
+				</div>
+				<span asp-validation-for="CoverImgPath" class="text-danger"></span>
+			</div>
+
+			<div class="d-flex mt-3">
+				<!-- Ảnh bài viết -->
+				<div class="form-group group-container" style="width: 20.9375rem">
+					<div style="opacity: 1">
+						<label asp-for="CoverImgPath" class="form-label">Ảnh bài viết</label>
+						<div class="text-center justify-content-center align-items-center" style="border: dotted 2px rgb(139, 139, 139); height: 12.5rem">
+							@if (Model != null && !string.IsNullOrEmpty(Model.CoverImgPath))
+							{
+								var imgSrc = Model.CoverImgPath.StartsWith("https", StringComparison.OrdinalIgnoreCase) ? Model.CoverImgPath : "/" + Model.CoverImgPath;
+								<img id="imgNewsPreview_update" src="@imgSrc" alt="" style="height: 12.25rem; width: 20.3125rem; object-fit:cover; display: none">
+								<i id="iconNewsPreview_update" class="fas fa-cloud-upload-alt" style="font-size: 90px; color: rgb(10, 176, 202); margin-top:40px"></i>
+								<input name="ImgPath" class="form-control border border-secondary position-absolute" type="file" id="fileNewsInput_update"
+									   accept="image/*" style="width: 20.9375rem; height: 12.5rem; opacity: 0; top: 16.1875rem" required />
+							}
+							else
+							{
+								<img id="imgNewsPreview" src="/" alt="" style="height: 12.25rem; width: 20.3125rem; object-fit:cover; display: none">
+								<i id="iconNewsPreview" class="fas fa-cloud-upload-alt" style="font-size: 90px; color: rgb(10, 176, 202); margin-top:40px"></i>
+								<input name="ImgPath" class="form-control border border-secondary position-absolute" type="file" id="fileNewsInput"
+									   accept="image/*" style="width: 20.9375rem; height: 12.5rem; opacity: 0; top: 16.1875rem" required />
+							}
+						</div>
+						<div class="invalid-feedback">
+							Vui lòng thêm ảnh bài viết.
+						</div>
+					</div>
+					<span asp-validation-for="CoverImgPath" class="text-danger"></span>
+				</div>
+
+				<!-- Ảnh Stamp -->
+				<div class="form-group group-container" style="width: 20.9375rem">
+					<div style="opacity: 1">
+						<label asp-for="StampPath" class="form-label">Ảnh stamp</label>
+						<div class="text-center justify-content-center align-items-center" style="border: dotted 2px rgb(139, 139, 139); height: 12.5rem">
+							@if (Model != null && !string.IsNullOrEmpty(Model.StampPath))
+							{
+								var imgSrc = Model.StampPath.StartsWith("https", StringComparison.OrdinalIgnoreCase) ? Model.StampPath : "/" + Model.StampPath;
+								<img id="imgNewsPreview_Stamp_update" src="@imgSrc" alt="" style="height: 12.25rem; width: 20.3125rem; object-fit:cover; display: none">
+								<i id="iconNewsPreview_Stamp_update" class="fas fa-cloud-upload-alt" style="font-size: 90px; color: rgb(10, 176, 202); margin-top:40px"></i>
+								<input name="StampImgPath" class="form-control border border-secondary position-absolute" type="file" id="fileNewsInput_Stamp_update"
+									   accept="image/*" style="width: 10.9375rem; height: 12.5rem; opacity: 0; top: 16.1875rem" required />
+							}
+							else
+							{
+								<img id="imgNewsPreview_Stamp" src="/" alt="" style="height: 12.25rem; width: 20.3125rem; object-fit:cover; display: none">
+								<i id="iconNewsPreview_Stamp" class="fas fa-cloud-upload-alt" style="font-size: 90px; color: rgb(10, 176, 202); margin-top:40px"></i>
+								<input name="StampImgPath" class="form-control border border-secondary position-absolute" type="file" id="fileNewsInput_Stamp"
+									   accept="image/*" style="width: 10.9375rem; height: 12.5rem; opacity: 0; top: 16.1875rem" required />
+							}
+						</div>
+						<div class="invalid-feedback">
+							Vui lòng thêm ảnh Stamp.
+						</div>
+					</div>
+					<span asp-validation-for="StampPath" class="text-danger"></span>
+				</div>
+			</div>
+		</div>
+		<div class="mb-3">
+			<label asp-for="CategoryId" class="form-label">Thể loại</label>
+			<select asp-for="CategoryId" class="form-select" data-choices data-choices-sorting="true" required>
+				<vc:list-cate-news seleteted-id="@Model?.CategoryId" exclude-ids="null"></vc:list-cate-news>
+			</select>
+			<div class="invalid-feedback">
+				Vui lòng chọn thể loại.
+			</div>
+		</div>
+	</div>
+	@*
+	<div class="col-md-6 mt-4">
+	<div class="mb-3">
+	<div class="form-check">
+	<input class="form-check-input" checked id="send-allEmail-check" asp-for="SendAllEmail">
+	<label class="form-check-label" for="send-allEmail-check">Gửi tất cả Email</label>
+	</div>
+	</div>
+	</div> *@
+</div>

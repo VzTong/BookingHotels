@@ -1,0 +1,205 @@
+﻿@model IEnumerable<App.Web.Areas.Admin.ViewModels.News.ListItemNewsVM>
+@{
+	ViewData["Title"] = "Danh sách tin tức";
+}
+
+<div class="row">
+	<div class="col-12">
+		<div class="page-title-box d-sm-flex align-items-center justify-content-between">
+			<h4 class="mb-sm-0">Quản lý tin tức</h4>
+
+			<div class="page-title-right">
+				<ol class="breadcrumb m-0">
+					<li class="breadcrumb-item"><a asp-action="Index" asp-area="Admin" asp-controller="Home">Bảng tổng quan</a></li>
+					<li class="breadcrumb-item active">Tin tức</li>
+				</ol>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-lg-12">
+		<div class="card">
+			<div class="card-header">
+				<h4 class="card-title mb-0">Tin tức</h4>
+			</div><!-- end card header -->
+
+			<div class="card-body">
+				<div id="customerList">
+					<div class="row g-4 mb-3">
+						<div class="col-sm-auto">
+							<div>
+								@if (User.IsInPermission(AuthConst.AppNews.CREATE))
+								{
+									<a asp-action="CreateNews" class="btn btn-success btn-label add-btn">
+										<i class="ri-add-line label-icon align-middle fs-16 me-2"></i>
+										Thêm mới tin tức
+									</a>
+								}
+							</div>
+						</div>
+					</div>
+
+					<div class="table-responsive mt-3 mb-1">
+						<table class="table align-middle" id="ETypeTable">
+							<thead class="table-light">
+								<tr>
+									<th>#</th>
+									<th>Img</th>
+									<th>Tiêu đề</th>
+									<th>Tóm tắt</th>
+									<th>Chức năng</th>
+								</tr>
+							</thead>
+							<tbody class="list form-check-all">
+								@foreach (var item in Model)
+								{
+									<tr>
+										<td>@item.RowIndex</td>
+
+										<td class="id" style="display:none;">
+											<a class="fw-medium link-primary">@item.Id</a>
+										</td>
+										<td>
+											@{
+												if (item.CoverImgPath != null)
+												{
+													var imgSrc = item.CoverImgPath.StartsWith("https", StringComparison.OrdinalIgnoreCase) ? item.CoverImgPath : "/" + item.CoverImgPath;
+													<img src="@imgSrc" width="250px" height="100px" style="object-fit:cover" />
+												}
+												else
+												{
+													<span>Hiện không có ảnh</span>
+												}
+											}
+										</td>
+										<td class="CateNews_Title">
+											@if (item.Published)
+											{
+												<i class="fas fa-globe text-secondary"></i>
+											}
+											else
+											{
+												<i class="fas fa-lock text-warning"></i>
+											}
+
+											@if (item.DisplayOrder != null)
+											{
+												<span title="Đã ghim" class="ml-1 text-secondary small" style="cursor: default;">
+													<i class="ri-pushpin-2-fill"></i>
+												</span>
+											}
+											<span style="cursor: default;">@item.Title</span>
+
+											<environment names="Development">
+												<small class="text-secondary" style="cursor: default; font-size: x-small">(id @item.Id)</small>
+											</environment>
+
+											<div>
+												@if (!item.CategoryName.IsNullOrEmpty())
+												{
+													<span class="badge badge-soft-success badge-border" style="cursor: default;">
+														@item.CategoryName
+													</span>
+												}
+											</div>
+											<span class="ml-1 text-secondary small"><i class="fa fa-eye"></i> @item.Views</span>
+										</td>
+										<td class="content fit">@item.Content</td>
+										<td>
+											<div class="d-flex gap-2">
+												@if (item.Published)
+												{
+													if (User.IsInPermission(AuthConst.AppNews.UNPUBLIC))
+													{
+														<a asp-action="UnPublicNews" asp-route-id="@item.Id"
+														   title="Không công khai tin tức"
+														   class="btn btn-sm edit-item-btn link-warning fs-15 js-delete-confirm"
+														   data-msg="Xác nhận ẩn tin tức ⌈ @item.Title ⌋ khỏi hệ thống?">
+															<i class="fas fa-lock"></i>
+														</a>
+													}
+												}
+												else
+												{
+													if (User.IsInPermission(AuthConst.AppNews.PUBLIC))
+													{
+														<a asp-action="PublicNews" asp-route-id="@item.Id"
+														   title="Công khai tin tức"
+														   class="btn btn-sm edit-item-btn link-secondary fs-15 js-delete-confirm"
+														   data-msg="Xác nhận công khai tin tức ⌈ @item.Title ⌋ ?">
+															<i class="fas fa-globe"></i>
+														</a>
+													}
+												}
+
+												@if (User.IsInPermission(AuthConst.AppCategoryNews.UPDATE))
+												{
+													if (ViewBag.BranchId == null)
+													{
+														<div class="pin">
+															@if (item.DisplayOrder == null)
+															{
+																<a title="Ghim tin tức lên đầu danh sách" asp-action="NewsPin" asp-route-id="@item.Id"
+																   class="btn btn-sm edit-item-btn link-secondary fs-15"><i class="fas fa-arrow-alt-circle-up"></i></a>
+															}
+															else
+															{
+																<a title="Bỏ ghim tin tức" asp-action="NewsUnPin" asp-route-id="@item.Id"
+																   class="btn btn-sm edit-item-btn link-secondary fs-15"><i class="fas fa-arrow-alt-circle-down"></i></a>
+															}
+														</div>
+													}
+
+													<div class="edit">
+														<a asp-action="EditNews" asp-route-id="@item.Id"
+														   class="btn btn-sm edit-item-btn link-success fs-15">
+															<i class="ri-edit-2-line"></i>
+														</a>
+													</div>
+												}
+												@if (User.IsInPermission(AuthConst.AppCategoryNews.DELETE))
+												{
+													<div class="remove">
+														<button class="btn btn-sm remove-item-btn link-danger fs-15"
+																data-bs-toggle="modal"
+																data-bs-target="#deleteNewsModal"
+																onclick="setDeleteId('@item.Id')">
+															<i class="ri-delete-bin-line"></i>
+														</button>
+													</div>
+												}
+											</div>
+										</td>
+									</tr>
+								}
+
+							</tbody>
+						</table>
+					</div>
+					<div class="d-flex justify-content-end">
+						<div class="pagination-wrap hstack gap-2">
+							<partial name="_Pager" />
+						</div>
+					</div>
+				</div>
+			</div><!-- end card -->
+		</div>
+		<!-- end col -->
+	</div>
+	<!-- end col -->
+</div>
+<!-- end row -->
+
+<partial name="_DeleteNewsModal" model="null" />
+
+@section Scripts {
+	<script>
+		function setDeleteId(id) {
+			const deleteConfirmBtn = document.getElementById('deleteConfirmBtn');
+			deleteConfirmBtn.href = `/Admin/AppNews/Delete/${id}`;
+		}
+	</script>
+}
