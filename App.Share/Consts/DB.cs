@@ -143,6 +143,15 @@
 			public const bool DEFAULT_VALUE					= true;
 		}
 
+		public static class AppRoomTypeName
+		{
+			public const string SINGLE_ROOM					= "SINGLE";
+			public const string DOUBLE_ROOM					= "DOUBLE";
+			public const string FAMILY_ROOM					= "FAMILY";
+			public const string LUXURY_ROOM					= "LUXURY";
+			public const string VIP_ROOM					= "VIP";
+		}
+
 		public static class AppImgRoom
 		{
 			public const string TABLE_NAME					= "AppImgRoom";
