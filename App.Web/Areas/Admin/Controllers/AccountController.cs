@@ -1,6 +1,5 @@
 ﻿using App.Data.Entities.User;
 using App.Data.Repositories;
-using App.Share.Consts;
 using App.Share.Extensions;
 using App.Web.Areas.Admin.ViewModels.Account;
 using App.Web.Common.Helpers;
@@ -28,7 +27,7 @@ namespace App.Web.Areas.Admin.Controllers
 		private readonly IHttpContextAccessor _accessor;
 		private readonly INotyfService _notyf;
 
-		public AccountController(IHttpContextAccessor accessor, IAccountService accountService, IHostingEnvironment env, AppMailConfiguration mailConfig, GenericRepository repository, IMapper mapper, INotyfService notyf) : base(mapper)
+		public AccountController(IHttpContextAccessor accessor, IAccountService accountService, IHostingEnvironment env, AppMailConfiguration mailConfig, GenericRepository repository, IMapper mapper, INotyfService notyf) : base(mapper, repository)
 		{
 			_repository = repository;
 			_mailConfig = mailConfig;
