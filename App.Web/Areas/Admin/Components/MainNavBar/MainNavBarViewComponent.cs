@@ -142,7 +142,7 @@ namespace App.Web.Areas.Admin.Components.MainNavBar
 							Controller = "AppWorkSchedule",
 							DataKey = "work-schedules",
 							DisplayText = "Lịch làm",
-							Permission = AuthConst.AppWorkSchedule.VIEW_LIST,
+							Permission = AuthConst.AppWorkSchedule.VIEW_LIST
 						},
 						new MenuItem
 						{
@@ -150,7 +150,7 @@ namespace App.Web.Areas.Admin.Components.MainNavBar
 							Controller = "AppPayRoll",
 							DataKey = "pay-rolls",
 							DisplayText = "Bảng lương",
-							Permission = AuthConst.AppPayroll.VIEW_LIST,
+							Permission = AuthConst.AppPayroll.VIEW_LIST
 						}
 					}
 				},
@@ -167,7 +167,7 @@ namespace App.Web.Areas.Admin.Components.MainNavBar
 							Controller = "AppRole",
 							DataKey = "roles",
 							DisplayText = "Vai trò trên trang",
-							Permission = AuthConst.AppRole.VIEW_LIST,
+							Permission = AuthConst.AppRole.VIEW_LIST
 						},
 						new MenuItem
 						{
@@ -175,7 +175,7 @@ namespace App.Web.Areas.Admin.Components.MainNavBar
 							Controller = "User",
 							DataKey = "users",
 							DisplayText = "Quản lý tài khoản",
-							Permission = AuthConst.AppUser.VIEW_LIST,
+							Permission = AuthConst.AppUser.VIEW_LIST
 						}
 					}
 				},
@@ -194,6 +194,14 @@ namespace App.Web.Areas.Admin.Components.MainNavBar
 					Icon = "mug-hot",
 					Permission = AuthConst.AppOrder.VIEW_LIST
 				},
+				new MenuItem
+				{
+					Action = "Index",
+					Controller = "AppComment",
+					DisplayText = "Quản lý đánh giá khách sạn",
+					Icon = "comments",
+					Permission = AuthConst.AppComment.VIEW_LIST
+				}
 			});
 			return View(navBar);
 		}
