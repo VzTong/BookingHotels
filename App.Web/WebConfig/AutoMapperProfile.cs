@@ -1,11 +1,14 @@
 ﻿using App.Data.Entities.Hotel;
+using App.Data.Entities.News;
 using App.Data.Entities.Room;
 using App.Data.Entities.User;
 using App.Web.Areas.Admin.ViewModels.Account;
 using App.Web.Areas.Admin.ViewModels.BranchHotel;
+using App.Web.Areas.Admin.ViewModels.CategoryNews;
 using App.Web.Areas.Admin.ViewModels.Equipment;
 using App.Web.Areas.Admin.ViewModels.EquipmentType;
 using App.Web.Areas.Admin.ViewModels.Hotel;
+using App.Web.Areas.Admin.ViewModels.News;
 using App.Web.Areas.Admin.ViewModels.User;
 using App.Web.ViewModels.Account;
 using AutoMapper;
@@ -39,7 +42,15 @@ namespace App.Web.WebConfig
 
 			// Map dữ liệu của AppEquipmentType
 			CreateMap<AppEquipmentType, AddOrUpdateETypeVM>().ReverseMap();
-		}
+
+			// Map dữ liệu của AppNewsCategory
+            CreateMap<AppNewsCategory, AddOrUpdateCategoryNewsVM>();
+            CreateMap<AddOrUpdateCategoryNewsVM, AppNewsCategory>();
+
+			// Map dữ liệu của AppNews
+            CreateMap<AppNews, AddOrUpdateNewsVM>();
+            CreateMap<AddOrUpdateNewsVM, AppNews>();
+        }
 
 		//public static MapperConfiguration RoleIndexConf = new(mapper =>
 		//{
@@ -52,7 +63,8 @@ namespace App.Web.WebConfig
 		{
 			// Map dữ liệu từ AppUser sang UserListItemVM, map thuộc tính RoleName
 			mapper.CreateMap<AppUser, UserListItemVM>()
-				.ForMember(uItem => uItem.RoleName, opts => opts.MapFrom(uEntity => uEntity.AppRole.Name));
+				.ForMember(uItem => uItem.RoleName, opts => opts.MapFrom(uEntity => uEntity.AppRole.Name))
+				.ForMember(uItem => uItem.BranchName, opts=> opts.MapFrom(uEntity => uEntity.Branch.Name));
 		});
 
 		// Cấu hình mapping cho AccountController, action Login
@@ -105,8 +117,14 @@ namespace App.Web.WebConfig
 		{
 			// Map dữ liệu từ AppHotel sang AppHotelListItemVM, map thuộc tính TypeEquipmentName
 			mapper.CreateMap<AppHotel, AppHotelListItemVM>()
-				.ForMember(uItem => uItem.BranchName, opts => opts.MapFrom(uEntity => uEntity.BranchHotels
-					.Select(bh => bh.Name).ToList()));
+				.ForMember(
+					uItem => uItem.BranchName, 
+					opts => opts.MapFrom(
+						uEntity => uEntity.BranchHotels
+							.Select(bh => bh.Name)
+							.ToList()
+					)
+				);
 		});
 
 		// Cấu hình mapping cho AppEquipmentController, action Index
@@ -121,27 +139,30 @@ namespace App.Web.WebConfig
 		public static MapperConfiguration ETypeIndexConf = new(mapper =>
 		{
 			mapper.CreateMap<AppEquipmentType, ETypeListItemVM>()
-				.ForMember(uItem => uItem.EquipmentName, opts => opts.MapFrom(uEntity => uEntity.Equipments
-					.Select(e => e.Name).ToList()));
+				.ForMember(
+					uItem => uItem.EquipmentName, 
+					opts => opts.MapFrom(
+						uEntity => uEntity.Equipments
+							.Select(e => e.Name)
+							.ToList()
+					)
+				);
 		});
 
-		//public static MapperConfiguration CategoryNewsConf = new(mapper =>
-		//{
-		//	mapper.CreateMap<AppCategoryNews, ListItemCategoryNewsVM>()
-		//		.ForMember(vm => vm.TotalNews, opt => opt.MapFrom(entity => entity.NewsNavigation.Count));
-		//});
+		public static MapperConfiguration CategoryNewsConf = new(mapper =>
+		{
+			mapper.CreateMap<AppNewsCategory, ListItemCategoryNewsVM>()
+				.ForMember(vm => vm.TotalNews, opt => opt.MapFrom(entity => entity.NewsNavigation.Count));
+		});
 
-		//public static MapperConfiguration NewsConf = new(mapper =>
-		//{
-		//	mapper.CreateMap<AppNews, ListItemNewsVM>()
-		//	.ForMember(vm => vm.CategoryName, opt =>
-		//		opt.MapFrom(entity =>
-		//			entity.CategoryNews == null ? "" : entity.CategoryNews.Title
-		//		)
-		//	);
-		//	mapper.CreateMap<ListItemNewsVM, AppNews>();
-		//	mapper.CreateMap<AppNews, ListNewsVM>().ReverseMap();
-		//});
+		public static MapperConfiguration NewsConf = new(mapper =>
+		{
+			mapper.CreateMap<AppNews, ListItemNewsVM>()
+			.ForMember(uItem => uItem.CategoryName, opts => opts.MapFrom(uEntity => uEntity.NewsCategory.Title));
+
+			mapper.CreateMap<ListItemNewsVM, AppNews>();
+			mapper.CreateMap<AppNews, ListItemNewsVM>().ReverseMap();
+		});
 
 		//public static MapperConfiguration ProductCategoryConf = new(mapper =>
 		//{
