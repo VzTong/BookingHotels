@@ -22,7 +22,7 @@ namespace App.Web.Areas.Admin.Controllers
 		private readonly ILogger<AppHotelController> _logger;
 		readonly GenericRepository _repository;
 
-		public AppHotelController(GenericRepository repository, ILogger<AppHotelController> logger, IMapper mapper) : base(mapper)
+		public AppHotelController(GenericRepository repository, ILogger<AppHotelController> logger, IMapper mapper) : base(mapper, repository)
 		{
 			_logger = logger;
 			_repository = repository;
@@ -31,19 +31,27 @@ namespace App.Web.Areas.Admin.Controllers
 		[AppAuthorize(AuthConst.AppHotel.VIEW_LIST)]
 		public async Task<IActionResult> Index(SearchHotelVM search, int page = 1, int size = DEFAULT_PAGE_SIZE)
 		{
+			int? branchId = GetCurrentUserBranchId(); //Truy xuất BranchId của người dùng hiện đang đăng nhập
 			ViewBag.Name = search.Name;
-			var data = await GetListHotelAsync(search, page, size);
+			ViewBag.BranchId = branchId;
+
+			var data = await GetListHotelAsync(search, page, size, branchId);
 			ViewBag.BranchCounts = data.ToDictionary(h => h.Id, h => h.BranchName.Count);
 			return View(data);
 		}
 
-		private async Task<IPagedList<AppHotelListItemVM>> GetListHotelAsync(SearchHotelVM search, int page, int size)
+		private async Task<IPagedList<AppHotelListItemVM>> GetListHotelAsync(SearchHotelVM search, int page, int size, int? branchId = null)
 		{
 			var defaultWhere = _repository.GetDefaultWhereExpr<AppHotel>(false);
 			var query = _repository.DbContext
 							.AppHotels
 							.AsNoTracking()
 							.Where(defaultWhere);
+
+			if (branchId.HasValue)
+			{
+				query = query.Where(x => x.BranchHotels.Any(b => b.Id == branchId.Value));
+			}
 
 			if (!search.Name.IsNullOrEmpty())
 			{
@@ -66,45 +74,45 @@ namespace App.Web.Areas.Admin.Controllers
 		[AppAuthorize(AuthConst.AppHotel.CREATE)]
 		public IActionResult CreateHotel() => View();
 
-        [HttpPost]
-        [AppAuthorize(AuthConst.AppHotel.CREATE)]
-        public async Task<IActionResult> CreateHotel(AddOrUpdateHotelVM model, [FromServices] IWebHostEnvironment env)
-        {
-            if (!ModelState.IsValid)
-            {
-                SetErrorMesg(MODEL_STATE_INVALID_MESG, true);
-                return RedirectToAction(nameof(Index), ROUTE_FOR_AREA);
-            }
-            if (_repository.GetAll<AppHotel>().Any(s => s.Name.Equals(model.Name)))
-            {
-                SetErrorMesg("Khách sạn này đã tồn tại !");
-                return RedirectToAction(nameof(Index), ROUTE_FOR_AREA);
-            }
-            try
-            {
-                model.ImgBanner = model.ImgPath != null && model.ImgPath.Length > 0 ? UploadFile(model.ImgPath, env.WebRootPath) : null;
+		[HttpPost]
+		[AppAuthorize(AuthConst.AppHotel.CREATE)]
+		public async Task<IActionResult> CreateHotel(AddOrUpdateHotelVM model, [FromServices] IWebHostEnvironment env)
+		{
+			if (!ModelState.IsValid)
+			{
+				SetErrorMesg(MODEL_STATE_INVALID_MESG, true);
+				return RedirectToAction(nameof(Index), ROUTE_FOR_AREA);
+			}
+			if (_repository.GetAll<AppHotel>().Any(s => s.Name.Equals(model.Name)))
+			{
+				SetErrorMesg("Khách sạn này đã tồn tại !");
+				return RedirectToAction(nameof(Index), ROUTE_FOR_AREA);
+			}
+			try
+			{
+				model.ImgBanner = model.ImgPath != null && model.ImgPath.Length > 0 ? UploadFile(model.ImgPath, env.WebRootPath) : null;
 
-                var now = DateTime.Now;
-                var user = CurrentUserId;
+				var now = DateTime.Now;
+				var user = CurrentUserId;
 
-                var hotel = _mapper.Map<AppHotel>(model);
-                hotel.ImgBanner = model.ImgBanner;
-                hotel.Slug = StringExtension.Slugify(hotel.Name);
-                hotel.CreatedBy = CurrentUserId;
-                hotel.CreatedDate = now;
+				var hotel = _mapper.Map<AppHotel>(model);
+				hotel.ImgBanner = model.ImgBanner;
+				hotel.Slug = StringExtension.Slugify(hotel.Name);
+				hotel.CreatedBy = CurrentUserId;
+				hotel.CreatedDate = now;
 
-                await _repository.AddAsync(hotel);
+				await _repository.AddAsync(hotel);
 
-                SetSuccessMesg($"Thêm khách sạn '{hotel.Name}' thành công");
-                return RedirectToAction(nameof(Index), ROUTE_FOR_AREA);
-            }
-            catch (Exception ex)
-            {
-                LogException(ex);
-                return RedirectToAction(nameof(Index), ROUTE_FOR_AREA);
-            }
-        }
-		
+				SetSuccessMesg($"Thêm khách sạn '{hotel.Name}' thành công");
+				return RedirectToAction(nameof(Index), ROUTE_FOR_AREA);
+			}
+			catch (Exception ex)
+			{
+				LogException(ex);
+				return RedirectToAction(nameof(Index), ROUTE_FOR_AREA);
+			}
+		}
+
 		[AppAuthorize(AuthConst.AppHotel.UPDATE)]
 		public async Task<IActionResult> EditHotel(int id)
 		{
@@ -136,8 +144,6 @@ namespace App.Web.Areas.Admin.Controllers
 
 			try
 			{
-				model.ImgBanner = model.ImgPath != null && model.ImgPath.Length > 0 ? UploadFile(model.ImgPath, env.WebRootPath) : null;
-
 				if (model.ImgPath != null && model.ImgPath.Length > 0)
 				{
 					// Xóa ảnh cũ nếu tồn tại

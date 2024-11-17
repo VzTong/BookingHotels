@@ -22,7 +22,7 @@ namespace App.Web.Areas.Admin.Controllers
 		private readonly ILogger<AppBranchHotelController> _logger;
 		readonly GenericRepository _repository;
 
-		public AppBranchHotelController(GenericRepository repository, ILogger<AppBranchHotelController> logger, IMapper mapper) : base(mapper)
+		public AppBranchHotelController(GenericRepository repository, ILogger<AppBranchHotelController> logger, IMapper mapper) : base(mapper, repository)
 		{
 			_logger = logger;
 			_repository = repository;
@@ -31,18 +31,24 @@ namespace App.Web.Areas.Admin.Controllers
 		[AppAuthorize(AuthConst.AppBranchHotel.VIEW_LIST)]
 		public async Task<IActionResult> Index(SearchBranchVM search, int page = 1, int size = DEFAULT_PAGE_SIZE)
 		{
+			int? branchId = GetCurrentUserBranchId(); //Truy xuất BranchId của người dùng hiện đang đăng nhập
 			ViewBag.Name = search.Name;
-			var data = await GetListBranchAsync(search, page, size);
+			var data = await GetListBranchAsync(search, page, size, branchId);
 			return View(data);
 		}
 
-		private async Task<IPagedList<AppBranchHotelListItemVM>> GetListBranchAsync(SearchBranchVM search, int page, int size)
+		private async Task<IPagedList<AppBranchHotelListItemVM>> GetListBranchAsync(SearchBranchVM search, int page, int size, int? branchId = null)
 		{
 			var defaultWhere = _repository.GetDefaultWhereExpr<AppBranchHotel>(false);
 			var query = _repository.DbContext
 							.AppBranchHotels
 							.AsNoTracking()
 							.Where(defaultWhere);
+
+			if (branchId.HasValue)
+			{
+				query = query.Where(x => x.Id == branchId.Value);
+			}
 
 			if (!search.Name.IsNullOrEmpty())
 			{
@@ -106,7 +112,7 @@ namespace App.Web.Areas.Admin.Controllers
 		[HttpPost]
 		public async Task<IActionResult> Update(AddOrUpdateBranchHotelVM model, [FromServices] IWebHostEnvironment env)
 		{
-            var branch = await _repository.FindAsync<AppBranchHotel>((int)model.Id);
+			var branch = await _repository.FindAsync<AppBranchHotel>((int)model.Id);
 			if (!ModelState.IsValid)
 			{
 				SetErrorMesg(MODEL_STATE_INVALID_MESG, true);

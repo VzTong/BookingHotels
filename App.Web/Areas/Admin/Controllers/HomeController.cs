@@ -18,27 +18,45 @@ namespace App.Web.Areas.Admin.Controllers
 		private readonly ILogger<HomeController> _logger;
 		readonly GenericRepository _repository;
 
-		public HomeController(GenericRepository repository, ILogger<HomeController> logger, IMapper mapper) : base(mapper)
+		public HomeController(GenericRepository repository, ILogger<HomeController> logger, IMapper mapper) : base(mapper, repository)
 		{
 			_logger = logger;
 			_repository = repository;
 		}
 
 		public IActionResult Index()
-		{
-			ViewBag.CountBranchHotel	= _repository.GetAll<AppBranchHotel>(m => m.DeletedDate == null).Count();
-			ViewBag.CountHotel			= _repository.GetAll<AppHotel>(m => m.DeletedDate == null).Count();
-			ViewBag.CountRoom			= _repository.GetAll<AppRoom>(m => m.DeletedDate == null).Count();
-			ViewBag.CountRoomBooking	= _repository.GetAll<AppRoom>(m => m.Status == DB.RoomStatus.STATUS_BOOKING_NAME).Count();
-			ViewBag.CountRoomType		= _repository.GetAll<AppRoomType>(m => m.DeletedDate == null).Count();
-			ViewBag.CountEquipment		= _repository.GetAll<AppEquipment>(m => m.DeletedDate == null).Count();
-			ViewBag.CountNews			= _repository.GetAll<AppNews>(m => m.DeletedDate == null).Count();
-			ViewBag.CountNewsActive		= _repository.GetAll<AppNews>(s => s.Published == true).Count();
-			ViewBag.CountUser			= _repository.GetAll<AppUser>(m => m.DeletedDate == null).Count();
-			ViewBag.CountUserUnBlock	= _repository.GetAll<AppUser>(m => m.DeletedDate == null && m.BlockedTo == null
-																	|| m.DeletedDate == null && m.BlockedTo < DateTime.Now).Count();
-			return View();
-		}
+        {
+            int? branchId = GetCurrentUserBranchId();
+
+            if (branchId.HasValue)
+            {
+                ViewBag.CountBranchHotel    = _repository.GetAll<AppBranchHotel>(m => m.DeletedDate == null && m.Id == branchId).Count();
+                ViewBag.CountHotel          = _repository.GetAll<AppHotel>(m => m.DeletedDate == null && m.BranchHotels.Any(b => b.Id == branchId.Value)).Count();
+                ViewBag.CountRoom           = _repository.GetAll<AppRoom>(m => m.DeletedDate == null && m.BranchId == branchId).Count();
+                ViewBag.CountRoomBooking    = _repository.GetAll<AppRoom>(m => m.Status == DB.RoomStatus.STATUS_BOOKING_NAME && m.BranchId == branchId).Count();
+                ViewBag.CountRoomType       = _repository.GetAll<AppRoomType>(m => m.DeletedDate == null && m.Rooms.Any(r => r.BranchId == branchId)).Count();
+                ViewBag.CountEquipment      = _repository.GetAll<AppEquipment>(m => m.DeletedDate == null && m.RoomEquipments.Any(re => re.Room.BranchId == branchId)).Count();
+                ViewBag.CountUser           = _repository.GetAll<AppUser>(m => m.DeletedDate == null && m.BranchId == branchId).Count();
+				ViewBag.CountNews = _repository.GetAll<AppNews>(m => m.DeletedDate == null && m.Users.BranchId == branchId).Count();
+				ViewBag.CountNewsActive = _repository.GetAll<AppNews>(m => m.Published == true && m.Users.BranchId == branchId).Count();
+				ViewBag.CountUserUnBlock    = _repository.GetAll<AppUser>(m => m.DeletedDate == null && m.BranchId == branchId && (m.BlockedTo == null || m.BlockedTo < DateTime.Now)).Count();
+            }
+            else
+            {
+                ViewBag.CountBranchHotel    = _repository.GetAll<AppBranchHotel>(m => m.DeletedDate == null).Count();
+                ViewBag.CountHotel          = _repository.GetAll<AppHotel>(m => m.DeletedDate == null).Count();
+                ViewBag.CountRoom           = _repository.GetAll<AppRoom>(m => m.DeletedDate == null).Count();
+                ViewBag.CountRoomBooking    = _repository.GetAll<AppRoom>(m => m.Status == DB.RoomStatus.STATUS_BOOKING_NAME).Count();
+                ViewBag.CountRoomType       = _repository.GetAll<AppRoomType>(m => m.DeletedDate == null).Count();
+                ViewBag.CountEquipment      = _repository.GetAll<AppEquipment>(m => m.DeletedDate == null).Count();
+                ViewBag.CountNews           = _repository.GetAll<AppNews>(m => m.DeletedDate == null).Count();
+                ViewBag.CountNewsActive     = _repository.GetAll<AppNews>(s => s.Published == true).Count();
+                ViewBag.CountUser           = _repository.GetAll<AppUser>(m => m.DeletedDate == null).Count();
+                ViewBag.CountUserUnBlock    = _repository.GetAll<AppUser>(m => m.DeletedDate == null && (m.BlockedTo == null || m.BlockedTo < DateTime.Now)).Count();
+            }
+
+            return View();
+        }
 
 		public IActionResult Privacy()
 		{

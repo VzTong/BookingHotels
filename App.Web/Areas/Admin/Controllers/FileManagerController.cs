@@ -1,4 +1,5 @@
-﻿using App.Share.Consts;
+﻿using App.Data.Repositories;
+using App.Share.Consts;
 using App.Web.Common;
 using App.Web.Common.Helpers;
 using App.Web.WebConfig.Consts;
@@ -12,7 +13,7 @@ namespace App.Web.Areas.Admin.Controllers
 {
 	public class FileManagerController : AppControllerBase
 	{
-		public FileManagerController(IMapper mapper) : base(mapper)
+		public FileManagerController(IMapper mapper, GenericRepository repository) : base(mapper, repository)
 		{
 		}
 

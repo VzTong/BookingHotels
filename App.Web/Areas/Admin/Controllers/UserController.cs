@@ -8,6 +8,7 @@ using App.Web.WebConfig.Consts;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using X.PagedList;
 
 namespace App.Web.Areas.Admin.Controllers
@@ -16,7 +17,7 @@ namespace App.Web.Areas.Admin.Controllers
 	{
 		readonly GenericRepository _repository;
 
-        public UserController(GenericRepository repository, IMapper mapper) : base(mapper)
+		public UserController(GenericRepository repository, IMapper mapper) : base(mapper, repository)
 		{
 			_repository = repository;
 		}
@@ -24,11 +25,25 @@ namespace App.Web.Areas.Admin.Controllers
 		[AppAuthorize(AuthConst.AppUser.VIEW_LIST)]
 		public async Task<IActionResult> Index(int page = 1, int size = DEFAULT_PAGE_SIZE)
 		{
-			// Chú ý dấu ngoặc khi dùng await cùng với GenRowIndex
-			var data = (await _repository
-				.GetAll<AppUser>(u => u.Username != this.CurrentUsername && u.AppRoleId != AppConst.ROLE_ADMINISTRATOR_ID)
+			int? branchId = GetCurrentUserBranchId(); //Truy xuất BranchId của người dùng hiện đang đăng nhập
+
+			// Tìm nạp người dùng ngoại trừ người dùng hiện tại và những người có vai trò quản trị viên
+			var query = _repository.GetAll<AppUser>(u => u.Username != this.CurrentUsername
+													&& u.AppRoleId != AppConst.ROLE_ADMINISTRATOR_ID);
+
+			// Nếu BranchId không rỗng, hãy lọc người dùng theo BranchId
+			if (branchId.HasValue)
+			{
+				query = query.Where(u => u.BranchId == branchId.Value);
+			}
+
+			// Dự án tới UserListItemVM và áp dụng phân trang
+			var data = (await query
 				.ProjectTo<UserListItemVM>(AutoMapperProfile.UserIndexConf)
-				.ToPagedListAsync(page, size)).GenRowIndex();
+				.ToPagedListAsync(page, size))
+				.GenRowIndex();
+
+			// Trả về view với dữ liệu được phân trang
 			return View(data);
 		}
 
@@ -54,12 +69,27 @@ namespace App.Web.Areas.Admin.Controllers
 
 			try
 			{
+				// Tìm nạp thực thể AppRole dựa trên AppRoleId và bao gồm AppUsers
+				var appRole = await _repository.GetAll<AppRole>()
+											   .Include(r => r.AppUsers)
+											   .FirstOrDefaultAsync(r => r.Id == model.AppRoleId);
+				if (appRole == null)
+				{
+					SetErrorMesg("Vai trò không tồn tại!");
+					return View(model);
+				}
+
+				// Nhận BranchId từ bất kỳ người dùng nào trong vai trò
+				var branchId = appRole.AppUsers.Select(ur => ur.BranchId).FirstOrDefault();
+
+				model.BranchId = branchId;
+
 				var hashResult = HashHMACSHA512(model.Password);
 				model.PasswordHash = hashResult.Value;
 				model.PasswordSalt = hashResult.Key;
 				var user = _mapper.Map<AppUser>(model);
 				await _repository.AddAsync(user);
-				SetSuccessMesg($"Thêm tài khoản [{user.Username}] thành công!");
+				SetSuccessMesg($"Thêm tài khoản '{user.Username}' thành công!");
 				return RedirectToAction(nameof(Index));
 			}
 			catch (Exception ex)
@@ -105,13 +135,26 @@ namespace App.Web.Areas.Admin.Controllers
 
 			try
 			{
+				// Tìm nạp thực thể AppRole dựa trên AppRoleId và bao gồm AppUsers
+				var appRole = await _repository.GetAll<AppRole>()
+									  .Include(r => r.AppUsers)
+									  .FirstOrDefaultAsync(r => r.Id == model.AppRoleId);
+				if (appRole == null)
+				{
+					SetErrorMesg("Vai trò không tồn tại!");
+					return View(model);
+				}
+
+				// Nhận BranchId từ bất kỳ người dùng nào trong vai trò
+				var branchId = appRole.AppUsers.Select(ur => ur.BranchId).FirstOrDefault();
+
 				user.FullName = model.FullName;
 				user.PhoneNumber1 = model.PhoneNumber1;
 				user.PhoneNumber2 = model.PhoneNumber2;
 				user.Address = model.Address;
 				user.Email = model.Email;
 				user.AppRoleId = model.AppRoleId;
-				user.BranchId = (int)model.BranchId;
+				user.BranchId = branchId;
 				await _repository.UpdateAsync(user);
 				SetSuccessMesg($"Cập nhật tài khoản [{user.Username}] thành công");
 				return RedirectToAction(nameof(Index));

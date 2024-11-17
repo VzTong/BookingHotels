@@ -20,7 +20,7 @@ namespace App.Web.Areas.Admin.Controllers
 		private readonly ILogger<AppBranchHotelController> _logger;
 		readonly GenericRepository _repository;
 
-		public AppETypeController(GenericRepository repository, ILogger<AppBranchHotelController> logger, IMapper mapper) : base(mapper)
+		public AppETypeController(GenericRepository repository, ILogger<AppBranchHotelController> logger, IMapper mapper) : base(mapper, repository)
 		{
 			_logger = logger;
 			_repository = repository;
@@ -29,6 +29,9 @@ namespace App.Web.Areas.Admin.Controllers
 		[AppAuthorize(AuthConst.AppEquipmentType.VIEW_LIST)]
 		public async Task<IActionResult> Index(int page = 1, int size = DEFAULT_PAGE_SIZE)
 		{
+			int? branchId = GetCurrentUserBranchId(); //Truy xuất BranchId của người dùng hiện đang đăng nhập
+			ViewBag.BranchId = branchId;
+
 			var data = (await _repository
 				.GetAll<AppEquipmentType>()
 				.OrderByDescending(m => m.DisplayOrder)
