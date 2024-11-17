@@ -18,6 +18,7 @@ namespace App.Data.DataSeeders
 				typeof(AuthConst.FileManager),
 				typeof(AuthConst.AppNews),
 				typeof(AuthConst.AppCategoryNews),
+				typeof(AuthConst.AppComment),
 				typeof(AuthConst.AppBranchHotel),
 				typeof(AuthConst.AppHotel),
 				typeof(AuthConst.AppRoom),
