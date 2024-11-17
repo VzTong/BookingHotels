@@ -31,7 +31,7 @@ namespace App.Data.Entities.User
         public int? CitizenId { get; set; }
         public string? Passport { get; set; }
         public string? Permanent { get; set; }
-        public int BranchId { get; set; }
+        public int? BranchId { get; set; }
         public int? AppRoleId { get; set; }
 
         virtual public AppBranchHotel Branch { get; set; }
