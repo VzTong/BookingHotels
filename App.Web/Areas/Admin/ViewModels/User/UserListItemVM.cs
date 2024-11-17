@@ -8,6 +8,7 @@
 		public string Email { get; set; }
 		public DateTime? CreatedDate { get; set; }
 		public string RoleName { get; set; }
+		public string BranchName { get; set; }
 		public DateTime? BlockedTo { get; set; }
 		public bool IsBlock
 		{

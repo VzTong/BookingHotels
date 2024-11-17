@@ -37,6 +37,7 @@ namespace App.Web.Areas.Admin.ViewModels.User
 		[AppEmail]
 		public string Email { get; set; }
 		public string Address { get; set; }
+		[AppRequired]
 		public int? AppRoleId { get; set; }
 		public int? BranchId { get; set; }
 		public DateTime? UpdatedDate { get; set; }
