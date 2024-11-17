@@ -10,7 +10,6 @@ namespace App.Data.Entities.Room
         {
             ImgRooms = new HashSet<AppImgRoom>();
 			OrderDetails = new HashSet<AppOrderDetail>();
-			Comments = new HashSet<AppComment>();
 			RoomEquipments = new HashSet<AppRoomEquipment>();
         }
         public string RoomName { get; set; }
@@ -29,6 +28,5 @@ namespace App.Data.Entities.Room
 		public ICollection<AppRoomEquipment> RoomEquipments { get; set; }
 		public ICollection<AppImgRoom> ImgRooms { get; set; }
 		public ICollection<AppOrderDetail> OrderDetails { get; set; }
-		public ICollection<AppComment> Comments { get; set; }
 	}
 }
