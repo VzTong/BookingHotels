@@ -14,5 +14,6 @@
         public string? CoverImgThumbnailPath { get; set; }
         public string? StampPath { get; set; }
         public string CategoryName { get; set; }
+        public int? DisplayOrder { get; set; }
     }
 }
