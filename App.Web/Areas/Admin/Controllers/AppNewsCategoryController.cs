@@ -58,7 +58,7 @@ namespace App.Web.Areas.Admin.Controllers
 				var now = DateTime.Now;
 
 				var category = _mapper.Map<AppNewsCategory>(model);
-				if (model.CoverImgPath != null && model.CoverImgPath.Length > 0)
+				if (model.ImgPath != null && model.ImgPath.Length > 0)
 				{
 					category.CoverImgPath = model.ImgPath != null && model.ImgPath.Length > 0 ? UploadFile(model.ImgPath, env.WebRootPath) : null;
 				}
@@ -76,6 +76,7 @@ namespace App.Web.Areas.Admin.Controllers
 			}
 		}
 
+		[HttpGet]
 		[AppAuthorize(AuthConst.AppCategoryNews.UPDATE)]
 		public async Task<IActionResult> EditCateNews(int id)
 		{
@@ -85,7 +86,9 @@ namespace App.Web.Areas.Admin.Controllers
 				SetErrorMesg(PAGE_NOT_FOUND_MESG);
 				return RedirectToAction(nameof(Index), ROUTE_FOR_AREA);
 			}
+
 			var categoryVM = _mapper.Map<AddOrUpdateCategoryNewsVM>(cate);
+
 			return View(categoryVM);
 		}
 
