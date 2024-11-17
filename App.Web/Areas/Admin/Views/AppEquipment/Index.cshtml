@@ -58,7 +58,10 @@
 									<th>Tên thiết bị</th>
 									<th>Loại thiết bị</th>
 									<th>Mô tả</th>
-									<th>Chức năng</th>
+									@if (ViewBag.BranchId == null)
+									{
+										<th>Chức năng</th>
+									}
 								</tr>
 							</thead>
 							<tbody class="list form-check-all">
@@ -75,32 +78,36 @@
 											<span class="badge badge-soft-secondary">@item.TypeEquipmentName</span>
 										</td>
 										<td class="description fit">@item.Description</td>
-										<td>
-											<div class="d-flex gap-2">
-												@if (User.IsInPermission(AuthConst.AppEquipment.UPDATE))
-												{
-													<div class="edit">
-														<button class="btn btn-sm edit-item-btn link-success fs-15"
-																data-bs-toggle="modal"
-																data-bs-target="#updateEquipment"
-																onclick="UpdateEquipment('@item.Id', '@item.Name', '@item.Description', '@item.TypeEquipmentId')">
-															<i class="ri-edit-2-line"></i>
-														</button>
-													</div>
-												}
-												@if (User.IsInPermission(AuthConst.AppEquipment.DELETE))
-												{
-													<div class="remove">
-														<button class="btn btn-sm remove-item-btn link-danger fs-15"
-																data-bs-toggle="modal"
-																data-bs-target="#deleteEquipmentModal"
-																onclick="setDeleteId('@item.Id')">
-															<i class="ri-delete-bin-line"></i>
-														</button>
-													</div>
-												}
-											</div>
-										</td>
+
+										@if (ViewBag.BranchId == null)
+										{
+											<td>
+												<div class="d-flex gap-2">
+													@if (User.IsInPermission(AuthConst.AppEquipment.UPDATE))
+													{
+														<div class="edit">
+															<button class="btn btn-sm edit-item-btn link-success fs-15"
+																	data-bs-toggle="modal"
+																	data-bs-target="#updateEquipment"
+																	onclick="UpdateEquipment('@item.Id', '@item.Name', '@item.Description', '@item.TypeEquipmentId')">
+																<i class="ri-edit-2-line"></i>
+															</button>
+														</div>
+													}
+													@if (User.IsInPermission(AuthConst.AppEquipment.DELETE))
+													{
+														<div class="remove">
+															<button class="btn btn-sm remove-item-btn link-danger fs-15"
+																	data-bs-toggle="modal"
+																	data-bs-target="#deleteEquipmentModal"
+																	onclick="setDeleteId('@item.Id')">
+																<i class="ri-delete-bin-line"></i>
+															</button>
+														</div>
+													}
+												</div>
+											</td>
+										}
 									</tr>
 								}
 
