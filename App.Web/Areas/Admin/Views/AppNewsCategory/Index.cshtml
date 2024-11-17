@@ -33,10 +33,13 @@
 							<div>
 								@if (User.IsInPermission(AuthConst.AppCategoryNews.CREATE))
 								{
-									<a asp-action="CreateCateNews" class="btn btn-success btn-label add-btn">
-										<i class="ri-add-line label-icon align-middle fs-16 me-2"></i>
-										Thêm mới thể loại
-									</a>
+									if (ViewBag.BranchId == null)
+									{
+										<a asp-action="CreateCateNews" class="btn btn-success btn-label add-btn">
+											<i class="ri-add-line label-icon align-middle fs-16 me-2"></i>
+											Thêm mới thể loại
+										</a>
+									}
 								}
 							</div>
 						</div>
@@ -50,7 +53,10 @@
 									<th>Img</th>
 									<th>Tiêu đề</th>
 									<th>Nội dung</th>
-									<th>Chức năng</th>
+									@if (ViewBag.BranchId == null)
+									{
+										<th>Chức năng</th>
+									}
 								</tr>
 							</thead>
 							<tbody class="list form-check-all">
@@ -84,33 +90,42 @@
 														@item.Slug
 													</span>
 												}
+												@if(item.TotalNews >= 1)
+												{
+													<span class="badge badge-soft-info" style="cursor: default;">
+														Có @item.TotalNews tin tức
+													</span>
+												}
 											</div>
 										</td>
 										<td class="content fit">@item.Content</td>
-										<td>
-											<div class="d-flex gap-2">
-												@if (User.IsInPermission(AuthConst.AppCategoryNews.UPDATE))
-												{
-													<div class="edit">
-														<a asp-action="EditCateNews" asp-route-id="@item.Id"
-														   class="btn btn-sm edit-item-btn link-success fs-15">
-															<i class="ri-edit-2-line"></i>
-														</a>
-													</div>
-												}
-												@if (User.IsInPermission(AuthConst.AppCategoryNews.DELETE))
-												{
-													<div class="remove">
-														<button class="btn btn-sm remove-item-btn link-danger fs-15"
-																data-bs-toggle="modal"
-																data-bs-target="#deleteCateNewsModal"
-																onclick="setDeleteId('@item.Id')">
-															<i class="ri-delete-bin-line"></i>
-														</button>
-													</div>
-												}
-											</div>
-										</td>
+										@if (ViewBag.BranchId == null)
+										{
+											<td>
+												<div class="d-flex gap-2">
+													@if (User.IsInPermission(AuthConst.AppCategoryNews.UPDATE))
+													{
+														<div class="edit">
+															<a asp-action="EditCateNews" asp-route-id="@item.Id"
+															   class="btn btn-sm edit-item-btn link-success fs-15">
+																<i class="ri-edit-2-line"></i>
+															</a>
+														</div>
+													}
+													@if (User.IsInPermission(AuthConst.AppCategoryNews.DELETE))
+													{
+														<div class="remove">
+															<button class="btn btn-sm remove-item-btn link-danger fs-15"
+																	data-bs-toggle="modal"
+																	data-bs-target="#deleteCateNewsModal"
+																	onclick="setDeleteId('@item.Id')">
+																<i class="ri-delete-bin-line"></i>
+															</button>
+														</div>
+													}
+												</div>
+											</td>
+										}
 									</tr>
 								}
 
@@ -137,7 +152,7 @@
 	<script>
 		function setDeleteId(id) {
 			const deleteConfirmBtn = document.getElementById('deleteConfirmBtn');
-			deleteConfirmBtn.href = `/Admin/CategoryNews/Delete/${id}`;
+			deleteConfirmBtn.href = `/Admin/AppNewsCategory/Delete/${id}`;
 		}
 	</script>
 }
