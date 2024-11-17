@@ -76,8 +76,8 @@
 				.then(editor => {
 					window.editor = editor;
 
-					// Handle form submission
-					document.querySelector('form').addEventListener('submit', function () {
+					// Update textarea in real-time
+					editor.model.document.on('change:data', () => {
 						var editorData = editor.getData();
 						document.getElementById('newsSummary-field-textarea').value = editorData;
 					});
