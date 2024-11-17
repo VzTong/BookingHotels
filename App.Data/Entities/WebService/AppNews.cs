@@ -20,6 +20,6 @@ namespace App.Data.Entities.News
         public int? CategoryId { get; set; }
 
         public AppUser Users { get; set; }
-        public AppNewsCategory CategoryNews { get; set; }
+        public AppNewsCategory NewsCategory { get; set; }
     }
 }
