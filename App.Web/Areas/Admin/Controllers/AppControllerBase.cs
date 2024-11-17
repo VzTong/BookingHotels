@@ -1,8 +1,10 @@
-﻿using App.Web.Common;
+﻿using App.Data.Repositories;
+using App.Web.Common;
 using App.Web.WebConfig.Consts;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
+using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
@@ -12,25 +14,35 @@ namespace App.Web.Areas.Admin.Controllers
 	[Area("Admin")]
 	public class AppControllerBase : Controller
 	{
-		protected const string AREA_NAME = "Admin";
-		protected const int DEFAULT_PAGE_SIZE = 20;
-		protected const string EXCEPTION_ERR_MESG = "Đã xảy ra lỗi trong quá trình xử lý dữ liệu (500)";
+		protected const string AREA_NAME				= "Admin";
+		protected const int DEFAULT_PAGE_SIZE			= 20;
+		protected const string EXCEPTION_ERR_MESG		= "Đã xảy ra lỗi trong quá trình xử lý dữ liệu (500)";
 		protected const string MODEL_STATE_INVALID_MESG = "Dữ liệu không hợp lệ, vui lòng kiểm tra lại";
-		protected const string PAGE_NOT_FOUND_MESG = "Không tìm thấy trang";
-		protected readonly string DefaultImagePath = "upload/img_avt/astronaut.png";// Đường dẫn đến ảnh mặc định
+		protected const string PAGE_NOT_FOUND_MESG		= "Không tìm thấy trang";
+		protected readonly string DefaultImagePath		= "upload/img_avt/astronaut.png";// Đường dẫn đến ảnh mặc định
 
 		protected readonly object ROUTE_FOR_AREA = new
 		{
 			area = AREA_NAME
 		};
 		protected readonly IMapper _mapper;
+		protected readonly GenericRepository _repository;
+
 		protected int CurrentUserId { get => Convert.ToInt32(HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier)); }
 		protected string CurrentUsername { get => HttpContext.User.Identity.Name; }
+
+		protected int? GetCurrentUserBranchId()
+		{
+			var user = _repository.DbContext.AppUsers.AsNoTracking().FirstOrDefault(u => u.Id == CurrentUserId);
+			return user?.BranchId;
+		}
+
 		protected string Referer { get => Request.Headers["Referer"].ToString(); }
 
-		public AppControllerBase(IMapper mapper)
+		public AppControllerBase(IMapper mapper, GenericRepository repository)
 		{
 			_mapper = mapper;
+			_repository = repository;
 		}
 
 		protected RedirectToActionResult HomePage() => RedirectToAction("Index", "Home", new { area = "Admin" });
@@ -75,6 +87,7 @@ namespace App.Web.Areas.Admin.Controllers
 			hashResult.Key = hmac.Key;
 			return hashResult;
 		}
+
 		/// <summary>
 		/// Check role khách hàng khi đăng nhập bằng trang đăng nhập của admin
 		/// </summary>
@@ -92,14 +105,12 @@ namespace App.Web.Areas.Admin.Controllers
 			}
 		}
 
-
 		/// <summary>
 		/// Upload và trả về tên file, file đó được lưu trong thư mục Upload
 		/// </summary>
 		/// <param name="file">Là file đó</param>
 		/// <param name="dir">Thư mục lưu file</param>
 		/// <returns></returns>
-		// Viết hàm xử lý ảnh riêng
 		protected string UploadFile(IFormFile file, string dir)
 		{
 			if (file == null)
