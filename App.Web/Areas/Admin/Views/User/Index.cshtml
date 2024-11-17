@@ -34,7 +34,7 @@
 								@if (User.IsInPermission(AuthConst.AppUser.CREATE))
 								{
 									<a asp-action="Create" class="btn btn-success btn-label add-btn">
-										<i class="ri-add-line label-icon align-middle fs-16 me-2"></i> 
+										<i class="ri-add-line label-icon align-middle fs-16 me-2"></i>
 										Thêm người dùng
 									</a>
 								}
@@ -70,7 +70,17 @@
 										<td class="user_fullName">@item.FullName</td>
 										<td class="phoneNumber">@item.PhoneNumber1</td>
 										<td class="email">@item.Email</td>
-										<td class="roleName">@item.RoleName</td>
+										<td class="roleName">
+											@item.RoleName
+											<div>
+												@if (!item.BranchName.IsNullOrEmpty())
+												{
+													<span class="badge badge-soft-info" style="cursor: default;">
+														<i class=" ri-hotel-line"></i> @item.BranchName
+													</span>
+												}
+											</div>
+										</td>
 										<td class="createDay">@item.CreatedDate.ToDMY()</td>
 										<td>
 											<div class="d-flex gap-2">
@@ -79,10 +89,11 @@
 													if (item.IsBlock)
 													{
 														<div>
-															<a asp-action="UnBlockUser" asp-route-id="@item.Id" 
-																title="Mở khóa tài khoản"
-																data-msg="Xác nhận mở khóa tài khoản [@item.Username]?"
-																class="btn btn-sm link-success fs-15">
+															<a asp-action="UnBlockUser" asp-route-id="@item.Id"
+															   title="Mở khóa tài khoản"
+															   data-msg="Tài khoản này bị khóa đến @item.BlockedTo.ToDMYHM()!
+Xác nhận mở khóa tài khoản [@item.Username]?"
+															   class="btn btn-sm link-success fs-15 js-delete-confirm">
 																<i class="ri-lock-unlock-line"></i>
 															</a>
 														</div>
@@ -93,11 +104,11 @@
 													if (!item.IsBlock)
 													{
 														<div>
-															<button type="button" data-id="@item.Id" 
-																data-username="@item.Username" 
-																title="Khóa tài khoản" 
-																data-bs-toggle="modal" data-bs-target="#blockUser"
-																class="btn btn-sm link-warning fs-15 js-block">
+															<button type="button" data-id="@item.Id"
+																	data-username="@item.Username"
+																	title="Khóa tài khoản"
+																	data-bs-toggle="modal" data-bs-target="#blockUser"
+																	class="btn btn-sm link-warning fs-15 js-block">
 																<i class="ri-lock-2-line"></i>
 															</button>
 														</div>
@@ -107,7 +118,7 @@
 												{
 													<div class="edit">
 														<a asp-action="Edit" asp-route-id="@item.Id"
-															class="btn btn-sm edit-item-btn link-success fs-15">
+														   class="btn btn-sm edit-item-btn link-success fs-15">
 															<i class="ri-edit-2-line"></i>
 														</a>
 													</div>
