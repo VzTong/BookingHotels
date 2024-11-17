@@ -34,7 +34,7 @@
 							<div>
 								@if (User.IsInPermission(AuthConst.AppHotel.CREATE))
 								{
-									if (ViewBag.BranchId == null)
+									if (ViewBag.BranchId is null)
 									{
 										<a asp-action="CreateHotel" class="btn btn-success btn-label add-btn">
 											<i class="ri-add-line label-icon align-middle fs-16 me-2"></i>
@@ -45,7 +45,7 @@
 							</div>
 						</div>
 
-						@if (ViewBag.BranchId == null)
+						@if (ViewBag.BranchId is null)
 						{
 							<div class="col-sm">
 								<div class="d-flex justify-content-sm-end">
@@ -157,7 +157,7 @@
 										<td class="email">@item.Email</td>
 										<td>
 											<div class="d-flex gap-2">
-												@if (ViewBag.BranchId == null)
+												@if (ViewBag.BranchId is null)
 												{
 													if (item.IsActive)
 													{
@@ -186,7 +186,7 @@
 												}
 												@if (User.IsInPermission(AuthConst.AppHotel.UPDATE))
 												{
-													if (ViewBag.BranchId == null)
+													if (ViewBag.BranchId is null)
 													{
 														<div class="pin">
 															@if (item.DisplayOrder == null)
@@ -210,7 +210,7 @@
 													</div>
 												}
 
-												@if (ViewBag.BranchId == null)
+												@if (ViewBag.BranchId is null)
 												{
 													if (User.IsInPermission(AuthConst.AppHotel.DELETE))
 													{
@@ -231,7 +231,7 @@
 							</tbody>
 						</table>
 					</div>
-					@if (ViewBag.NoResultsFound != null && ViewBag.NoResultsFound && ViewBag.BranchId == null)
+					@if (ViewBag.NoResultsFound != null && ViewBag.NoResultsFound && ViewBag.BranchId is null)
 					{
 						<div class="noresult">
 							<div class="text-center">

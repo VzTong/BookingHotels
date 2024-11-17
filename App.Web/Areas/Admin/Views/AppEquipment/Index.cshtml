@@ -58,7 +58,7 @@
 									<th>Tên thiết bị</th>
 									<th>Loại thiết bị</th>
 									<th>Mô tả</th>
-									@if (ViewBag.BranchId == null)
+									@if (ViewBag.BranchId is null)
 									{
 										<th>Chức năng</th>
 									}
@@ -79,7 +79,7 @@
 										</td>
 										<td class="description fit">@item.Description</td>
 
-										@if (ViewBag.BranchId == null)
+										@if (ViewBag.BranchId is null)
 										{
 											<td>
 												<div class="d-flex gap-2">

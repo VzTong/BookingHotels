@@ -33,7 +33,7 @@
 							<div>
 								@if (User.IsInPermission(AuthConst.AppCategoryNews.CREATE))
 								{
-									if (ViewBag.BranchId == null)
+									if (ViewBag.BranchId is null)
 									{
 										<a asp-action="CreateCateNews" class="btn btn-success btn-label add-btn">
 											<i class="ri-add-line label-icon align-middle fs-16 me-2"></i>
@@ -53,7 +53,7 @@
 									<th>Img</th>
 									<th>Tiêu đề</th>
 									<th>Nội dung</th>
-									@if (ViewBag.BranchId == null)
+									@if (ViewBag.BranchId is null)
 									{
 										<th>Chức năng</th>
 									}
@@ -99,7 +99,7 @@
 											</div>
 										</td>
 										<td class="content fit">@item.Content</td>
-										@if (ViewBag.BranchId == null)
+										@if (ViewBag.BranchId is null)
 										{
 											<td>
 												<div class="d-flex gap-2">

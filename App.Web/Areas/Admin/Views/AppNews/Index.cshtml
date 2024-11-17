@@ -137,7 +137,7 @@
 
 												@if (User.IsInPermission(AuthConst.AppCategoryNews.UPDATE))
 												{
-													if (ViewBag.BranchId == null)
+													if (ViewBag.BranchId is null)
 													{
 														<div class="pin">
 															@if (item.DisplayOrder == null)
