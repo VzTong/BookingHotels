@@ -34,24 +34,31 @@
 							<div>
 								@if (User.IsInPermission(AuthConst.AppHotel.CREATE))
 								{
-									<a asp-action="CreateHotel" class="btn btn-success btn-label add-btn">
-										<i class="ri-add-line label-icon align-middle fs-16 me-2"></i>
-										Thêm khách sạn
-									</a>
+									if (ViewBag.BranchId == null)
+									{
+										<a asp-action="CreateHotel" class="btn btn-success btn-label add-btn">
+											<i class="ri-add-line label-icon align-middle fs-16 me-2"></i>
+											Thêm khách sạn
+										</a>
+									}
 								}
 							</div>
 						</div>
-						<div class="col-sm">
-							<div class="d-flex justify-content-sm-end">
-								<form class="form-horizontal d-flex" method="get" action="@Url.Action("Index", "AppHotel", new { area = "Admin" })">
-									<div class="search-box ms-2">
-										<input type="text" class="form-control search" name="Name" value="@ViewBag.Name" placeholder="Tìm theo tên...">
-										<i class="ri-search-line search-icon"></i>
-									</div>
-									<button type="submit" class="btn btn-soft-dark waves-effect waves-light ms-3">Tìm kiếm</button>
-								</form>
+
+						@if (ViewBag.BranchId == null)
+						{
+							<div class="col-sm">
+								<div class="d-flex justify-content-sm-end">
+									<form class="form-horizontal d-flex" method="get" action="@Url.Action("Index", "AppHotel", new { area = "Admin" })">
+										<div class="search-box ms-2">
+											<input type="text" class="form-control search" name="Name" value="@ViewBag.Name" placeholder="Tìm theo tên...">
+											<i class="ri-search-line search-icon"></i>
+										</div>
+										<button type="submit" class="btn btn-soft-dark waves-effect waves-light ms-3">Tìm kiếm</button>
+									</form>
+								</div>
 							</div>
-						</div>
+						}
 					</div>
 
 					<div class="table-responsive mt-3 mb-1">
@@ -150,44 +157,50 @@
 										<td class="email">@item.Email</td>
 										<td>
 											<div class="d-flex gap-2">
-												@if (item.IsActive)
+												@if (ViewBag.BranchId == null)
 												{
-													if (User.IsInPermission(AuthConst.AppHotel.UNPUBLIC))
+													if (item.IsActive)
 													{
-														<a asp-action="UnPublicHotel" asp-route-id="@item.Id"
-														   title="Không công khai khách sạn"
-														   class="btn btn-sm edit-item-btn link-warning fs-15 js-delete-confirm"
-														   data-msg="Xác nhận ẩn khách sạn ⌈ @item.Name ⌋ khỏi hệ thống?">
-															<i class="fas fa-lock"></i>
-														</a>
+														if (User.IsInPermission(AuthConst.AppHotel.UNPUBLIC))
+														{
+															<a asp-action="UnPublicHotel" asp-route-id="@item.Id"
+															   title="Không công khai khách sạn"
+															   class="btn btn-sm edit-item-btn link-warning fs-15 js-delete-confirm"
+															   data-msg="Xác nhận ẩn khách sạn ⌈ @item.Name ⌋ khỏi hệ thống?">
+																<i class="fas fa-lock"></i>
+															</a>
+														}
 													}
-												}
-												else
-												{
-													if (User.IsInPermission(AuthConst.AppHotel.PUBLIC))
+													else
 													{
-														<a asp-action="PublicHotel" asp-route-id="@item.Id"
-														   title="Công khai khách sạn"
-														   class="btn btn-sm edit-item-btn link-secondary fs-15 js-delete-confirm"
-														   data-msg="Xác nhận công khai khách sạn ⌈ @item.Name ⌋ ?">
-															<i class="fas fa-globe"></i>
-														</a>
+														if (User.IsInPermission(AuthConst.AppHotel.PUBLIC))
+														{
+															<a asp-action="PublicHotel" asp-route-id="@item.Id"
+															   title="Công khai khách sạn"
+															   class="btn btn-sm edit-item-btn link-secondary fs-15 js-delete-confirm"
+															   data-msg="Xác nhận công khai khách sạn ⌈ @item.Name ⌋ ?">
+																<i class="fas fa-globe"></i>
+															</a>
+														}
 													}
 												}
 												@if (User.IsInPermission(AuthConst.AppHotel.UPDATE))
 												{
-													<div class="pin">
-														@if (item.DisplayOrder == null)
-														{
-															<a title="Ghim khách sạn lên đầu danh sách" asp-action="HotelPin" asp-route-id="@item.Id"
-															   class="btn btn-sm edit-item-btn link-secondary fs-15"><i class="fas fa-arrow-alt-circle-up"></i></a>
-														}
-														else
-														{
-															<a title="Bỏ ghim khách sạn" asp-action="HotelUnPin" asp-route-id="@item.Id"
-															   class="btn btn-sm edit-item-btn link-secondary fs-15"><i class="fas fa-arrow-alt-circle-down"></i></a>
-														}
-													</div>
+													if (ViewBag.BranchId == null)
+													{
+														<div class="pin">
+															@if (item.DisplayOrder == null)
+															{
+																<a title="Ghim khách sạn lên đầu danh sách" asp-action="HotelPin" asp-route-id="@item.Id"
+																   class="btn btn-sm edit-item-btn link-secondary fs-15"><i class="fas fa-arrow-alt-circle-up"></i></a>
+															}
+															else
+															{
+																<a title="Bỏ ghim khách sạn" asp-action="HotelUnPin" asp-route-id="@item.Id"
+																   class="btn btn-sm edit-item-btn link-secondary fs-15"><i class="fas fa-arrow-alt-circle-down"></i></a>
+															}
+														</div>
+													}
 
 													<div class="edit">
 														<a asp-action="EditHotel" asp-route-id="@item.Id"
@@ -196,16 +209,20 @@
 														</a>
 													</div>
 												}
-												@if (User.IsInPermission(AuthConst.AppHotel.DELETE))
+
+												@if (ViewBag.BranchId == null)
 												{
-													<div class="remove">
-														<button class="btn btn-sm remove-item-btn link-danger fs-15"
-																data-bs-toggle="modal"
-																data-bs-target="#deleteHotelModal"
-																onclick="setDeleteId('@item.Id', '@ViewBag.BranchCounts[item.Id]')">
-															<i class="ri-delete-bin-line"></i>
-														</button>
-													</div>
+													if (User.IsInPermission(AuthConst.AppHotel.DELETE))
+													{
+														<div class="remove">
+															<button class="btn btn-sm remove-item-btn link-danger fs-15"
+																	data-bs-toggle="modal"
+																	data-bs-target="#deleteHotelModal"
+																	onclick="setDeleteId('@item.Id', '@ViewBag.BranchCounts[item.Id]')">
+																<i class="ri-delete-bin-line"></i>
+															</button>
+														</div>
+													}
 												}
 											</div>
 										</td>
@@ -214,7 +231,7 @@
 							</tbody>
 						</table>
 					</div>
-					@if (ViewBag.NoResultsFound != null && ViewBag.NoResultsFound)
+					@if (ViewBag.NoResultsFound != null && ViewBag.NoResultsFound && ViewBag.BranchId == null)
 					{
 						<div class="noresult">
 							<div class="text-center">
