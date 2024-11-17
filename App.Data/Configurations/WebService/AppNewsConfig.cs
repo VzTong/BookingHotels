@@ -20,7 +20,7 @@ namespace App.Data.Configurations.WebService
 				.HasMaxLength(DB.AppNews.SLUG_LENGTH)
 				.IsRequired();
 
-			builder.Property(s => s.Summary)
+			builder.Property(s => s.Content)
 				.HasMaxLength(DB.AppNews.MAX_LENGTH);
 
 			builder.Property(s => s.Published)
@@ -47,7 +47,7 @@ namespace App.Data.Configurations.WebService
 				.IsUnique();
 
 			// FK - AppCategoryNews
-			builder.HasOne(s => s.CategoryNews)
+			builder.HasOne(s => s.NewsCategory)
 				.WithMany(s => s.NewsNavigation)
 				.HasForeignKey(s => s.CategoryId)
 				.OnDelete(DeleteBehavior.NoAction);
