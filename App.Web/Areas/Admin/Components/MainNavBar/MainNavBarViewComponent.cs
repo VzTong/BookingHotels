@@ -1,6 +1,9 @@
-﻿using App.Data.Repositories;
+﻿using App.Data.Entities.User;
+using App.Data.Repositories;
 using App.Share.Consts;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
 
 namespace App.Web.Areas.Admin.Components.MainNavBar
 {
@@ -14,6 +17,8 @@ namespace App.Web.Areas.Admin.Components.MainNavBar
 		public async Task<IViewComponentResult> InvokeAsync()
 		{
 			var navBar = new NavBarViewModel();
+			var currentUser = await GetCurrentUserAsync();
+
 			navBar.Items.AddRange(new MenuItem[]
 			{
 				new MenuItem
@@ -193,17 +198,29 @@ namespace App.Web.Areas.Admin.Components.MainNavBar
 					DisplayText = "Quản lý đặt phòng",
 					Icon = "mug-hot",
 					Permission = AuthConst.AppOrder.VIEW_LIST
-				},
-				new MenuItem
+				}
+			});
+
+			// Check if the current user's branchId is null before adding the menu item
+			if (currentUser.BranchId == null)
+			{
+				navBar.Items.Add(new MenuItem
 				{
 					Action = "Index",
 					Controller = "AppComment",
 					DisplayText = "Quản lý đánh giá khách sạn",
 					Icon = "comments",
 					Permission = AuthConst.AppComment.VIEW_LIST
-				}
-			});
+				});
+			}
+
 			return View(navBar);
+		}
+
+		private async Task<AppUser> GetCurrentUserAsync()
+		{
+			var userId = Convert.ToInt32(HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier));
+			return await repository.DbContext.AppUsers.AsNoTracking().FirstOrDefaultAsync(u => u.Id == userId);
 		}
 	}
 }
