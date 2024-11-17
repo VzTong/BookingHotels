@@ -122,6 +122,11 @@ namespace App.Web.Areas.Admin.Controllers
 				return RedirectToAction(nameof(Index), ROUTE_FOR_AREA);
 			}
 
+			if (await _repository.AnyAsync<AppEquipment>(s => s.TypeEquipmentId.Equals(eType.Id)))
+			{
+				SetErrorMesg("Thể loại có tồn tại trang thiết bị nên không thể xóa !");
+				return RedirectToAction(nameof(Index), ROUTE_FOR_AREA);
+			}
 			await _repository.DeleteAsync(eType);
 			SetSuccessMesg($"Loại trang thiết bị '{eType.Name}' được xóa thành công");
 			if (Referer != null)
