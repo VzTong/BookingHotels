@@ -1,8 +1,6 @@
-﻿using App.Data.Entities.Hotel;
-
-namespace App.Web.Areas.Admin.ViewModels.BranchHotel
+﻿namespace App.Web.Areas.Admin.ViewModels.BranchHotel
 {
-    public class AppBranchHotelListItemVM : ListItemBaseVM
+	public class AppBranchHotelListItemVM : ListItemBaseVM
     {
         public string Name { get; set; }
         public string? Slug { get; set; }
