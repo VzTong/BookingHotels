@@ -3,11 +3,9 @@ using App.Data.Repositories;
 using App.Share.Consts;
 using App.Share.Extensions;
 using App.Web.Areas.Admin.ViewModels.News;
-using App.Web.Areas.Admin.ViewModels.User;
 using App.Web.Common;
 using App.Web.Common.Mailer;
 using App.Web.WebConfig;
-using App.Web.WebConfig.Consts;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using Microsoft.AspNetCore.Mvc;
@@ -228,6 +226,81 @@ namespace App.Web.Areas.Admin.Controllers
 			}
 		}
 
+		[AppAuthorize(AuthConst.AppNews.DELETE)]
+		public async Task<IActionResult> Delete(int id)
+		{
+			var news = await _repository.FindAsync<AppNews>(id);
+			if (news == null)
+			{
+				SetErrorMesg("Tin tức này không tồn tại hoặc đã được xóa trước đó");
+				return RedirectToAction(nameof(Index), ROUTE_FOR_AREA);
+			}
+			// Gỡ khóa ngoại
+			news.CategoryId = null;
+
+			await _repository.DeleteAsync(news);
+			SetSuccessMesg($"tin tức '{news.Title}' được xóa thành công");
+			if (Referer != null)
+			{
+				return Redirect(Referer);
+			}
+			return RedirectToAction(nameof(Index), ROUTE_FOR_AREA);
+		}
+
+		[AppAuthorize(AuthConst.AppNews.PUBLIC)]
+		public async Task<IActionResult> PublicNews(int id)
+		{
+			var news = await _repository.FindAsync<AppNews>(id);
+			if (news == null)
+			{
+				SetErrorMesg(PAGE_NOT_FOUND_MESG);
+				return RedirectToAction(nameof(Index), ROUTE_FOR_AREA);
+			}
+			news.Published = true;
+			await _repository.UpdateAsync(news);
+			SetSuccessMesg($"Công khai tin tức '{news.Title}' thành công");
+			return RedirectToAction(nameof(Index), ROUTE_FOR_AREA);
+		}
+
+		[AppAuthorize(AuthConst.AppNews.UNPUBLIC)]
+		public async Task<IActionResult> UnPublicNews(int id)
+		{
+			var news = await _repository.FindAsync<AppNews>(id);
+			if (news == null)
+			{
+				SetErrorMesg(PAGE_NOT_FOUND_MESG);
+				return RedirectToAction(nameof(Index), ROUTE_FOR_AREA);
+			}
+			news.Published = false;
+			await _repository.UpdateAsync(news);
+			SetSuccessMesg($"Gỡ tin tức '{news.Title}' thành công");
+			return RedirectToAction(nameof(Index), ROUTE_FOR_AREA);
+		}
+
+		public async Task<IActionResult> NewsPin(int id = 0)
+		{
+			if (id > 0)
+			{
+				var news = await _repository.FindAsync<AppNews>(id);
+				var maxDisplayOrder = _repository
+						.DbContext.AppNews.Max(x => x.DisplayOrder);
+				news.DisplayOrder = maxDisplayOrder != null ? maxDisplayOrder + 1 : 1;
+				await _repository.UpdateAsync(news);
+			}
+			return Redirect(Referer);
+		}
+
+		public async Task<IActionResult> NewsUnPin(int id = 0)
+		{
+			if (id > 0)
+			{
+				var news = await _repository.FindAsync<AppNews>(id);
+				news.DisplayOrder = null;
+				await _repository.UpdateAsync(news);
+			}
+			return Redirect(Referer);
+		}
+
 		//private void SendMailToSubcribers(AppNews news)
 		//{
 		//	var pathToFile = $"{_env.WebRootPath}" +
@@ -277,7 +350,5 @@ namespace App.Web.Areas.Admin.Controllers
 		//	appMailSender.Content = contentMessage.ToString();
 		//	AppMailer.SendToList(appMailSender, resultEmail, _mailConfig);
 		//}
-
-
 	}
 }
