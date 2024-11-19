@@ -66,7 +66,7 @@ namespace App.Web.Areas.Admin.Components.MainNavBar
 						new MenuItem
 						{
 							Action = "Index",
-							Controller = "AppRoomType",
+							Controller = "AppRType",
 							DataKey = "room-types",
 							DisplayText = "Loại phòng",
 							Permission = AuthConst.AppRoomType.VIEW_LIST
