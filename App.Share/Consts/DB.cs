@@ -150,6 +150,12 @@
 			public const string FAMILY_ROOM					= "FAMILY";
 			public const string LUXURY_ROOM					= "LUXURY";
 			public const string VIP_ROOM					= "VIP";
+
+			public const int SINGLE_ROOM_ID					= 1;
+			public const int DOUBLE_ROOM_ID					= 2;
+			public const int FAMILY_ROOM_ID					= 3;
+			public const int LUXURY_ROOM_ID					= 4;
+			public const int VIP_ROOM_ID					= 5;
 		}
 
 		public static class AppImgRoom
@@ -206,15 +212,6 @@
 		{
 			public const string TABLE_NAME					= "AppComment";
 			public const short DESC_LENGTH					= 255;
-		}
-
-		public static class AppCommentDetail
-		{
-			public const string TABLE_NAME					= "AppCommentDetail";
-			public const short CMT_DESC_LENGTH				= 255;
-			public const short USER_NAME_LENGTH				= 200;
-			public const short ROOM_NAME_LENGTH				= 5;
-			public const short ROOM_NUMBER_LENGTH			= 6;
 		}
 		#endregion
 	}

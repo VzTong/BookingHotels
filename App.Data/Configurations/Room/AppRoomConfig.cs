@@ -1,4 +1,5 @@
 ﻿using App.Data.Entities.Room;
+using App.Data.ValueGenerator;
 using App.Share.Consts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -12,9 +13,14 @@ namespace App.Data.Configurations.Room
             builder.ToTable(DB.AppRoom.TABLE_NAME);
             builder.HasKey(x => x.Id);
 
-            builder.Property(x => x.RoomName)
+			builder.Property(x => x.RoomName)
+				   .IsRequired()
+				   .HasMaxLength(DB.AppRoom.NAME_LENGTH)
+				   .HasValueGenerator<RoomNameValueGenerator>();
+
+			builder.Property(x => x.FloorNumber)
                 .IsRequired()
-                .HasMaxLength(DB.AppRoom.NAME_LENGTH);
+                .HasMaxLength(DB.AppRoom.ROOM_NUMBER_LENGTH);
 
             builder.Property(x => x.RoomNumber)
                 .IsRequired()

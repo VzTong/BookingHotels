@@ -13,6 +13,7 @@ namespace App.Data.Entities.Room
 			RoomEquipments = new HashSet<AppRoomEquipment>();
         }
         public string RoomName { get; set; }
+		public int FloorNumber { get; set; }
 		public int RoomNumber { get; set; }
 		public string? Slug { get; set; }
 		public string Status { get; set; }

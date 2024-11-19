@@ -33,7 +33,6 @@ namespace App.Data
 		public DbSet<AppUser> AppUsers { get; set; }
 		public DbSet<MstPermission> MstPermissions { get; set; }
 		public DbSet<AppComment> AppComments { get; set; }
-		public DbSet<AppCommentDetail> AppCommentsDetail { get; set; }
 		public DbSet<AppNews> AppNews { get; set; }
 		public DbSet<AppNewsCategory> AppNewsCategories { get; set; }
 		public DbSet<AppOrder> AppOrders { get; set; }
@@ -62,7 +61,6 @@ namespace App.Data
             modelBuilder.ApplyConfiguration(new MstPermissionConfig());
             modelBuilder.ApplyConfiguration(new AppNewsCategoryConfig());
             modelBuilder.ApplyConfiguration(new AppCommentConfig());
-            modelBuilder.ApplyConfiguration(new AppCommentDetailConfig());
             modelBuilder.ApplyConfiguration(new AppNewsConfig());
             modelBuilder.ApplyConfiguration(new AppOrderConfig());
             modelBuilder.ApplyConfiguration(new AppOrderDetailConfig());
@@ -77,6 +75,12 @@ namespace App.Data
             modelBuilder.Entity<AppEquipmentType>().SeedData();
             modelBuilder.Entity<AppEquipment>().SeedData();
             modelBuilder.Entity<AppRoomType>().SeedData();
+            modelBuilder.Entity<AppNewsCategory>().SeedData();
+            modelBuilder.Entity<AppNews>().SeedData();
+            modelBuilder.Entity<AppRoom>().SeedData();
+            modelBuilder.Entity<AppImgRoom>().SeedData();
+            modelBuilder.Entity<AppRoomEquipment>().SeedData();
+            modelBuilder.Entity<AppComment>().SeedData();
         }
 	}
 }

@@ -15,6 +15,12 @@ namespace App.Data.Configurations.WebService
 			builder.Property(x => x.Description)
 				.IsRequired()
 				.HasMaxLength(DB.AppComment.DESC_LENGTH);
+
+			// FK - AppUser
+			builder.HasOne(x => x.User)
+				.WithMany(x => x.Comments)
+				.HasForeignKey(x => x.CreatedBy)
+				.OnDelete(DeleteBehavior.Restrict);
 		}
 	}
 }

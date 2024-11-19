@@ -17,6 +17,7 @@ namespace App.Data.Entities.Hotel
 		public string? IdMap { get; set; }
 		public string Address { get; set; }
 		public int? QuantityStaff { get; set; }
+		public int? QuantityFloor { get; set; }
 		public int? QuantityRoom { get; set; }
 		public string? Img { get; set; }
 		public int? HotelId { get; set; }
