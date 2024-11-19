@@ -33,8 +33,6 @@ namespace App.Data.DataSeeders
 					PhoneNumber2 = "+84928666156",
 					CitizenId = 0912345678,
 					CreatedBy = -1,
-					UpdatedBy = -1,
-					UpdatedDate = now,
 					CreatedDate = now,
 					BranchId = null,			// Chi nhánh được tạo ở AppBranchHotelSeeder
 					AppRoleId = 1,              // Vai trò được tạo ở AppRoleSeeder
@@ -51,8 +49,6 @@ namespace App.Data.DataSeeders
 					PhoneNumber2 = "+84928666158",
 					CitizenId = 0917635678,
 					CreatedBy = -1,
-					UpdatedBy = -1,
-					UpdatedDate = now,
 					CreatedDate = now,
 					BranchId = null,               // Chi nhánh được tạo ở AppBranchHotelSeeder
 					AppRoleId = 2,              // Vai trò được tạo ở AppRoleSeeder
@@ -69,8 +65,6 @@ namespace App.Data.DataSeeders
 					PhoneNumber2 = "+12027450123",
 					Passport = "123456789",
 					CreatedBy = -1,
-					UpdatedBy = -1,
-					UpdatedDate = now,
 					CreatedDate = now,
 					BranchId = 1,               // Chi nhánh được tạo ở AppBranchHotelSeeder
 					AppRoleId = 3,              // Vai trò được tạo ở AppRoleSeeder
@@ -87,8 +81,6 @@ namespace App.Data.DataSeeders
 					PhoneNumber2 = "+84227450123",
 					CitizenId = 0917625678,
 					CreatedBy = -1,
-					UpdatedBy = -1,
-					UpdatedDate = now,
 					CreatedDate = now,
 					BranchId = 1,               // Chi nhánh được tạo ở AppBranchHotelSeeder
 					AppRoleId = 4,              // Vai trò được tạo ở AppRoleSeeder
@@ -105,8 +97,6 @@ namespace App.Data.DataSeeders
 					PhoneNumber2 = "+84227459233",
 					CitizenId = 0917673478,
 					CreatedBy = -1,
-					UpdatedBy = -1,
-					UpdatedDate = now,
 					CreatedDate = now,
 					BranchId = null,               // Chi nhánh được tạo ở AppBranchHotelSeeder
 					AppRoleId = 5,              // Vai trò được tạo ở AppRoleSeeder
@@ -123,8 +113,6 @@ namespace App.Data.DataSeeders
 					PhoneNumber2 = "+84227459873",
 					CitizenId = 0917674628,
 					CreatedBy = -1,
-					UpdatedBy = -1,
-					UpdatedDate = now,
 					CreatedDate = now,
 					BranchId = null,               // Chi nhánh được tạo ở AppBranchHotelSeeder
 					AppRoleId = 6,              // Vai trò được tạo ở AppRoleSeeder
@@ -141,8 +129,6 @@ namespace App.Data.DataSeeders
 					PhoneNumber2 = "+84208739873",
 					CitizenId = 0917987628,
 					CreatedBy = -1,
-					UpdatedBy = -1,
-					UpdatedDate = now,
 					CreatedDate = now,
 					BranchId = null,               // Chi nhánh được tạo ở AppBranchHotelSeeder
 					AppRoleId = 7,              // Vai trò được tạo ở AppRoleSeeder
@@ -159,8 +145,6 @@ namespace App.Data.DataSeeders
 					PhoneNumber2 = "+84208739842",
 					CitizenId = 0917987986,
 					CreatedBy = -1,
-					UpdatedBy = -1,
-					UpdatedDate = now,
 					CreatedDate = now,
 					BranchId = null,               // Chi nhánh được tạo ở AppBranchHotelSeeder
 					AppRoleId = 8,              // Vai trò được tạo ở AppRoleSeeder
@@ -177,8 +161,6 @@ namespace App.Data.DataSeeders
 					PhoneNumber2 = "+84208739823",
 					CitizenId = 0987987986,
 					CreatedBy = -1,
-					UpdatedBy = -1,
-					UpdatedDate = now,
 					CreatedDate = now,
 					BranchId = null,               // Chi nhánh được tạo ở AppBranchHotelSeeder
 					AppRoleId = 9,              // Vai trò được tạo ở AppRoleSeeder

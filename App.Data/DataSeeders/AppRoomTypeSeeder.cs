@@ -1,4 +1,5 @@
 ﻿using App.Data.Entities.Room;
+using App.Share.Consts;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace App.Data.DataSeeders
@@ -12,7 +13,7 @@ namespace App.Data.DataSeeders
 			builder.HasData(
 				new AppRoomType
 				{
-					Id = 1,
+					Id = DB.AppRoomTypeName.SINGLE_ROOM_ID,
 					RoomTypeName = "Phòng Đơn",
 					PeopleStay = 1,
 					Description = "Phòng nhỏ cho 1 người, trang bị đầy đủ tiện nghi.",
@@ -22,7 +23,7 @@ namespace App.Data.DataSeeders
 				},
 				new AppRoomType
 				{
-					Id = 2,
+					Id = DB.AppRoomTypeName.DOUBLE_ROOM_ID,
 					RoomTypeName = "Phòng Đôi",
 					PeopleStay = 2,
 					Description = "Phòng cho 2 người, thích hợp cho cặp đôi hoặc bạn bè.",
@@ -32,7 +33,7 @@ namespace App.Data.DataSeeders
 				},
 				new AppRoomType
 				{
-					Id = 3,
+					Id = DB.AppRoomTypeName.FAMILY_ROOM_ID,
 					RoomTypeName = "Phòng Gia Đình",
 					PeopleStay = 4,
 					Description = "Phòng rộng rãi cho gia đình, có giường đôi và giường đơn.",
@@ -42,7 +43,7 @@ namespace App.Data.DataSeeders
 				},
 				new AppRoomType
 				{
-					Id = 4,
+					Id = DB.AppRoomTypeName.LUXURY_ROOM_ID,
 					RoomTypeName = "Phòng Sang Trọng",
 					PeopleStay = 2,
 					Description = "Phòng cao cấp với tiện nghi hiện đại và tầm nhìn đẹp.",
@@ -52,7 +53,7 @@ namespace App.Data.DataSeeders
 				},
 				new AppRoomType
 				{
-					Id = 5,
+					Id = DB.AppRoomTypeName.VIP_ROOM_ID,
 					RoomTypeName = "Phòng VIP",
 					PeopleStay = 2,
 					Description = "Phòng VIP với các dịch vụ đặc biệt và riêng tư.",

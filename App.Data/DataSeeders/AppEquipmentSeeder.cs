@@ -17,8 +17,7 @@ namespace App.Data.DataSeeders
 					Name = "Tivi",
 					Description = "Tivi 4K 55 inch",
 					TypeEquipmentId = 1,
-					CreatedDate = now,
-					UpdatedDate = now
+					CreatedDate = now
 				},
 				
 				new AppEquipment
@@ -27,8 +26,7 @@ namespace App.Data.DataSeeders
 					Name = "Điều hòa",
 					Description = "Điều hòa 2 chiều",
 					TypeEquipmentId = 1,
-					CreatedDate = now,
-					UpdatedDate = now
+					CreatedDate = now
 				},
 				
 				new AppEquipment
@@ -37,8 +35,7 @@ namespace App.Data.DataSeeders
 					Name = "Bàn làm việc",
 					Description = "Bàn làm việc gỗ",
 					TypeEquipmentId = 1,
-					CreatedDate = now,
-					UpdatedDate = now
+					CreatedDate = now
 				},
 				
 				new AppEquipment
@@ -47,8 +44,7 @@ namespace App.Data.DataSeeders
 					Name = "Ghế",
 					Description = "Ghế xoay",
 					TypeEquipmentId = 1,
-					CreatedDate = now,
-					UpdatedDate = now
+					CreatedDate = now
 				},
 				
 				new AppEquipment
@@ -57,8 +53,7 @@ namespace App.Data.DataSeeders
 					Name = "Tủ lạnh mini",
 					Description = "Tủ lạnh mini 100 lít",
 					TypeEquipmentId = 1,
-					CreatedDate = now,
-					UpdatedDate = now
+					CreatedDate = now
 				},
 				
 				new AppEquipment
@@ -67,8 +62,7 @@ namespace App.Data.DataSeeders
 					Name = "Bồn cầu",
 					Description = "Bồn cầu thông minh",
 					TypeEquipmentId = 2,
-					CreatedDate = now,
-					UpdatedDate = now
+					CreatedDate = now
 				},
 				
 				new AppEquipment
@@ -77,8 +71,7 @@ namespace App.Data.DataSeeders
 					Name = "Chậu rửa",
 					Description = "Chậu rửa thông minh",
 					TypeEquipmentId = 2,
-					CreatedDate = now,
-					UpdatedDate = now
+					CreatedDate = now
 				},
 				
 				new AppEquipment
@@ -87,8 +80,7 @@ namespace App.Data.DataSeeders
 					Name = "Vòi sen",
 					Description = "Vòi sen tăng áp đảo chiều",
 					TypeEquipmentId = 2,
-					CreatedDate = now,
-					UpdatedDate = now
+					CreatedDate = now
 				},
 				
 				new AppEquipment
@@ -97,8 +89,7 @@ namespace App.Data.DataSeeders
 					Name = "Bồn tắm",
 					Description = "Bồn tắm nằm",
 					TypeEquipmentId = 2,
-					CreatedDate = now,
-					UpdatedDate = now
+					CreatedDate = now
 				}
 			);
 		}

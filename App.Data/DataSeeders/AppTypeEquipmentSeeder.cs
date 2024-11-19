@@ -15,16 +15,14 @@ namespace App.Data.DataSeeders
 				{
 					Id = 1,
 					Name = "Trang thiết bị phòng khách",
-					CreatedDate = now,
-					UpdatedDate = now
+					CreatedDate = now
 				},
 				
 				new AppEquipmentType
 				{
 					Id = 2,
 					Name = "Thiết bị vệ sinh",
-					CreatedDate = now,
-					UpdatedDate = now
+					CreatedDate = now
 				}
 			);
 		}

@@ -16,7 +16,6 @@ namespace App.Data.DataSeeders
 				Name = "Quản trị toàn hệ thống",
 				Desc = "Quản trị quản lý toàn bộ hệ thống",
 				CreatedDate = now,
-				UpdatedDate = now,
 				CanDelete = false
 			};
 			var roleFullEquipment = new AppRole
@@ -25,7 +24,6 @@ namespace App.Data.DataSeeders
 				Name = "Quản trị toàn bộ thiết bị",
 				Desc = "Quản trị quản lý toàn bộ về loại và thiết bị",
 				CreatedDate = now,
-				UpdatedDate = now,
 				CanDelete = true
 			};
 			var roleCustomer = new AppRole
@@ -34,7 +32,6 @@ namespace App.Data.DataSeeders
 				Name = "Khách hàng - Chi nhánh 'Hà Nội - Melia Hà Nội'",
 				Desc = "Khách hàng thuộc chi nhánh 'Hà Nội - Melia Hà Nội'",
 				CreatedDate = now,
-				UpdatedDate = now,
 				CanDelete = true
 			};
 			var roleAdminBranch = new AppRole
@@ -43,7 +40,6 @@ namespace App.Data.DataSeeders
 				Name = "Quản trị - Chi nhánh 'Hà Nội - Melia Hà Nội'",
 				Desc = "Quản trị toàn bộ hệ thống thuộc chi nhánh 'Hà Nội - Melia Hà Nội'",
 				CreatedDate = now,
-				UpdatedDate = now,
 				CanDelete = true
 			};
 			var roleFullNews = new AppRole
@@ -52,7 +48,6 @@ namespace App.Data.DataSeeders
 				Name = "Quản trị toàn bộ tin tức",
 				Desc = "Quản trị toàn bộ về thể loại và tin tức",
 				CreatedDate = now,
-				UpdatedDate = now,
 				CanDelete = true
 			};
 			var roleCateNews = new AppRole
@@ -61,7 +56,6 @@ namespace App.Data.DataSeeders
 				Name = "Quản trị thể loại tin tức",
 				Desc = "Quản trị toàn bộ thể loại tin tức",
 				CreatedDate = now,
-				UpdatedDate = now,
 				CanDelete = true
 			};
 			var roleNews = new AppRole
@@ -70,7 +64,6 @@ namespace App.Data.DataSeeders
 				Name = "Quản trị tin tức",
 				Desc = "Quản trị toàn bộ tin tức",
 				CreatedDate = now,
-				UpdatedDate = now,
 				CanDelete = true
 			};
 			var roleCateEquipment = new AppRole
@@ -79,7 +72,6 @@ namespace App.Data.DataSeeders
 				Name = "Quản trị loại thiết bị",
 				Desc = "Quản trị quản lý toàn bộ về loại trang thiết bị",
 				CreatedDate = now,
-				UpdatedDate = now,
 				CanDelete = true
 			};
 			var roleEquipment = new AppRole
@@ -88,7 +80,6 @@ namespace App.Data.DataSeeders
 				Name = "Quản trị thiết bị",
 				Desc = "Quản trị quản lý toàn bộ về trang thiết bị",
 				CreatedDate = now,
-				UpdatedDate = now,
 				CanDelete = true
 			};
 
