@@ -1,0 +1,76 @@
+﻿@model App.Web.ViewModels.Account.UserRegisterVM
+
+<div id="signupModals" class="modal fade" tabindex="-1" aria-hidden="true" style="display: none;">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content border-0 overflow-hidden">
+			<div class="modal-header p-3">
+				<h4 class="card-title mb-0">Đăng ký</h4>
+			</div>
+			<div class="modal-body">
+
+				<form method="POST" asp-controller="Account" asp-action="Register" asp-area="" autocomplete="off">
+					<div class="mb-3 d-flex">
+						<div class="col-5 p-0 mr-4">
+							<label for="FullName" class="form-label"> Họ và tên</label>
+							<input type="text" class="form-control" id="fullName" name="FullName" placeholder="Nhập họ tên của bạn" required>
+							<div class="invalid-feedback">
+								Vui lòng nhập họ tên.
+							</div>
+						</div>
+						<div class="col-5 p-0 ml-5">
+							<label for="Username" class="form-label">Tên đăng nhập</label>
+							<input type="text" class="form-control" id="username" name="Username" placeholder="Nhập tên đăng nhập" required>
+							<div class="invalid-feedback">
+								Tên đăng nhập không hợp lệ.
+							</div>
+						</div>
+					</div>
+					<div class="mb-3 d-flex">
+						<div class="col-5 p-0 mr-4">
+							<label for="Password" class="form-label">Mật khẩu</label>
+							<input type="password" class="form-control" id="password" name="Password" placeholder="Nhập password" required>
+							<div class="invalid-feedback">
+								Mật không hợp lệ.
+							</div>
+						</div>
+						<div class="col-5 p-0 ml-5">
+							<label for="ConfirmPwd" class="form-label">Xác nhận mật khẩu</label>
+							<input type="password" class="form-control" id="confirmPwd" name="ConfirmPwd" placeholder="Xác nhận lại mật khẩu" required>
+						</div>
+					</div>
+					<div class="mb-3 d-flex">
+						<div class="col-5 p-0 mr-4">
+							<label for="Email" class="form-label">Địa chỉ email</label>
+							<input type="email" class="form-control" id="email" name="Email" placeholder="Nhập địa chỉ email" required>
+							<div class="invalid-feedback">
+								Email không hợp lệ.
+							</div>
+						</div>
+						<div class="col-5 p-0 ml-5">
+							<label for="PhoneNumber1" class="form-label">Số điện thoại</label>
+							<input type="text" class="form-control" id="phoneNumber1" name="PhoneNumber1" placeholder="Nhập số điện thoại" required>
+							<div class="invalid-feedback">
+								Vui lòng nhập số điện thoại.
+							</div>
+						</div>
+					</div>
+					<div class="mb-3">
+						<label for="Address" class="form-label">Địa chỉ</label>
+						<textarea type="text" class="form-control" id="address" name="Address" placeholder="Nhập địa chỉ" required></textarea>
+						<div class="invalid-feedback">
+							Vui lòng nhập địa chỉ.
+						</div>
+					</div>
+					<div class="mb-3 form-check">
+						Qua việc đăng nhập hoặc tạo tài khoản, bạn đồng ý với các
+						<a href="#">Điều khoản và Điều kiện</a> cũng như
+						<a href="#">Chính sách An toàn và Bảo mật</a> của chúng tôi.
+					</div>
+					<div class="text-end">
+						<button type="submit" class="btn btn-primary">Đăng ký ngay</button>
+					</div>
+				</form>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

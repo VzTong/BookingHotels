@@ -1,0 +1,115 @@
+﻿@using App.Web.WebConfig.Consts
+<div class="site-navbar-wrap js-site-navbar bg-white">
+	<div class="container">
+		<div class="site-navbar bg-light">
+			<div class="py-1 d-flex">
+				<div class="row align-items-center">
+					<div class="col-2">
+						<h2 class="mb-0 site-logo">
+							<a asp-action="Index" asp-area="" asp-controller="Home">
+								<img src="~/adminLTE/images/logo-main.png" alt="" height="70" width="100">
+							</a>
+						</h2>
+					</div>
+				</div>
+				<div class="col-10">
+					<nav class="site-navigation text-right" role="navigation">
+						<div class="container">
+
+							<div class="d-inline-block d-lg-none  ml-md-0 mr-auto py-3">
+								<a href="#"
+								   class="site-menu-toggle js-menu-toggle"><span class="icon-menu h3"></span></a>
+							</div>
+							<ul class="site-menu js-clone-nav d-none d-lg-block">
+								<li data-page="home-page">
+									<a asp-action="Index" asp-area="" asp-controller="Home">Trang chủ</a>
+								</li>
+								<li class="has-children">
+									<a href="rooms.html">Phòng</a>
+									<ul class="dropdown arrow-top">
+										<li><a href="rooms.html">Hiện có</a></li>
+										<li><a href="rooms.html">Phòng đơn</a></li>
+										<li><a href="rooms.html">Phòng đôi</a></li>
+										<li><a href="rooms.html">Phòng gia đình</a></li>
+										<li class="has-children">
+											<a href="rooms.html">Dịch vụ</a>
+											<ul class="dropdown">
+												<li><a href="rooms.html">Phòng cao cấp</a></li>
+												<li><a href="rooms.html">Tắm hơi</a></li>
+												<li><a href="rooms.html">Ăn uống</a></li>
+
+											</ul>
+										</li>
+
+									</ul>
+								</li>
+								<li data-page="news-page">
+									<a asp-action="News" asp-controller="Home">Tin Tức</a>
+								</li>
+								<li><a asp-action="About" asp-controller="Home">Thông tin</a></li>
+								<li><a asp-action="Contact" asp-controller="Home">Liên hệ</a></li>
+								@if (Context.User.Identity.IsAuthenticated)
+								{
+									var roleId = Convert.ToInt32(Context.User.Claims.SingleOrDefault(c => c.Type.Contains(AppClaimTypes.RoleId))?.Value);
+									<li class="has-children">
+										@if (roleId != AppConst.ROLE_CUSTOMER_ID)
+										{
+											<a><i class="las la-user-tie" aria-hidden="true"></i></a>
+										}
+										else
+										{
+											<a><i class="las la-user" aria-hidden="true"></i></a>
+										}
+										<ul class="dropdown arrow-top">
+
+											<li><p class="p-2" style="margin-bottom: 10px; color:white">Xin chào: <strong>@Context.User.Identity.Name</strong></p></li>
+											@if (roleId != AppConst.ROLE_CUSTOMER_ID)
+											{
+												<li class="p-2">
+													<a class="btn btn-info" target="_blank" asp-area="Admin" asp-controller="Home" asp-action="Index">
+														Trang quản lý
+													</a>
+												</li>
+											}
+
+											<li class="p-2">
+												<a class="btn" asp-controller="Account" asp-action="UserProfile">
+													<i class="las la-user-cog"></i>Trang cá nhân
+												</a>
+											</li>
+
+											<li class="p-2">
+												<a class="btn" asp-controller="Account" asp-action="Logout">
+													<i class="fa fa-sign-out"></i> Đăng xuất
+												</a>
+											</li>
+										</ul>
+									</li>
+								}
+								else
+								{
+									<li>
+										<a type="button"
+										   data-bs-toggle="modal"
+										   data-bs-target="#loginModals"
+										   style="cursor:default">
+											Đăng nhập
+										</a>
+									</li>
+									<li>
+										<a type="button"
+										   data-bs-toggle="modal"
+										   data-bs-target="#signupModals"
+										   style="cursor:default">
+											Đăng ký
+										</a>
+									</li>
+								}
+							</ul>
+						</div>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

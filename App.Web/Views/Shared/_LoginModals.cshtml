@@ -1,0 +1,35 @@
+﻿@model App.Web.ViewModels.Account.LoginClientVM
+<div id="loginModals" class="modal fade" tabindex="-1" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 overflow-hidden">
+            <div class="modal-body login-modal p-5">
+                <h5 class="text-white fs-20">Đăng nhập</h5>
+                <p class="text-white-50 mb-4">Bạn chưa có tài khoản? <a href="javascript:void(0);" class="text-white">Đăng ký</a></p>
+                <div class="social-login">
+                    <button class="btn social-button google"><i class="ri-google-fill align-bottom text-danger"></i> Google</button>
+                </div>
+            </div>
+            <div class="modal-body p-5">
+                <h5 class="mb-3">Đăng nhập bằng tên đăng nhập</h5>
+                <form method="POST" asp-controller="Account" asp-action="Login" asp-area="" autocomplete="off">
+                    <div class="mb-2">
+                        <input type="text" class="form-control" id="userName" name="Username" placeholder="Nhập tên đăng nhập">
+                        <div class="invalid-feedback">
+                            Tên đăng nhập không hợp lệ.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <input type="password" class="form-control" id="password" name="Password" placeholder="Nhập mật khẩu">
+                        <div class="invalid-feedback">
+                            Vui lòng nhập mật khẩu.
+                        </div>
+                        <div class="mt-1" style="text-align:end">
+                            <a class="text-white" href="auth-pass-reset-basic.html">Quên mật khẩu ?</a>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Submit</button>
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
