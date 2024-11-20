@@ -29,18 +29,12 @@ namespace App.Web.ViewModels.Account
 		[AppPhone]
 		public string PhoneNumber1 { get; set; }
 
-		[AppPhone]
-		public string PhoneNumber2 { get; set; }
-
 		[AppRequired]
 		[AppEmail]
 		public string Email { get; set; }
 		public string Address { get; set; }
 
-		public byte[] PasswordHash { get; internal set; }
-		public byte[] PasswordSalt { get; internal set; }
-
-		[AppRequired]
-		public bool IsSubmit { get; set; }
+		public byte[]? PasswordHash { get; internal set; }
+		public byte[]? PasswordSalt { get; internal set; }
 	}
 }
