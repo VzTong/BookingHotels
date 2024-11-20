@@ -2,7 +2,7 @@
 
 namespace App.Data.Entities.User
 {
-    public class AppRole : AppEntityBase
+	public class AppRole : AppEntityBase
     {
         public AppRole()
         {
@@ -13,7 +13,7 @@ namespace App.Data.Entities.User
         public string? Desc { get; set; }
         public bool? CanDelete { get; set; }
 
-        public ICollection<AppUser> AppUsers { get; set; }
+		public ICollection<AppUser> AppUsers { get; set; }
         public ICollection<AppRolePermission> AppRolePermissions { get; set; }
     }
 }
