@@ -11,7 +11,7 @@ namespace App.Data.ValueGenerator
 		public override string Next(EntityEntry entry)
 		{
 			var appRoom = (AppRoom)entry.Entity;
-			return $"T0{appRoom.FloorNumber}-{appRoom.RoomNumber}-{appRoom.RoomType.RoomTypeName}";
+			return $"T0{appRoom.FloorNumber}•{appRoom.RoomNumber} {appRoom.RoomType.RoomTypeName}";
 		}
 	}
 }
