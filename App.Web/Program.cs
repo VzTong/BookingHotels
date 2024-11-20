@@ -102,15 +102,6 @@ app.UseAuthentication();    // Đăng nhập
 
 app.UseAuthorization();
 
-app.MapControllerRoute(
-    name: "login",
-    pattern: "/login",
-    defaults: new
-    {
-        controller = "Account",
-        action = "Login"
-    });
-
 app.MapAreaControllerRoute(
     areaName: "Admin",
     name: "adminLogin",
