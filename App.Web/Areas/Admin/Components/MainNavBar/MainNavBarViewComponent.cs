@@ -169,7 +169,7 @@ namespace App.Web.Areas.Admin.Components.MainNavBar
 						new MenuItem
 						{
 							Action = "Index",
-							Controller = "AppRole",
+							Controller = "Role",
 							DataKey = "roles",
 							DisplayText = "Vai trò trên trang",
 							Permission = AuthConst.AppRole.VIEW_LIST
