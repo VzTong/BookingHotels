@@ -120,7 +120,11 @@
 	<div class="col-md-12">
 		<div class="mb-3">
 			<label asp-for="AppRoleId" class="control-label">Vai trò trên trang</label>
-			<select asp-for="AppRoleId" class="form-select" data-choices data-choices-sorting="true" required>
+			<select asp-for="AppRoleId" 
+				class="form-select" 
+				data-choices
+				data-placeholder="--- Chọn Vai trò ---"
+				data-choices-sorting="true" required>
 				<vc:list-role seleteted-id="@Model?.AppRoleId" exclude-ids="null"></vc:list-role>
 			</select>
 			<div class="invalid-feedback">
