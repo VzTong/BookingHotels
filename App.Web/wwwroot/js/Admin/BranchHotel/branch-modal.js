@@ -31,13 +31,14 @@ $('#fileInput2').on('change', function (ev) {
 	}
 });
 
-function UpdateBranch(id, name, address, iMap, quantityStaff, quantityRoom, hotelId, description, img) {
+function UpdateBranch(id, name, address, iMap, quantityStaff, quantityFloor, quantityRoom, hotelId, description, img) {
 	// Set values in the update modal
 	$('#updateBranchHotel #idEdit').val(id);
 	$('#updateBranchHotel #branchName-field').val(name);
 	$('#updateBranchHotel #branchAddress-field').val(address);
 	$('#updateBranchHotel #branchIdMap-field').val(iMap);
 	$('#updateBranchHotel #branchQuantityStaff-field').val(quantityStaff);
+	$('#updateBranchHotel #branchQuantityFloor-field').val(quantityFloor);
 	$('#updateBranchHotel #branchQuantityRoom-field').val(quantityRoom);
 	$('#updateBranchHotel #branchDesc-field').val(description);
 
