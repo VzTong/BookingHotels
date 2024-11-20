@@ -3,9 +3,11 @@
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>@ViewData["Title"] - App.Web</title>
+	<title>@ViewData["Title"] | Hotel</title>
 	<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700|Work+Sans:300,400,700" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mediaelement@4.2.7/build/mediaelementplayer.min.css">
+	<link rel="icon" type="image/x-icon" href="~/adminLTE/images/logo-main.png" asp-append-version="true" />
+
 	<link href="~/clientlte/fonts/icomoon/style.css" rel="stylesheet" />
 	<link href="~/clientlte/css/bootstrap.min.css" rel="stylesheet" />
 	<link href="~/clientlte/css/magnific-popup.css" rel="stylesheet" />
@@ -16,7 +18,11 @@
 	<link href="~/clientlte/css/animate.css" rel="stylesheet" />
 	<link href="~/clientlte/fonts/flaticon/font/flaticon.css" rel="stylesheet" />
 	<link href="~/clientlte/css/aos.css" rel="stylesheet" />
-	<link href="~/clientlte/css/style.css" rel="stylesheet" />
+	<!-- App Css-->
+	<link href="~/adminLTE/css/app.min.css" rel="stylesheet" type="text/css" />
+	<!-- Icons Css -->
+	<link href="~/adminLTE/css/icons.min.css" rel="stylesheet" asp-append-version="true" />
+	<link href="~/clientlte/css/style.css" rel="stylesheet" asp-append-version="true" />
 	@RenderSection("Css", false)
 
 </head>
@@ -24,10 +30,12 @@
 
 	<partial name="_HeaderBar" />
 	<partial name="_SiteMobileMenu" />
-	<partial name="_SlickBanner" />
+	@await Component.InvokeAsync("SlickBanner")
+	<partial name="_Noti" />
 
 	@RenderBody()
-
+	<partial name="_LoginModals" />
+	<partial name="_RegisterModals" />
 	<partial name="_Footer" />
 
 	<script src="~/clientlte/js/jquery-3.3.1.min.js"></script>
@@ -42,6 +50,12 @@
 	<script src="~/clientlte/js/aos.js"></script>
 	<script src="~/clientlte/js/mediaelement-and-player.min.js"></script>
 	<script src="~/clientlte/js/main.js"></script>
+	<script src="~/adminLTE/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<!-- Modal Js -->
+	<script src="~/adminLTE/js/pages/modal.init.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
 
 	<script>
 		$(document).ready(function () {
@@ -58,6 +72,26 @@
 				}
 			});
 		});
+		$(document).ready(function () {
+			$('.slider-for').slick({
+				slidesToShow: 1,
+				slidesToScroll: 1,
+				arrows: false,
+				fade: true,
+				asNavFor: '.slider-nav',
+				autoplay: true,
+				autoplaySpeed: 2000
+			});
+			$('.slider-nav').slick({
+				slidesToShow: 3,
+				slidesToScroll: 1,
+				asNavFor: '.slider-for',
+				dots: true,
+				centerMode: true,
+				focusOnSelect: true,
+				arrows: true,
+				centerPadding: '0px'
+			});
 	</script>
 
 	@await Component.InvokeAsync("Notyf")
