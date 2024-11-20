@@ -2,7 +2,6 @@
 using App.Data.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using NuGet.Protocol.Core.Types;
 using System.Security.Claims;
 
 namespace App.Web.Areas.Admin.Components.ListRole
