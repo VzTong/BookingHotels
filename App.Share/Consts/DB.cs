@@ -116,7 +116,7 @@
 		public static class AppRoom
 		{
 			public const string TABLE_NAME					= "AppRoom";
-			public const short NAME_LENGTH					= 5;
+			public const short NAME_LENGTH					= 50;
 			public const short ROOM_NUMBER_LENGTH			= 6;
 			public const short SLUG_LENGTH					= 100;
 			public const short STATUS_LENGTH				= 100;
