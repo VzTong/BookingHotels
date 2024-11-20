@@ -1,0 +1,146 @@
+﻿@model IEnumerable<App.Web.Areas.Admin.ViewModels.RoomType.RTypeListItemVM>
+@{
+    ViewData["Title"] = "Danh sách loại phòng";
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+            <h4 class="mb-sm-0">Quản lý loại phòng khách sạn</h4>
+
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item"><a asp-action="Index" asp-area="Admin" asp-controller="Home">Bảng tổng quan</a></li>
+                    <li class="breadcrumb-item active">Loại trang phòng</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title mb-0">Loại trang phòng của khách sạn</h4>
+            </div><!-- end card header -->
+
+            <div class="card-body">
+                <div id="customerList">
+                    <div class="row g-4 mb-3">
+                        <div class="col-sm-auto">
+                            <div>
+                                @if (User.IsInPermission(AuthConst.AppEquipmentType.CREATE))
+                                {
+                                    <button type="button" class="btn btn-success btn-label add-btn" data-bs-toggle="modal" id="create-btn" data-bs-target="#addRType"><i class="ri-add-line label-icon align-middle fs-16 me-2"></i> Thêm loại phòng</button>
+                                }
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="table-responsive mt-3 mb-1">
+                        <table class="table align-middle" id="RTypeTable">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>#</th>
+                                    <th>Tên loại phòng</th>
+                                    <th>Mô tả</th>
+                                    <th>Số người ở</th>
+                                    <th>Mang thú cưng</th>
+                                    <th>Chức năng</th>
+                                </tr>
+                            </thead>
+                            <tbody class="list form-check-all">
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.RowIndex</td>
+
+                                        <td class="id" style="display:none;">
+                                            <a class="fw-medium link-primary">@item.Id</a>
+                                        </td>
+                                        <td class="RType_name">
+                                            @item.RoomTypeName
+                                            <div>
+                                                @if (item.RoomName == null || !item.RoomName.Any())
+                                                {
+                                                    <div class="badge badge-soft-secondary" style="cursor: default;">Không có phòng</div>
+                                                }
+                                                else
+                                                {
+                                                    @foreach (var room in item.RoomName)
+                                                    {
+                                                        <p class="badge badge-soft-info" style="cursor: default;">
+                                                            @room
+                                                        </p>
+                                                    }
+                                                }
+                                            </div>
+                                        </td>
+                                        <td class="description">@item.Description</td>
+                                        <td class="max-people">@item.PeopleStay</td>
+                                        <td class="pet">
+                                            @if (item.BringPet == true)
+                                            {
+                                                <span class="badge badge-soft-success">Có</span>
+                                            }
+                                            else
+                                            {
+                                                <span class="badge badge-soft-danger">Không</span>
+                                            }
+                                        </td>
+                                        <td>
+                                            <div class="d-flex gap-2">
+                                                @if (User.IsInPermission(AuthConst.AppEquipmentType.UPDATE))
+                                                {
+                                                    <div class="edit">
+                                                        <button class="btn btn-sm edit-item-btn link-success fs-15"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#updateRType"
+                                                                onclick="UpdateRType('@item.Id', '@item.RoomTypeName', '@item.PeopleStay', '@item.BringPet', '@item.Description')">
+                                                            <i class="ri-edit-2-line"></i>
+                                                        </button>
+                                                    </div>
+                                                }
+                                                @if (User.IsInPermission(AuthConst.AppEquipmentType.DELETE))
+                                                {
+                                                    <div class="remove">
+                                                        <button class="btn btn-sm remove-item-btn link-danger fs-15"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#deleteRTypeModal"
+                                                                onclick="setDeleteId('@item.Id')">
+                                                            <i class="ri-delete-bin-line"></i>
+                                                        </button>
+                                                    </div>
+                                                }
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="d-flex justify-content-end">
+                        <div class="pagination-wrap hstack gap-2">
+                            <partial name="_Pager" />
+                        </div>
+                    </div>
+                </div>
+            </div><!-- end card -->
+        </div>
+        <!-- end col -->
+    </div>
+    <!-- end col -->
+</div>
+<!-- end row -->
+
+<partial name="_AddRType" model="null" />
+<partial name="_UpdateRType" model="null" />
+<partial name="_DeleteRTypeModal" model="null" />
+
+@section Scripts {
+    <script src="~/adminLTE/libs/prismjs/prism.js"></script>
+    <script src="~/adminLTE/js/pages/form-validation.init.js"></script>
+    <script src="~/js/admin/rtype/rtype-validate.js"></script>
+    <script src="~/js/admin/rtype/rtype-modal.js"></script>
+}

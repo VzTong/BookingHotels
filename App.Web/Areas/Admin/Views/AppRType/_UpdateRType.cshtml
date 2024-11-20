@@ -1,0 +1,49 @@
+﻿<!-- Modal -->
+<div class="modal fade zoomIn" id="updateRType" tabindex="-1" aria-labelledby="updateRTypeLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="updateRTypeLabel">Cập nhật loại phòng</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <hr />
+            <form asp-action="EditRType" asp-controller="AppRType" asp-area="Admin" method="POST" autocomplete="off">
+                <div class="modal-body">
+                    <input type="hidden" id="idRType" name="Id" />
+                    <div class="modal-body ml-4 col-sm-12 justify-content-center align-items-center">
+                        <div class="mb-3">
+                            <label for="rTypeName-field" class="form-label">Tên loại</label>
+                            <input type="text" id="rTypeName-field" class="form-control" name="RoomTypeName" placeholder="Tên loại phòng" required />
+                            <div class="invalid-feedback">
+                                Vui lòng nhập tên loại phòng.
+                            </div>
+                        </div>
+                        <div class="col-6 d-flex">
+                            <div class="col-3 mb-3">
+                                <label for="rTypePeopleStay-field" class="form-label">Số người ở</label>
+                                <input type="number" id="rTypePeopleStay-field" class="form-control" name="PeopleStay" placeholder="Số người ở" required />
+                                <div class="invalid-feedback">
+                                    Vui lòng nhập số người ở.
+                                </div>
+                            </div>
+                            <div class="col-12 mb-3 mt-4 ms-4 d-flex">
+                                <input class="form-check-input" type="checkbox" id="rTypeBringPet-field" name="BringPet" value="true" />
+                                <label class="form-check-label" for="rTypeBringPet-field"> Được phép mang thú cưng</label>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="rTypeDecs-field" class="form-label">Mô tả</label>
+                            <textarea id="rTypeDecs-field" class="form-control" col="3" name="Description" placeholder="Mô tả"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="hstack gap-2 justify-content-end">
+                        <button type="submit" class="btn btn-success" id="add-btn">Cập nhật</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--end modal -->
