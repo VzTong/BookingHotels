@@ -19,6 +19,7 @@ namespace App.Web.Areas.Admin.ViewModels.BranchHotel
 		[AppStringLength(VM.ProductCategoryVM.MIN_LENGTH, DB.AppBranchHotel.ADDRESS_LENGTH)]
 		public string Address { get; set; }
 		public int? QuantityStaff { get; set; }
+		public int? QuantityFloor { get; set; }
 		public int? QuantityRoom { get; set; }
 		public string? Img { get; set; }
 		public IFormFile? ImgPath { get; set; }
