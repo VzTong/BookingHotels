@@ -8,7 +8,8 @@
         public string Address { get; set; }
 		public string? IdMap { get; set; }
 		public int? QuantityStaff { get; set; }
-        public int? QuantityRoom { get; set; }
+		public int? QuantityFloor { get; set; }
+		public int? QuantityRoom { get; set; }
         public string? Img { get; set; }
         public int? HotelId { get; set; }
         public string? HotelName { get; set; }
