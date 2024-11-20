@@ -137,8 +137,8 @@ namespace App.Web.Areas.Admin.Controllers
 			{
 				// Tìm nạp thực thể AppRole dựa trên AppRoleId và bao gồm AppUsers
 				var appRole = await _repository.GetAll<AppRole>()
-									  .Include(r => r.AppUsers)
-									  .FirstOrDefaultAsync(r => r.Id == model.AppRoleId);
+											   .Include(r => r.AppUsers)
+											   .FirstOrDefaultAsync(r => r.Id == model.AppRoleId);
 				if (appRole == null)
 				{
 					SetErrorMesg("Vai trò không tồn tại!");
