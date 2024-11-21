@@ -28,7 +28,7 @@
                 <div class="text-center">
                     <form method="post" asp-action="ChangeAvt" asp-controller="Account" asp-area="Admin" enctype="multipart/form-data">
                         <div class="profile-user position-relative d-inline-block mx-auto  mb-4">
-                            <img src="@Context.User.FindFirstValue(AppClaimTypes.Avatar)" class="rounded-circle avatar-xl img-thumbnail user-profile-image" alt="user-profile-image">
+                            <img src="@Model.Avatar" class="rounded-circle avatar-xl img-thumbnail user-profile-image" alt="user-profile-image">
                             <div class="avatar-xs p-0 rounded-circle profile-photo-edit">
                                 <input id="profile-img-file-input" type="file" asp-for="@Model.AvatarUpload" class="profile-img-file-input">
                                 <label for="profile-img-file-input" class="profile-photo-edit avatar-xs">
