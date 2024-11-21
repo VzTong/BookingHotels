@@ -10,6 +10,7 @@ using App.Web.Areas.Admin.ViewModels.EquipmentType;
 using App.Web.Areas.Admin.ViewModels.Hotel;
 using App.Web.Areas.Admin.ViewModels.News;
 using App.Web.Areas.Admin.ViewModels.Role;
+using App.Web.Areas.Admin.ViewModels.Room;
 using App.Web.Areas.Admin.ViewModels.RoomType;
 using App.Web.Areas.Admin.ViewModels.User;
 using App.Web.ViewModels.Account;
@@ -52,6 +53,9 @@ namespace App.Web.WebConfig
 
 			// Map dữ liệu của AppRoomType
 			CreateMap<AppRoomType, AddOrUpdateRTypeVM>().ReverseMap();
+
+			// Map dữ liệu của AppRoom
+			CreateMap<AppRoom, AddOrUpdateRoomVM>().ReverseMap();
 		}
 
 		// Cấu hình mapping cho RoleController, action Index
@@ -125,8 +129,8 @@ namespace App.Web.WebConfig
 		// Cấu hình mapping cho AppHotelController, action Index
 		public static MapperConfiguration HotelIndexConf = new(mapper =>
 		{
-			// Map dữ liệu từ AppHotel sang AppHotelListItemVM, map thuộc tính TypeEquipmentName
-			mapper.CreateMap<AppHotel, AppHotelListItemVM>()
+			// Map dữ liệu từ AppHotel sang HotelListItemVM, map thuộc tính TypeEquipmentName
+			mapper.CreateMap<AppHotel, HotelListItemVM>()
 				.ForMember(
 					uItem => uItem.BranchName,
 					opts => opts.MapFrom(
@@ -190,38 +194,35 @@ namespace App.Web.WebConfig
 				);
 		});
 
-		//public static MapperConfiguration ProductCategoryConf = new(mapper =>
-		//{
-		//	mapper.CreateMap<AppProductCategory, ListItemProductCategoryVM>().ReverseMap();
-		//});
-
-		//public static MapperConfiguration ProductsConf = new(mapper =>
-		//{
-		//	mapper.CreateMap<AppProduct, ListProductsVM>()
-		//	.ForMember(uItem => uItem.CategoryName, opts =>
-		//		opts.MapFrom(uEntity =>
-		//			uEntity.ProductCategory == null ? "" :
-		//				(uEntity.ProductCategory.ParentCategory == null ?
-		//					uEntity.ProductCategory.Name :
-		//					uEntity.ProductCategory.ParentCategory.Name + " > " + uEntity.ProductCategory.Name
-		//			)
-		//		)
-		//	)
-		//	.ForMember(uItem => uItem.ImagePath, opts =>
-		//		opts.MapFrom(uEntity => uEntity.ProductImages.FirstOrDefault() == null ? "" : uEntity.ProductImages.First().ImagePath)
-		//	)
-		//	.ForMember(uItem => uItem.BrandName, opts => opts.MapFrom(uEntity => uEntity.ProductBrand == null ? "" : uEntity.ProductBrand.Name))
-		//	.ForMember(uItem => uItem.QualityProduct, opts => opts.MapFrom(uEntity => uEntity.ProductCategory.AppProducts.Where(s => s.DeletedDate == null).Count())).ReverseMap();
-
-		//	mapper.CreateMap<AppProduct, ListItemProductVM>()
-		//	.ForMember(uItem => uItem.CategoryName, opts => opts.MapFrom(uEntity => uEntity.ProductCategory == null ? "" : uEntity.ProductCategory.Name))
-		//	.ForMember(uItem => uItem.ImagePath, opts =>
-		//		opts.MapFrom(uEntity => uEntity.ProductImages.FirstOrDefault() == null ? "" : uEntity.ProductImages.First().ImagePath)
-		//	)
-		//	.ForMember(uItem => uItem.BrandName, opts => opts.MapFrom(uEntity => uEntity.ProductBrand == null ? "" : uEntity.ProductBrand.Name))
-		//	.ForMember(uItem => uItem.StampPathCategory, opts => opts.MapFrom(uEntity => uEntity.ProductCategory == null ? "" : uEntity.ProductCategory.StampPath));
-
-		//});
+		public static MapperConfiguration RoomsIndexConf = new(mapper =>
+		{
+			mapper.CreateMap<AppRoom, RoomListItemVM>()
+			.ForMember(
+				uItem => uItem.ImagePath, 
+				opts => opts.MapFrom(
+					uEntity => uEntity.ImgRooms
+						.FirstOrDefault() == null ? "" : uEntity.ImgRooms.First().ImgSrc
+				)
+			)
+			.ForMember(
+				uItem => uItem.RoomTypeName, 
+				opts => opts.MapFrom(
+					uEntity => uEntity.RoomType == null ? "" : uEntity.RoomType.RoomTypeName
+				)
+			)
+			.ForMember(
+				uItem => uItem.BranchName, 
+				opts => opts.MapFrom(
+					uEntity => uEntity.Branch == null ? "" : uEntity.Branch.Name
+				)
+			)
+			.ForMember(
+				uItem => uItem.HotelName,
+				opts => opts.MapFrom(
+					uEntity => uEntity.Branch == null ? "" : uEntity.Branch.Hotel.Name
+				)
+			);
+		});
 
 		//public static MapperConfiguration OrderConf = new(mapper =>
 		//{
@@ -237,12 +238,12 @@ namespace App.Web.WebConfig
 
 		//public static MapperConfiguration CartConf = new(mapper =>
 		//{
-		//	mapper.CreateMap<AppProduct, CartItemVM>()
-		//	.ForMember(uItem => uItem.CategoryName, opts => opts.MapFrom(uEntity => uEntity.ProductCategory == null ? "" : uEntity.ProductCategory.Name))
+		//	mapper.CreateMap<AppRoom, CartItemVM>()
+		//	.ForMember(uItem => uItem.CategoryName, opts => opts.MapFrom(uEntity => uEntity.RoomCategory == null ? "" : uEntity.RoomCategory.Name))
 		//	.ForMember(uItem => uItem.ImagePath, opts =>
-		//		opts.MapFrom(uEntity => uEntity.ProductImages.FirstOrDefault() == null ? "" : uEntity.ProductImages.First().ImagePath)
+		//		opts.MapFrom(uEntity => uEntity.RoomImages.FirstOrDefault() == null ? "" : uEntity.RoomImages.First().ImagePath)
 		//	)
-		//	.ForMember(uItem => uItem.BrandName, opts => opts.MapFrom(uEntity => uEntity.ProductBrand == null ? "" : uEntity.ProductBrand.Name)).ReverseMap();
+		//	.ForMember(uItem => uItem.BrandName, opts => opts.MapFrom(uEntity => uEntity.RoomBrand == null ? "" : uEntity.RoomBrand.Name)).ReverseMap();
 		//});
 
 		//public static MapperConfiguration CatalogueConf = new(mapper =>
