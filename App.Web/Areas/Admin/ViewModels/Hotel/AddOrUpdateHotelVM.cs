@@ -1,11 +1,10 @@
-﻿using App.Data.Entities.Hotel;
-using App.Share.Attributes;
+﻿using App.Share.Attributes;
 using App.Share.Consts;
 using App.Web.WebConfig.Consts;
 
 namespace App.Web.Areas.Admin.ViewModels.Hotel
 {
-    public class AddOrUpdateHotelVM
+	public class AddOrUpdateHotelVM
     {
         public int? Id { get; set; }
 

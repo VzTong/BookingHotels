@@ -2,7 +2,7 @@
 
 namespace App.Web.Areas.Admin.ViewModels.Hotel
 {
-	public class AppHotelListItemVM : ListItemBaseVM
+	public class HotelListItemVM : ListItemBaseVM
 	{
 		public string Name { get; set; }
 		public string? Slug { get; set; }
