@@ -1,0 +1,40 @@
+﻿@model IEnumerable<App.Web.ViewModels.Hotel.HotelVM>
+
+<div class="site-section block-15 list-room">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 mx-auto text-center mb-5 section-heading" style="padding-top: 7em;">
+				<h2>Danh sách khách sạn</h2>
+			</div>
+		</div>
+		@if (Model != null && Model.Any())
+		{
+			<div class="nonloop-block-15 owl-carousel">
+				@foreach (var item in Model)
+				{
+					<div class="media-with-text p-md-3">
+						<div class="card card-room">
+							<div class="img-border-sm mb-4">
+								<a class="popup-vimeo image-play">
+									@if (item.ImgBanner != null)
+									{
+										var imgSrc = item.ImgBanner.StartsWith("https", StringComparison.OrdinalIgnoreCase) ? item.ImgBanner : "/" + item.ImgBanner;
+										<img src="@imgSrc" alt="@item.Name" loading="lazy" class="img-fluid" style="height: 223px;" />
+									}
+									else
+									{
+										<img src="~/clientlte/images/img_1.jpg" alt="Khách sạn" class="img-fluid" style="height: 223px;">
+									}
+								</a>
+							</div>
+							<div class="card-body" style="height:150px">
+								<h5 class="card-title">@item.Name</h5>
+								<p class="card-text">@item.Description</p>
+							</div>
+						</div>
+					</div>
+				}
+			</div>
+		}
+	</div>
+</div>
