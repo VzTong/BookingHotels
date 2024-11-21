@@ -24,8 +24,7 @@ namespace App.Web.Components.SlickBanner
 				.Where(x => x.IsActive == true && x.DeletedDate == null)
 				.OrderByDescending(x => x.DisplayOrder)
 				.ThenByDescending(x => x.Id)
-				.ProjectTo<AppHotelListItemVM>(AutoMapperProfile.HotelIndexConf)
-				.Take(10)
+				.ProjectTo<HotelListItemVM>(AutoMapperProfile.HotelIndexConf)
 				.ToListAsync();
 			return View(data);
 		}
