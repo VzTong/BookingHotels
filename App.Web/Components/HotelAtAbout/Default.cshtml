@@ -1,0 +1,27 @@
+﻿@model IEnumerable<App.Web.ViewModels.Hotel.HotelVM>
+
+<div class="site-section border-top">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 mx-auto text-center mb-5 section-heading">
+				<h2 class="mb-5">Các chi nhánh</h2>
+			</div>
+		</div>
+		<div class="row no-gutters">
+			@foreach (var item in Model)
+			{
+				<div class="col-md-6 col-lg-3">
+					@if (item.ImgBanner != null)
+					{
+						var imgSrc = item.ImgBanner.StartsWith("https", StringComparison.OrdinalIgnoreCase) ? item.ImgBanner : "/" + item.ImgBanner;
+						<img src="@imgSrc" alt="@item.Name" loading="lazy" class="img-fluid" style="border-radius: 0px !important; height: 223px; width: 278px" />
+					}
+					else
+					{
+						<a href="~/clientlte/images/img_1.jpg" class="image-popup img-opacity"><img src="~/clientlte/images/img_1.jpg" alt="@item.Name" class="img-fluid" style="border-radius: 0px !important; height: 223px; width: 278px"></a>
+					}
+				</div>
+			}
+		</div>
+	</div>
+</div>
