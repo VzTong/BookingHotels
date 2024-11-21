@@ -1,0 +1,65 @@
+﻿@model IEnumerable<App.Web.ViewModels.Room.RoomVM>
+
+<div class="site-section block-15 list-room">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 mx-auto text-center mb-5 section-heading" style="padding-top: 7em;">
+				<h2>Danh sách phòng</h2>
+			</div>
+		</div>
+		@if (Model != null && Model.Any())
+		{
+			<div class="nonloop-block-15 owl-carousel">
+				@foreach (var item in Model)
+				{
+					<div class="media-with-text p-md-3 ribbon-box shadow-none">
+						<div class="card card-room">
+							<div class="img-border-sm mb-4">
+								<div class="img-border-sm">
+									@if (item.IsDiscountProduct)
+									{
+										<div class="ribbon-two ribbon-two-success"><span>Giảm giá</span></div>
+									}
+									<a asp-area=""
+									   asp-controller="Rooms"
+									   asp-action="RoomDetail"
+									   asp-route-slug="@item.Slug">
+										@if (item.ImagePath != null)
+										{
+											var imgSrc = item.ImagePath.StartsWith("https", StringComparison.OrdinalIgnoreCase) ? item.ImagePath : "/" + item.ImagePath;
+											<img src="@imgSrc" alt="@item.RoomName" loading="lazy" class="img-fluid" style="height: 230px;" />
+										}
+										else
+										{
+											<img src="~/clientlte/images/img_1.jpg" alt="Phòng khách" class="img-fluid" style="height: 230px;">
+										}
+									</a>
+								</div>
+							</div>
+							<div class="card-body" style="height:175px">
+								<h5 class="card-title">
+									<a asp-area=""
+									   asp-controller="Rooms"
+									   asp-action="RoomDetail"
+									   asp-route-slug="@item.Slug">
+										@item.RoomName
+									</a>
+								</h5>
+								<p class="card-text">Thuộc @item.BranchDesc</p>
+								@if (item.IsDiscountProduct)
+								{
+									<span class="small text-secondary" style="text-decoration: line-through;">@item.Price.ToString("#,0 VNĐ")</span>
+									<span class="price">Giảm còn <strong>@item.Price.ToString("#,0 VNĐ")</strong></span>
+								}
+								else
+								{
+									<p class="price">Giá chỉ từ <strong>@item.Price.ToString("#,0 VNĐ")</strong></p>
+								}
+							</div>
+						</div>
+					</div>
+				}
+			</div>
+		}
+	</div>
+</div>
