@@ -1,0 +1,32 @@
+﻿@model IEnumerable<App.Web.ViewModels.User.UserVm>
+
+<div class="site-section bg-light">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 mx-auto text-center mb-5 section-heading">
+				<h2 class="mb-5">Nhân viên hệ thống</h2>
+			</div>
+		</div>
+		<div class="row">
+			@foreach (var item in Model)
+			{
+				var imgSrc = item.Avatar.StartsWith("https", StringComparison.OrdinalIgnoreCase) ? item.Avatar : item.Avatar;
+				<div class="col-md-6 col-lg-4 mb-5">
+					<div class="card card-staff">
+
+						<div class="hotel-room text-center">
+							<a href="#" class="d-block mb-4 thumbnail">
+
+								<img src="@imgSrc" alt="@item.FullName" class="img-fluid" width="350px" height="306px" />
+							</a>
+							<div class="p-4">
+								<h3 class="heading mb-3"><a href="#">@item.FullName</a></h3>
+								<p>@item.RoleName</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			}
+		</div>
+	</div>
+</div>
