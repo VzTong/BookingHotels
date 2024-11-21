@@ -17,10 +17,11 @@ namespace App.Data.Entities.Room
 		public int RoomNumber { get; set; }
 		public string? Slug { get; set; }
 		public string Status { get; set; }
-		public double Price { get; set; }
-		public double DiscountPrice { get; set; }
-		public DateTime DiscountFrom { get; set; }
-		public DateTime DiscountTo { get; set; }
+		public decimal Price { get; set; }
+		public decimal? DiscountPrice { get; set; }
+		public DateTime? DiscountFrom { get; set; }
+		public DateTime? DiscountTo { get; set; }
+		public bool IsActive { get; set; }
 		public int? BranchId { get; set; }
 		public int? RoomTypeId { get; set; }
 		

@@ -1759,266 +1759,314 @@ namespace App.Data.Migrations
                         new
                         {
                             Id = 1,
-                            ImgSrc = "/clientLTE/images/img_1.jpg",
+                            ImgSrc = "files/ImgRoom/r-9.jpeg",
                             RoomId = 1
                         },
                         new
                         {
                             Id = 2,
-                            ImgSrc = "/clientLTE/images/img_2.jpg",
+                            ImgSrc = "clientLTE/images/img_2.jpg",
                             RoomId = 1
                         },
                         new
                         {
                             Id = 3,
-                            ImgSrc = "/clientLTE/images/img_3.jpg",
+                            ImgSrc = "clientLTE/images/img_3.jpg",
                             RoomId = 1
                         },
                         new
                         {
                             Id = 4,
-                            ImgSrc = "/clientLTE/images/img_4.jpg",
+                            ImgSrc = "clientLTE/images/img_4.jpg",
                             RoomId = 1
                         },
                         new
                         {
                             Id = 5,
-                            ImgSrc = "/clientLTE/images/img_1.jpg",
+                            ImgSrc = "files/ImgRoom/r-7.jpeg",
                             RoomId = 2
                         },
                         new
                         {
                             Id = 6,
-                            ImgSrc = "/clientLTE/images/img_2.jpg",
+                            ImgSrc = "clientLTE/images/img_2.jpg",
                             RoomId = 2
                         },
                         new
                         {
                             Id = 7,
-                            ImgSrc = "/clientLTE/images/img_3.jpg",
+                            ImgSrc = "clientLTE/images/img_3.jpg",
                             RoomId = 2
                         },
                         new
                         {
                             Id = 8,
-                            ImgSrc = "/clientLTE/images/img_4.jpg",
+                            ImgSrc = "clientLTE/images/img_4.jpg",
                             RoomId = 2
                         },
                         new
                         {
                             Id = 9,
-                            ImgSrc = "/clientLTE/images/img_1.jpg",
+                            ImgSrc = "files/ImgRoom/r-13.jpeg",
                             RoomId = 3
                         },
                         new
                         {
                             Id = 10,
-                            ImgSrc = "/clientLTE/images/img_2.jpg",
+                            ImgSrc = "clientLTE/images/img_2.jpg",
                             RoomId = 3
                         },
                         new
                         {
                             Id = 11,
-                            ImgSrc = "/clientLTE/images/img_3.jpg",
+                            ImgSrc = "clientLTE/images/img_3.jpg",
                             RoomId = 3
                         },
                         new
                         {
                             Id = 12,
-                            ImgSrc = "/clientLTE/images/img_4.jpg",
+                            ImgSrc = "clientLTE/images/img_4.jpg",
                             RoomId = 3
                         },
                         new
                         {
                             Id = 13,
-                            ImgSrc = "/clientLTE/images/img_1.jpg",
+                            ImgSrc = "files/ImgRoom/r-2.jpeg",
                             RoomId = 4
                         },
                         new
                         {
                             Id = 14,
-                            ImgSrc = "/clientLTE/images/img_2.jpg",
+                            ImgSrc = "clientLTE/images/img_2.jpg",
                             RoomId = 4
                         },
                         new
                         {
                             Id = 15,
-                            ImgSrc = "/clientLTE/images/img_3.jpg",
+                            ImgSrc = "clientLTE/images/img_3.jpg",
                             RoomId = 4
                         },
                         new
                         {
                             Id = 16,
-                            ImgSrc = "/clientLTE/images/img_4.jpg",
+                            ImgSrc = "clientLTE/images/img_4.jpg",
                             RoomId = 4
                         },
                         new
                         {
                             Id = 17,
-                            ImgSrc = "/clientLTE/images/img_1.jpg",
+                            ImgSrc = "files/ImgRoom/r-1.jpeg",
                             RoomId = 5
                         },
                         new
                         {
                             Id = 18,
-                            ImgSrc = "/clientLTE/images/img_2.jpg",
+                            ImgSrc = "clientLTE/images/img_2.jpg",
                             RoomId = 5
                         },
                         new
                         {
                             Id = 19,
-                            ImgSrc = "/clientLTE/images/img_3.jpg",
+                            ImgSrc = "clientLTE/images/img_3.jpg",
                             RoomId = 5
                         },
                         new
                         {
                             Id = 20,
-                            ImgSrc = "/clientLTE/images/img_4.jpg",
+                            ImgSrc = "clientLTE/images/img_4.jpg",
                             RoomId = 5
                         },
                         new
                         {
                             Id = 21,
-                            ImgSrc = "/clientLTE/images/img_1.jpg",
+                            ImgSrc = "files/ImgRoom/r-3.jpeg",
                             RoomId = 6
                         },
                         new
                         {
                             Id = 22,
-                            ImgSrc = "/clientLTE/images/img_2.jpg",
+                            ImgSrc = "clientLTE/images/img_2.jpg",
                             RoomId = 6
                         },
                         new
                         {
                             Id = 23,
-                            ImgSrc = "/clientLTE/images/img_3.jpg",
+                            ImgSrc = "clientLTE/images/img_3.jpg",
                             RoomId = 6
                         },
                         new
                         {
                             Id = 24,
-                            ImgSrc = "/clientLTE/images/img_4.jpg",
+                            ImgSrc = "clientLTE/images/img_4.jpg",
                             RoomId = 6
                         },
                         new
                         {
                             Id = 25,
-                            ImgSrc = "/clientLTE/images/img_1.jpg",
+                            ImgSrc = "files/ImgRoom/r-4.jpeg",
                             RoomId = 7
                         },
                         new
                         {
                             Id = 26,
-                            ImgSrc = "/clientLTE/images/img_2.jpg",
+                            ImgSrc = "clientLTE/images/img_2.jpg",
                             RoomId = 7
                         },
                         new
                         {
                             Id = 27,
-                            ImgSrc = "/clientLTE/images/img_3.jpg",
+                            ImgSrc = "clientLTE/images/img_3.jpg",
                             RoomId = 7
                         },
                         new
                         {
                             Id = 28,
-                            ImgSrc = "/clientLTE/images/img_4.jpg",
+                            ImgSrc = "clientLTE/images/img_4.jpg",
                             RoomId = 7
                         },
                         new
                         {
                             Id = 29,
-                            ImgSrc = "/clientLTE/images/img_1.jpg",
+                            ImgSrc = "files/ImgRoom/r-5.jpeg",
                             RoomId = 8
                         },
                         new
                         {
                             Id = 30,
-                            ImgSrc = "/clientLTE/images/img_2.jpg",
+                            ImgSrc = "clientLTE/images/img_2.jpg",
                             RoomId = 8
                         },
                         new
                         {
                             Id = 31,
-                            ImgSrc = "/clientLTE/images/img_3.jpg",
+                            ImgSrc = "clientLTE/images/img_3.jpg",
                             RoomId = 8
                         },
                         new
                         {
                             Id = 32,
-                            ImgSrc = "/clientLTE/images/img_4.jpg",
+                            ImgSrc = "clientLTE/images/img_4.jpg",
                             RoomId = 8
                         },
                         new
                         {
                             Id = 33,
-                            ImgSrc = "/clientLTE/images/img_1.jpg",
+                            ImgSrc = "files/ImgRoom/r-6.jpeg",
                             RoomId = 9
                         },
                         new
                         {
                             Id = 34,
-                            ImgSrc = "/clientLTE/images/img_2.jpg",
+                            ImgSrc = "clientLTE/images/img_2.jpg",
                             RoomId = 9
                         },
                         new
                         {
                             Id = 35,
-                            ImgSrc = "/clientLTE/images/img_3.jpg",
+                            ImgSrc = "clientLTE/images/img_3.jpg",
                             RoomId = 9
                         },
                         new
                         {
                             Id = 36,
-                            ImgSrc = "/clientLTE/images/img_4.jpg",
+                            ImgSrc = "clientLTE/images/img_4.jpg",
                             RoomId = 9
                         },
                         new
                         {
                             Id = 37,
-                            ImgSrc = "/clientLTE/images/img_1.jpg",
+                            ImgSrc = "files/ImgRoom/r-8.jpeg",
                             RoomId = 10
                         },
                         new
                         {
                             Id = 38,
-                            ImgSrc = "/clientLTE/images/img_2.jpg",
+                            ImgSrc = "clientLTE/images/img_2.jpg",
                             RoomId = 10
                         },
                         new
                         {
                             Id = 39,
-                            ImgSrc = "/clientLTE/images/img_3.jpg",
+                            ImgSrc = "clientLTE/images/img_3.jpg",
                             RoomId = 10
                         },
                         new
                         {
                             Id = 40,
-                            ImgSrc = "/clientLTE/images/img_4.jpg",
+                            ImgSrc = "clientLTE/images/img_4.jpg",
                             RoomId = 10
                         },
                         new
                         {
                             Id = 41,
-                            ImgSrc = "/clientLTE/images/img_1.jpg",
+                            ImgSrc = "files/ImgRoom/r-10.jpeg",
                             RoomId = 11
                         },
                         new
                         {
                             Id = 42,
-                            ImgSrc = "/clientLTE/images/img_2.jpg",
+                            ImgSrc = "clientLTE/images/img_2.jpg",
                             RoomId = 11
                         },
                         new
                         {
                             Id = 43,
-                            ImgSrc = "/clientLTE/images/img_3.jpg",
+                            ImgSrc = "clientLTE/images/img_3.jpg",
                             RoomId = 11
                         },
                         new
                         {
                             Id = 44,
-                            ImgSrc = "/clientLTE/images/img_4.jpg",
+                            ImgSrc = "clientLTE/images/img_4.jpg",
                             RoomId = 11
+                        },
+                        new
+                        {
+                            Id = 45,
+                            ImgSrc = "files/ImgRoom/r-11.jpeg",
+                            RoomId = 12
+                        },
+                        new
+                        {
+                            Id = 46,
+                            ImgSrc = "clientLTE/images/img_2.jpg",
+                            RoomId = 12
+                        },
+                        new
+                        {
+                            Id = 47,
+                            ImgSrc = "clientLTE/images/img_3.jpg",
+                            RoomId = 12
+                        },
+                        new
+                        {
+                            Id = 48,
+                            ImgSrc = "clientLTE/images/img_4.jpg",
+                            RoomId = 12
+                        },
+                        new
+                        {
+                            Id = 49,
+                            ImgSrc = "files/ImgRoom/r-12.jpeg",
+                            RoomId = 13
+                        },
+                        new
+                        {
+                            Id = 50,
+                            ImgSrc = "clientLTE/images/img_2.jpg",
+                            RoomId = 13
+                        },
+                        new
+                        {
+                            Id = 51,
+                            ImgSrc = "clientLTE/images/img_3.jpg",
+                            RoomId = 13
+                        },
+                        new
+                        {
+                            Id = 52,
+                            ImgSrc = "clientLTE/images/img_4.jpg",
+                            RoomId = 13
                         });
                 });
 
@@ -2042,14 +2090,14 @@ namespace App.Data.Migrations
                     b.Property<DateTime?>("DeletedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("DiscountFrom")
+                    b.Property<DateTime?>("DiscountFrom")
                         .HasColumnType("datetime2");
 
-                    b.Property<double>("DiscountPrice")
+                    b.Property<decimal?>("DiscountPrice")
                         .HasMaxLength(10)
-                        .HasColumnType("float");
+                        .HasColumnType("decimal(18,2)");
 
-                    b.Property<DateTime>("DiscountTo")
+                    b.Property<DateTime?>("DiscountTo")
                         .HasColumnType("datetime2");
 
                     b.Property<int?>("DisplayOrder")
@@ -2059,9 +2107,12 @@ namespace App.Data.Migrations
                         .HasMaxLength(6)
                         .HasColumnType("int");
 
-                    b.Property<double>("Price")
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<decimal>("Price")
                         .HasMaxLength(10)
-                        .HasColumnType("float");
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("RoomName")
                         .IsRequired()
@@ -2102,13 +2153,14 @@ namespace App.Data.Migrations
                         new
                         {
                             Id = 1,
-                            BranchId = 1,
+                            BranchId = 10,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DiscountFrom = new DateTime(2024, 10, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DiscountPrice = 1200000.0,
+                            DiscountPrice = 120000m,
                             DiscountTo = new DateTime(2024, 12, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FloorNumber = 145,
-                            Price = 15000000.0,
+                            IsActive = true,
+                            Price = 15000000m,
                             RoomName = "T0145•101 Luxury",
                             RoomNumber = 101,
                             RoomTypeId = 4,
@@ -2120,11 +2172,9 @@ namespace App.Data.Migrations
                             Id = 2,
                             BranchId = 2,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DiscountFrom = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DiscountPrice = 0.0,
-                            DiscountTo = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FloorNumber = 12,
-                            Price = 120000.0,
+                            IsActive = true,
+                            Price = 1200000m,
                             RoomName = "T012•205 Double",
                             RoomNumber = 205,
                             RoomTypeId = 2,
@@ -2136,11 +2186,9 @@ namespace App.Data.Migrations
                             Id = 3,
                             BranchId = 1,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DiscountFrom = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DiscountPrice = 0.0,
-                            DiscountTo = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FloorNumber = 2,
-                            Price = 120000.0,
+                            IsActive = true,
+                            Price = 120000m,
                             RoomName = "T02•15 Double",
                             RoomNumber = 15,
                             RoomTypeId = 2,
@@ -2150,13 +2198,11 @@ namespace App.Data.Migrations
                         new
                         {
                             Id = 4,
-                            BranchId = 1,
+                            BranchId = 13,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DiscountFrom = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DiscountPrice = 0.0,
-                            DiscountTo = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FloorNumber = 3,
-                            Price = 80000.0,
+                            IsActive = true,
+                            Price = 8000000m,
                             RoomName = "T03•101 Single",
                             RoomNumber = 101,
                             RoomTypeId = 1,
@@ -2168,11 +2214,9 @@ namespace App.Data.Migrations
                             Id = 5,
                             BranchId = 3,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DiscountFrom = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DiscountPrice = 0.0,
-                            DiscountTo = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FloorNumber = 4,
-                            Price = 80000.0,
+                            IsActive = true,
+                            Price = 80000m,
                             RoomName = "T04•102 Single",
                             RoomNumber = 102,
                             RoomTypeId = 1,
@@ -2184,11 +2228,9 @@ namespace App.Data.Migrations
                             Id = 6,
                             BranchId = 7,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DiscountFrom = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DiscountPrice = 0.0,
-                            DiscountTo = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FloorNumber = 5,
-                            Price = 200000.0,
+                            IsActive = true,
+                            Price = 200000m,
                             RoomName = "T05•201 Family",
                             RoomNumber = 201,
                             RoomTypeId = 3,
@@ -2200,27 +2242,23 @@ namespace App.Data.Migrations
                             Id = 7,
                             BranchId = 1,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DiscountFrom = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DiscountPrice = 0.0,
-                            DiscountTo = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FloorNumber = 6,
-                            Price = 200000.0,
+                            IsActive = true,
+                            Price = 200000m,
                             RoomName = "T06•202 Family",
                             RoomNumber = 202,
                             RoomTypeId = 3,
                             Slug = "t06-202-family",
-                            Status = "Phòng đang được dọn dẹp"
+                            Status = "Phòng đang được đặt"
                         },
                         new
                         {
                             Id = 8,
                             BranchId = 1,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DiscountFrom = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DiscountPrice = 0.0,
-                            DiscountTo = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FloorNumber = 7,
-                            Price = 300000.0,
+                            IsActive = true,
+                            Price = 20000000m,
                             RoomName = "T07•301 VIP",
                             RoomNumber = 301,
                             RoomTypeId = 5,
@@ -2230,13 +2268,11 @@ namespace App.Data.Migrations
                         new
                         {
                             Id = 9,
-                            BranchId = 10,
+                            BranchId = 23,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DiscountFrom = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DiscountPrice = 0.0,
-                            DiscountTo = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FloorNumber = 8,
-                            Price = 300000.0,
+                            IsActive = true,
+                            Price = 20000000m,
                             RoomName = "T08•302 VIP",
                             RoomNumber = 302,
                             RoomTypeId = 5,
@@ -2246,13 +2282,11 @@ namespace App.Data.Migrations
                         new
                         {
                             Id = 10,
-                            BranchId = 12,
+                            BranchId = 23,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DiscountFrom = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DiscountPrice = 0.0,
-                            DiscountTo = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FloorNumber = 9,
-                            Price = 15000000.0,
+                            IsActive = true,
+                            Price = 15000000m,
                             RoomName = "T09•401 Luxury",
                             RoomNumber = 401,
                             RoomTypeId = 4,
@@ -2264,16 +2298,48 @@ namespace App.Data.Migrations
                             Id = 11,
                             BranchId = 15,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DiscountFrom = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DiscountPrice = 0.0,
-                            DiscountTo = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FloorNumber = 10,
-                            Price = 15000000.0,
+                            IsActive = true,
+                            Price = 15000000m,
                             RoomName = "T10•402 Luxury",
                             RoomNumber = 402,
                             RoomTypeId = 4,
                             Slug = "t10-402-luxury",
                             Status = "Đã hủy đặt phòng"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            BranchId = 1,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DiscountFrom = new DateTime(2024, 11, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DiscountPrice = 18000000m,
+                            DiscountTo = new DateTime(2024, 12, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FloorNumber = 11,
+                            IsActive = true,
+                            Price = 20000000m,
+                            RoomName = "T11•501 VIP",
+                            RoomNumber = 501,
+                            RoomTypeId = 5,
+                            Slug = "t11-501-vip",
+                            Status = "Khách đã nhận phòng"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            BranchId = 2,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DiscountFrom = new DateTime(2024, 11, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DiscountPrice = 14000000m,
+                            DiscountTo = new DateTime(2024, 12, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FloorNumber = 12,
+                            IsActive = true,
+                            Price = 15000000m,
+                            RoomName = "T12•502 Luxury",
+                            RoomNumber = 502,
+                            RoomTypeId = 4,
+                            Slug = "t12-502-luxury",
+                            Status = "Đã trả phòng - phòng trống"
                         });
                 });
 
@@ -4202,13 +4268,14 @@ namespace App.Data.Migrations
                             Id = 1,
                             Address = "Kiên Giang",
                             AppRoleId = 1,
+                            Avatar = "/adminLTE/images/users/avatar-3.jpg",
                             CitizenId = 912345678,
                             CreatedBy = -1,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "administrator@gmail.com",
                             FullName = "Nguyễn Thanh Long",
-                            PasswordHash = new byte[] { 110, 41, 31, 29, 126, 3, 32, 114, 101, 186, 40, 147, 170, 174, 169, 88, 117, 246, 107, 164, 219, 238, 242, 228, 6, 110, 239, 30, 158, 92, 118, 6, 73, 55, 191, 238, 166, 145, 193, 231, 70, 78, 253, 250, 210, 247, 74, 179, 183, 133, 53, 161, 51, 251, 248, 165, 197, 181, 0, 78, 75, 48, 138, 181 },
-                            PasswordSalt = new byte[] { 103, 114, 159, 111, 103, 199, 198, 148, 17, 82, 17, 79, 197, 110, 1, 164, 170, 251, 149, 109, 182, 230, 23, 167, 54, 172, 235, 238, 83, 39, 6, 254, 174, 212, 49, 83, 178, 172, 136, 193, 182, 91, 85, 253, 72, 139, 118, 149, 60, 103, 188, 34, 151, 71, 152, 82, 15, 10, 231, 239, 52, 20, 15, 214, 247, 99, 254, 143, 5, 151, 62, 231, 49, 161, 127, 192, 218, 129, 215, 15, 176, 139, 141, 123, 213, 55, 194, 187, 77, 168, 145, 14, 173, 249, 199, 255, 87, 176, 73, 53, 37, 146, 184, 11, 180, 31, 153, 201, 81, 228, 103, 133, 226, 41, 231, 50, 239, 12, 122, 74, 178, 207, 57, 235, 235, 174, 61, 231 },
+                            PasswordHash = new byte[] { 245, 123, 227, 188, 17, 93, 167, 113, 183, 253, 55, 102, 152, 161, 197, 211, 92, 66, 153, 82, 9, 49, 233, 116, 204, 220, 228, 183, 90, 21, 74, 220, 123, 244, 72, 189, 81, 140, 235, 241, 73, 205, 103, 134, 179, 136, 158, 173, 139, 165, 53, 55, 53, 88, 96, 121, 105, 182, 20, 145, 87, 140, 7, 220 },
+                            PasswordSalt = new byte[] { 79, 61, 192, 105, 185, 66, 222, 176, 233, 57, 47, 68, 155, 121, 211, 111, 25, 128, 50, 130, 201, 187, 116, 106, 248, 220, 110, 232, 143, 119, 181, 119, 233, 122, 250, 209, 106, 23, 85, 247, 48, 0, 5, 210, 255, 71, 108, 54, 46, 100, 248, 208, 227, 157, 9, 66, 120, 108, 252, 20, 124, 187, 224, 139, 251, 124, 208, 201, 146, 206, 125, 122, 11, 19, 52, 39, 231, 110, 16, 163, 151, 205, 46, 51, 113, 43, 145, 178, 54, 152, 22, 137, 135, 179, 204, 250, 195, 223, 134, 197, 246, 101, 244, 108, 211, 209, 99, 133, 22, 71, 114, 7, 165, 246, 25, 164, 176, 103, 169, 246, 161, 246, 251, 38, 235, 218, 169, 231 },
                             PhoneNumber1 = "+84928666158",
                             PhoneNumber2 = "+84928666156",
                             Username = "administrator"
@@ -4218,13 +4285,14 @@ namespace App.Data.Migrations
                             Id = 2,
                             Address = "Thành phố Cần Thơ",
                             AppRoleId = 2,
+                            Avatar = "/adminLTE/images/users/avatar-7.jpg",
                             CitizenId = 917635678,
                             CreatedBy = -1,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "fullequipmentmanagement@gmail.com",
                             FullName = "Trần Chí Dũng",
-                            PasswordHash = new byte[] { 110, 41, 31, 29, 126, 3, 32, 114, 101, 186, 40, 147, 170, 174, 169, 88, 117, 246, 107, 164, 219, 238, 242, 228, 6, 110, 239, 30, 158, 92, 118, 6, 73, 55, 191, 238, 166, 145, 193, 231, 70, 78, 253, 250, 210, 247, 74, 179, 183, 133, 53, 161, 51, 251, 248, 165, 197, 181, 0, 78, 75, 48, 138, 181 },
-                            PasswordSalt = new byte[] { 103, 114, 159, 111, 103, 199, 198, 148, 17, 82, 17, 79, 197, 110, 1, 164, 170, 251, 149, 109, 182, 230, 23, 167, 54, 172, 235, 238, 83, 39, 6, 254, 174, 212, 49, 83, 178, 172, 136, 193, 182, 91, 85, 253, 72, 139, 118, 149, 60, 103, 188, 34, 151, 71, 152, 82, 15, 10, 231, 239, 52, 20, 15, 214, 247, 99, 254, 143, 5, 151, 62, 231, 49, 161, 127, 192, 218, 129, 215, 15, 176, 139, 141, 123, 213, 55, 194, 187, 77, 168, 145, 14, 173, 249, 199, 255, 87, 176, 73, 53, 37, 146, 184, 11, 180, 31, 153, 201, 81, 228, 103, 133, 226, 41, 231, 50, 239, 12, 122, 74, 178, 207, 57, 235, 235, 174, 61, 231 },
+                            PasswordHash = new byte[] { 245, 123, 227, 188, 17, 93, 167, 113, 183, 253, 55, 102, 152, 161, 197, 211, 92, 66, 153, 82, 9, 49, 233, 116, 204, 220, 228, 183, 90, 21, 74, 220, 123, 244, 72, 189, 81, 140, 235, 241, 73, 205, 103, 134, 179, 136, 158, 173, 139, 165, 53, 55, 53, 88, 96, 121, 105, 182, 20, 145, 87, 140, 7, 220 },
+                            PasswordSalt = new byte[] { 79, 61, 192, 105, 185, 66, 222, 176, 233, 57, 47, 68, 155, 121, 211, 111, 25, 128, 50, 130, 201, 187, 116, 106, 248, 220, 110, 232, 143, 119, 181, 119, 233, 122, 250, 209, 106, 23, 85, 247, 48, 0, 5, 210, 255, 71, 108, 54, 46, 100, 248, 208, 227, 157, 9, 66, 120, 108, 252, 20, 124, 187, 224, 139, 251, 124, 208, 201, 146, 206, 125, 122, 11, 19, 52, 39, 231, 110, 16, 163, 151, 205, 46, 51, 113, 43, 145, 178, 54, 152, 22, 137, 135, 179, 204, 250, 195, 223, 134, 197, 246, 101, 244, 108, 211, 209, 99, 133, 22, 71, 114, 7, 165, 246, 25, 164, 176, 103, 169, 246, 161, 246, 251, 38, 235, 218, 169, 231 },
                             PhoneNumber1 = "+84928666157",
                             PhoneNumber2 = "+84928666158",
                             Username = "full_equipment_management"
@@ -4234,14 +4302,15 @@ namespace App.Data.Migrations
                             Id = 3,
                             Address = "New York City",
                             AppRoleId = 3,
+                            Avatar = "/adminLTE/images/users/avatar-9.jpg",
                             BranchId = 1,
                             CreatedBy = -1,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "johnsmith1992@gmail.com",
                             FullName = "John Smith",
                             Passport = "123456789",
-                            PasswordHash = new byte[] { 110, 41, 31, 29, 126, 3, 32, 114, 101, 186, 40, 147, 170, 174, 169, 88, 117, 246, 107, 164, 219, 238, 242, 228, 6, 110, 239, 30, 158, 92, 118, 6, 73, 55, 191, 238, 166, 145, 193, 231, 70, 78, 253, 250, 210, 247, 74, 179, 183, 133, 53, 161, 51, 251, 248, 165, 197, 181, 0, 78, 75, 48, 138, 181 },
-                            PasswordSalt = new byte[] { 103, 114, 159, 111, 103, 199, 198, 148, 17, 82, 17, 79, 197, 110, 1, 164, 170, 251, 149, 109, 182, 230, 23, 167, 54, 172, 235, 238, 83, 39, 6, 254, 174, 212, 49, 83, 178, 172, 136, 193, 182, 91, 85, 253, 72, 139, 118, 149, 60, 103, 188, 34, 151, 71, 152, 82, 15, 10, 231, 239, 52, 20, 15, 214, 247, 99, 254, 143, 5, 151, 62, 231, 49, 161, 127, 192, 218, 129, 215, 15, 176, 139, 141, 123, 213, 55, 194, 187, 77, 168, 145, 14, 173, 249, 199, 255, 87, 176, 73, 53, 37, 146, 184, 11, 180, 31, 153, 201, 81, 228, 103, 133, 226, 41, 231, 50, 239, 12, 122, 74, 178, 207, 57, 235, 235, 174, 61, 231 },
+                            PasswordHash = new byte[] { 245, 123, 227, 188, 17, 93, 167, 113, 183, 253, 55, 102, 152, 161, 197, 211, 92, 66, 153, 82, 9, 49, 233, 116, 204, 220, 228, 183, 90, 21, 74, 220, 123, 244, 72, 189, 81, 140, 235, 241, 73, 205, 103, 134, 179, 136, 158, 173, 139, 165, 53, 55, 53, 88, 96, 121, 105, 182, 20, 145, 87, 140, 7, 220 },
+                            PasswordSalt = new byte[] { 79, 61, 192, 105, 185, 66, 222, 176, 233, 57, 47, 68, 155, 121, 211, 111, 25, 128, 50, 130, 201, 187, 116, 106, 248, 220, 110, 232, 143, 119, 181, 119, 233, 122, 250, 209, 106, 23, 85, 247, 48, 0, 5, 210, 255, 71, 108, 54, 46, 100, 248, 208, 227, 157, 9, 66, 120, 108, 252, 20, 124, 187, 224, 139, 251, 124, 208, 201, 146, 206, 125, 122, 11, 19, 52, 39, 231, 110, 16, 163, 151, 205, 46, 51, 113, 43, 145, 178, 54, 152, 22, 137, 135, 179, 204, 250, 195, 223, 134, 197, 246, 101, 244, 108, 211, 209, 99, 133, 22, 71, 114, 7, 165, 246, 25, 164, 176, 103, 169, 246, 161, 246, 251, 38, 235, 218, 169, 231 },
                             PhoneNumber1 = "+12025550123",
                             PhoneNumber2 = "+12027450123",
                             Username = "user1"
@@ -4251,14 +4320,15 @@ namespace App.Data.Migrations
                             Id = 4,
                             Address = "Hà Nội",
                             AppRoleId = 4,
+                            Avatar = "/adminLTE/images/users/avatar-8.jpg",
                             BranchId = 1,
                             CitizenId = 917625678,
                             CreatedBy = -1,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "adminmeliahanoi@gmail.com",
                             FullName = "Hồ Thành Nhân",
-                            PasswordHash = new byte[] { 110, 41, 31, 29, 126, 3, 32, 114, 101, 186, 40, 147, 170, 174, 169, 88, 117, 246, 107, 164, 219, 238, 242, 228, 6, 110, 239, 30, 158, 92, 118, 6, 73, 55, 191, 238, 166, 145, 193, 231, 70, 78, 253, 250, 210, 247, 74, 179, 183, 133, 53, 161, 51, 251, 248, 165, 197, 181, 0, 78, 75, 48, 138, 181 },
-                            PasswordSalt = new byte[] { 103, 114, 159, 111, 103, 199, 198, 148, 17, 82, 17, 79, 197, 110, 1, 164, 170, 251, 149, 109, 182, 230, 23, 167, 54, 172, 235, 238, 83, 39, 6, 254, 174, 212, 49, 83, 178, 172, 136, 193, 182, 91, 85, 253, 72, 139, 118, 149, 60, 103, 188, 34, 151, 71, 152, 82, 15, 10, 231, 239, 52, 20, 15, 214, 247, 99, 254, 143, 5, 151, 62, 231, 49, 161, 127, 192, 218, 129, 215, 15, 176, 139, 141, 123, 213, 55, 194, 187, 77, 168, 145, 14, 173, 249, 199, 255, 87, 176, 73, 53, 37, 146, 184, 11, 180, 31, 153, 201, 81, 228, 103, 133, 226, 41, 231, 50, 239, 12, 122, 74, 178, 207, 57, 235, 235, 174, 61, 231 },
+                            PasswordHash = new byte[] { 245, 123, 227, 188, 17, 93, 167, 113, 183, 253, 55, 102, 152, 161, 197, 211, 92, 66, 153, 82, 9, 49, 233, 116, 204, 220, 228, 183, 90, 21, 74, 220, 123, 244, 72, 189, 81, 140, 235, 241, 73, 205, 103, 134, 179, 136, 158, 173, 139, 165, 53, 55, 53, 88, 96, 121, 105, 182, 20, 145, 87, 140, 7, 220 },
+                            PasswordSalt = new byte[] { 79, 61, 192, 105, 185, 66, 222, 176, 233, 57, 47, 68, 155, 121, 211, 111, 25, 128, 50, 130, 201, 187, 116, 106, 248, 220, 110, 232, 143, 119, 181, 119, 233, 122, 250, 209, 106, 23, 85, 247, 48, 0, 5, 210, 255, 71, 108, 54, 46, 100, 248, 208, 227, 157, 9, 66, 120, 108, 252, 20, 124, 187, 224, 139, 251, 124, 208, 201, 146, 206, 125, 122, 11, 19, 52, 39, 231, 110, 16, 163, 151, 205, 46, 51, 113, 43, 145, 178, 54, 152, 22, 137, 135, 179, 204, 250, 195, 223, 134, 197, 246, 101, 244, 108, 211, 209, 99, 133, 22, 71, 114, 7, 165, 246, 25, 164, 176, 103, 169, 246, 161, 246, 251, 38, 235, 218, 169, 231 },
                             PhoneNumber1 = "+84725136123",
                             PhoneNumber2 = "+84227450123",
                             Username = "admin_cn_melia_ha_noi"
@@ -4268,13 +4338,14 @@ namespace App.Data.Migrations
                             Id = 5,
                             Address = "Hà Nội",
                             AppRoleId = 5,
+                            Avatar = "/adminLTE/images/users/avatar-1.jpg",
                             CitizenId = 917673478,
                             CreatedBy = -1,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "fullnewsmanager@gmail.com",
                             FullName = "Trần Thúy Hồng",
-                            PasswordHash = new byte[] { 110, 41, 31, 29, 126, 3, 32, 114, 101, 186, 40, 147, 170, 174, 169, 88, 117, 246, 107, 164, 219, 238, 242, 228, 6, 110, 239, 30, 158, 92, 118, 6, 73, 55, 191, 238, 166, 145, 193, 231, 70, 78, 253, 250, 210, 247, 74, 179, 183, 133, 53, 161, 51, 251, 248, 165, 197, 181, 0, 78, 75, 48, 138, 181 },
-                            PasswordSalt = new byte[] { 103, 114, 159, 111, 103, 199, 198, 148, 17, 82, 17, 79, 197, 110, 1, 164, 170, 251, 149, 109, 182, 230, 23, 167, 54, 172, 235, 238, 83, 39, 6, 254, 174, 212, 49, 83, 178, 172, 136, 193, 182, 91, 85, 253, 72, 139, 118, 149, 60, 103, 188, 34, 151, 71, 152, 82, 15, 10, 231, 239, 52, 20, 15, 214, 247, 99, 254, 143, 5, 151, 62, 231, 49, 161, 127, 192, 218, 129, 215, 15, 176, 139, 141, 123, 213, 55, 194, 187, 77, 168, 145, 14, 173, 249, 199, 255, 87, 176, 73, 53, 37, 146, 184, 11, 180, 31, 153, 201, 81, 228, 103, 133, 226, 41, 231, 50, 239, 12, 122, 74, 178, 207, 57, 235, 235, 174, 61, 231 },
+                            PasswordHash = new byte[] { 245, 123, 227, 188, 17, 93, 167, 113, 183, 253, 55, 102, 152, 161, 197, 211, 92, 66, 153, 82, 9, 49, 233, 116, 204, 220, 228, 183, 90, 21, 74, 220, 123, 244, 72, 189, 81, 140, 235, 241, 73, 205, 103, 134, 179, 136, 158, 173, 139, 165, 53, 55, 53, 88, 96, 121, 105, 182, 20, 145, 87, 140, 7, 220 },
+                            PasswordSalt = new byte[] { 79, 61, 192, 105, 185, 66, 222, 176, 233, 57, 47, 68, 155, 121, 211, 111, 25, 128, 50, 130, 201, 187, 116, 106, 248, 220, 110, 232, 143, 119, 181, 119, 233, 122, 250, 209, 106, 23, 85, 247, 48, 0, 5, 210, 255, 71, 108, 54, 46, 100, 248, 208, 227, 157, 9, 66, 120, 108, 252, 20, 124, 187, 224, 139, 251, 124, 208, 201, 146, 206, 125, 122, 11, 19, 52, 39, 231, 110, 16, 163, 151, 205, 46, 51, 113, 43, 145, 178, 54, 152, 22, 137, 135, 179, 204, 250, 195, 223, 134, 197, 246, 101, 244, 108, 211, 209, 99, 133, 22, 71, 114, 7, 165, 246, 25, 164, 176, 103, 169, 246, 161, 246, 251, 38, 235, 218, 169, 231 },
                             PhoneNumber1 = "+84728756123",
                             PhoneNumber2 = "+84227459233",
                             Username = "full_news_manager"
@@ -4284,13 +4355,14 @@ namespace App.Data.Migrations
                             Id = 6,
                             Address = "Thành phố Hồ Chí Minh",
                             AppRoleId = 6,
+                            Avatar = "/adminLTE/images/users/avatar-10.jpg",
                             CitizenId = 917674628,
                             CreatedBy = -1,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "catenewsmanager@gmail.com",
-                            FullName = "Nguyên Văn Toàn",
-                            PasswordHash = new byte[] { 110, 41, 31, 29, 126, 3, 32, 114, 101, 186, 40, 147, 170, 174, 169, 88, 117, 246, 107, 164, 219, 238, 242, 228, 6, 110, 239, 30, 158, 92, 118, 6, 73, 55, 191, 238, 166, 145, 193, 231, 70, 78, 253, 250, 210, 247, 74, 179, 183, 133, 53, 161, 51, 251, 248, 165, 197, 181, 0, 78, 75, 48, 138, 181 },
-                            PasswordSalt = new byte[] { 103, 114, 159, 111, 103, 199, 198, 148, 17, 82, 17, 79, 197, 110, 1, 164, 170, 251, 149, 109, 182, 230, 23, 167, 54, 172, 235, 238, 83, 39, 6, 254, 174, 212, 49, 83, 178, 172, 136, 193, 182, 91, 85, 253, 72, 139, 118, 149, 60, 103, 188, 34, 151, 71, 152, 82, 15, 10, 231, 239, 52, 20, 15, 214, 247, 99, 254, 143, 5, 151, 62, 231, 49, 161, 127, 192, 218, 129, 215, 15, 176, 139, 141, 123, 213, 55, 194, 187, 77, 168, 145, 14, 173, 249, 199, 255, 87, 176, 73, 53, 37, 146, 184, 11, 180, 31, 153, 201, 81, 228, 103, 133, 226, 41, 231, 50, 239, 12, 122, 74, 178, 207, 57, 235, 235, 174, 61, 231 },
+                            FullName = "Nguyên Thị Thanh",
+                            PasswordHash = new byte[] { 245, 123, 227, 188, 17, 93, 167, 113, 183, 253, 55, 102, 152, 161, 197, 211, 92, 66, 153, 82, 9, 49, 233, 116, 204, 220, 228, 183, 90, 21, 74, 220, 123, 244, 72, 189, 81, 140, 235, 241, 73, 205, 103, 134, 179, 136, 158, 173, 139, 165, 53, 55, 53, 88, 96, 121, 105, 182, 20, 145, 87, 140, 7, 220 },
+                            PasswordSalt = new byte[] { 79, 61, 192, 105, 185, 66, 222, 176, 233, 57, 47, 68, 155, 121, 211, 111, 25, 128, 50, 130, 201, 187, 116, 106, 248, 220, 110, 232, 143, 119, 181, 119, 233, 122, 250, 209, 106, 23, 85, 247, 48, 0, 5, 210, 255, 71, 108, 54, 46, 100, 248, 208, 227, 157, 9, 66, 120, 108, 252, 20, 124, 187, 224, 139, 251, 124, 208, 201, 146, 206, 125, 122, 11, 19, 52, 39, 231, 110, 16, 163, 151, 205, 46, 51, 113, 43, 145, 178, 54, 152, 22, 137, 135, 179, 204, 250, 195, 223, 134, 197, 246, 101, 244, 108, 211, 209, 99, 133, 22, 71, 114, 7, 165, 246, 25, 164, 176, 103, 169, 246, 161, 246, 251, 38, 235, 218, 169, 231 },
                             PhoneNumber1 = "+84728864923",
                             PhoneNumber2 = "+84227459873",
                             Username = "cate_news_manager"
@@ -4300,13 +4372,14 @@ namespace App.Data.Migrations
                             Id = 7,
                             Address = "Phú Quốc",
                             AppRoleId = 7,
+                            Avatar = "/adminLTE/images/users/avatar-2.jpg",
                             CitizenId = 917987628,
                             CreatedBy = -1,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "newsmanager@gmail.com",
                             FullName = "Lê Thanh Hà",
-                            PasswordHash = new byte[] { 110, 41, 31, 29, 126, 3, 32, 114, 101, 186, 40, 147, 170, 174, 169, 88, 117, 246, 107, 164, 219, 238, 242, 228, 6, 110, 239, 30, 158, 92, 118, 6, 73, 55, 191, 238, 166, 145, 193, 231, 70, 78, 253, 250, 210, 247, 74, 179, 183, 133, 53, 161, 51, 251, 248, 165, 197, 181, 0, 78, 75, 48, 138, 181 },
-                            PasswordSalt = new byte[] { 103, 114, 159, 111, 103, 199, 198, 148, 17, 82, 17, 79, 197, 110, 1, 164, 170, 251, 149, 109, 182, 230, 23, 167, 54, 172, 235, 238, 83, 39, 6, 254, 174, 212, 49, 83, 178, 172, 136, 193, 182, 91, 85, 253, 72, 139, 118, 149, 60, 103, 188, 34, 151, 71, 152, 82, 15, 10, 231, 239, 52, 20, 15, 214, 247, 99, 254, 143, 5, 151, 62, 231, 49, 161, 127, 192, 218, 129, 215, 15, 176, 139, 141, 123, 213, 55, 194, 187, 77, 168, 145, 14, 173, 249, 199, 255, 87, 176, 73, 53, 37, 146, 184, 11, 180, 31, 153, 201, 81, 228, 103, 133, 226, 41, 231, 50, 239, 12, 122, 74, 178, 207, 57, 235, 235, 174, 61, 231 },
+                            PasswordHash = new byte[] { 245, 123, 227, 188, 17, 93, 167, 113, 183, 253, 55, 102, 152, 161, 197, 211, 92, 66, 153, 82, 9, 49, 233, 116, 204, 220, 228, 183, 90, 21, 74, 220, 123, 244, 72, 189, 81, 140, 235, 241, 73, 205, 103, 134, 179, 136, 158, 173, 139, 165, 53, 55, 53, 88, 96, 121, 105, 182, 20, 145, 87, 140, 7, 220 },
+                            PasswordSalt = new byte[] { 79, 61, 192, 105, 185, 66, 222, 176, 233, 57, 47, 68, 155, 121, 211, 111, 25, 128, 50, 130, 201, 187, 116, 106, 248, 220, 110, 232, 143, 119, 181, 119, 233, 122, 250, 209, 106, 23, 85, 247, 48, 0, 5, 210, 255, 71, 108, 54, 46, 100, 248, 208, 227, 157, 9, 66, 120, 108, 252, 20, 124, 187, 224, 139, 251, 124, 208, 201, 146, 206, 125, 122, 11, 19, 52, 39, 231, 110, 16, 163, 151, 205, 46, 51, 113, 43, 145, 178, 54, 152, 22, 137, 135, 179, 204, 250, 195, 223, 134, 197, 246, 101, 244, 108, 211, 209, 99, 133, 22, 71, 114, 7, 165, 246, 25, 164, 176, 103, 169, 246, 161, 246, 251, 38, 235, 218, 169, 231 },
                             PhoneNumber1 = "+84752364923",
                             PhoneNumber2 = "+84208739873",
                             Username = "news_manager"
@@ -4316,13 +4389,14 @@ namespace App.Data.Migrations
                             Id = 8,
                             Address = "Phú Quốc",
                             AppRoleId = 8,
+                            Avatar = "/adminLTE/images/users/avatar-6.jpg",
                             CitizenId = 917987986,
                             CreatedBy = -1,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "cateequipmentmanagement@gmail.com",
-                            FullName = "Lê Thành Dương",
-                            PasswordHash = new byte[] { 110, 41, 31, 29, 126, 3, 32, 114, 101, 186, 40, 147, 170, 174, 169, 88, 117, 246, 107, 164, 219, 238, 242, 228, 6, 110, 239, 30, 158, 92, 118, 6, 73, 55, 191, 238, 166, 145, 193, 231, 70, 78, 253, 250, 210, 247, 74, 179, 183, 133, 53, 161, 51, 251, 248, 165, 197, 181, 0, 78, 75, 48, 138, 181 },
-                            PasswordSalt = new byte[] { 103, 114, 159, 111, 103, 199, 198, 148, 17, 82, 17, 79, 197, 110, 1, 164, 170, 251, 149, 109, 182, 230, 23, 167, 54, 172, 235, 238, 83, 39, 6, 254, 174, 212, 49, 83, 178, 172, 136, 193, 182, 91, 85, 253, 72, 139, 118, 149, 60, 103, 188, 34, 151, 71, 152, 82, 15, 10, 231, 239, 52, 20, 15, 214, 247, 99, 254, 143, 5, 151, 62, 231, 49, 161, 127, 192, 218, 129, 215, 15, 176, 139, 141, 123, 213, 55, 194, 187, 77, 168, 145, 14, 173, 249, 199, 255, 87, 176, 73, 53, 37, 146, 184, 11, 180, 31, 153, 201, 81, 228, 103, 133, 226, 41, 231, 50, 239, 12, 122, 74, 178, 207, 57, 235, 235, 174, 61, 231 },
+                            FullName = "Lê Hồng Thị",
+                            PasswordHash = new byte[] { 245, 123, 227, 188, 17, 93, 167, 113, 183, 253, 55, 102, 152, 161, 197, 211, 92, 66, 153, 82, 9, 49, 233, 116, 204, 220, 228, 183, 90, 21, 74, 220, 123, 244, 72, 189, 81, 140, 235, 241, 73, 205, 103, 134, 179, 136, 158, 173, 139, 165, 53, 55, 53, 88, 96, 121, 105, 182, 20, 145, 87, 140, 7, 220 },
+                            PasswordSalt = new byte[] { 79, 61, 192, 105, 185, 66, 222, 176, 233, 57, 47, 68, 155, 121, 211, 111, 25, 128, 50, 130, 201, 187, 116, 106, 248, 220, 110, 232, 143, 119, 181, 119, 233, 122, 250, 209, 106, 23, 85, 247, 48, 0, 5, 210, 255, 71, 108, 54, 46, 100, 248, 208, 227, 157, 9, 66, 120, 108, 252, 20, 124, 187, 224, 139, 251, 124, 208, 201, 146, 206, 125, 122, 11, 19, 52, 39, 231, 110, 16, 163, 151, 205, 46, 51, 113, 43, 145, 178, 54, 152, 22, 137, 135, 179, 204, 250, 195, 223, 134, 197, 246, 101, 244, 108, 211, 209, 99, 133, 22, 71, 114, 7, 165, 246, 25, 164, 176, 103, 169, 246, 161, 246, 251, 38, 235, 218, 169, 231 },
                             PhoneNumber1 = "+84752369852",
                             PhoneNumber2 = "+84208739842",
                             Username = "cate_equipment_management"
@@ -4332,13 +4406,14 @@ namespace App.Data.Migrations
                             Id = 9,
                             Address = "Hà Tiên",
                             AppRoleId = 9,
+                            Avatar = "/adminLTE/images/users/avatar-4.jpg",
                             CitizenId = 987987986,
                             CreatedBy = -1,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "equipmentmanagement@gmail.com",
-                            FullName = "Huỳnh Dương Trấn",
-                            PasswordHash = new byte[] { 110, 41, 31, 29, 126, 3, 32, 114, 101, 186, 40, 147, 170, 174, 169, 88, 117, 246, 107, 164, 219, 238, 242, 228, 6, 110, 239, 30, 158, 92, 118, 6, 73, 55, 191, 238, 166, 145, 193, 231, 70, 78, 253, 250, 210, 247, 74, 179, 183, 133, 53, 161, 51, 251, 248, 165, 197, 181, 0, 78, 75, 48, 138, 181 },
-                            PasswordSalt = new byte[] { 103, 114, 159, 111, 103, 199, 198, 148, 17, 82, 17, 79, 197, 110, 1, 164, 170, 251, 149, 109, 182, 230, 23, 167, 54, 172, 235, 238, 83, 39, 6, 254, 174, 212, 49, 83, 178, 172, 136, 193, 182, 91, 85, 253, 72, 139, 118, 149, 60, 103, 188, 34, 151, 71, 152, 82, 15, 10, 231, 239, 52, 20, 15, 214, 247, 99, 254, 143, 5, 151, 62, 231, 49, 161, 127, 192, 218, 129, 215, 15, 176, 139, 141, 123, 213, 55, 194, 187, 77, 168, 145, 14, 173, 249, 199, 255, 87, 176, 73, 53, 37, 146, 184, 11, 180, 31, 153, 201, 81, 228, 103, 133, 226, 41, 231, 50, 239, 12, 122, 74, 178, 207, 57, 235, 235, 174, 61, 231 },
+                            FullName = "Huỳnh Dương Thanh",
+                            PasswordHash = new byte[] { 245, 123, 227, 188, 17, 93, 167, 113, 183, 253, 55, 102, 152, 161, 197, 211, 92, 66, 153, 82, 9, 49, 233, 116, 204, 220, 228, 183, 90, 21, 74, 220, 123, 244, 72, 189, 81, 140, 235, 241, 73, 205, 103, 134, 179, 136, 158, 173, 139, 165, 53, 55, 53, 88, 96, 121, 105, 182, 20, 145, 87, 140, 7, 220 },
+                            PasswordSalt = new byte[] { 79, 61, 192, 105, 185, 66, 222, 176, 233, 57, 47, 68, 155, 121, 211, 111, 25, 128, 50, 130, 201, 187, 116, 106, 248, 220, 110, 232, 143, 119, 181, 119, 233, 122, 250, 209, 106, 23, 85, 247, 48, 0, 5, 210, 255, 71, 108, 54, 46, 100, 248, 208, 227, 157, 9, 66, 120, 108, 252, 20, 124, 187, 224, 139, 251, 124, 208, 201, 146, 206, 125, 122, 11, 19, 52, 39, 231, 110, 16, 163, 151, 205, 46, 51, 113, 43, 145, 178, 54, 152, 22, 137, 135, 179, 204, 250, 195, 223, 134, 197, 246, 101, 244, 108, 211, 209, 99, 133, 22, 71, 114, 7, 165, 246, 25, 164, 176, 103, 169, 246, 161, 246, 251, 38, 235, 218, 169, 231 },
                             PhoneNumber1 = "+84758576323",
                             PhoneNumber2 = "+84208739823",
                             Username = "equipment_management"
@@ -5236,7 +5311,7 @@ namespace App.Data.Migrations
                             Id = 1,
                             CreatedBy = 3,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Phòng và dịch vụ tuyệt vời!Chăn gối có mùi thơm nhẹ tui rất thích."
+                            Description = "Phòng và dịch vụ tuyệt vời! Chăn gối có mùi thơm nhẹ tui rất thích."
                         },
                         new
                         {
@@ -5244,6 +5319,62 @@ namespace App.Data.Migrations
                             CreatedBy = 3,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Nhân viên lịch sự giao tiếp tốt, rất nhiệt tình đón tiếp chúng tôi, phòng ổn, phòng có vẻ như mới sơn lại nên nhìn sạch sẽ."
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CreatedBy = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Khách sạn có vị trí thuận tiện, gần trung tâm thành phố. Phòng ốc sạch sẽ, tiện nghi."
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CreatedBy = 5,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Dịch vụ đặt phòng nhanh chóng, nhân viên hỗ trợ nhiệt tình. Sẽ quay lại lần sau."
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CreatedBy = 6,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Phòng rộng rãi, thoáng mát. Bữa sáng ngon miệng và đa dạng."
+                        },
+                        new
+                        {
+                            Id = 6,
+                            CreatedBy = 7,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Giá cả hợp lý, dịch vụ tốt. Nhân viên thân thiện và chuyên nghiệp."
+                        },
+                        new
+                        {
+                            Id = 7,
+                            CreatedBy = 8,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Khách sạn có hồ bơi và phòng gym, rất tiện lợi cho khách lưu trú dài ngày."
+                        },
+                        new
+                        {
+                            Id = 8,
+                            CreatedBy = 9,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Dịch vụ đặt phòng trực tuyến dễ dàng, nhanh chóng. Nhân viên hỗ trợ tận tình."
+                        },
+                        new
+                        {
+                            Id = 9,
+                            CreatedBy = 4,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Phòng có view đẹp, nhìn ra biển. Rất thích hợp cho kỳ nghỉ dưỡng."
+                        },
+                        new
+                        {
+                            Id = 10,
+                            CreatedBy = 5,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Khách sạn có nhiều tiện ích, từ nhà hàng, quán bar đến spa. Rất hài lòng với dịch vụ."
                         });
                 });
 
