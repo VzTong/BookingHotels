@@ -40,7 +40,7 @@ namespace App.Web.Areas.Admin.Controllers
 			return View(data);
 		}
 
-		private async Task<IPagedList<AppHotelListItemVM>> GetListHotelAsync(SearchHotelVM search, int page, int size, int? branchId = null)
+		private async Task<IPagedList<HotelListItemVM>> GetListHotelAsync(SearchHotelVM search, int page, int size, int? branchId = null)
 		{
 			var defaultWhere = _repository.GetDefaultWhereExpr<AppHotel>(false);
 			var query = _repository.DbContext
@@ -59,7 +59,7 @@ namespace App.Web.Areas.Admin.Controllers
 			}
 			var data = (await query.OrderByDescending(m => m.DisplayOrder)
 									.ThenByDescending(m => m.Id)
-									.ProjectTo<AppHotelListItemVM>(AutoMapperProfile.HotelIndexConf)
+									.ProjectTo<HotelListItemVM>(AutoMapperProfile.HotelIndexConf)
 									.ToPagedListAsync(page, size)).GenRowIndex();
 
 			// Check if the result is empty and set a flag in ViewBag
