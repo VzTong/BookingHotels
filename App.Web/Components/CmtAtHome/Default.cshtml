@@ -1,0 +1,41 @@
+﻿@model IEnumerable<App.Web.ViewModels.Cmt.CmtVM>
+
+<div class="site-section block-14 bg-light">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 mx-auto text-center mb-5 section-heading">
+				<h2>Phản hồi của khách hàng</h2>
+			</div>
+		</div>
+
+		<div class="nonloop-block-14 owl-carousel">
+			@foreach (var item in Model)
+			{
+				<div class="card card-comment">
+					<div class="p-4" style="height: 200px">
+						<div class="d-flex block-testimony">
+
+							<div class="person mr-3">
+								@if (item.UserAvt != null)
+								{
+									var imgSrc = item.UserAvt.StartsWith("https", StringComparison.OrdinalIgnoreCase) ? item.UserAvt : item.UserAvt;
+									<img src="@imgSrc" alt="@item.UserName" loading="lazy" class="img-fluid rounded" />
+								}
+								else
+								{
+									<img src="~/clientlte/images/img_1.jpg" alt="Avatar" class="img-fluid rounded">
+								}
+							</div>
+							<div>
+								<h2 class="h5">@item.UserName</h2>
+								<blockquote>
+									&ldquo;@item.Description&rdquo;
+								</blockquote>
+							</div>
+						</div>
+					</div>
+				</div>
+			}
+		</div>
+	</div>
+</div>
