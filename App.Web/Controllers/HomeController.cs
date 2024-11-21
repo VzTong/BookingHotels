@@ -11,13 +11,14 @@ namespace App.Web.Controllers
 			_logger = logger;
 		}
 
-		public IActionResult Index()
-		{
-			return View();
-		}
+		public IActionResult Index() => View();
 
-		public IActionResult Privacy()
-		{
+		public IActionResult Contact() => View();
+
+		public IActionResult Privacy() => View();
+
+		public IActionResult About(){
+		
 			return View();
 		}
 
