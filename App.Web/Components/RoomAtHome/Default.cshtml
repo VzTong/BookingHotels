@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<App.Web.ViewModels.Room.RoomVM>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
 <div class="site-section block-15 list-room">
 	<div class="container">
@@ -14,16 +15,12 @@
 				{
 					<div class="media-with-text p-md-3 ribbon-box shadow-none">
 						<div class="card card-room">
-							<div class="img-border-sm mb-4">
-								<div class="img-border-sm">
+							<div class="img-border-sm">
 									@if (item.IsDiscountProduct)
 									{
 										<div class="ribbon-two ribbon-two-success"><span>Giảm giá</span></div>
 									}
-									<a asp-area=""
-									   asp-controller="Rooms"
-									   asp-action="RoomDetail"
-									   asp-route-slug="@item.Slug">
+									<span>
 										@if (item.ImagePath != null)
 										{
 											var imgSrc = item.ImagePath.StartsWith("https", StringComparison.OrdinalIgnoreCase) ? item.ImagePath : "/" + item.ImagePath;
@@ -33,19 +30,15 @@
 										{
 											<img src="~/clientlte/images/img_1.jpg" alt="Phòng khách" class="img-fluid" style="height: 230px;">
 										}
-									</a>
-								</div>
+									</span>
 							</div>
 							<div class="card-body" style="height:175px">
 								<h5 class="card-title">
-									<a asp-area=""
-									   asp-controller="Rooms"
-									   asp-action="RoomDetail"
-									   asp-route-slug="@item.Slug">
+									<span>
 										@item.RoomName
-									</a>
+									</span>
 								</h5>
-								<p class="card-text">Thuộc @item.BranchDesc</p>
+								<p class="card-text text-truncate">Thuộc @item.BranchDesc</p>
 								@if (item.IsDiscountProduct)
 								{
 									<span class="small text-secondary" style="text-decoration: line-through;">@item.Price.ToString("#,0 VNĐ")</span>
@@ -55,6 +48,7 @@
 								{
 									<p class="price">Giá chỉ từ <strong>@item.Price.ToString("#,0 VNĐ")</strong></p>
 								}
+								<a asp-action="Detail" asp-controller="Room" asp-route-id="@item.Id" class="btn btn-primary w-100 text-white custom-bg shadow-none mb-2">Xem thêm</a>
 							</div>
 						</div>
 					</div>
