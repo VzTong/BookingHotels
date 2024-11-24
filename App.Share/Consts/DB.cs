@@ -6,8 +6,8 @@
 		public static class AppRole
 		{
 			public const string TABLE_NAME					= "AppRole";
-			public const short NAME_LENGTH					= 50;
-			public const short DESC_LENGTH					= 100;
+			public const short NAME_LENGTH					= 100;
+			public const short DESC_LENGTH					= 500;
 		}
 
 		public static class AppRolePermission
@@ -131,7 +131,7 @@
 			public const string STATUS_BOOKING_NAME			= "Phòng đang được đặt";
 			public const string STATUS_CHECKIN_NAME			= "Khách đã nhận phòng";
 			public const string STATUS_CHECKOUT_NAME		= "Đã trả phòng - phòng trống";
-			public const string STATUS_CANCELED_NAME		= "Đã hủy đặt phòng";
+			public const string STATUS_CANCELED_NAME		= "Đã hủy đặt phòng - phòng trống";
 		}
 
 		public static class AppRoomType
@@ -187,8 +187,6 @@
 		public static class AppOrder
 		{
 			public const string TABLE_NAME					= "AppOrder";
-			public const short TOTAL_LENGTH					= 10;
-			public const short DEPOSIT_LENGTH				= 100;
 			public const short STATUS_LENGTH				= 100;
         }
 
@@ -201,11 +199,8 @@
         public static class AppOrderDetail
 		{
 			public const string TABLE_NAME					= "AppOrderDetail";
-			public const short ROOM_NAME_LENGTH				= 5;
-			public const short ROOM_NUMBER_LENGTH			= 6;
 			public const short PRICE_LENGTH					= 10;
 			public const short FULLNAME_USER_LENGTH			= 200;
-			public const short QUANTITY_LENGTH				= 2;
 		}
 
 		public static class AppComment
