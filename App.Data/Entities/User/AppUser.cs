@@ -13,7 +13,7 @@ namespace App.Data.Entities.User
             AppNewsNavigation = new HashSet<AppNews>();
 			Comments = new HashSet<AppComment>();
             OwnerOrders = new HashSet<AppOrder>();
-            VerifiedOrders = new HashSet<AppOrder>();
+            VerifiedOrders = new HashSet<AppOrderDetail>();
             StaffPayrolls = new HashSet<AppPayroll>();
             StaffWorkSchedules = new HashSet<AppWorkSchedule>();
         }
@@ -39,7 +39,7 @@ namespace App.Data.Entities.User
         virtual public ICollection<AppNews> AppNewsNavigation { get; set; }
         virtual public ICollection<AppComment> Comments { get; set; }
         virtual public ICollection<AppOrder> OwnerOrders { get; set; }
-        virtual public ICollection<AppOrder> VerifiedOrders { get; set; }
+        virtual public ICollection<AppOrderDetail> VerifiedOrders { get; set; }
         virtual public ICollection<AppPayroll> StaffPayrolls { get; set; }
         virtual public ICollection<AppWorkSchedule> StaffWorkSchedules { get; set; }
     }
