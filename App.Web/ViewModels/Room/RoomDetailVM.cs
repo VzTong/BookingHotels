@@ -3,20 +3,22 @@ using App.Web.Common;
 
 namespace App.Web.ViewModels.Room
 {
-	public class RoomVM
+	public class RoomDetailVM
 	{
 		public int Id { get; set; }
 		public string RoomName { get; set; }
-		public string? Slug { get; set; }
+		public int FloorNumber { get; set; }
+		public int RoomNumber { get; set; }
 		public decimal Price { get; set; }
-		public string Status { get; set; }
 		public decimal? DiscountPrice { get; set; }
 		public DateTime? DiscountFrom { get; set; }
 		public DateTime? DiscountTo { get; set; }
 		public string HotelName { get; set; }
 		public string BranchDesc { get; set; }
 		public string RoomTypeName { get; set; }
-		public string? ImagePath { get; set; }
+		public string PeopleStay { get; set; }
+		public bool BringPet { get; set; }
+		public List<string> ImagePath { get; set; }
 		public List<string> EquipmentName { get; set; }
 		public bool IsDiscountProduct
 		{
@@ -33,6 +35,5 @@ namespace App.Web.ViewModels.Room
 				return false;
 			}
 		}
-		public ICollection<AppRoomEquipment> RoomEquipments { get; set; }
 	}
 }
