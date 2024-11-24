@@ -1,0 +1,14 @@
+﻿@model App.Web.Areas.Admin.ViewModels.Room.AddOrUpdateRoomVM
+
+<select class="form-select js-choice"
+        multiple
+        data-choices
+        data-choices-removeItem
+        data-choices-sorting="true" 
+        asp-for="EquipmentId"
+        asp-items="(MultiSelectList)ViewBag.RoomE"
+        title="Trang thiết bị"
+        id="equipmentId-field"
+        data-live-search="true" required>
+        <option value="">--- Chọn trang thiết bị ---</option>
+</select>
