@@ -76,10 +76,10 @@ namespace App.Data.DataSeeders
 			};
 
 			builder.HasData(
-					roleCustomer, roleAdmin, 
-					roleFullEquipment,
-					roleFullNews, roleCateNews, 
-					roleNews, roleCateEquipment, roleEquipment);
+				roleCustomer, roleAdmin,
+				roleFullEquipment,
+				roleFullNews, roleCateNews,
+				roleNews, roleCateEquipment, roleEquipment);
 
 			// Dictionary to map branch IDs to their names
 			var branchNames = new Dictionary<int, string>
@@ -146,22 +146,41 @@ namespace App.Data.DataSeeders
 			};
 
 			// Add additional roles for the remaining 59 branches
-			for (int i = 9; i <= 68; i++)
+			for (int i = 1; i <= 59; i++)
 			{
-				var branchId = i - 8;
+				var branchId = i;
 				var branchName = branchNames.ContainsKey(branchId) ? branchNames[branchId] : $"{branchId}";
 
 				builder.HasData(
 					new AppRole
 					{
-						Id = i,
-						Name = $"Quản trị - Chi nhánh {branchName}",
+						Id = i + 8,
+						Name = $"Quản trị - Chi nhánh {branchName}".Substring(0, Math.Min(90, $"Quản trị - Chi nhánh {branchName}".Length)),
 						Desc = $"Quản trị toàn bộ hệ thống thuộc chi nhánh {branchName}",
 						CreatedDate = now,
 						CanDelete = true
 					}
 				);
 			}
+
+			// Add additional full_order_manager roles for each branch
+			for (int i = 1; i <= 59; i++)
+			{
+				var branchId = i;
+				var branchName = branchNames.ContainsKey(branchId) ? branchNames[branchId] : $"{branchId}";
+
+				builder.HasData(
+					new AppRole
+					{
+						Id = i + 67,
+						Name = $"Quản trị đơn hàng - Chi nhánh {branchName}".Substring(0, Math.Min(90, $"Quản trị đơn hàng - Chi nhánh {branchName}".Length)),
+						Desc = $"Quản trị toàn bộ đơn hàng thuộc chi nhánh {branchName}",
+						CreatedDate = now,
+						CanDelete = true
+					}
+				);
+			}
+
 		}
 	}
 }

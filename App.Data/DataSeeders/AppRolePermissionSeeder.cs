@@ -155,27 +155,51 @@ namespace App.Data.DataSeeders
 			rolePermission.AddRange(staff_FullNewsPermissions);
 			#endregion
 
-			#region Cấp toàn quyền cho admin thuộc chi nhánh 'Hà Nội - Melia Hà Nội'
-			var adminBranch1RoleId = 4; // Assuming the employee role has an AppRoleId of 2
-			var adminBranch1Permissions = new List<AppRolePermission>();
-
-			foreach (var type in classType)
+			#region Cấp quyền cho các vai trò từ 9 trở đi
+			for (int roleId = 9; roleId <= 67; roleId++)
 			{
-				var allPermission = GetConstants(type);
-				foreach (var permission in allPermission)
+				var branchPermissions = new List<AppRolePermission>();
+
+				foreach (var type in classType)
 				{
-					adminBranch1Permissions.Add(new AppRolePermission
+					var allPermission = GetConstants(type);
+					foreach (var permission in allPermission)
+					{
+						branchPermissions.Add(new AppRolePermission
+						{
+							Id = ++i,
+							MstPermissionId = Convert.ToInt32(permission.GetRawConstantValue()),
+							UpdatedDate = now,
+							CreatedDate = now,
+							AppRoleId = roleId,      // Vai trò được tạo ở AppRoleSeeder
+						});
+					}
+				}
+
+				rolePermission.AddRange(branchPermissions);
+			}
+			#endregion
+
+			#region Cấp quyền AppOrder cho các vai trò từ 68 trở đi
+			for (int roleId = 68; roleId <= 126; roleId++)
+			{
+				var branchPermissions = new List<AppRolePermission>();
+
+				var appOrderPermissions = GetConstants(typeof(AuthConst.AppOrder));
+				foreach (var permission in appOrderPermissions)
+				{
+					branchPermissions.Add(new AppRolePermission
 					{
 						Id = ++i,
 						MstPermissionId = Convert.ToInt32(permission.GetRawConstantValue()),
 						UpdatedDate = now,
 						CreatedDate = now,
-						AppRoleId = adminBranch1RoleId,      // Vai trò được tạo ở AppRoleSeeder
+						AppRoleId = roleId,      // Vai trò được tạo ở AppRoleSeeder
 					});
 				}
-			}
 
-			rolePermission.AddRange(adminBranch1Permissions);
+				rolePermission.AddRange(branchPermissions);
+			}
 			#endregion
 
 			builder.HasData(rolePermission);
