@@ -43,9 +43,6 @@ namespace App.Data.Configurations.WebService
 				.IsRequired(false)
 				.HasDefaultValue(DB.AppNews.DEFAULT_VALUE);
 
-			builder.HasIndex(s => s.Slug, $"uq_slug")
-				.IsUnique();
-
 			// FK - AppCategoryNews
 			builder.HasOne(s => s.NewsCategory)
 				.WithMany(s => s.NewsNavigation)
@@ -55,7 +52,7 @@ namespace App.Data.Configurations.WebService
 			// FK - AppUsers
 			builder.HasOne(s => s.Users)
 				.WithMany(s => s.AppNewsNavigation)
-				.HasForeignKey(s => s.UserId)
+				.HasForeignKey(s => s.CreatedBy)
 				.OnDelete(DeleteBehavior.NoAction);
 		}
     }
