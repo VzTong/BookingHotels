@@ -31,11 +31,11 @@
 	<partial name="_HeaderBar" />
 	<partial name="_SiteMobileMenu" />
 	@await Component.InvokeAsync("SlickBanner")
-	<partial name="_Noti" />
 
 	@RenderBody()
-	<partial name="_LoginModals" />
-	<partial name="_RegisterModals" />
+	<partial name="_Noti" />
+	<partial name="_LoginModals" model="new App.Web.ViewModels.Account.LoginClientVM()" />
+	<partial name="_RegisterModals" model="new App.Web.ViewModels.Account.UserRegisterVM()"/>
 	<partial name="_Footer" />
 
 	<script src="~/clientlte/js/jquery-3.3.1.min.js"></script>
