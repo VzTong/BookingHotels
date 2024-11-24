@@ -1,0 +1,125 @@
+﻿@model App.Web.ViewModels.News.NewsVM
+@{
+    ViewData["Title"] = "Xem tin tức";
+    var popularNews = ViewBag.PopularNews as App.Web.ViewModels.News.NewsVM;
+    var popularListNews = ViewBag.PopularListNews as List<App.Web.ViewModels.News.NewsVM>;
+    var categories = ViewBag.Categories as List<dynamic>;
+}
+<!-- chi tiết tin tức -->
+<div class="site-section" style="color: black">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 blog-content">
+                <p class="lead">@Model.CreatedDate?.ToString("dd/MM/yyyy") &bullet; Tạo bởi <span style="color: #0071C2;">@Model.CreatedByName</span></p>
+                <h2 class="mb-4">@Model.Content</h2>
+                <div class="image-container">
+                    <img src="/@Model.CoverImgThumbnailPath" alt="Ảnh bìa" class="img-fluid">
+                    <div class="overlay-news">
+                        <button id="show-photos" class="see-more-button">
+                            <i class="las la-image"></i>
+                            <span>Xem thêm ảnh</span>
+                        </button>
+                    </div>
+                </div>
+                @Html.Raw(Model.Summary)
+                <div id="photo-gallery" class="d-none">
+                    <a href="/@Model.CoverImgThumbnailPath"><img src="/@Model.CoverImgThumbnailPath" alt="Image" class="img-fluid"></a>
+                    <a href="/@Model.CoverImgPath"><img src="/@Model.CoverImgPath" alt="Image" class="img-fluid"></a>
+                    <a href="/@Model.StampPath"><img src="/@Model.StampPath" alt="Image" class="img-fluid"></a>
+                </div>
+            </div>
+            <div class="col-md-4 sidebar">
+                @if (popularNews is not null)
+                {
+                    <div class="sidebar-box">
+                        <h3 class="heading fw-bold">Bài đăng khác</h3>
+                        <div class="card card-news">
+                            <div class="post-entry align-items-center">
+                                <a href="@Url.Action("Detail", "News", new { id = popularNews.Id })">
+                                    <img src="/@popularNews.CoverImgThumbnailPath" alt="Image" class="mr-3" width="350px" height="350px">
+                                </a>
+                            </div>
+                            <div class="card-body">
+                                <div class="text">
+                                    <h4>@popularNews.Title</h4>
+                                    <div class="post-meta">
+                                        <span class="mr-2">@popularNews.CreatedDate?.ToString("dd/MM/yyyy")</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <br>
+                }
+                <div class="sidebar-box">
+                    <h3 class="heading">Thể loại</h3>
+                    <hr>
+                    <ul class="categories">
+                        @if (categories != null && categories.Any())
+                        {
+                            @foreach (var item in categories)
+                            {
+                                <li><a href="#">@item.Category.Title <span>({@item.NewsCount})</span></a></li>
+                            }
+                        }
+                        else
+                        {
+                            <li>No categories available</li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- tin tức liên quan -->
+<div class="site-section block-15">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 mx-auto text-center mb-5 section-heading">
+                <h2>Các bài báo liên quan</h2>
+            </div>
+        </div>
+        <div class="nonloop-block-15 owl-carousel ">
+            <div class="media-with-text p-md-3">
+                @if (popularListNews != null && popularListNews.Any())
+                {
+                    @foreach (var item in popularListNews)
+                    {
+                        <div class="card card-news mr-4">
+                            <div class="media-with-text">
+                                <div class="img-border-sm mb-4">
+                                    <a asp-action="Detail" asp-route-id="@item.Id" class="popup-vimeo image-play">
+                                        <img src="/@item.CoverImgThumbnailPath" alt="" class="img-fluid">
+                                    </a>
+                                </div>
+                                <div class="card-body">
+
+                                    <h2 class="heading mb-0 text-truncate">
+                                        <a asp-action="Detail" asp-route-id="@item.Id">@item.Title</a>
+                                    </h2>
+                                    <span class="mb-3 d-block post-date">@item.CreatedDate?.ToString("dd/MM/yyyy") &bullet; Tạo bởi <span style="color: #0071C2;">@item.CreatedByName</span></span>
+                                    <a asp-action="Detail" asp-route-id="@item.Id" class="btn btn-primary w-100 text-white custom-bg shadow-none mb-2">Đọc thêm</a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#show-photos').on('click', function () {
+                $('#photo-gallery').magnificPopup({
+                    delegate: 'a',
+                    type: 'image',
+                    gallery: {
+                        enabled: true
+                    }
+                }).magnificPopup('open');
+            });
+        });
+    </script>
+}
