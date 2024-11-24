@@ -1350,17 +1350,17 @@ a {
         text-transform: uppercase;
     }
 
-.site-block-27 ul, .site-block-27 ul li {
+.site-block-27 div, .site-block-27 div {
     padding: 0;
     margin: 0;
 }
 
-    .site-block-27 ul li {
+    .site-block-27 div {
         display: inline-block;
         margin-bottom: 4px;
     }
 
-        .site-block-27 ul li a, .site-block-27 ul li span {
+        .site-block-27 div a, .site-block-27 div span {
             text-align: center;
             display: inline-block;
             width: 40px;
@@ -1370,7 +1370,7 @@ a {
             border: 1px solid #ccc;
         }
 
-        .site-block-27 ul li.active a, .site-block-27 ul li.active span {
+        .site-block-27 div.active a, .site-block-27 div.active span {
             background: #0071C2;
             color: #fff;
             border: 1px solid transparent;
@@ -1728,7 +1728,7 @@ a {
         position: relative;
         top: 0;
         left: 0;
-        z-index: 2;
+        z-index: 0;
     }
 
 .media-with-text .heading {
@@ -2108,3 +2108,52 @@ detail-room {
     position: relative;
     z-index: 2;
 }
+.rounded-circle {
+    border: 2px solid #ddd; /* Viền nhẹ quanh hình ảnh */
+    width: 150px; /* Chiều rộng */
+    height: 150px; /* Chiều cao */
+    object-fit: cover; /* Đảm bảo hình ảnh không bị méo */
+}
+
+.text-dark, .card-body, .list-group-item, .fw-bold, .btn-link {
+    color: #000 !important; /* Màu đen */
+}
+.image-container {
+    position: relative;
+    display: inline-block;
+}
+
+    .image-container img {
+        display: block;
+    }
+.overlay-news {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 30%;
+    background: rgba(255, 255, 255, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.see-more-button {
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+    .see-more-button .icon {
+        width: 24px;
+        height: 24px;
+        margin-right: 8px;
+    }
+
+    .see-more-button span {
+        font-size: 16px;
+        font-weight: bold;
+        color: #000;
+    }
