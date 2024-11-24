@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace App.Data.Migrations
 {
     [DbContext(typeof(WebAppDbContext))]
-    [Migration("20241120215847_init-db")]
-    partial class initdb
+    [Migration("20241124081625_init_db")]
+    partial class init_db
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -1418,9 +1418,6 @@ namespace App.Data.Migrations
                     b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
                     b.Property<long>("Views")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint")
@@ -1435,10 +1432,7 @@ namespace App.Data.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.HasIndex("UserId");
-
-                    b.HasIndex(new[] { "Slug" }, "uq_slug")
-                        .IsUnique();
+                    b.HasIndex("CreatedBy");
 
                     b.ToTable("AppNews", (string)null);
 
@@ -1450,32 +1444,66 @@ namespace App.Data.Migrations
                             Content = "Nói về tour du lịch chợ nổi",
                             CoverImgPath = "files/ImgNews/Cover-Chợ-Nổi_VN.jpg",
                             CoverImgThumbnailPath = "files/ImgNews/Thumbnail-Chợ-Nổi_VN.jpg",
+                            CreatedBy = 1,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Published = true,
                             Slug = "cho-noi-tuyet-voi-an-giau-va-con-kenh-nho-kenh-nho-khong-danh-cho-khach-du-lich",
                             StampPath = "files/ImgNews/Stamp-Chợ-Nổi_VN.jpg",
-                            Summary = "<blockquote><h3>We proudly operate our tours with the following “No” commitments:</h3></blockquote><p>No tourist shop stops</p><p>No tourist traps</p><p>No animals are involved or harmed</p><p>&nbsp;</p><blockquote><h4>Highlight attractions:</h4></blockquote><p>• The biggest floating market (Cai Rang)</p><p>&nbsp;</p><p>• Traditional noodle local house where you make your own rice paper and noodles guiding by local people.</p><p>&nbsp;</p><p>• Breakfast on the boat - The best breakfast that Master Chef Gordon Ramsey tried when he came here.</p><p>&nbsp;</p><p>• Authentic small canals .</p><p>&nbsp;</p><p>• Walking through the authentic village</p><figure class=\"table\"><table><tbody><tr><td><h2>Bao gồm</h2><p>✅Phí vào cửa<br>✅Hướng dẫn viên nói tiếng Anh/Pháp (có tính phí)<br>✅Thuyền<br>✅Trái cây và đồ uống một lần<br>✅Bữa sáng<br>✅Xe đón và trả khách tại thành phố Cần Thơ.</p></td><td><h2>Không bao gồm những gì?</h2><p>❌Đồ uống có cồn (có sẵn để mua)</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p></td></tr></tbody></table></figure><h3>Thông tin thêm</h3><p>Các lựa chọn giao thông công cộng có sẵn ở gần đó</p><p>Trẻ sơ sinh phải ngồi trên đùi người lớn</p><p>Không khuyến khích cho du khách mang thai</p><p>Không nên dùng cho du khách có sức khỏe tim mạch kém</p><p>Thích hợp cho mọi cấp độ thể chất</p><p>Có sẵn lựa chọn ăn chay, vui lòng thông báo tại thời điểm đặt chỗ nếu được yêu cầu</p><p>Trẻ em phải có người lớn đi kèm</p><p>Chúng tôi cung cấp dịch vụ đón khách miễn phí tại bất kỳ địa điểm nào trong trung tâm thành phố Cần Thơ, nếu bạn ở ngoài thành phố (bán kính 1km từ điểm tập trung)</p><p>Không thể sử dụng xe lăn</p><p>Vui lòng mang theo vé đến điểm tham quan.</p><p>Lưu ý rằng nhà cung cấp có thể hủy bỏ những lý do chưa biết trước đó.</p><p>Bạn phải đủ 18 tuổi trở lên mới có thể đặt vé hoặc phải đi cùng người lớn.</p><p>Điều hành bởi Fabulous Mekong Eco Tours</p>",
+                            Summary = "<blockquote><h3>Chúng tôi tự hào điều hành các tour du lịch của mình với những cam kết “Không” sau:</h3></blockquote><p>Không có cửa hàng du lịch dừng lại</p><p>Không có bẫy du lịch</p><p>Không có động vật nào có liên quan hoặc bị tổn hại</p><p>&nbsp;</p><blockquote><h4>Làm nổi bật các điểm tham quan:</h4></blockquote><p>• Chợ nổi lớn nhất (Cái Răng)</p><p>&nbsp;</p><p>• Nhà mì truyền thống địa phương nơi bạn tự làm bánh tráng và mì do người dân địa phương hướng dẫn.</p><p>&nbsp;</p><p>• Bữa sáng trên thuyền - Bữa sáng ngon nhất mà Master Chef Gordon Ramsey đã thử khi đến đây.</p><p>&nbsp;</p><p>• Kênh nhỏ đích thực.</p><p>&nbsp;</p><p>• Đi bộ qua ngôi làng đích thực</p><figure class=\"table\"><table><tbody><tr><td><h2>Bao gồm</h2><p>✅Phí vào cửa<br>✅Hướng dẫn viên nói tiếng Anh/Pháp (có tính phí)<br>✅Thuyền<br>✅Trái cây và đồ uống một lần<br>✅Bữa sáng<br>✅Xe đón và trả khách tại thành phố Cần Thơ.</p></td><td><h2>Không bao gồm những gì?</h2><p>❌Đồ uống có cồn (có sẵn để mua)</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p></td></tr></tbody></table></figure><h3>Thông tin thêm</h3><p>Các lựa chọn giao thông công cộng có sẵn ở gần đó</p><p>Trẻ sơ sinh phải ngồi trên đùi người lớn</p><p>Không khuyến khích cho du khách mang thai</p><p>Không nên dùng cho du khách có sức khỏe tim mạch kém</p><p>Thích hợp cho mọi cấp độ thể chất</p><p>Có sẵn lựa chọn ăn chay, vui lòng thông báo tại thời điểm đặt chỗ nếu được yêu cầu</p><p>Trẻ em phải có người lớn đi kèm</p><p>Chúng tôi cung cấp dịch vụ đón khách miễn phí tại bất kỳ địa điểm nào trong trung tâm thành phố Cần Thơ, nếu bạn ở ngoài thành phố (bán kính 1km từ điểm tập trung)</p><p>Không thể sử dụng xe lăn</p><p>Vui lòng mang theo vé đến điểm tham quan.</p><p>Lưu ý rằng nhà cung cấp có thể hủy bỏ những lý do chưa biết trước đó.</p><p>Bạn phải đủ 18 tuổi trở lên mới có thể đặt vé hoặc phải đi cùng người lớn.</p><p>Điều hành bởi Fabulous Mekong Eco Tours</p>",
                             Title = "Chợ nổi tuyệt vời ẩn giấu và con kênh nhỏ (Kênh nhỏ không dành cho khách du lịch)",
-                            UserId = 1,
-                            Views = 10L,
-                            Votes = 5f
+                            Views = 100L,
+                            Votes = 15f
                         },
                         new
                         {
                             Id = 2,
-                            CategoryId = 1,
+                            CategoryId = 2,
+                            Content = "Nói về tour du lịch chợ nổi",
+                            CoverImgPath = "files/ImgNews/Cover-Chợ-Nổi_VN.jpg",
+                            CoverImgThumbnailPath = "files/ImgNews/Thumbnail-Chợ-Nổi_VN.jpg",
+                            CreatedBy = 5,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Published = true,
+                            Slug = "cho-noi-tuyet-voi-an-giau-va-con-kenh-nho-kenh-nho-khong-danh-cho-khach-du-lich",
+                            StampPath = "files/ImgNews/Stamp-Chợ-Nổi_VN.jpg",
+                            Summary = "<blockquote><h3>Chúng tôi tự hào điều hành các tour du lịch của mình với những cam kết “Không” sau:</h3></blockquote><p>Không có cửa hàng du lịch dừng lại</p><p>Không có bẫy du lịch</p><p>Không có động vật nào có liên quan hoặc bị tổn hại</p><p>&nbsp;</p><blockquote><h4>Làm nổi bật các điểm tham quan:</h4></blockquote><p>• Chợ nổi lớn nhất (Cái Răng)</p><p>&nbsp;</p><p>• Nhà mì truyền thống địa phương nơi bạn tự làm bánh tráng và mì do người dân địa phương hướng dẫn.</p><p>&nbsp;</p><p>• Bữa sáng trên thuyền - Bữa sáng ngon nhất mà Master Chef Gordon Ramsey đã thử khi đến đây.</p><p>&nbsp;</p><p>• Kênh nhỏ đích thực.</p><p>&nbsp;</p><p>• Đi bộ qua ngôi làng đích thực</p><figure class=\"table\"><table><tbody><tr><td><h2>Bao gồm</h2><p>✅Phí vào cửa<br>✅Hướng dẫn viên nói tiếng Anh/Pháp (có tính phí)<br>✅Thuyền<br>✅Trái cây và đồ uống một lần<br>✅Bữa sáng<br>✅Xe đón và trả khách tại thành phố Cần Thơ.</p></td><td><h2>Không bao gồm những gì?</h2><p>❌Đồ uống có cồn (có sẵn để mua)</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p></td></tr></tbody></table></figure><h3>Thông tin thêm</h3><p>Các lựa chọn giao thông công cộng có sẵn ở gần đó</p><p>Trẻ sơ sinh phải ngồi trên đùi người lớn</p><p>Không khuyến khích cho du khách mang thai</p><p>Không nên dùng cho du khách có sức khỏe tim mạch kém</p><p>Thích hợp cho mọi cấp độ thể chất</p><p>Có sẵn lựa chọn ăn chay, vui lòng thông báo tại thời điểm đặt chỗ nếu được yêu cầu</p><p>Trẻ em phải có người lớn đi kèm</p><p>Chúng tôi cung cấp dịch vụ đón khách miễn phí tại bất kỳ địa điểm nào trong trung tâm thành phố Cần Thơ, nếu bạn ở ngoài thành phố (bán kính 1km từ điểm tập trung)</p><p>Không thể sử dụng xe lăn</p><p>Vui lòng mang theo vé đến điểm tham quan.</p><p>Lưu ý rằng nhà cung cấp có thể hủy bỏ những lý do chưa biết trước đó.</p><p>Bạn phải đủ 18 tuổi trở lên mới có thể đặt vé hoặc phải đi cùng người lớn.</p><p>Điều hành bởi Fabulous Mekong Eco Tours</p>",
+                            Title = "Chợ nổi tuyệt vời ẩn giấu và con kênh nhỏ (Kênh nhỏ không dành cho khách du lịch)",
+                            Views = 210L,
+                            Votes = 55f
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CategoryId = 2,
                             Content = "Nội dung nói về địa điểm tham quan ở Paris",
                             CoverImgPath = "files/ImgNews/Cover-Sightseeing_France.jpg",
                             CoverImgThumbnailPath = "files/ImgNews/Thumbnail-Sightseeing_France.jpg",
+                            CreatedBy = 1,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Published = true,
                             Slug = "du-thuyen-ngam-canh-tu-thap-eiffel",
                             StampPath = "files/ImgNews/Stamp-Sightseeing_France.jpg",
                             Summary = "<blockquote><h3>Chuyến đi ở Paris</h3></blockquote><p>Khởi hành từ Tháp Eiffel mang tính biểu tượng, chuyến đi có hướng dẫn kéo dài một giờ này sẽ mang đến cho bạn cơ hội chiêm ngưỡng những địa điểm hàng đầu của thành phố. Bạn sẽ đi dọc Sông Seine trên du thuyền trimaran - một chiếc thuyền được thiết kế để tham quan với boong ngoài trời lớn.</p><p><br>Bạn sẽ đi ngang qua các địa danh nổi tiếng như Louvre, Palais Bourbon, Notre-Dame và nhiều địa danh khác. Trên đường đi, âm thanh và bình luận trực tiếp sẽ nêu bật các chi tiết về lịch sử thủ đô nước Pháp và các di tích của nó.</p><h2>Vì sao nên đến đây?</h2><p>✅Quang cảnh các địa danh bao gồm bảo tàng Louvre và Notre-Dame</p><p>✅Đi thuyền dọc sông Seine bằng boong ngoài trời để ngắm cảnh</p><p>✅Hiểu biết sâu sắc về lịch sử của thành phố và các di tích mang tính biểu tượng của nó</p><figure class=\"table\"><table><tbody><tr><td><h2>Bao gồm</h2><p>✅Hành trình một giờ có bình luận</p></td><td><h2>Không bao gồm những gì?</h2><p>❌Hình ảnh lưu niệm<br>❌Thức ăn và đồ uống</p></td></tr></tbody></table></figure><h3>Thông tin thêm</h3><p>Thế vận hội Olympic Paris sẽ diễn ra từ ngày 26 tháng 7 đến ngày 11 tháng 8 năm 2024 và Thế vận hội Paralympic từ ngày 28 tháng 8 đến ngày 8 tháng 9 năm 2024. Do những sự kiện này, một số dịch vụ của nhà cung cấp tour du lịch sẽ bị ảnh hưởng:</p><ul><li>Ngày 14 tháng 7 năm 2024: đóng cửa hoàn toàn hoạt động bắt đầu từ 14:00</li><li>Ngày 27 tháng 7 năm 2024: khởi hành lần đầu lúc 12:00</li><li>Ngày 8 tháng 7 đến ngày 11 tháng 8 năm 2024: khởi hành lần đầu lúc 11:00</li><li>Ngày 1 và 2 tháng 9 năm 2024: khởi hành lần đầu lúc 13:30</li><li>Ngày 3 tháng 9 năm 2024: khởi hành lần đầu lúc 15:00</li></ul><p>Thời gian khởi hành chỉ được cung cấp để cung cấp thông tin và có thể thay đổi.</p><p>Vào ngày 18 tháng 7 năm 2024, hành trình bình luận kéo dài một giờ sẽ hoạt động như bình thường. Tuy nhiên, chỉ những người có thẻ kỹ thuật số mới được phép vào địa điểm, một biện pháp được Chính phủ Pháp thực hiện nhằm đảm bảo an ninh cho khu vực lân cận sông Seine, nơi sẽ trở thành địa điểm mang tính biểu tượng cho lễ khai mạc Thế vận hội.</p><p>Bạn có thể nhận được thẻ thông qua trang web chính thức của chính phủ. Nhà cung cấp tour du lịch từ chối mọi trách nhiệm trong trường hợp không xuất trình được thẻ dẫn đến việc từ chối vào cửa. Bạn nên bắt đầu quá trình này ít nhất 15 ngày trước ngày sử dụng dịch vụ.</p><p>Vui lòng tham khảo trang web của nhà cung cấp tour để biết giờ hoạt động được cập nhật.</p><p>Xin lưu ý rằng động vật không được phép lên tàu.</p><p>Xin lưu ý rằng hành lý vượt quá sức chứa 16 lít không được chấp nhận. Chỉ được phép mang ba lô nhỏ, túi xách và hộp đựng máy tính xách tay lên máy bay.</p>",
                             Title = "Du thuyền ngắm cảnh từ tháp Eiffel",
-                            UserId = 1,
-                            Views = 10L,
-                            Votes = 5f
+                            Views = 100L,
+                            Votes = 35f
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CategoryId = 1,
+                            Content = "Nội dung nói về địa điểm tham quan ở Paris",
+                            CoverImgPath = "files/ImgNews/Cover-Sightseeing_France.jpg",
+                            CoverImgThumbnailPath = "files/ImgNews/Thumbnail-Sightseeing_France.jpg",
+                            CreatedBy = 5,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Published = true,
+                            Slug = "du-thuyen-ngam-canh-tu-thap-eiffel",
+                            StampPath = "files/ImgNews/Stamp-Sightseeing_France.jpg",
+                            Summary = "<blockquote><h3>Chuyến đi ở Paris</h3></blockquote><p>Khởi hành từ Tháp Eiffel mang tính biểu tượng, chuyến đi có hướng dẫn kéo dài một giờ này sẽ mang đến cho bạn cơ hội chiêm ngưỡng những địa điểm hàng đầu của thành phố. Bạn sẽ đi dọc Sông Seine trên du thuyền trimaran - một chiếc thuyền được thiết kế để tham quan với boong ngoài trời lớn.</p><p><br>Bạn sẽ đi ngang qua các địa danh nổi tiếng như Louvre, Palais Bourbon, Notre-Dame và nhiều địa danh khác. Trên đường đi, âm thanh và bình luận trực tiếp sẽ nêu bật các chi tiết về lịch sử thủ đô nước Pháp và các di tích của nó.</p><h2>Vì sao nên đến đây?</h2><p>✅Quang cảnh các địa danh bao gồm bảo tàng Louvre và Notre-Dame</p><p>✅Đi thuyền dọc sông Seine bằng boong ngoài trời để ngắm cảnh</p><p>✅Hiểu biết sâu sắc về lịch sử của thành phố và các di tích mang tính biểu tượng của nó</p><figure class=\"table\"><table><tbody><tr><td><h2>Bao gồm</h2><p>✅Hành trình một giờ có bình luận</p></td><td><h2>Không bao gồm những gì?</h2><p>❌Hình ảnh lưu niệm<br>❌Thức ăn và đồ uống</p></td></tr></tbody></table></figure><h3>Thông tin thêm</h3><p>Thế vận hội Olympic Paris sẽ diễn ra từ ngày 26 tháng 7 đến ngày 11 tháng 8 năm 2024 và Thế vận hội Paralympic từ ngày 28 tháng 8 đến ngày 8 tháng 9 năm 2024. Do những sự kiện này, một số dịch vụ của nhà cung cấp tour du lịch sẽ bị ảnh hưởng:</p><ul><li>Ngày 14 tháng 7 năm 2024: đóng cửa hoàn toàn hoạt động bắt đầu từ 14:00</li><li>Ngày 27 tháng 7 năm 2024: khởi hành lần đầu lúc 12:00</li><li>Ngày 8 tháng 7 đến ngày 11 tháng 8 năm 2024: khởi hành lần đầu lúc 11:00</li><li>Ngày 1 và 2 tháng 9 năm 2024: khởi hành lần đầu lúc 13:30</li><li>Ngày 3 tháng 9 năm 2024: khởi hành lần đầu lúc 15:00</li></ul><p>Thời gian khởi hành chỉ được cung cấp để cung cấp thông tin và có thể thay đổi.</p><p>Vào ngày 18 tháng 7 năm 2024, hành trình bình luận kéo dài một giờ sẽ hoạt động như bình thường. Tuy nhiên, chỉ những người có thẻ kỹ thuật số mới được phép vào địa điểm, một biện pháp được Chính phủ Pháp thực hiện nhằm đảm bảo an ninh cho khu vực lân cận sông Seine, nơi sẽ trở thành địa điểm mang tính biểu tượng cho lễ khai mạc Thế vận hội.</p><p>Bạn có thể nhận được thẻ thông qua trang web chính thức của chính phủ. Nhà cung cấp tour du lịch từ chối mọi trách nhiệm trong trường hợp không xuất trình được thẻ dẫn đến việc từ chối vào cửa. Bạn nên bắt đầu quá trình này ít nhất 15 ngày trước ngày sử dụng dịch vụ.</p><p>Vui lòng tham khảo trang web của nhà cung cấp tour để biết giờ hoạt động được cập nhật.</p><p>Xin lưu ý rằng động vật không được phép lên tàu.</p><p>Xin lưu ý rằng hành lý vượt quá sức chứa 16 lít không được chấp nhận. Chỉ được phép mang ba lô nhỏ, túi xách và hộp đựng máy tính xách tay lên máy bay.</p>",
+                            Title = "Du thuyền ngắm cảnh từ tháp Eiffel",
+                            Views = 510L,
+                            Votes = 59f
                         });
                 });
 
@@ -2135,8 +2163,10 @@ namespace App.Data.Migrations
 
                     b.Property<string>("Status")
                         .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(100)")
+                        .HasDefaultValue("Đã trả phòng - phòng trống");
 
                     b.Property<int?>("UpdatedBy")
                         .HasColumnType("int");
@@ -2159,7 +2189,7 @@ namespace App.Data.Migrations
                             BranchId = 10,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DiscountFrom = new DateTime(2024, 10, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DiscountPrice = 120000m,
+                            DiscountPrice = 12000000m,
                             DiscountTo = new DateTime(2024, 12, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FloorNumber = 145,
                             IsActive = true,
@@ -2557,8 +2587,8 @@ namespace App.Data.Migrations
                             Id = 3,
                             CanDelete = true,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Desc = "Khách hàng thuộc chi nhánh 'Hà Nội - Melia Hà Nội'",
-                            Name = "Khách hàng - Chi nhánh 'Hà Nội - Melia Hà Nội'"
+                            Desc = "Khách hàng",
+                            Name = "Khách hàng"
                         },
                         new
                         {
@@ -2581,20 +2611,12 @@ namespace App.Data.Migrations
                             Id = 4,
                             CanDelete = true,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Desc = "Quản trị toàn bộ hệ thống thuộc chi nhánh 'Hà Nội - Melia Hà Nội'",
-                            Name = "Quản trị - Chi nhánh 'Hà Nội - Melia Hà Nội'"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            CanDelete = true,
-                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Quản trị toàn bộ về thể loại và tin tức",
                             Name = "Quản trị toàn bộ tin tức"
                         },
                         new
                         {
-                            Id = 6,
+                            Id = 5,
                             CanDelete = true,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Quản trị toàn bộ thể loại tin tức",
@@ -2602,7 +2624,7 @@ namespace App.Data.Migrations
                         },
                         new
                         {
-                            Id = 7,
+                            Id = 6,
                             CanDelete = true,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Quản trị toàn bộ tin tức",
@@ -2610,7 +2632,7 @@ namespace App.Data.Migrations
                         },
                         new
                         {
-                            Id = 8,
+                            Id = 7,
                             CanDelete = true,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Quản trị quản lý toàn bộ về loại trang thiết bị",
@@ -2618,11 +2640,491 @@ namespace App.Data.Migrations
                         },
                         new
                         {
-                            Id = 9,
+                            Id = 8,
                             CanDelete = true,
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Quản trị quản lý toàn bộ về trang thiết bị",
                             Name = "Quản trị thiết bị"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            CanDelete = true,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Quản trị toàn bộ hệ thống thuộc chi nhánh Hà Nội - Melia Hà Nội",
+                            Name = "Quản trị - Chi nhánh Hà Nội - Melia Hà Nội"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            CanDelete = true,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Quản trị toàn bộ hệ thống thuộc chi nhánh TP. Hồ Chí Minh - Rex Hotel Sài Gòn",
+                            Name = "Quản trị - Chi nhánh TP. Hồ Chí Minh - Rex Hotel Sài Gòn"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            CanDelete = true,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Quản trị toàn bộ hệ thống thuộc chi nhánh Đà Nẵng - Golden Bay",
+                            Name = "Quản trị - Chi nhánh Đà Nẵng - Golden Bay"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            CanDelete = true,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Quản trị toàn bộ hệ thống thuộc chi nhánh Nha Trang - Lodge",
+                            Name = "Quản trị - Chi nhánh Nha Trang - Lodge"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            CanDelete = true,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Quản trị toàn bộ hệ thống thuộc chi nhánh Hải Phòng - Imperial",
+                            Name = "Quản trị - Chi nhánh Hải Phòng - Imperial"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            CanDelete = true,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Quản trị toàn bộ hệ thống thuộc chi nhánh New York - Langham",
+                            Name = "Quản trị - Chi nhánh New York - Langham"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            CanDelete = true,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Quản trị toàn bộ hệ thống thuộc chi nhánh Tokyo - The Peninsula Tokyo",
+                            Name = "Quản trị - Chi nhánh Tokyo - The Peninsula Tokyo"
+                        },
+                        new
+                        {
+                            Id = 16,
+                            CanDelete = true,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Quản trị toàn bộ hệ thống thuộc chi nhánh Cancun - The Ritz-Carlton",
+                            Name = "Quản trị - Chi nhánh Cancun - The Ritz-Carlton"
+                        },
+                        new
+                        {
+                            Id = 17,
+                            CanDelete = true,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Quản trị toàn bộ hệ thống thuộc chi nhánh Miami - The Biltmore Miami",
+                            Name = "Quản trị - Chi nhánh Miami - The Biltmore Miami"
+                        },
+                        new
+                        {
+                            Id = 18,
+                            CanDelete = true,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Quản trị toàn bộ hệ thống thuộc chi nhánh Paris - Shangri-La",
+                            Name = "Quản trị - Chi nhánh Paris - Shangri-La"
+                        },
+                        new
+                        {
+                            Id = 19,
+                            CanDelete = true,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Quản trị toàn bộ hệ thống thuộc chi nhánh Seoul - Grand Hyatt Seoul",
+                            Name = "Quản trị - Chi nhánh Seoul - Grand Hyatt Seoul"
+                        },
+                        new
+                        {
+                            Id = 20,
+                            CanDelete = true,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Quản trị toàn bộ hệ thống thuộc chi nhánh Bangkok - Four Seasons",
+                            Name = "Quản trị - Chi nhánh Bangkok - Four Seasons"
+                        },
+                        new
+                        {
+                            Id = 21,
+                            CanDelete = true,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Quản trị toàn bộ hệ thống thuộc chi nhánh Tokyo - Hilton",
+                            Name = "Quản trị - Chi nhánh Tokyo - Hilton"
+                        },
+                        new
+                        {
+                            Id = 22,
+                            CanDelete = true,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Quản trị toàn bộ hệ thống thuộc chi nhánh Hong Kong - W Hong Kong",
+                            Name = "Quản trị - Chi nhánh Hong Kong - W Hong Kong"
+                        },
+                        new
+                        {
+                            Id = 23,
+                            CanDelete = true,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Quản trị toàn bộ hệ thống thuộc chi nhánh Bali - The St. Regis",
+                            Name = "Quản trị - Chi nhánh Bali - The St. Regis"
+                        },
+                        new
+                        {
+                            Id = 24,
+                            CanDelete = true,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Quản trị toàn bộ hệ thống thuộc chi nhánh Bangkok - Mandarin Oriental",
+                            Name = "Quản trị - Chi nhánh Bangkok - Mandarin Oriental"
+                        },
+                        new
+                        {
+                            Id = 25,
+                            CanDelete = true,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Quản trị toàn bộ hệ thống thuộc chi nhánh Paris - Le Meurice",
+                            Name = "Quản trị - Chi nhánh Paris - Le Meurice"
+                        },
+                        new
+                        {
+                            Id = 26,
+                            CanDelete = true,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Quản trị toàn bộ hệ thống thuộc chi nhánh Mumbai - The Oberoi",
+                            Name = "Quản trị - Chi nhánh Mumbai - The Oberoi"
+                        },
+                        new
+                        {
+                            Id = 27,
+                            CanDelete = true,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Quản trị toàn bộ hệ thống thuộc chi nhánh Sydney - Park Hyatt",
+                            Name = "Quản trị - Chi nhánh Sydney - Park Hyatt"
+                        },
+                        new
+                        {
+                            Id = 28,
+                            CanDelete = true,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Quản trị toàn bộ hệ thống thuộc chi nhánh Bangkok - The Sukhothai",
+                            Name = "Quản trị - Chi nhánh Bangkok - The Sukhothai"
+                        },
+                        new
+                        {
+                            Id = 29,
+                            CanDelete = true,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Quản trị toàn bộ hệ thống thuộc chi nhánh Paris - Ritz",
+                            Name = "Quản trị - Chi nhánh Paris - Ritz"
+                        },
+                        new
+                        {
+                            Id = 30,
+                            CanDelete = true,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Quản trị toàn bộ hệ thống thuộc chi nhánh Mumbai - Taj Mahal Palace",
+                            Name = "Quản trị - Chi nhánh Mumbai - Taj Mahal Palace"
+                        },
+                        new
+                        {
+                            Id = 31,
+                            CanDelete = true,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Quản trị toàn bộ hệ thống thuộc chi nhánh New York - St. Regis",
+                            Name = "Quản trị - Chi nhánh New York - St. Regis"
+                        },
+                        new
+                        {
+                            Id = 32,
+                            CanDelete = true,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Quản trị toàn bộ hệ thống thuộc chi nhánh Dubai - Jumeirah",
+                            Name = "Quản trị - Chi nhánh Dubai - Jumeirah"
+                        },
+                        new
+                        {
+                            Id = 33,
+                            CanDelete = true,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Quản trị toàn bộ hệ thống thuộc chi nhánh Italy - Belmond Hotel Caruso",
+                            Name = "Quản trị - Chi nhánh Italy - Belmond Hotel Caruso"
+                        },
+                        new
+                        {
+                            Id = 34,
+                            CanDelete = true,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Quản trị toàn bộ hệ thống thuộc chi nhánh Phuket - Banyan Tree",
+                            Name = "Quản trị - Chi nhánh Phuket - Banyan Tree"
+                        },
+                        new
+                        {
+                            Id = 35,
+                            CanDelete = true,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Quản trị toàn bộ hệ thống thuộc chi nhánh Dubai - The Address",
+                            Name = "Quản trị - Chi nhánh Dubai - The Address"
+                        },
+                        new
+                        {
+                            Id = 36,
+                            CanDelete = true,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Quản trị toàn bộ hệ thống thuộc chi nhánh Bangkok - Shangri-La",
+                            Name = "Quản trị - Chi nhánh Bangkok - Shangri-La"
+                        },
+                        new
+                        {
+                            Id = 37,
+                            CanDelete = true,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Quản trị toàn bộ hệ thống thuộc chi nhánh Bali - The Oberoi",
+                            Name = "Quản trị - Chi nhánh Bali - The Oberoi"
+                        },
+                        new
+                        {
+                            Id = 38,
+                            CanDelete = true,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Quản trị toàn bộ hệ thống thuộc chi nhánh Tokyo - Aman",
+                            Name = "Quản trị - Chi nhánh Tokyo - Aman"
+                        },
+                        new
+                        {
+                            Id = 39,
+                            CanDelete = true,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Quản trị toàn bộ hệ thống thuộc chi nhánh Hà Nội - Rex Hotel",
+                            Name = "Quản trị - Chi nhánh Hà Nội - Rex Hotel"
+                        },
+                        new
+                        {
+                            Id = 40,
+                            CanDelete = true,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Quản trị toàn bộ hệ thống thuộc chi nhánh TP. Hồ Chí Minh - Golden Bay",
+                            Name = "Quản trị - Chi nhánh TP. Hồ Chí Minh - Golden Bay"
+                        },
+                        new
+                        {
+                            Id = 41,
+                            CanDelete = true,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Quản trị toàn bộ hệ thống thuộc chi nhánh Đà Nẵng - Lodge",
+                            Name = "Quản trị - Chi nhánh Đà Nẵng - Lodge"
+                        },
+                        new
+                        {
+                            Id = 42,
+                            CanDelete = true,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Quản trị toàn bộ hệ thống thuộc chi nhánh Nha Trang - Imperial",
+                            Name = "Quản trị - Chi nhánh Nha Trang - Imperial"
+                        },
+                        new
+                        {
+                            Id = 43,
+                            CanDelete = true,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Quản trị toàn bộ hệ thống thuộc chi nhánh Hải Phòng - Langham",
+                            Name = "Quản trị - Chi nhánh Hải Phòng - Langham"
+                        },
+                        new
+                        {
+                            Id = 44,
+                            CanDelete = true,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Quản trị toàn bộ hệ thống thuộc chi nhánh New York - The Peninsula",
+                            Name = "Quản trị - Chi nhánh New York - The Peninsula"
+                        },
+                        new
+                        {
+                            Id = 45,
+                            CanDelete = true,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Quản trị toàn bộ hệ thống thuộc chi nhánh Tokyo - The Ritz-Carlton",
+                            Name = "Quản trị - Chi nhánh Tokyo - The Ritz-Carlton"
+                        },
+                        new
+                        {
+                            Id = 46,
+                            CanDelete = true,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Quản trị toàn bộ hệ thống thuộc chi nhánh Cancun - The Biltmore",
+                            Name = "Quản trị - Chi nhánh Cancun - The Biltmore"
+                        },
+                        new
+                        {
+                            Id = 47,
+                            CanDelete = true,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Quản trị toàn bộ hệ thống thuộc chi nhánh Miami - Shangri-La",
+                            Name = "Quản trị - Chi nhánh Miami - Shangri-La"
+                        },
+                        new
+                        {
+                            Id = 48,
+                            CanDelete = true,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Quản trị toàn bộ hệ thống thuộc chi nhánh Paris - Grand Hyatt",
+                            Name = "Quản trị - Chi nhánh Paris - Grand Hyatt"
+                        },
+                        new
+                        {
+                            Id = 49,
+                            CanDelete = true,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Quản trị toàn bộ hệ thống thuộc chi nhánh Seoul - Four Seasons",
+                            Name = "Quản trị - Chi nhánh Seoul - Four Seasons"
+                        },
+                        new
+                        {
+                            Id = 50,
+                            CanDelete = true,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Quản trị toàn bộ hệ thống thuộc chi nhánh Bangkok - Hilton",
+                            Name = "Quản trị - Chi nhánh Bangkok - Hilton"
+                        },
+                        new
+                        {
+                            Id = 51,
+                            CanDelete = true,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Quản trị toàn bộ hệ thống thuộc chi nhánh Tokyo - W Hong Kong",
+                            Name = "Quản trị - Chi nhánh Tokyo - W Hong Kong"
+                        },
+                        new
+                        {
+                            Id = 52,
+                            CanDelete = true,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Quản trị toàn bộ hệ thống thuộc chi nhánh Hong Kong - The St. Regis",
+                            Name = "Quản trị - Chi nhánh Hong Kong - The St. Regis"
+                        },
+                        new
+                        {
+                            Id = 53,
+                            CanDelete = true,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Quản trị toàn bộ hệ thống thuộc chi nhánh Bali - Mandarin Oriental",
+                            Name = "Quản trị - Chi nhánh Bali - Mandarin Oriental"
+                        },
+                        new
+                        {
+                            Id = 54,
+                            CanDelete = true,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Quản trị toàn bộ hệ thống thuộc chi nhánh Bangkok - Ritz",
+                            Name = "Quản trị - Chi nhánh Bangkok - Ritz"
+                        },
+                        new
+                        {
+                            Id = 55,
+                            CanDelete = true,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Quản trị toàn bộ hệ thống thuộc chi nhánh Paris - The Oberoi",
+                            Name = "Quản trị - Chi nhánh Paris - The Oberoi"
+                        },
+                        new
+                        {
+                            Id = 56,
+                            CanDelete = true,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Quản trị toàn bộ hệ thống thuộc chi nhánh Mumbai - Park Hyatt",
+                            Name = "Quản trị - Chi nhánh Mumbai - Park Hyatt"
+                        },
+                        new
+                        {
+                            Id = 57,
+                            CanDelete = true,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Quản trị toàn bộ hệ thống thuộc chi nhánh Sydney - The Sukhothai",
+                            Name = "Quản trị - Chi nhánh Sydney - The Sukhothai"
+                        },
+                        new
+                        {
+                            Id = 58,
+                            CanDelete = true,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Quản trị toàn bộ hệ thống thuộc chi nhánh Bangkok - Ritz",
+                            Name = "Quản trị - Chi nhánh Bangkok - Ritz"
+                        },
+                        new
+                        {
+                            Id = 59,
+                            CanDelete = true,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Quản trị toàn bộ hệ thống thuộc chi nhánh Bali - The Leela",
+                            Name = "Quản trị - Chi nhánh Bali - The Leela"
+                        },
+                        new
+                        {
+                            Id = 60,
+                            CanDelete = true,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Quản trị toàn bộ hệ thống thuộc chi nhánh Tokyo - St. Regis",
+                            Name = "Quản trị - Chi nhánh Tokyo - St. Regis"
+                        },
+                        new
+                        {
+                            Id = 61,
+                            CanDelete = true,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Quản trị toàn bộ hệ thống thuộc chi nhánh New York - Jumeirah",
+                            Name = "Quản trị - Chi nhánh New York - Jumeirah"
+                        },
+                        new
+                        {
+                            Id = 62,
+                            CanDelete = true,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Quản trị toàn bộ hệ thống thuộc chi nhánh Dubai - Belmond Hotel Caruso",
+                            Name = "Quản trị - Chi nhánh Dubai - Belmond Hotel Caruso"
+                        },
+                        new
+                        {
+                            Id = 63,
+                            CanDelete = true,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Quản trị toàn bộ hệ thống thuộc chi nhánh Italy - Banyan Tree",
+                            Name = "Quản trị - Chi nhánh Italy - Banyan Tree"
+                        },
+                        new
+                        {
+                            Id = 64,
+                            CanDelete = true,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Quản trị toàn bộ hệ thống thuộc chi nhánh Phuket - The Address",
+                            Name = "Quản trị - Chi nhánh Phuket - The Address"
+                        },
+                        new
+                        {
+                            Id = 65,
+                            CanDelete = true,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Quản trị toàn bộ hệ thống thuộc chi nhánh Dubai - Shangri-La",
+                            Name = "Quản trị - Chi nhánh Dubai - Shangri-La"
+                        },
+                        new
+                        {
+                            Id = 66,
+                            CanDelete = true,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Quản trị toàn bộ hệ thống thuộc chi nhánh Bangkok - The Oberoi",
+                            Name = "Quản trị - Chi nhánh Bangkok - The Oberoi"
+                        },
+                        new
+                        {
+                            Id = 67,
+                            CanDelete = true,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Quản trị toàn bộ hệ thống thuộc chi nhánh Bali - Aman",
+                            Name = "Quản trị - Chi nhánh Bali - Aman"
+                        },
+                        new
+                        {
+                            Id = 68,
+                            CanDelete = true,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Quản trị toàn bộ hệ thống thuộc chi nhánh 60",
+                            Name = "Quản trị - Chi nhánh 60"
                         });
                 });
 
@@ -4277,8 +4779,8 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "administrator@gmail.com",
                             FullName = "Nguyễn Thanh Long",
-                            PasswordHash = new byte[] { 245, 123, 227, 188, 17, 93, 167, 113, 183, 253, 55, 102, 152, 161, 197, 211, 92, 66, 153, 82, 9, 49, 233, 116, 204, 220, 228, 183, 90, 21, 74, 220, 123, 244, 72, 189, 81, 140, 235, 241, 73, 205, 103, 134, 179, 136, 158, 173, 139, 165, 53, 55, 53, 88, 96, 121, 105, 182, 20, 145, 87, 140, 7, 220 },
-                            PasswordSalt = new byte[] { 79, 61, 192, 105, 185, 66, 222, 176, 233, 57, 47, 68, 155, 121, 211, 111, 25, 128, 50, 130, 201, 187, 116, 106, 248, 220, 110, 232, 143, 119, 181, 119, 233, 122, 250, 209, 106, 23, 85, 247, 48, 0, 5, 210, 255, 71, 108, 54, 46, 100, 248, 208, 227, 157, 9, 66, 120, 108, 252, 20, 124, 187, 224, 139, 251, 124, 208, 201, 146, 206, 125, 122, 11, 19, 52, 39, 231, 110, 16, 163, 151, 205, 46, 51, 113, 43, 145, 178, 54, 152, 22, 137, 135, 179, 204, 250, 195, 223, 134, 197, 246, 101, 244, 108, 211, 209, 99, 133, 22, 71, 114, 7, 165, 246, 25, 164, 176, 103, 169, 246, 161, 246, 251, 38, 235, 218, 169, 231 },
+                            PasswordHash = new byte[] { 68, 227, 89, 5, 170, 175, 167, 31, 42, 145, 83, 14, 244, 119, 76, 241, 138, 42, 177, 127, 222, 138, 61, 6, 136, 213, 81, 103, 197, 95, 160, 63, 217, 98, 20, 242, 161, 176, 61, 0, 80, 183, 69, 110, 245, 73, 236, 56, 219, 172, 183, 45, 84, 69, 102, 2, 17, 195, 37, 41, 57, 149, 252, 206 },
+                            PasswordSalt = new byte[] { 130, 2, 255, 3, 144, 251, 31, 105, 68, 78, 205, 4, 80, 68, 22, 48, 255, 61, 135, 36, 141, 170, 110, 108, 40, 160, 84, 97, 74, 27, 124, 15, 233, 174, 23, 78, 16, 106, 69, 103, 62, 8, 133, 15, 18, 223, 246, 249, 139, 218, 114, 50, 206, 220, 236, 249, 195, 182, 24, 92, 252, 73, 61, 219, 244, 17, 202, 187, 254, 120, 192, 84, 29, 110, 35, 209, 17, 20, 165, 58, 40, 61, 150, 115, 208, 230, 214, 9, 110, 177, 75, 13, 35, 9, 74, 113, 162, 229, 61, 50, 202, 11, 234, 27, 20, 85, 193, 42, 151, 80, 241, 103, 74, 19, 250, 153, 83, 11, 12, 17, 43, 219, 145, 226, 49, 240, 167, 38 },
                             PhoneNumber1 = "+84928666158",
                             PhoneNumber2 = "+84928666156",
                             Username = "administrator"
@@ -4294,8 +4796,8 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "fullequipmentmanagement@gmail.com",
                             FullName = "Trần Chí Dũng",
-                            PasswordHash = new byte[] { 245, 123, 227, 188, 17, 93, 167, 113, 183, 253, 55, 102, 152, 161, 197, 211, 92, 66, 153, 82, 9, 49, 233, 116, 204, 220, 228, 183, 90, 21, 74, 220, 123, 244, 72, 189, 81, 140, 235, 241, 73, 205, 103, 134, 179, 136, 158, 173, 139, 165, 53, 55, 53, 88, 96, 121, 105, 182, 20, 145, 87, 140, 7, 220 },
-                            PasswordSalt = new byte[] { 79, 61, 192, 105, 185, 66, 222, 176, 233, 57, 47, 68, 155, 121, 211, 111, 25, 128, 50, 130, 201, 187, 116, 106, 248, 220, 110, 232, 143, 119, 181, 119, 233, 122, 250, 209, 106, 23, 85, 247, 48, 0, 5, 210, 255, 71, 108, 54, 46, 100, 248, 208, 227, 157, 9, 66, 120, 108, 252, 20, 124, 187, 224, 139, 251, 124, 208, 201, 146, 206, 125, 122, 11, 19, 52, 39, 231, 110, 16, 163, 151, 205, 46, 51, 113, 43, 145, 178, 54, 152, 22, 137, 135, 179, 204, 250, 195, 223, 134, 197, 246, 101, 244, 108, 211, 209, 99, 133, 22, 71, 114, 7, 165, 246, 25, 164, 176, 103, 169, 246, 161, 246, 251, 38, 235, 218, 169, 231 },
+                            PasswordHash = new byte[] { 68, 227, 89, 5, 170, 175, 167, 31, 42, 145, 83, 14, 244, 119, 76, 241, 138, 42, 177, 127, 222, 138, 61, 6, 136, 213, 81, 103, 197, 95, 160, 63, 217, 98, 20, 242, 161, 176, 61, 0, 80, 183, 69, 110, 245, 73, 236, 56, 219, 172, 183, 45, 84, 69, 102, 2, 17, 195, 37, 41, 57, 149, 252, 206 },
+                            PasswordSalt = new byte[] { 130, 2, 255, 3, 144, 251, 31, 105, 68, 78, 205, 4, 80, 68, 22, 48, 255, 61, 135, 36, 141, 170, 110, 108, 40, 160, 84, 97, 74, 27, 124, 15, 233, 174, 23, 78, 16, 106, 69, 103, 62, 8, 133, 15, 18, 223, 246, 249, 139, 218, 114, 50, 206, 220, 236, 249, 195, 182, 24, 92, 252, 73, 61, 219, 244, 17, 202, 187, 254, 120, 192, 84, 29, 110, 35, 209, 17, 20, 165, 58, 40, 61, 150, 115, 208, 230, 214, 9, 110, 177, 75, 13, 35, 9, 74, 113, 162, 229, 61, 50, 202, 11, 234, 27, 20, 85, 193, 42, 151, 80, 241, 103, 74, 19, 250, 153, 83, 11, 12, 17, 43, 219, 145, 226, 49, 240, 167, 38 },
                             PhoneNumber1 = "+84928666157",
                             PhoneNumber2 = "+84928666158",
                             Username = "full_equipment_management"
@@ -4312,8 +4814,8 @@ namespace App.Data.Migrations
                             Email = "johnsmith1992@gmail.com",
                             FullName = "John Smith",
                             Passport = "123456789",
-                            PasswordHash = new byte[] { 245, 123, 227, 188, 17, 93, 167, 113, 183, 253, 55, 102, 152, 161, 197, 211, 92, 66, 153, 82, 9, 49, 233, 116, 204, 220, 228, 183, 90, 21, 74, 220, 123, 244, 72, 189, 81, 140, 235, 241, 73, 205, 103, 134, 179, 136, 158, 173, 139, 165, 53, 55, 53, 88, 96, 121, 105, 182, 20, 145, 87, 140, 7, 220 },
-                            PasswordSalt = new byte[] { 79, 61, 192, 105, 185, 66, 222, 176, 233, 57, 47, 68, 155, 121, 211, 111, 25, 128, 50, 130, 201, 187, 116, 106, 248, 220, 110, 232, 143, 119, 181, 119, 233, 122, 250, 209, 106, 23, 85, 247, 48, 0, 5, 210, 255, 71, 108, 54, 46, 100, 248, 208, 227, 157, 9, 66, 120, 108, 252, 20, 124, 187, 224, 139, 251, 124, 208, 201, 146, 206, 125, 122, 11, 19, 52, 39, 231, 110, 16, 163, 151, 205, 46, 51, 113, 43, 145, 178, 54, 152, 22, 137, 135, 179, 204, 250, 195, 223, 134, 197, 246, 101, 244, 108, 211, 209, 99, 133, 22, 71, 114, 7, 165, 246, 25, 164, 176, 103, 169, 246, 161, 246, 251, 38, 235, 218, 169, 231 },
+                            PasswordHash = new byte[] { 68, 227, 89, 5, 170, 175, 167, 31, 42, 145, 83, 14, 244, 119, 76, 241, 138, 42, 177, 127, 222, 138, 61, 6, 136, 213, 81, 103, 197, 95, 160, 63, 217, 98, 20, 242, 161, 176, 61, 0, 80, 183, 69, 110, 245, 73, 236, 56, 219, 172, 183, 45, 84, 69, 102, 2, 17, 195, 37, 41, 57, 149, 252, 206 },
+                            PasswordSalt = new byte[] { 130, 2, 255, 3, 144, 251, 31, 105, 68, 78, 205, 4, 80, 68, 22, 48, 255, 61, 135, 36, 141, 170, 110, 108, 40, 160, 84, 97, 74, 27, 124, 15, 233, 174, 23, 78, 16, 106, 69, 103, 62, 8, 133, 15, 18, 223, 246, 249, 139, 218, 114, 50, 206, 220, 236, 249, 195, 182, 24, 92, 252, 73, 61, 219, 244, 17, 202, 187, 254, 120, 192, 84, 29, 110, 35, 209, 17, 20, 165, 58, 40, 61, 150, 115, 208, 230, 214, 9, 110, 177, 75, 13, 35, 9, 74, 113, 162, 229, 61, 50, 202, 11, 234, 27, 20, 85, 193, 42, 151, 80, 241, 103, 74, 19, 250, 153, 83, 11, 12, 17, 43, 219, 145, 226, 49, 240, 167, 38 },
                             PhoneNumber1 = "+12025550123",
                             PhoneNumber2 = "+12027450123",
                             Username = "user1"
@@ -4322,24 +4824,6 @@ namespace App.Data.Migrations
                         {
                             Id = 4,
                             Address = "Hà Nội",
-                            AppRoleId = 4,
-                            Avatar = "/adminLTE/images/users/avatar-8.jpg",
-                            BranchId = 1,
-                            CitizenId = 917625678,
-                            CreatedBy = -1,
-                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "adminmeliahanoi@gmail.com",
-                            FullName = "Hồ Thành Nhân",
-                            PasswordHash = new byte[] { 245, 123, 227, 188, 17, 93, 167, 113, 183, 253, 55, 102, 152, 161, 197, 211, 92, 66, 153, 82, 9, 49, 233, 116, 204, 220, 228, 183, 90, 21, 74, 220, 123, 244, 72, 189, 81, 140, 235, 241, 73, 205, 103, 134, 179, 136, 158, 173, 139, 165, 53, 55, 53, 88, 96, 121, 105, 182, 20, 145, 87, 140, 7, 220 },
-                            PasswordSalt = new byte[] { 79, 61, 192, 105, 185, 66, 222, 176, 233, 57, 47, 68, 155, 121, 211, 111, 25, 128, 50, 130, 201, 187, 116, 106, 248, 220, 110, 232, 143, 119, 181, 119, 233, 122, 250, 209, 106, 23, 85, 247, 48, 0, 5, 210, 255, 71, 108, 54, 46, 100, 248, 208, 227, 157, 9, 66, 120, 108, 252, 20, 124, 187, 224, 139, 251, 124, 208, 201, 146, 206, 125, 122, 11, 19, 52, 39, 231, 110, 16, 163, 151, 205, 46, 51, 113, 43, 145, 178, 54, 152, 22, 137, 135, 179, 204, 250, 195, 223, 134, 197, 246, 101, 244, 108, 211, 209, 99, 133, 22, 71, 114, 7, 165, 246, 25, 164, 176, 103, 169, 246, 161, 246, 251, 38, 235, 218, 169, 231 },
-                            PhoneNumber1 = "+84725136123",
-                            PhoneNumber2 = "+84227450123",
-                            Username = "admin_cn_melia_ha_noi"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Address = "Hà Nội",
                             AppRoleId = 5,
                             Avatar = "/adminLTE/images/users/avatar-1.jpg",
                             CitizenId = 917673478,
@@ -4347,15 +4831,15 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "fullnewsmanager@gmail.com",
                             FullName = "Trần Thúy Hồng",
-                            PasswordHash = new byte[] { 245, 123, 227, 188, 17, 93, 167, 113, 183, 253, 55, 102, 152, 161, 197, 211, 92, 66, 153, 82, 9, 49, 233, 116, 204, 220, 228, 183, 90, 21, 74, 220, 123, 244, 72, 189, 81, 140, 235, 241, 73, 205, 103, 134, 179, 136, 158, 173, 139, 165, 53, 55, 53, 88, 96, 121, 105, 182, 20, 145, 87, 140, 7, 220 },
-                            PasswordSalt = new byte[] { 79, 61, 192, 105, 185, 66, 222, 176, 233, 57, 47, 68, 155, 121, 211, 111, 25, 128, 50, 130, 201, 187, 116, 106, 248, 220, 110, 232, 143, 119, 181, 119, 233, 122, 250, 209, 106, 23, 85, 247, 48, 0, 5, 210, 255, 71, 108, 54, 46, 100, 248, 208, 227, 157, 9, 66, 120, 108, 252, 20, 124, 187, 224, 139, 251, 124, 208, 201, 146, 206, 125, 122, 11, 19, 52, 39, 231, 110, 16, 163, 151, 205, 46, 51, 113, 43, 145, 178, 54, 152, 22, 137, 135, 179, 204, 250, 195, 223, 134, 197, 246, 101, 244, 108, 211, 209, 99, 133, 22, 71, 114, 7, 165, 246, 25, 164, 176, 103, 169, 246, 161, 246, 251, 38, 235, 218, 169, 231 },
+                            PasswordHash = new byte[] { 68, 227, 89, 5, 170, 175, 167, 31, 42, 145, 83, 14, 244, 119, 76, 241, 138, 42, 177, 127, 222, 138, 61, 6, 136, 213, 81, 103, 197, 95, 160, 63, 217, 98, 20, 242, 161, 176, 61, 0, 80, 183, 69, 110, 245, 73, 236, 56, 219, 172, 183, 45, 84, 69, 102, 2, 17, 195, 37, 41, 57, 149, 252, 206 },
+                            PasswordSalt = new byte[] { 130, 2, 255, 3, 144, 251, 31, 105, 68, 78, 205, 4, 80, 68, 22, 48, 255, 61, 135, 36, 141, 170, 110, 108, 40, 160, 84, 97, 74, 27, 124, 15, 233, 174, 23, 78, 16, 106, 69, 103, 62, 8, 133, 15, 18, 223, 246, 249, 139, 218, 114, 50, 206, 220, 236, 249, 195, 182, 24, 92, 252, 73, 61, 219, 244, 17, 202, 187, 254, 120, 192, 84, 29, 110, 35, 209, 17, 20, 165, 58, 40, 61, 150, 115, 208, 230, 214, 9, 110, 177, 75, 13, 35, 9, 74, 113, 162, 229, 61, 50, 202, 11, 234, 27, 20, 85, 193, 42, 151, 80, 241, 103, 74, 19, 250, 153, 83, 11, 12, 17, 43, 219, 145, 226, 49, 240, 167, 38 },
                             PhoneNumber1 = "+84728756123",
                             PhoneNumber2 = "+84227459233",
                             Username = "full_news_manager"
                         },
                         new
                         {
-                            Id = 6,
+                            Id = 5,
                             Address = "Thành phố Hồ Chí Minh",
                             AppRoleId = 6,
                             Avatar = "/adminLTE/images/users/avatar-10.jpg",
@@ -4364,15 +4848,15 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "catenewsmanager@gmail.com",
                             FullName = "Nguyên Thị Thanh",
-                            PasswordHash = new byte[] { 245, 123, 227, 188, 17, 93, 167, 113, 183, 253, 55, 102, 152, 161, 197, 211, 92, 66, 153, 82, 9, 49, 233, 116, 204, 220, 228, 183, 90, 21, 74, 220, 123, 244, 72, 189, 81, 140, 235, 241, 73, 205, 103, 134, 179, 136, 158, 173, 139, 165, 53, 55, 53, 88, 96, 121, 105, 182, 20, 145, 87, 140, 7, 220 },
-                            PasswordSalt = new byte[] { 79, 61, 192, 105, 185, 66, 222, 176, 233, 57, 47, 68, 155, 121, 211, 111, 25, 128, 50, 130, 201, 187, 116, 106, 248, 220, 110, 232, 143, 119, 181, 119, 233, 122, 250, 209, 106, 23, 85, 247, 48, 0, 5, 210, 255, 71, 108, 54, 46, 100, 248, 208, 227, 157, 9, 66, 120, 108, 252, 20, 124, 187, 224, 139, 251, 124, 208, 201, 146, 206, 125, 122, 11, 19, 52, 39, 231, 110, 16, 163, 151, 205, 46, 51, 113, 43, 145, 178, 54, 152, 22, 137, 135, 179, 204, 250, 195, 223, 134, 197, 246, 101, 244, 108, 211, 209, 99, 133, 22, 71, 114, 7, 165, 246, 25, 164, 176, 103, 169, 246, 161, 246, 251, 38, 235, 218, 169, 231 },
+                            PasswordHash = new byte[] { 68, 227, 89, 5, 170, 175, 167, 31, 42, 145, 83, 14, 244, 119, 76, 241, 138, 42, 177, 127, 222, 138, 61, 6, 136, 213, 81, 103, 197, 95, 160, 63, 217, 98, 20, 242, 161, 176, 61, 0, 80, 183, 69, 110, 245, 73, 236, 56, 219, 172, 183, 45, 84, 69, 102, 2, 17, 195, 37, 41, 57, 149, 252, 206 },
+                            PasswordSalt = new byte[] { 130, 2, 255, 3, 144, 251, 31, 105, 68, 78, 205, 4, 80, 68, 22, 48, 255, 61, 135, 36, 141, 170, 110, 108, 40, 160, 84, 97, 74, 27, 124, 15, 233, 174, 23, 78, 16, 106, 69, 103, 62, 8, 133, 15, 18, 223, 246, 249, 139, 218, 114, 50, 206, 220, 236, 249, 195, 182, 24, 92, 252, 73, 61, 219, 244, 17, 202, 187, 254, 120, 192, 84, 29, 110, 35, 209, 17, 20, 165, 58, 40, 61, 150, 115, 208, 230, 214, 9, 110, 177, 75, 13, 35, 9, 74, 113, 162, 229, 61, 50, 202, 11, 234, 27, 20, 85, 193, 42, 151, 80, 241, 103, 74, 19, 250, 153, 83, 11, 12, 17, 43, 219, 145, 226, 49, 240, 167, 38 },
                             PhoneNumber1 = "+84728864923",
                             PhoneNumber2 = "+84227459873",
                             Username = "cate_news_manager"
                         },
                         new
                         {
-                            Id = 7,
+                            Id = 6,
                             Address = "Phú Quốc",
                             AppRoleId = 7,
                             Avatar = "/adminLTE/images/users/avatar-2.jpg",
@@ -4381,15 +4865,15 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "newsmanager@gmail.com",
                             FullName = "Lê Thanh Hà",
-                            PasswordHash = new byte[] { 245, 123, 227, 188, 17, 93, 167, 113, 183, 253, 55, 102, 152, 161, 197, 211, 92, 66, 153, 82, 9, 49, 233, 116, 204, 220, 228, 183, 90, 21, 74, 220, 123, 244, 72, 189, 81, 140, 235, 241, 73, 205, 103, 134, 179, 136, 158, 173, 139, 165, 53, 55, 53, 88, 96, 121, 105, 182, 20, 145, 87, 140, 7, 220 },
-                            PasswordSalt = new byte[] { 79, 61, 192, 105, 185, 66, 222, 176, 233, 57, 47, 68, 155, 121, 211, 111, 25, 128, 50, 130, 201, 187, 116, 106, 248, 220, 110, 232, 143, 119, 181, 119, 233, 122, 250, 209, 106, 23, 85, 247, 48, 0, 5, 210, 255, 71, 108, 54, 46, 100, 248, 208, 227, 157, 9, 66, 120, 108, 252, 20, 124, 187, 224, 139, 251, 124, 208, 201, 146, 206, 125, 122, 11, 19, 52, 39, 231, 110, 16, 163, 151, 205, 46, 51, 113, 43, 145, 178, 54, 152, 22, 137, 135, 179, 204, 250, 195, 223, 134, 197, 246, 101, 244, 108, 211, 209, 99, 133, 22, 71, 114, 7, 165, 246, 25, 164, 176, 103, 169, 246, 161, 246, 251, 38, 235, 218, 169, 231 },
+                            PasswordHash = new byte[] { 68, 227, 89, 5, 170, 175, 167, 31, 42, 145, 83, 14, 244, 119, 76, 241, 138, 42, 177, 127, 222, 138, 61, 6, 136, 213, 81, 103, 197, 95, 160, 63, 217, 98, 20, 242, 161, 176, 61, 0, 80, 183, 69, 110, 245, 73, 236, 56, 219, 172, 183, 45, 84, 69, 102, 2, 17, 195, 37, 41, 57, 149, 252, 206 },
+                            PasswordSalt = new byte[] { 130, 2, 255, 3, 144, 251, 31, 105, 68, 78, 205, 4, 80, 68, 22, 48, 255, 61, 135, 36, 141, 170, 110, 108, 40, 160, 84, 97, 74, 27, 124, 15, 233, 174, 23, 78, 16, 106, 69, 103, 62, 8, 133, 15, 18, 223, 246, 249, 139, 218, 114, 50, 206, 220, 236, 249, 195, 182, 24, 92, 252, 73, 61, 219, 244, 17, 202, 187, 254, 120, 192, 84, 29, 110, 35, 209, 17, 20, 165, 58, 40, 61, 150, 115, 208, 230, 214, 9, 110, 177, 75, 13, 35, 9, 74, 113, 162, 229, 61, 50, 202, 11, 234, 27, 20, 85, 193, 42, 151, 80, 241, 103, 74, 19, 250, 153, 83, 11, 12, 17, 43, 219, 145, 226, 49, 240, 167, 38 },
                             PhoneNumber1 = "+84752364923",
                             PhoneNumber2 = "+84208739873",
                             Username = "news_manager"
                         },
                         new
                         {
-                            Id = 8,
+                            Id = 7,
                             Address = "Phú Quốc",
                             AppRoleId = 8,
                             Avatar = "/adminLTE/images/users/avatar-6.jpg",
@@ -4398,15 +4882,15 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "cateequipmentmanagement@gmail.com",
                             FullName = "Lê Hồng Thị",
-                            PasswordHash = new byte[] { 245, 123, 227, 188, 17, 93, 167, 113, 183, 253, 55, 102, 152, 161, 197, 211, 92, 66, 153, 82, 9, 49, 233, 116, 204, 220, 228, 183, 90, 21, 74, 220, 123, 244, 72, 189, 81, 140, 235, 241, 73, 205, 103, 134, 179, 136, 158, 173, 139, 165, 53, 55, 53, 88, 96, 121, 105, 182, 20, 145, 87, 140, 7, 220 },
-                            PasswordSalt = new byte[] { 79, 61, 192, 105, 185, 66, 222, 176, 233, 57, 47, 68, 155, 121, 211, 111, 25, 128, 50, 130, 201, 187, 116, 106, 248, 220, 110, 232, 143, 119, 181, 119, 233, 122, 250, 209, 106, 23, 85, 247, 48, 0, 5, 210, 255, 71, 108, 54, 46, 100, 248, 208, 227, 157, 9, 66, 120, 108, 252, 20, 124, 187, 224, 139, 251, 124, 208, 201, 146, 206, 125, 122, 11, 19, 52, 39, 231, 110, 16, 163, 151, 205, 46, 51, 113, 43, 145, 178, 54, 152, 22, 137, 135, 179, 204, 250, 195, 223, 134, 197, 246, 101, 244, 108, 211, 209, 99, 133, 22, 71, 114, 7, 165, 246, 25, 164, 176, 103, 169, 246, 161, 246, 251, 38, 235, 218, 169, 231 },
+                            PasswordHash = new byte[] { 68, 227, 89, 5, 170, 175, 167, 31, 42, 145, 83, 14, 244, 119, 76, 241, 138, 42, 177, 127, 222, 138, 61, 6, 136, 213, 81, 103, 197, 95, 160, 63, 217, 98, 20, 242, 161, 176, 61, 0, 80, 183, 69, 110, 245, 73, 236, 56, 219, 172, 183, 45, 84, 69, 102, 2, 17, 195, 37, 41, 57, 149, 252, 206 },
+                            PasswordSalt = new byte[] { 130, 2, 255, 3, 144, 251, 31, 105, 68, 78, 205, 4, 80, 68, 22, 48, 255, 61, 135, 36, 141, 170, 110, 108, 40, 160, 84, 97, 74, 27, 124, 15, 233, 174, 23, 78, 16, 106, 69, 103, 62, 8, 133, 15, 18, 223, 246, 249, 139, 218, 114, 50, 206, 220, 236, 249, 195, 182, 24, 92, 252, 73, 61, 219, 244, 17, 202, 187, 254, 120, 192, 84, 29, 110, 35, 209, 17, 20, 165, 58, 40, 61, 150, 115, 208, 230, 214, 9, 110, 177, 75, 13, 35, 9, 74, 113, 162, 229, 61, 50, 202, 11, 234, 27, 20, 85, 193, 42, 151, 80, 241, 103, 74, 19, 250, 153, 83, 11, 12, 17, 43, 219, 145, 226, 49, 240, 167, 38 },
                             PhoneNumber1 = "+84752369852",
                             PhoneNumber2 = "+84208739842",
                             Username = "cate_equipment_management"
                         },
                         new
                         {
-                            Id = 9,
+                            Id = 8,
                             Address = "Hà Tiên",
                             AppRoleId = 9,
                             Avatar = "/adminLTE/images/users/avatar-4.jpg",
@@ -4415,11 +4899,1091 @@ namespace App.Data.Migrations
                             CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "equipmentmanagement@gmail.com",
                             FullName = "Huỳnh Dương Thanh",
-                            PasswordHash = new byte[] { 245, 123, 227, 188, 17, 93, 167, 113, 183, 253, 55, 102, 152, 161, 197, 211, 92, 66, 153, 82, 9, 49, 233, 116, 204, 220, 228, 183, 90, 21, 74, 220, 123, 244, 72, 189, 81, 140, 235, 241, 73, 205, 103, 134, 179, 136, 158, 173, 139, 165, 53, 55, 53, 88, 96, 121, 105, 182, 20, 145, 87, 140, 7, 220 },
-                            PasswordSalt = new byte[] { 79, 61, 192, 105, 185, 66, 222, 176, 233, 57, 47, 68, 155, 121, 211, 111, 25, 128, 50, 130, 201, 187, 116, 106, 248, 220, 110, 232, 143, 119, 181, 119, 233, 122, 250, 209, 106, 23, 85, 247, 48, 0, 5, 210, 255, 71, 108, 54, 46, 100, 248, 208, 227, 157, 9, 66, 120, 108, 252, 20, 124, 187, 224, 139, 251, 124, 208, 201, 146, 206, 125, 122, 11, 19, 52, 39, 231, 110, 16, 163, 151, 205, 46, 51, 113, 43, 145, 178, 54, 152, 22, 137, 135, 179, 204, 250, 195, 223, 134, 197, 246, 101, 244, 108, 211, 209, 99, 133, 22, 71, 114, 7, 165, 246, 25, 164, 176, 103, 169, 246, 161, 246, 251, 38, 235, 218, 169, 231 },
+                            PasswordHash = new byte[] { 68, 227, 89, 5, 170, 175, 167, 31, 42, 145, 83, 14, 244, 119, 76, 241, 138, 42, 177, 127, 222, 138, 61, 6, 136, 213, 81, 103, 197, 95, 160, 63, 217, 98, 20, 242, 161, 176, 61, 0, 80, 183, 69, 110, 245, 73, 236, 56, 219, 172, 183, 45, 84, 69, 102, 2, 17, 195, 37, 41, 57, 149, 252, 206 },
+                            PasswordSalt = new byte[] { 130, 2, 255, 3, 144, 251, 31, 105, 68, 78, 205, 4, 80, 68, 22, 48, 255, 61, 135, 36, 141, 170, 110, 108, 40, 160, 84, 97, 74, 27, 124, 15, 233, 174, 23, 78, 16, 106, 69, 103, 62, 8, 133, 15, 18, 223, 246, 249, 139, 218, 114, 50, 206, 220, 236, 249, 195, 182, 24, 92, 252, 73, 61, 219, 244, 17, 202, 187, 254, 120, 192, 84, 29, 110, 35, 209, 17, 20, 165, 58, 40, 61, 150, 115, 208, 230, 214, 9, 110, 177, 75, 13, 35, 9, 74, 113, 162, 229, 61, 50, 202, 11, 234, 27, 20, 85, 193, 42, 151, 80, 241, 103, 74, 19, 250, 153, 83, 11, 12, 17, 43, 219, 145, 226, 49, 240, 167, 38 },
                             PhoneNumber1 = "+84758576323",
                             PhoneNumber2 = "+84208739823",
                             Username = "equipment_management"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Address = "Branch Address 9",
+                            AppRoleId = 4,
+                            Avatar = "/adminLTE/images/users/avatar-9.jpg",
+                            BranchId = 0,
+                            CitizenId = 1000000996,
+                            CreatedBy = -1,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "admin_branch_9@gmail.com",
+                            FullName = "Admin Branch 9",
+                            PasswordHash = new byte[] { 68, 227, 89, 5, 170, 175, 167, 31, 42, 145, 83, 14, 244, 119, 76, 241, 138, 42, 177, 127, 222, 138, 61, 6, 136, 213, 81, 103, 197, 95, 160, 63, 217, 98, 20, 242, 161, 176, 61, 0, 80, 183, 69, 110, 245, 73, 236, 56, 219, 172, 183, 45, 84, 69, 102, 2, 17, 195, 37, 41, 57, 149, 252, 206 },
+                            PasswordSalt = new byte[] { 130, 2, 255, 3, 144, 251, 31, 105, 68, 78, 205, 4, 80, 68, 22, 48, 255, 61, 135, 36, 141, 170, 110, 108, 40, 160, 84, 97, 74, 27, 124, 15, 233, 174, 23, 78, 16, 106, 69, 103, 62, 8, 133, 15, 18, 223, 246, 249, 139, 218, 114, 50, 206, 220, 236, 249, 195, 182, 24, 92, 252, 73, 61, 219, 244, 17, 202, 187, 254, 120, 192, 84, 29, 110, 35, 209, 17, 20, 165, 58, 40, 61, 150, 115, 208, 230, 214, 9, 110, 177, 75, 13, 35, 9, 74, 113, 162, 229, 61, 50, 202, 11, 234, 27, 20, 85, 193, 42, 151, 80, 241, 103, 74, 19, 250, 153, 83, 11, 12, 17, 43, 219, 145, 226, 49, 240, 167, 38 },
+                            PhoneNumber1 = "+84900000009",
+                            PhoneNumber2 = "+84900000019",
+                            Username = "admin_branch_9"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Address = "Branch Address 10",
+                            AppRoleId = 4,
+                            Avatar = "/adminLTE/images/users/avatar-10.jpg",
+                            BranchId = 1,
+                            CitizenId = 1000000997,
+                            CreatedBy = -1,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "admin_branch_10@gmail.com",
+                            FullName = "Admin Branch 10",
+                            PasswordHash = new byte[] { 68, 227, 89, 5, 170, 175, 167, 31, 42, 145, 83, 14, 244, 119, 76, 241, 138, 42, 177, 127, 222, 138, 61, 6, 136, 213, 81, 103, 197, 95, 160, 63, 217, 98, 20, 242, 161, 176, 61, 0, 80, 183, 69, 110, 245, 73, 236, 56, 219, 172, 183, 45, 84, 69, 102, 2, 17, 195, 37, 41, 57, 149, 252, 206 },
+                            PasswordSalt = new byte[] { 130, 2, 255, 3, 144, 251, 31, 105, 68, 78, 205, 4, 80, 68, 22, 48, 255, 61, 135, 36, 141, 170, 110, 108, 40, 160, 84, 97, 74, 27, 124, 15, 233, 174, 23, 78, 16, 106, 69, 103, 62, 8, 133, 15, 18, 223, 246, 249, 139, 218, 114, 50, 206, 220, 236, 249, 195, 182, 24, 92, 252, 73, 61, 219, 244, 17, 202, 187, 254, 120, 192, 84, 29, 110, 35, 209, 17, 20, 165, 58, 40, 61, 150, 115, 208, 230, 214, 9, 110, 177, 75, 13, 35, 9, 74, 113, 162, 229, 61, 50, 202, 11, 234, 27, 20, 85, 193, 42, 151, 80, 241, 103, 74, 19, 250, 153, 83, 11, 12, 17, 43, 219, 145, 226, 49, 240, 167, 38 },
+                            PhoneNumber1 = "+849000000010",
+                            PhoneNumber2 = "+849000000110",
+                            Username = "admin_branch_10"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Address = "Branch Address 11",
+                            AppRoleId = 4,
+                            Avatar = "/adminLTE/images/users/avatar-1.jpg",
+                            BranchId = 2,
+                            CitizenId = 1000000998,
+                            CreatedBy = -1,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "admin_branch_11@gmail.com",
+                            FullName = "Admin Branch 11",
+                            PasswordHash = new byte[] { 68, 227, 89, 5, 170, 175, 167, 31, 42, 145, 83, 14, 244, 119, 76, 241, 138, 42, 177, 127, 222, 138, 61, 6, 136, 213, 81, 103, 197, 95, 160, 63, 217, 98, 20, 242, 161, 176, 61, 0, 80, 183, 69, 110, 245, 73, 236, 56, 219, 172, 183, 45, 84, 69, 102, 2, 17, 195, 37, 41, 57, 149, 252, 206 },
+                            PasswordSalt = new byte[] { 130, 2, 255, 3, 144, 251, 31, 105, 68, 78, 205, 4, 80, 68, 22, 48, 255, 61, 135, 36, 141, 170, 110, 108, 40, 160, 84, 97, 74, 27, 124, 15, 233, 174, 23, 78, 16, 106, 69, 103, 62, 8, 133, 15, 18, 223, 246, 249, 139, 218, 114, 50, 206, 220, 236, 249, 195, 182, 24, 92, 252, 73, 61, 219, 244, 17, 202, 187, 254, 120, 192, 84, 29, 110, 35, 209, 17, 20, 165, 58, 40, 61, 150, 115, 208, 230, 214, 9, 110, 177, 75, 13, 35, 9, 74, 113, 162, 229, 61, 50, 202, 11, 234, 27, 20, 85, 193, 42, 151, 80, 241, 103, 74, 19, 250, 153, 83, 11, 12, 17, 43, 219, 145, 226, 49, 240, 167, 38 },
+                            PhoneNumber1 = "+849000000011",
+                            PhoneNumber2 = "+849000000111",
+                            Username = "admin_branch_11"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Address = "Branch Address 12",
+                            AppRoleId = 4,
+                            Avatar = "/adminLTE/images/users/avatar-2.jpg",
+                            BranchId = 3,
+                            CitizenId = 1000000999,
+                            CreatedBy = -1,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "admin_branch_12@gmail.com",
+                            FullName = "Admin Branch 12",
+                            PasswordHash = new byte[] { 68, 227, 89, 5, 170, 175, 167, 31, 42, 145, 83, 14, 244, 119, 76, 241, 138, 42, 177, 127, 222, 138, 61, 6, 136, 213, 81, 103, 197, 95, 160, 63, 217, 98, 20, 242, 161, 176, 61, 0, 80, 183, 69, 110, 245, 73, 236, 56, 219, 172, 183, 45, 84, 69, 102, 2, 17, 195, 37, 41, 57, 149, 252, 206 },
+                            PasswordSalt = new byte[] { 130, 2, 255, 3, 144, 251, 31, 105, 68, 78, 205, 4, 80, 68, 22, 48, 255, 61, 135, 36, 141, 170, 110, 108, 40, 160, 84, 97, 74, 27, 124, 15, 233, 174, 23, 78, 16, 106, 69, 103, 62, 8, 133, 15, 18, 223, 246, 249, 139, 218, 114, 50, 206, 220, 236, 249, 195, 182, 24, 92, 252, 73, 61, 219, 244, 17, 202, 187, 254, 120, 192, 84, 29, 110, 35, 209, 17, 20, 165, 58, 40, 61, 150, 115, 208, 230, 214, 9, 110, 177, 75, 13, 35, 9, 74, 113, 162, 229, 61, 50, 202, 11, 234, 27, 20, 85, 193, 42, 151, 80, 241, 103, 74, 19, 250, 153, 83, 11, 12, 17, 43, 219, 145, 226, 49, 240, 167, 38 },
+                            PhoneNumber1 = "+849000000012",
+                            PhoneNumber2 = "+849000000112",
+                            Username = "admin_branch_12"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            Address = "Branch Address 13",
+                            AppRoleId = 4,
+                            Avatar = "/adminLTE/images/users/avatar-3.jpg",
+                            BranchId = 4,
+                            CitizenId = 1000001000,
+                            CreatedBy = -1,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "admin_branch_13@gmail.com",
+                            FullName = "Admin Branch 13",
+                            PasswordHash = new byte[] { 68, 227, 89, 5, 170, 175, 167, 31, 42, 145, 83, 14, 244, 119, 76, 241, 138, 42, 177, 127, 222, 138, 61, 6, 136, 213, 81, 103, 197, 95, 160, 63, 217, 98, 20, 242, 161, 176, 61, 0, 80, 183, 69, 110, 245, 73, 236, 56, 219, 172, 183, 45, 84, 69, 102, 2, 17, 195, 37, 41, 57, 149, 252, 206 },
+                            PasswordSalt = new byte[] { 130, 2, 255, 3, 144, 251, 31, 105, 68, 78, 205, 4, 80, 68, 22, 48, 255, 61, 135, 36, 141, 170, 110, 108, 40, 160, 84, 97, 74, 27, 124, 15, 233, 174, 23, 78, 16, 106, 69, 103, 62, 8, 133, 15, 18, 223, 246, 249, 139, 218, 114, 50, 206, 220, 236, 249, 195, 182, 24, 92, 252, 73, 61, 219, 244, 17, 202, 187, 254, 120, 192, 84, 29, 110, 35, 209, 17, 20, 165, 58, 40, 61, 150, 115, 208, 230, 214, 9, 110, 177, 75, 13, 35, 9, 74, 113, 162, 229, 61, 50, 202, 11, 234, 27, 20, 85, 193, 42, 151, 80, 241, 103, 74, 19, 250, 153, 83, 11, 12, 17, 43, 219, 145, 226, 49, 240, 167, 38 },
+                            PhoneNumber1 = "+849000000013",
+                            PhoneNumber2 = "+849000000113",
+                            Username = "admin_branch_13"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            Address = "Branch Address 14",
+                            AppRoleId = 4,
+                            Avatar = "/adminLTE/images/users/avatar-4.jpg",
+                            BranchId = 5,
+                            CitizenId = 1000001001,
+                            CreatedBy = -1,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "admin_branch_14@gmail.com",
+                            FullName = "Admin Branch 14",
+                            PasswordHash = new byte[] { 68, 227, 89, 5, 170, 175, 167, 31, 42, 145, 83, 14, 244, 119, 76, 241, 138, 42, 177, 127, 222, 138, 61, 6, 136, 213, 81, 103, 197, 95, 160, 63, 217, 98, 20, 242, 161, 176, 61, 0, 80, 183, 69, 110, 245, 73, 236, 56, 219, 172, 183, 45, 84, 69, 102, 2, 17, 195, 37, 41, 57, 149, 252, 206 },
+                            PasswordSalt = new byte[] { 130, 2, 255, 3, 144, 251, 31, 105, 68, 78, 205, 4, 80, 68, 22, 48, 255, 61, 135, 36, 141, 170, 110, 108, 40, 160, 84, 97, 74, 27, 124, 15, 233, 174, 23, 78, 16, 106, 69, 103, 62, 8, 133, 15, 18, 223, 246, 249, 139, 218, 114, 50, 206, 220, 236, 249, 195, 182, 24, 92, 252, 73, 61, 219, 244, 17, 202, 187, 254, 120, 192, 84, 29, 110, 35, 209, 17, 20, 165, 58, 40, 61, 150, 115, 208, 230, 214, 9, 110, 177, 75, 13, 35, 9, 74, 113, 162, 229, 61, 50, 202, 11, 234, 27, 20, 85, 193, 42, 151, 80, 241, 103, 74, 19, 250, 153, 83, 11, 12, 17, 43, 219, 145, 226, 49, 240, 167, 38 },
+                            PhoneNumber1 = "+849000000014",
+                            PhoneNumber2 = "+849000000114",
+                            Username = "admin_branch_14"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            Address = "Branch Address 15",
+                            AppRoleId = 4,
+                            Avatar = "/adminLTE/images/users/avatar-5.jpg",
+                            BranchId = 6,
+                            CitizenId = 1000001002,
+                            CreatedBy = -1,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "admin_branch_15@gmail.com",
+                            FullName = "Admin Branch 15",
+                            PasswordHash = new byte[] { 68, 227, 89, 5, 170, 175, 167, 31, 42, 145, 83, 14, 244, 119, 76, 241, 138, 42, 177, 127, 222, 138, 61, 6, 136, 213, 81, 103, 197, 95, 160, 63, 217, 98, 20, 242, 161, 176, 61, 0, 80, 183, 69, 110, 245, 73, 236, 56, 219, 172, 183, 45, 84, 69, 102, 2, 17, 195, 37, 41, 57, 149, 252, 206 },
+                            PasswordSalt = new byte[] { 130, 2, 255, 3, 144, 251, 31, 105, 68, 78, 205, 4, 80, 68, 22, 48, 255, 61, 135, 36, 141, 170, 110, 108, 40, 160, 84, 97, 74, 27, 124, 15, 233, 174, 23, 78, 16, 106, 69, 103, 62, 8, 133, 15, 18, 223, 246, 249, 139, 218, 114, 50, 206, 220, 236, 249, 195, 182, 24, 92, 252, 73, 61, 219, 244, 17, 202, 187, 254, 120, 192, 84, 29, 110, 35, 209, 17, 20, 165, 58, 40, 61, 150, 115, 208, 230, 214, 9, 110, 177, 75, 13, 35, 9, 74, 113, 162, 229, 61, 50, 202, 11, 234, 27, 20, 85, 193, 42, 151, 80, 241, 103, 74, 19, 250, 153, 83, 11, 12, 17, 43, 219, 145, 226, 49, 240, 167, 38 },
+                            PhoneNumber1 = "+849000000015",
+                            PhoneNumber2 = "+849000000115",
+                            Username = "admin_branch_15"
+                        },
+                        new
+                        {
+                            Id = 16,
+                            Address = "Branch Address 16",
+                            AppRoleId = 4,
+                            Avatar = "/adminLTE/images/users/avatar-6.jpg",
+                            BranchId = 7,
+                            CitizenId = 1000001003,
+                            CreatedBy = -1,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "admin_branch_16@gmail.com",
+                            FullName = "Admin Branch 16",
+                            PasswordHash = new byte[] { 68, 227, 89, 5, 170, 175, 167, 31, 42, 145, 83, 14, 244, 119, 76, 241, 138, 42, 177, 127, 222, 138, 61, 6, 136, 213, 81, 103, 197, 95, 160, 63, 217, 98, 20, 242, 161, 176, 61, 0, 80, 183, 69, 110, 245, 73, 236, 56, 219, 172, 183, 45, 84, 69, 102, 2, 17, 195, 37, 41, 57, 149, 252, 206 },
+                            PasswordSalt = new byte[] { 130, 2, 255, 3, 144, 251, 31, 105, 68, 78, 205, 4, 80, 68, 22, 48, 255, 61, 135, 36, 141, 170, 110, 108, 40, 160, 84, 97, 74, 27, 124, 15, 233, 174, 23, 78, 16, 106, 69, 103, 62, 8, 133, 15, 18, 223, 246, 249, 139, 218, 114, 50, 206, 220, 236, 249, 195, 182, 24, 92, 252, 73, 61, 219, 244, 17, 202, 187, 254, 120, 192, 84, 29, 110, 35, 209, 17, 20, 165, 58, 40, 61, 150, 115, 208, 230, 214, 9, 110, 177, 75, 13, 35, 9, 74, 113, 162, 229, 61, 50, 202, 11, 234, 27, 20, 85, 193, 42, 151, 80, 241, 103, 74, 19, 250, 153, 83, 11, 12, 17, 43, 219, 145, 226, 49, 240, 167, 38 },
+                            PhoneNumber1 = "+849000000016",
+                            PhoneNumber2 = "+849000000116",
+                            Username = "admin_branch_16"
+                        },
+                        new
+                        {
+                            Id = 17,
+                            Address = "Branch Address 17",
+                            AppRoleId = 4,
+                            Avatar = "/adminLTE/images/users/avatar-7.jpg",
+                            BranchId = 8,
+                            CitizenId = 1000001004,
+                            CreatedBy = -1,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "admin_branch_17@gmail.com",
+                            FullName = "Admin Branch 17",
+                            PasswordHash = new byte[] { 68, 227, 89, 5, 170, 175, 167, 31, 42, 145, 83, 14, 244, 119, 76, 241, 138, 42, 177, 127, 222, 138, 61, 6, 136, 213, 81, 103, 197, 95, 160, 63, 217, 98, 20, 242, 161, 176, 61, 0, 80, 183, 69, 110, 245, 73, 236, 56, 219, 172, 183, 45, 84, 69, 102, 2, 17, 195, 37, 41, 57, 149, 252, 206 },
+                            PasswordSalt = new byte[] { 130, 2, 255, 3, 144, 251, 31, 105, 68, 78, 205, 4, 80, 68, 22, 48, 255, 61, 135, 36, 141, 170, 110, 108, 40, 160, 84, 97, 74, 27, 124, 15, 233, 174, 23, 78, 16, 106, 69, 103, 62, 8, 133, 15, 18, 223, 246, 249, 139, 218, 114, 50, 206, 220, 236, 249, 195, 182, 24, 92, 252, 73, 61, 219, 244, 17, 202, 187, 254, 120, 192, 84, 29, 110, 35, 209, 17, 20, 165, 58, 40, 61, 150, 115, 208, 230, 214, 9, 110, 177, 75, 13, 35, 9, 74, 113, 162, 229, 61, 50, 202, 11, 234, 27, 20, 85, 193, 42, 151, 80, 241, 103, 74, 19, 250, 153, 83, 11, 12, 17, 43, 219, 145, 226, 49, 240, 167, 38 },
+                            PhoneNumber1 = "+849000000017",
+                            PhoneNumber2 = "+849000000117",
+                            Username = "admin_branch_17"
+                        },
+                        new
+                        {
+                            Id = 18,
+                            Address = "Branch Address 18",
+                            AppRoleId = 4,
+                            Avatar = "/adminLTE/images/users/avatar-8.jpg",
+                            BranchId = 9,
+                            CitizenId = 1000001005,
+                            CreatedBy = -1,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "admin_branch_18@gmail.com",
+                            FullName = "Admin Branch 18",
+                            PasswordHash = new byte[] { 68, 227, 89, 5, 170, 175, 167, 31, 42, 145, 83, 14, 244, 119, 76, 241, 138, 42, 177, 127, 222, 138, 61, 6, 136, 213, 81, 103, 197, 95, 160, 63, 217, 98, 20, 242, 161, 176, 61, 0, 80, 183, 69, 110, 245, 73, 236, 56, 219, 172, 183, 45, 84, 69, 102, 2, 17, 195, 37, 41, 57, 149, 252, 206 },
+                            PasswordSalt = new byte[] { 130, 2, 255, 3, 144, 251, 31, 105, 68, 78, 205, 4, 80, 68, 22, 48, 255, 61, 135, 36, 141, 170, 110, 108, 40, 160, 84, 97, 74, 27, 124, 15, 233, 174, 23, 78, 16, 106, 69, 103, 62, 8, 133, 15, 18, 223, 246, 249, 139, 218, 114, 50, 206, 220, 236, 249, 195, 182, 24, 92, 252, 73, 61, 219, 244, 17, 202, 187, 254, 120, 192, 84, 29, 110, 35, 209, 17, 20, 165, 58, 40, 61, 150, 115, 208, 230, 214, 9, 110, 177, 75, 13, 35, 9, 74, 113, 162, 229, 61, 50, 202, 11, 234, 27, 20, 85, 193, 42, 151, 80, 241, 103, 74, 19, 250, 153, 83, 11, 12, 17, 43, 219, 145, 226, 49, 240, 167, 38 },
+                            PhoneNumber1 = "+849000000018",
+                            PhoneNumber2 = "+849000000118",
+                            Username = "admin_branch_18"
+                        },
+                        new
+                        {
+                            Id = 19,
+                            Address = "Branch Address 19",
+                            AppRoleId = 4,
+                            Avatar = "/adminLTE/images/users/avatar-9.jpg",
+                            BranchId = 10,
+                            CitizenId = 1000001006,
+                            CreatedBy = -1,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "admin_branch_19@gmail.com",
+                            FullName = "Admin Branch 19",
+                            PasswordHash = new byte[] { 68, 227, 89, 5, 170, 175, 167, 31, 42, 145, 83, 14, 244, 119, 76, 241, 138, 42, 177, 127, 222, 138, 61, 6, 136, 213, 81, 103, 197, 95, 160, 63, 217, 98, 20, 242, 161, 176, 61, 0, 80, 183, 69, 110, 245, 73, 236, 56, 219, 172, 183, 45, 84, 69, 102, 2, 17, 195, 37, 41, 57, 149, 252, 206 },
+                            PasswordSalt = new byte[] { 130, 2, 255, 3, 144, 251, 31, 105, 68, 78, 205, 4, 80, 68, 22, 48, 255, 61, 135, 36, 141, 170, 110, 108, 40, 160, 84, 97, 74, 27, 124, 15, 233, 174, 23, 78, 16, 106, 69, 103, 62, 8, 133, 15, 18, 223, 246, 249, 139, 218, 114, 50, 206, 220, 236, 249, 195, 182, 24, 92, 252, 73, 61, 219, 244, 17, 202, 187, 254, 120, 192, 84, 29, 110, 35, 209, 17, 20, 165, 58, 40, 61, 150, 115, 208, 230, 214, 9, 110, 177, 75, 13, 35, 9, 74, 113, 162, 229, 61, 50, 202, 11, 234, 27, 20, 85, 193, 42, 151, 80, 241, 103, 74, 19, 250, 153, 83, 11, 12, 17, 43, 219, 145, 226, 49, 240, 167, 38 },
+                            PhoneNumber1 = "+849000000019",
+                            PhoneNumber2 = "+849000000119",
+                            Username = "admin_branch_19"
+                        },
+                        new
+                        {
+                            Id = 20,
+                            Address = "Branch Address 20",
+                            AppRoleId = 4,
+                            Avatar = "/adminLTE/images/users/avatar-10.jpg",
+                            BranchId = 11,
+                            CitizenId = 1000001007,
+                            CreatedBy = -1,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "admin_branch_20@gmail.com",
+                            FullName = "Admin Branch 20",
+                            PasswordHash = new byte[] { 68, 227, 89, 5, 170, 175, 167, 31, 42, 145, 83, 14, 244, 119, 76, 241, 138, 42, 177, 127, 222, 138, 61, 6, 136, 213, 81, 103, 197, 95, 160, 63, 217, 98, 20, 242, 161, 176, 61, 0, 80, 183, 69, 110, 245, 73, 236, 56, 219, 172, 183, 45, 84, 69, 102, 2, 17, 195, 37, 41, 57, 149, 252, 206 },
+                            PasswordSalt = new byte[] { 130, 2, 255, 3, 144, 251, 31, 105, 68, 78, 205, 4, 80, 68, 22, 48, 255, 61, 135, 36, 141, 170, 110, 108, 40, 160, 84, 97, 74, 27, 124, 15, 233, 174, 23, 78, 16, 106, 69, 103, 62, 8, 133, 15, 18, 223, 246, 249, 139, 218, 114, 50, 206, 220, 236, 249, 195, 182, 24, 92, 252, 73, 61, 219, 244, 17, 202, 187, 254, 120, 192, 84, 29, 110, 35, 209, 17, 20, 165, 58, 40, 61, 150, 115, 208, 230, 214, 9, 110, 177, 75, 13, 35, 9, 74, 113, 162, 229, 61, 50, 202, 11, 234, 27, 20, 85, 193, 42, 151, 80, 241, 103, 74, 19, 250, 153, 83, 11, 12, 17, 43, 219, 145, 226, 49, 240, 167, 38 },
+                            PhoneNumber1 = "+849000000020",
+                            PhoneNumber2 = "+849000000120",
+                            Username = "admin_branch_20"
+                        },
+                        new
+                        {
+                            Id = 21,
+                            Address = "Branch Address 21",
+                            AppRoleId = 4,
+                            Avatar = "/adminLTE/images/users/avatar-1.jpg",
+                            BranchId = 12,
+                            CitizenId = 1000001008,
+                            CreatedBy = -1,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "admin_branch_21@gmail.com",
+                            FullName = "Admin Branch 21",
+                            PasswordHash = new byte[] { 68, 227, 89, 5, 170, 175, 167, 31, 42, 145, 83, 14, 244, 119, 76, 241, 138, 42, 177, 127, 222, 138, 61, 6, 136, 213, 81, 103, 197, 95, 160, 63, 217, 98, 20, 242, 161, 176, 61, 0, 80, 183, 69, 110, 245, 73, 236, 56, 219, 172, 183, 45, 84, 69, 102, 2, 17, 195, 37, 41, 57, 149, 252, 206 },
+                            PasswordSalt = new byte[] { 130, 2, 255, 3, 144, 251, 31, 105, 68, 78, 205, 4, 80, 68, 22, 48, 255, 61, 135, 36, 141, 170, 110, 108, 40, 160, 84, 97, 74, 27, 124, 15, 233, 174, 23, 78, 16, 106, 69, 103, 62, 8, 133, 15, 18, 223, 246, 249, 139, 218, 114, 50, 206, 220, 236, 249, 195, 182, 24, 92, 252, 73, 61, 219, 244, 17, 202, 187, 254, 120, 192, 84, 29, 110, 35, 209, 17, 20, 165, 58, 40, 61, 150, 115, 208, 230, 214, 9, 110, 177, 75, 13, 35, 9, 74, 113, 162, 229, 61, 50, 202, 11, 234, 27, 20, 85, 193, 42, 151, 80, 241, 103, 74, 19, 250, 153, 83, 11, 12, 17, 43, 219, 145, 226, 49, 240, 167, 38 },
+                            PhoneNumber1 = "+849000000021",
+                            PhoneNumber2 = "+849000000121",
+                            Username = "admin_branch_21"
+                        },
+                        new
+                        {
+                            Id = 22,
+                            Address = "Branch Address 22",
+                            AppRoleId = 4,
+                            Avatar = "/adminLTE/images/users/avatar-2.jpg",
+                            BranchId = 13,
+                            CitizenId = 1000001009,
+                            CreatedBy = -1,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "admin_branch_22@gmail.com",
+                            FullName = "Admin Branch 22",
+                            PasswordHash = new byte[] { 68, 227, 89, 5, 170, 175, 167, 31, 42, 145, 83, 14, 244, 119, 76, 241, 138, 42, 177, 127, 222, 138, 61, 6, 136, 213, 81, 103, 197, 95, 160, 63, 217, 98, 20, 242, 161, 176, 61, 0, 80, 183, 69, 110, 245, 73, 236, 56, 219, 172, 183, 45, 84, 69, 102, 2, 17, 195, 37, 41, 57, 149, 252, 206 },
+                            PasswordSalt = new byte[] { 130, 2, 255, 3, 144, 251, 31, 105, 68, 78, 205, 4, 80, 68, 22, 48, 255, 61, 135, 36, 141, 170, 110, 108, 40, 160, 84, 97, 74, 27, 124, 15, 233, 174, 23, 78, 16, 106, 69, 103, 62, 8, 133, 15, 18, 223, 246, 249, 139, 218, 114, 50, 206, 220, 236, 249, 195, 182, 24, 92, 252, 73, 61, 219, 244, 17, 202, 187, 254, 120, 192, 84, 29, 110, 35, 209, 17, 20, 165, 58, 40, 61, 150, 115, 208, 230, 214, 9, 110, 177, 75, 13, 35, 9, 74, 113, 162, 229, 61, 50, 202, 11, 234, 27, 20, 85, 193, 42, 151, 80, 241, 103, 74, 19, 250, 153, 83, 11, 12, 17, 43, 219, 145, 226, 49, 240, 167, 38 },
+                            PhoneNumber1 = "+849000000022",
+                            PhoneNumber2 = "+849000000122",
+                            Username = "admin_branch_22"
+                        },
+                        new
+                        {
+                            Id = 23,
+                            Address = "Branch Address 23",
+                            AppRoleId = 4,
+                            Avatar = "/adminLTE/images/users/avatar-3.jpg",
+                            BranchId = 14,
+                            CitizenId = 1000001010,
+                            CreatedBy = -1,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "admin_branch_23@gmail.com",
+                            FullName = "Admin Branch 23",
+                            PasswordHash = new byte[] { 68, 227, 89, 5, 170, 175, 167, 31, 42, 145, 83, 14, 244, 119, 76, 241, 138, 42, 177, 127, 222, 138, 61, 6, 136, 213, 81, 103, 197, 95, 160, 63, 217, 98, 20, 242, 161, 176, 61, 0, 80, 183, 69, 110, 245, 73, 236, 56, 219, 172, 183, 45, 84, 69, 102, 2, 17, 195, 37, 41, 57, 149, 252, 206 },
+                            PasswordSalt = new byte[] { 130, 2, 255, 3, 144, 251, 31, 105, 68, 78, 205, 4, 80, 68, 22, 48, 255, 61, 135, 36, 141, 170, 110, 108, 40, 160, 84, 97, 74, 27, 124, 15, 233, 174, 23, 78, 16, 106, 69, 103, 62, 8, 133, 15, 18, 223, 246, 249, 139, 218, 114, 50, 206, 220, 236, 249, 195, 182, 24, 92, 252, 73, 61, 219, 244, 17, 202, 187, 254, 120, 192, 84, 29, 110, 35, 209, 17, 20, 165, 58, 40, 61, 150, 115, 208, 230, 214, 9, 110, 177, 75, 13, 35, 9, 74, 113, 162, 229, 61, 50, 202, 11, 234, 27, 20, 85, 193, 42, 151, 80, 241, 103, 74, 19, 250, 153, 83, 11, 12, 17, 43, 219, 145, 226, 49, 240, 167, 38 },
+                            PhoneNumber1 = "+849000000023",
+                            PhoneNumber2 = "+849000000123",
+                            Username = "admin_branch_23"
+                        },
+                        new
+                        {
+                            Id = 24,
+                            Address = "Branch Address 24",
+                            AppRoleId = 4,
+                            Avatar = "/adminLTE/images/users/avatar-4.jpg",
+                            BranchId = 15,
+                            CitizenId = 1000001011,
+                            CreatedBy = -1,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "admin_branch_24@gmail.com",
+                            FullName = "Admin Branch 24",
+                            PasswordHash = new byte[] { 68, 227, 89, 5, 170, 175, 167, 31, 42, 145, 83, 14, 244, 119, 76, 241, 138, 42, 177, 127, 222, 138, 61, 6, 136, 213, 81, 103, 197, 95, 160, 63, 217, 98, 20, 242, 161, 176, 61, 0, 80, 183, 69, 110, 245, 73, 236, 56, 219, 172, 183, 45, 84, 69, 102, 2, 17, 195, 37, 41, 57, 149, 252, 206 },
+                            PasswordSalt = new byte[] { 130, 2, 255, 3, 144, 251, 31, 105, 68, 78, 205, 4, 80, 68, 22, 48, 255, 61, 135, 36, 141, 170, 110, 108, 40, 160, 84, 97, 74, 27, 124, 15, 233, 174, 23, 78, 16, 106, 69, 103, 62, 8, 133, 15, 18, 223, 246, 249, 139, 218, 114, 50, 206, 220, 236, 249, 195, 182, 24, 92, 252, 73, 61, 219, 244, 17, 202, 187, 254, 120, 192, 84, 29, 110, 35, 209, 17, 20, 165, 58, 40, 61, 150, 115, 208, 230, 214, 9, 110, 177, 75, 13, 35, 9, 74, 113, 162, 229, 61, 50, 202, 11, 234, 27, 20, 85, 193, 42, 151, 80, 241, 103, 74, 19, 250, 153, 83, 11, 12, 17, 43, 219, 145, 226, 49, 240, 167, 38 },
+                            PhoneNumber1 = "+849000000024",
+                            PhoneNumber2 = "+849000000124",
+                            Username = "admin_branch_24"
+                        },
+                        new
+                        {
+                            Id = 25,
+                            Address = "Branch Address 25",
+                            AppRoleId = 4,
+                            Avatar = "/adminLTE/images/users/avatar-5.jpg",
+                            BranchId = 16,
+                            CitizenId = 1000001012,
+                            CreatedBy = -1,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "admin_branch_25@gmail.com",
+                            FullName = "Admin Branch 25",
+                            PasswordHash = new byte[] { 68, 227, 89, 5, 170, 175, 167, 31, 42, 145, 83, 14, 244, 119, 76, 241, 138, 42, 177, 127, 222, 138, 61, 6, 136, 213, 81, 103, 197, 95, 160, 63, 217, 98, 20, 242, 161, 176, 61, 0, 80, 183, 69, 110, 245, 73, 236, 56, 219, 172, 183, 45, 84, 69, 102, 2, 17, 195, 37, 41, 57, 149, 252, 206 },
+                            PasswordSalt = new byte[] { 130, 2, 255, 3, 144, 251, 31, 105, 68, 78, 205, 4, 80, 68, 22, 48, 255, 61, 135, 36, 141, 170, 110, 108, 40, 160, 84, 97, 74, 27, 124, 15, 233, 174, 23, 78, 16, 106, 69, 103, 62, 8, 133, 15, 18, 223, 246, 249, 139, 218, 114, 50, 206, 220, 236, 249, 195, 182, 24, 92, 252, 73, 61, 219, 244, 17, 202, 187, 254, 120, 192, 84, 29, 110, 35, 209, 17, 20, 165, 58, 40, 61, 150, 115, 208, 230, 214, 9, 110, 177, 75, 13, 35, 9, 74, 113, 162, 229, 61, 50, 202, 11, 234, 27, 20, 85, 193, 42, 151, 80, 241, 103, 74, 19, 250, 153, 83, 11, 12, 17, 43, 219, 145, 226, 49, 240, 167, 38 },
+                            PhoneNumber1 = "+849000000025",
+                            PhoneNumber2 = "+849000000125",
+                            Username = "admin_branch_25"
+                        },
+                        new
+                        {
+                            Id = 26,
+                            Address = "Branch Address 26",
+                            AppRoleId = 4,
+                            Avatar = "/adminLTE/images/users/avatar-6.jpg",
+                            BranchId = 17,
+                            CitizenId = 1000001013,
+                            CreatedBy = -1,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "admin_branch_26@gmail.com",
+                            FullName = "Admin Branch 26",
+                            PasswordHash = new byte[] { 68, 227, 89, 5, 170, 175, 167, 31, 42, 145, 83, 14, 244, 119, 76, 241, 138, 42, 177, 127, 222, 138, 61, 6, 136, 213, 81, 103, 197, 95, 160, 63, 217, 98, 20, 242, 161, 176, 61, 0, 80, 183, 69, 110, 245, 73, 236, 56, 219, 172, 183, 45, 84, 69, 102, 2, 17, 195, 37, 41, 57, 149, 252, 206 },
+                            PasswordSalt = new byte[] { 130, 2, 255, 3, 144, 251, 31, 105, 68, 78, 205, 4, 80, 68, 22, 48, 255, 61, 135, 36, 141, 170, 110, 108, 40, 160, 84, 97, 74, 27, 124, 15, 233, 174, 23, 78, 16, 106, 69, 103, 62, 8, 133, 15, 18, 223, 246, 249, 139, 218, 114, 50, 206, 220, 236, 249, 195, 182, 24, 92, 252, 73, 61, 219, 244, 17, 202, 187, 254, 120, 192, 84, 29, 110, 35, 209, 17, 20, 165, 58, 40, 61, 150, 115, 208, 230, 214, 9, 110, 177, 75, 13, 35, 9, 74, 113, 162, 229, 61, 50, 202, 11, 234, 27, 20, 85, 193, 42, 151, 80, 241, 103, 74, 19, 250, 153, 83, 11, 12, 17, 43, 219, 145, 226, 49, 240, 167, 38 },
+                            PhoneNumber1 = "+849000000026",
+                            PhoneNumber2 = "+849000000126",
+                            Username = "admin_branch_26"
+                        },
+                        new
+                        {
+                            Id = 27,
+                            Address = "Branch Address 27",
+                            AppRoleId = 4,
+                            Avatar = "/adminLTE/images/users/avatar-7.jpg",
+                            BranchId = 18,
+                            CitizenId = 1000001014,
+                            CreatedBy = -1,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "admin_branch_27@gmail.com",
+                            FullName = "Admin Branch 27",
+                            PasswordHash = new byte[] { 68, 227, 89, 5, 170, 175, 167, 31, 42, 145, 83, 14, 244, 119, 76, 241, 138, 42, 177, 127, 222, 138, 61, 6, 136, 213, 81, 103, 197, 95, 160, 63, 217, 98, 20, 242, 161, 176, 61, 0, 80, 183, 69, 110, 245, 73, 236, 56, 219, 172, 183, 45, 84, 69, 102, 2, 17, 195, 37, 41, 57, 149, 252, 206 },
+                            PasswordSalt = new byte[] { 130, 2, 255, 3, 144, 251, 31, 105, 68, 78, 205, 4, 80, 68, 22, 48, 255, 61, 135, 36, 141, 170, 110, 108, 40, 160, 84, 97, 74, 27, 124, 15, 233, 174, 23, 78, 16, 106, 69, 103, 62, 8, 133, 15, 18, 223, 246, 249, 139, 218, 114, 50, 206, 220, 236, 249, 195, 182, 24, 92, 252, 73, 61, 219, 244, 17, 202, 187, 254, 120, 192, 84, 29, 110, 35, 209, 17, 20, 165, 58, 40, 61, 150, 115, 208, 230, 214, 9, 110, 177, 75, 13, 35, 9, 74, 113, 162, 229, 61, 50, 202, 11, 234, 27, 20, 85, 193, 42, 151, 80, 241, 103, 74, 19, 250, 153, 83, 11, 12, 17, 43, 219, 145, 226, 49, 240, 167, 38 },
+                            PhoneNumber1 = "+849000000027",
+                            PhoneNumber2 = "+849000000127",
+                            Username = "admin_branch_27"
+                        },
+                        new
+                        {
+                            Id = 28,
+                            Address = "Branch Address 28",
+                            AppRoleId = 4,
+                            Avatar = "/adminLTE/images/users/avatar-8.jpg",
+                            BranchId = 19,
+                            CitizenId = 1000001015,
+                            CreatedBy = -1,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "admin_branch_28@gmail.com",
+                            FullName = "Admin Branch 28",
+                            PasswordHash = new byte[] { 68, 227, 89, 5, 170, 175, 167, 31, 42, 145, 83, 14, 244, 119, 76, 241, 138, 42, 177, 127, 222, 138, 61, 6, 136, 213, 81, 103, 197, 95, 160, 63, 217, 98, 20, 242, 161, 176, 61, 0, 80, 183, 69, 110, 245, 73, 236, 56, 219, 172, 183, 45, 84, 69, 102, 2, 17, 195, 37, 41, 57, 149, 252, 206 },
+                            PasswordSalt = new byte[] { 130, 2, 255, 3, 144, 251, 31, 105, 68, 78, 205, 4, 80, 68, 22, 48, 255, 61, 135, 36, 141, 170, 110, 108, 40, 160, 84, 97, 74, 27, 124, 15, 233, 174, 23, 78, 16, 106, 69, 103, 62, 8, 133, 15, 18, 223, 246, 249, 139, 218, 114, 50, 206, 220, 236, 249, 195, 182, 24, 92, 252, 73, 61, 219, 244, 17, 202, 187, 254, 120, 192, 84, 29, 110, 35, 209, 17, 20, 165, 58, 40, 61, 150, 115, 208, 230, 214, 9, 110, 177, 75, 13, 35, 9, 74, 113, 162, 229, 61, 50, 202, 11, 234, 27, 20, 85, 193, 42, 151, 80, 241, 103, 74, 19, 250, 153, 83, 11, 12, 17, 43, 219, 145, 226, 49, 240, 167, 38 },
+                            PhoneNumber1 = "+849000000028",
+                            PhoneNumber2 = "+849000000128",
+                            Username = "admin_branch_28"
+                        },
+                        new
+                        {
+                            Id = 29,
+                            Address = "Branch Address 29",
+                            AppRoleId = 4,
+                            Avatar = "/adminLTE/images/users/avatar-9.jpg",
+                            BranchId = 20,
+                            CitizenId = 1000001016,
+                            CreatedBy = -1,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "admin_branch_29@gmail.com",
+                            FullName = "Admin Branch 29",
+                            PasswordHash = new byte[] { 68, 227, 89, 5, 170, 175, 167, 31, 42, 145, 83, 14, 244, 119, 76, 241, 138, 42, 177, 127, 222, 138, 61, 6, 136, 213, 81, 103, 197, 95, 160, 63, 217, 98, 20, 242, 161, 176, 61, 0, 80, 183, 69, 110, 245, 73, 236, 56, 219, 172, 183, 45, 84, 69, 102, 2, 17, 195, 37, 41, 57, 149, 252, 206 },
+                            PasswordSalt = new byte[] { 130, 2, 255, 3, 144, 251, 31, 105, 68, 78, 205, 4, 80, 68, 22, 48, 255, 61, 135, 36, 141, 170, 110, 108, 40, 160, 84, 97, 74, 27, 124, 15, 233, 174, 23, 78, 16, 106, 69, 103, 62, 8, 133, 15, 18, 223, 246, 249, 139, 218, 114, 50, 206, 220, 236, 249, 195, 182, 24, 92, 252, 73, 61, 219, 244, 17, 202, 187, 254, 120, 192, 84, 29, 110, 35, 209, 17, 20, 165, 58, 40, 61, 150, 115, 208, 230, 214, 9, 110, 177, 75, 13, 35, 9, 74, 113, 162, 229, 61, 50, 202, 11, 234, 27, 20, 85, 193, 42, 151, 80, 241, 103, 74, 19, 250, 153, 83, 11, 12, 17, 43, 219, 145, 226, 49, 240, 167, 38 },
+                            PhoneNumber1 = "+849000000029",
+                            PhoneNumber2 = "+849000000129",
+                            Username = "admin_branch_29"
+                        },
+                        new
+                        {
+                            Id = 30,
+                            Address = "Branch Address 30",
+                            AppRoleId = 4,
+                            Avatar = "/adminLTE/images/users/avatar-10.jpg",
+                            BranchId = 21,
+                            CitizenId = 1000001017,
+                            CreatedBy = -1,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "admin_branch_30@gmail.com",
+                            FullName = "Admin Branch 30",
+                            PasswordHash = new byte[] { 68, 227, 89, 5, 170, 175, 167, 31, 42, 145, 83, 14, 244, 119, 76, 241, 138, 42, 177, 127, 222, 138, 61, 6, 136, 213, 81, 103, 197, 95, 160, 63, 217, 98, 20, 242, 161, 176, 61, 0, 80, 183, 69, 110, 245, 73, 236, 56, 219, 172, 183, 45, 84, 69, 102, 2, 17, 195, 37, 41, 57, 149, 252, 206 },
+                            PasswordSalt = new byte[] { 130, 2, 255, 3, 144, 251, 31, 105, 68, 78, 205, 4, 80, 68, 22, 48, 255, 61, 135, 36, 141, 170, 110, 108, 40, 160, 84, 97, 74, 27, 124, 15, 233, 174, 23, 78, 16, 106, 69, 103, 62, 8, 133, 15, 18, 223, 246, 249, 139, 218, 114, 50, 206, 220, 236, 249, 195, 182, 24, 92, 252, 73, 61, 219, 244, 17, 202, 187, 254, 120, 192, 84, 29, 110, 35, 209, 17, 20, 165, 58, 40, 61, 150, 115, 208, 230, 214, 9, 110, 177, 75, 13, 35, 9, 74, 113, 162, 229, 61, 50, 202, 11, 234, 27, 20, 85, 193, 42, 151, 80, 241, 103, 74, 19, 250, 153, 83, 11, 12, 17, 43, 219, 145, 226, 49, 240, 167, 38 },
+                            PhoneNumber1 = "+849000000030",
+                            PhoneNumber2 = "+849000000130",
+                            Username = "admin_branch_30"
+                        },
+                        new
+                        {
+                            Id = 31,
+                            Address = "Branch Address 31",
+                            AppRoleId = 4,
+                            Avatar = "/adminLTE/images/users/avatar-1.jpg",
+                            BranchId = 22,
+                            CitizenId = 1000001018,
+                            CreatedBy = -1,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "admin_branch_31@gmail.com",
+                            FullName = "Admin Branch 31",
+                            PasswordHash = new byte[] { 68, 227, 89, 5, 170, 175, 167, 31, 42, 145, 83, 14, 244, 119, 76, 241, 138, 42, 177, 127, 222, 138, 61, 6, 136, 213, 81, 103, 197, 95, 160, 63, 217, 98, 20, 242, 161, 176, 61, 0, 80, 183, 69, 110, 245, 73, 236, 56, 219, 172, 183, 45, 84, 69, 102, 2, 17, 195, 37, 41, 57, 149, 252, 206 },
+                            PasswordSalt = new byte[] { 130, 2, 255, 3, 144, 251, 31, 105, 68, 78, 205, 4, 80, 68, 22, 48, 255, 61, 135, 36, 141, 170, 110, 108, 40, 160, 84, 97, 74, 27, 124, 15, 233, 174, 23, 78, 16, 106, 69, 103, 62, 8, 133, 15, 18, 223, 246, 249, 139, 218, 114, 50, 206, 220, 236, 249, 195, 182, 24, 92, 252, 73, 61, 219, 244, 17, 202, 187, 254, 120, 192, 84, 29, 110, 35, 209, 17, 20, 165, 58, 40, 61, 150, 115, 208, 230, 214, 9, 110, 177, 75, 13, 35, 9, 74, 113, 162, 229, 61, 50, 202, 11, 234, 27, 20, 85, 193, 42, 151, 80, 241, 103, 74, 19, 250, 153, 83, 11, 12, 17, 43, 219, 145, 226, 49, 240, 167, 38 },
+                            PhoneNumber1 = "+849000000031",
+                            PhoneNumber2 = "+849000000131",
+                            Username = "admin_branch_31"
+                        },
+                        new
+                        {
+                            Id = 32,
+                            Address = "Branch Address 32",
+                            AppRoleId = 4,
+                            Avatar = "/adminLTE/images/users/avatar-2.jpg",
+                            BranchId = 23,
+                            CitizenId = 1000001019,
+                            CreatedBy = -1,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "admin_branch_32@gmail.com",
+                            FullName = "Admin Branch 32",
+                            PasswordHash = new byte[] { 68, 227, 89, 5, 170, 175, 167, 31, 42, 145, 83, 14, 244, 119, 76, 241, 138, 42, 177, 127, 222, 138, 61, 6, 136, 213, 81, 103, 197, 95, 160, 63, 217, 98, 20, 242, 161, 176, 61, 0, 80, 183, 69, 110, 245, 73, 236, 56, 219, 172, 183, 45, 84, 69, 102, 2, 17, 195, 37, 41, 57, 149, 252, 206 },
+                            PasswordSalt = new byte[] { 130, 2, 255, 3, 144, 251, 31, 105, 68, 78, 205, 4, 80, 68, 22, 48, 255, 61, 135, 36, 141, 170, 110, 108, 40, 160, 84, 97, 74, 27, 124, 15, 233, 174, 23, 78, 16, 106, 69, 103, 62, 8, 133, 15, 18, 223, 246, 249, 139, 218, 114, 50, 206, 220, 236, 249, 195, 182, 24, 92, 252, 73, 61, 219, 244, 17, 202, 187, 254, 120, 192, 84, 29, 110, 35, 209, 17, 20, 165, 58, 40, 61, 150, 115, 208, 230, 214, 9, 110, 177, 75, 13, 35, 9, 74, 113, 162, 229, 61, 50, 202, 11, 234, 27, 20, 85, 193, 42, 151, 80, 241, 103, 74, 19, 250, 153, 83, 11, 12, 17, 43, 219, 145, 226, 49, 240, 167, 38 },
+                            PhoneNumber1 = "+849000000032",
+                            PhoneNumber2 = "+849000000132",
+                            Username = "admin_branch_32"
+                        },
+                        new
+                        {
+                            Id = 33,
+                            Address = "Branch Address 33",
+                            AppRoleId = 4,
+                            Avatar = "/adminLTE/images/users/avatar-3.jpg",
+                            BranchId = 24,
+                            CitizenId = 1000001020,
+                            CreatedBy = -1,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "admin_branch_33@gmail.com",
+                            FullName = "Admin Branch 33",
+                            PasswordHash = new byte[] { 68, 227, 89, 5, 170, 175, 167, 31, 42, 145, 83, 14, 244, 119, 76, 241, 138, 42, 177, 127, 222, 138, 61, 6, 136, 213, 81, 103, 197, 95, 160, 63, 217, 98, 20, 242, 161, 176, 61, 0, 80, 183, 69, 110, 245, 73, 236, 56, 219, 172, 183, 45, 84, 69, 102, 2, 17, 195, 37, 41, 57, 149, 252, 206 },
+                            PasswordSalt = new byte[] { 130, 2, 255, 3, 144, 251, 31, 105, 68, 78, 205, 4, 80, 68, 22, 48, 255, 61, 135, 36, 141, 170, 110, 108, 40, 160, 84, 97, 74, 27, 124, 15, 233, 174, 23, 78, 16, 106, 69, 103, 62, 8, 133, 15, 18, 223, 246, 249, 139, 218, 114, 50, 206, 220, 236, 249, 195, 182, 24, 92, 252, 73, 61, 219, 244, 17, 202, 187, 254, 120, 192, 84, 29, 110, 35, 209, 17, 20, 165, 58, 40, 61, 150, 115, 208, 230, 214, 9, 110, 177, 75, 13, 35, 9, 74, 113, 162, 229, 61, 50, 202, 11, 234, 27, 20, 85, 193, 42, 151, 80, 241, 103, 74, 19, 250, 153, 83, 11, 12, 17, 43, 219, 145, 226, 49, 240, 167, 38 },
+                            PhoneNumber1 = "+849000000033",
+                            PhoneNumber2 = "+849000000133",
+                            Username = "admin_branch_33"
+                        },
+                        new
+                        {
+                            Id = 34,
+                            Address = "Branch Address 34",
+                            AppRoleId = 4,
+                            Avatar = "/adminLTE/images/users/avatar-4.jpg",
+                            BranchId = 25,
+                            CitizenId = 1000001021,
+                            CreatedBy = -1,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "admin_branch_34@gmail.com",
+                            FullName = "Admin Branch 34",
+                            PasswordHash = new byte[] { 68, 227, 89, 5, 170, 175, 167, 31, 42, 145, 83, 14, 244, 119, 76, 241, 138, 42, 177, 127, 222, 138, 61, 6, 136, 213, 81, 103, 197, 95, 160, 63, 217, 98, 20, 242, 161, 176, 61, 0, 80, 183, 69, 110, 245, 73, 236, 56, 219, 172, 183, 45, 84, 69, 102, 2, 17, 195, 37, 41, 57, 149, 252, 206 },
+                            PasswordSalt = new byte[] { 130, 2, 255, 3, 144, 251, 31, 105, 68, 78, 205, 4, 80, 68, 22, 48, 255, 61, 135, 36, 141, 170, 110, 108, 40, 160, 84, 97, 74, 27, 124, 15, 233, 174, 23, 78, 16, 106, 69, 103, 62, 8, 133, 15, 18, 223, 246, 249, 139, 218, 114, 50, 206, 220, 236, 249, 195, 182, 24, 92, 252, 73, 61, 219, 244, 17, 202, 187, 254, 120, 192, 84, 29, 110, 35, 209, 17, 20, 165, 58, 40, 61, 150, 115, 208, 230, 214, 9, 110, 177, 75, 13, 35, 9, 74, 113, 162, 229, 61, 50, 202, 11, 234, 27, 20, 85, 193, 42, 151, 80, 241, 103, 74, 19, 250, 153, 83, 11, 12, 17, 43, 219, 145, 226, 49, 240, 167, 38 },
+                            PhoneNumber1 = "+849000000034",
+                            PhoneNumber2 = "+849000000134",
+                            Username = "admin_branch_34"
+                        },
+                        new
+                        {
+                            Id = 35,
+                            Address = "Branch Address 35",
+                            AppRoleId = 4,
+                            Avatar = "/adminLTE/images/users/avatar-5.jpg",
+                            BranchId = 26,
+                            CitizenId = 1000001022,
+                            CreatedBy = -1,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "admin_branch_35@gmail.com",
+                            FullName = "Admin Branch 35",
+                            PasswordHash = new byte[] { 68, 227, 89, 5, 170, 175, 167, 31, 42, 145, 83, 14, 244, 119, 76, 241, 138, 42, 177, 127, 222, 138, 61, 6, 136, 213, 81, 103, 197, 95, 160, 63, 217, 98, 20, 242, 161, 176, 61, 0, 80, 183, 69, 110, 245, 73, 236, 56, 219, 172, 183, 45, 84, 69, 102, 2, 17, 195, 37, 41, 57, 149, 252, 206 },
+                            PasswordSalt = new byte[] { 130, 2, 255, 3, 144, 251, 31, 105, 68, 78, 205, 4, 80, 68, 22, 48, 255, 61, 135, 36, 141, 170, 110, 108, 40, 160, 84, 97, 74, 27, 124, 15, 233, 174, 23, 78, 16, 106, 69, 103, 62, 8, 133, 15, 18, 223, 246, 249, 139, 218, 114, 50, 206, 220, 236, 249, 195, 182, 24, 92, 252, 73, 61, 219, 244, 17, 202, 187, 254, 120, 192, 84, 29, 110, 35, 209, 17, 20, 165, 58, 40, 61, 150, 115, 208, 230, 214, 9, 110, 177, 75, 13, 35, 9, 74, 113, 162, 229, 61, 50, 202, 11, 234, 27, 20, 85, 193, 42, 151, 80, 241, 103, 74, 19, 250, 153, 83, 11, 12, 17, 43, 219, 145, 226, 49, 240, 167, 38 },
+                            PhoneNumber1 = "+849000000035",
+                            PhoneNumber2 = "+849000000135",
+                            Username = "admin_branch_35"
+                        },
+                        new
+                        {
+                            Id = 36,
+                            Address = "Branch Address 36",
+                            AppRoleId = 4,
+                            Avatar = "/adminLTE/images/users/avatar-6.jpg",
+                            BranchId = 27,
+                            CitizenId = 1000001023,
+                            CreatedBy = -1,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "admin_branch_36@gmail.com",
+                            FullName = "Admin Branch 36",
+                            PasswordHash = new byte[] { 68, 227, 89, 5, 170, 175, 167, 31, 42, 145, 83, 14, 244, 119, 76, 241, 138, 42, 177, 127, 222, 138, 61, 6, 136, 213, 81, 103, 197, 95, 160, 63, 217, 98, 20, 242, 161, 176, 61, 0, 80, 183, 69, 110, 245, 73, 236, 56, 219, 172, 183, 45, 84, 69, 102, 2, 17, 195, 37, 41, 57, 149, 252, 206 },
+                            PasswordSalt = new byte[] { 130, 2, 255, 3, 144, 251, 31, 105, 68, 78, 205, 4, 80, 68, 22, 48, 255, 61, 135, 36, 141, 170, 110, 108, 40, 160, 84, 97, 74, 27, 124, 15, 233, 174, 23, 78, 16, 106, 69, 103, 62, 8, 133, 15, 18, 223, 246, 249, 139, 218, 114, 50, 206, 220, 236, 249, 195, 182, 24, 92, 252, 73, 61, 219, 244, 17, 202, 187, 254, 120, 192, 84, 29, 110, 35, 209, 17, 20, 165, 58, 40, 61, 150, 115, 208, 230, 214, 9, 110, 177, 75, 13, 35, 9, 74, 113, 162, 229, 61, 50, 202, 11, 234, 27, 20, 85, 193, 42, 151, 80, 241, 103, 74, 19, 250, 153, 83, 11, 12, 17, 43, 219, 145, 226, 49, 240, 167, 38 },
+                            PhoneNumber1 = "+849000000036",
+                            PhoneNumber2 = "+849000000136",
+                            Username = "admin_branch_36"
+                        },
+                        new
+                        {
+                            Id = 37,
+                            Address = "Branch Address 37",
+                            AppRoleId = 4,
+                            Avatar = "/adminLTE/images/users/avatar-7.jpg",
+                            BranchId = 28,
+                            CitizenId = 1000001024,
+                            CreatedBy = -1,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "admin_branch_37@gmail.com",
+                            FullName = "Admin Branch 37",
+                            PasswordHash = new byte[] { 68, 227, 89, 5, 170, 175, 167, 31, 42, 145, 83, 14, 244, 119, 76, 241, 138, 42, 177, 127, 222, 138, 61, 6, 136, 213, 81, 103, 197, 95, 160, 63, 217, 98, 20, 242, 161, 176, 61, 0, 80, 183, 69, 110, 245, 73, 236, 56, 219, 172, 183, 45, 84, 69, 102, 2, 17, 195, 37, 41, 57, 149, 252, 206 },
+                            PasswordSalt = new byte[] { 130, 2, 255, 3, 144, 251, 31, 105, 68, 78, 205, 4, 80, 68, 22, 48, 255, 61, 135, 36, 141, 170, 110, 108, 40, 160, 84, 97, 74, 27, 124, 15, 233, 174, 23, 78, 16, 106, 69, 103, 62, 8, 133, 15, 18, 223, 246, 249, 139, 218, 114, 50, 206, 220, 236, 249, 195, 182, 24, 92, 252, 73, 61, 219, 244, 17, 202, 187, 254, 120, 192, 84, 29, 110, 35, 209, 17, 20, 165, 58, 40, 61, 150, 115, 208, 230, 214, 9, 110, 177, 75, 13, 35, 9, 74, 113, 162, 229, 61, 50, 202, 11, 234, 27, 20, 85, 193, 42, 151, 80, 241, 103, 74, 19, 250, 153, 83, 11, 12, 17, 43, 219, 145, 226, 49, 240, 167, 38 },
+                            PhoneNumber1 = "+849000000037",
+                            PhoneNumber2 = "+849000000137",
+                            Username = "admin_branch_37"
+                        },
+                        new
+                        {
+                            Id = 38,
+                            Address = "Branch Address 38",
+                            AppRoleId = 4,
+                            Avatar = "/adminLTE/images/users/avatar-8.jpg",
+                            BranchId = 29,
+                            CitizenId = 1000001025,
+                            CreatedBy = -1,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "admin_branch_38@gmail.com",
+                            FullName = "Admin Branch 38",
+                            PasswordHash = new byte[] { 68, 227, 89, 5, 170, 175, 167, 31, 42, 145, 83, 14, 244, 119, 76, 241, 138, 42, 177, 127, 222, 138, 61, 6, 136, 213, 81, 103, 197, 95, 160, 63, 217, 98, 20, 242, 161, 176, 61, 0, 80, 183, 69, 110, 245, 73, 236, 56, 219, 172, 183, 45, 84, 69, 102, 2, 17, 195, 37, 41, 57, 149, 252, 206 },
+                            PasswordSalt = new byte[] { 130, 2, 255, 3, 144, 251, 31, 105, 68, 78, 205, 4, 80, 68, 22, 48, 255, 61, 135, 36, 141, 170, 110, 108, 40, 160, 84, 97, 74, 27, 124, 15, 233, 174, 23, 78, 16, 106, 69, 103, 62, 8, 133, 15, 18, 223, 246, 249, 139, 218, 114, 50, 206, 220, 236, 249, 195, 182, 24, 92, 252, 73, 61, 219, 244, 17, 202, 187, 254, 120, 192, 84, 29, 110, 35, 209, 17, 20, 165, 58, 40, 61, 150, 115, 208, 230, 214, 9, 110, 177, 75, 13, 35, 9, 74, 113, 162, 229, 61, 50, 202, 11, 234, 27, 20, 85, 193, 42, 151, 80, 241, 103, 74, 19, 250, 153, 83, 11, 12, 17, 43, 219, 145, 226, 49, 240, 167, 38 },
+                            PhoneNumber1 = "+849000000038",
+                            PhoneNumber2 = "+849000000138",
+                            Username = "admin_branch_38"
+                        },
+                        new
+                        {
+                            Id = 39,
+                            Address = "Branch Address 39",
+                            AppRoleId = 4,
+                            Avatar = "/adminLTE/images/users/avatar-9.jpg",
+                            BranchId = 30,
+                            CitizenId = 1000001026,
+                            CreatedBy = -1,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "admin_branch_39@gmail.com",
+                            FullName = "Admin Branch 39",
+                            PasswordHash = new byte[] { 68, 227, 89, 5, 170, 175, 167, 31, 42, 145, 83, 14, 244, 119, 76, 241, 138, 42, 177, 127, 222, 138, 61, 6, 136, 213, 81, 103, 197, 95, 160, 63, 217, 98, 20, 242, 161, 176, 61, 0, 80, 183, 69, 110, 245, 73, 236, 56, 219, 172, 183, 45, 84, 69, 102, 2, 17, 195, 37, 41, 57, 149, 252, 206 },
+                            PasswordSalt = new byte[] { 130, 2, 255, 3, 144, 251, 31, 105, 68, 78, 205, 4, 80, 68, 22, 48, 255, 61, 135, 36, 141, 170, 110, 108, 40, 160, 84, 97, 74, 27, 124, 15, 233, 174, 23, 78, 16, 106, 69, 103, 62, 8, 133, 15, 18, 223, 246, 249, 139, 218, 114, 50, 206, 220, 236, 249, 195, 182, 24, 92, 252, 73, 61, 219, 244, 17, 202, 187, 254, 120, 192, 84, 29, 110, 35, 209, 17, 20, 165, 58, 40, 61, 150, 115, 208, 230, 214, 9, 110, 177, 75, 13, 35, 9, 74, 113, 162, 229, 61, 50, 202, 11, 234, 27, 20, 85, 193, 42, 151, 80, 241, 103, 74, 19, 250, 153, 83, 11, 12, 17, 43, 219, 145, 226, 49, 240, 167, 38 },
+                            PhoneNumber1 = "+849000000039",
+                            PhoneNumber2 = "+849000000139",
+                            Username = "admin_branch_39"
+                        },
+                        new
+                        {
+                            Id = 40,
+                            Address = "Branch Address 40",
+                            AppRoleId = 4,
+                            Avatar = "/adminLTE/images/users/avatar-10.jpg",
+                            BranchId = 31,
+                            CitizenId = 1000001027,
+                            CreatedBy = -1,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "admin_branch_40@gmail.com",
+                            FullName = "Admin Branch 40",
+                            PasswordHash = new byte[] { 68, 227, 89, 5, 170, 175, 167, 31, 42, 145, 83, 14, 244, 119, 76, 241, 138, 42, 177, 127, 222, 138, 61, 6, 136, 213, 81, 103, 197, 95, 160, 63, 217, 98, 20, 242, 161, 176, 61, 0, 80, 183, 69, 110, 245, 73, 236, 56, 219, 172, 183, 45, 84, 69, 102, 2, 17, 195, 37, 41, 57, 149, 252, 206 },
+                            PasswordSalt = new byte[] { 130, 2, 255, 3, 144, 251, 31, 105, 68, 78, 205, 4, 80, 68, 22, 48, 255, 61, 135, 36, 141, 170, 110, 108, 40, 160, 84, 97, 74, 27, 124, 15, 233, 174, 23, 78, 16, 106, 69, 103, 62, 8, 133, 15, 18, 223, 246, 249, 139, 218, 114, 50, 206, 220, 236, 249, 195, 182, 24, 92, 252, 73, 61, 219, 244, 17, 202, 187, 254, 120, 192, 84, 29, 110, 35, 209, 17, 20, 165, 58, 40, 61, 150, 115, 208, 230, 214, 9, 110, 177, 75, 13, 35, 9, 74, 113, 162, 229, 61, 50, 202, 11, 234, 27, 20, 85, 193, 42, 151, 80, 241, 103, 74, 19, 250, 153, 83, 11, 12, 17, 43, 219, 145, 226, 49, 240, 167, 38 },
+                            PhoneNumber1 = "+849000000040",
+                            PhoneNumber2 = "+849000000140",
+                            Username = "admin_branch_40"
+                        },
+                        new
+                        {
+                            Id = 41,
+                            Address = "Branch Address 41",
+                            AppRoleId = 4,
+                            Avatar = "/adminLTE/images/users/avatar-1.jpg",
+                            BranchId = 32,
+                            CitizenId = 1000001028,
+                            CreatedBy = -1,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "admin_branch_41@gmail.com",
+                            FullName = "Admin Branch 41",
+                            PasswordHash = new byte[] { 68, 227, 89, 5, 170, 175, 167, 31, 42, 145, 83, 14, 244, 119, 76, 241, 138, 42, 177, 127, 222, 138, 61, 6, 136, 213, 81, 103, 197, 95, 160, 63, 217, 98, 20, 242, 161, 176, 61, 0, 80, 183, 69, 110, 245, 73, 236, 56, 219, 172, 183, 45, 84, 69, 102, 2, 17, 195, 37, 41, 57, 149, 252, 206 },
+                            PasswordSalt = new byte[] { 130, 2, 255, 3, 144, 251, 31, 105, 68, 78, 205, 4, 80, 68, 22, 48, 255, 61, 135, 36, 141, 170, 110, 108, 40, 160, 84, 97, 74, 27, 124, 15, 233, 174, 23, 78, 16, 106, 69, 103, 62, 8, 133, 15, 18, 223, 246, 249, 139, 218, 114, 50, 206, 220, 236, 249, 195, 182, 24, 92, 252, 73, 61, 219, 244, 17, 202, 187, 254, 120, 192, 84, 29, 110, 35, 209, 17, 20, 165, 58, 40, 61, 150, 115, 208, 230, 214, 9, 110, 177, 75, 13, 35, 9, 74, 113, 162, 229, 61, 50, 202, 11, 234, 27, 20, 85, 193, 42, 151, 80, 241, 103, 74, 19, 250, 153, 83, 11, 12, 17, 43, 219, 145, 226, 49, 240, 167, 38 },
+                            PhoneNumber1 = "+849000000041",
+                            PhoneNumber2 = "+849000000141",
+                            Username = "admin_branch_41"
+                        },
+                        new
+                        {
+                            Id = 42,
+                            Address = "Branch Address 42",
+                            AppRoleId = 4,
+                            Avatar = "/adminLTE/images/users/avatar-2.jpg",
+                            BranchId = 33,
+                            CitizenId = 1000001029,
+                            CreatedBy = -1,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "admin_branch_42@gmail.com",
+                            FullName = "Admin Branch 42",
+                            PasswordHash = new byte[] { 68, 227, 89, 5, 170, 175, 167, 31, 42, 145, 83, 14, 244, 119, 76, 241, 138, 42, 177, 127, 222, 138, 61, 6, 136, 213, 81, 103, 197, 95, 160, 63, 217, 98, 20, 242, 161, 176, 61, 0, 80, 183, 69, 110, 245, 73, 236, 56, 219, 172, 183, 45, 84, 69, 102, 2, 17, 195, 37, 41, 57, 149, 252, 206 },
+                            PasswordSalt = new byte[] { 130, 2, 255, 3, 144, 251, 31, 105, 68, 78, 205, 4, 80, 68, 22, 48, 255, 61, 135, 36, 141, 170, 110, 108, 40, 160, 84, 97, 74, 27, 124, 15, 233, 174, 23, 78, 16, 106, 69, 103, 62, 8, 133, 15, 18, 223, 246, 249, 139, 218, 114, 50, 206, 220, 236, 249, 195, 182, 24, 92, 252, 73, 61, 219, 244, 17, 202, 187, 254, 120, 192, 84, 29, 110, 35, 209, 17, 20, 165, 58, 40, 61, 150, 115, 208, 230, 214, 9, 110, 177, 75, 13, 35, 9, 74, 113, 162, 229, 61, 50, 202, 11, 234, 27, 20, 85, 193, 42, 151, 80, 241, 103, 74, 19, 250, 153, 83, 11, 12, 17, 43, 219, 145, 226, 49, 240, 167, 38 },
+                            PhoneNumber1 = "+849000000042",
+                            PhoneNumber2 = "+849000000142",
+                            Username = "admin_branch_42"
+                        },
+                        new
+                        {
+                            Id = 43,
+                            Address = "Branch Address 43",
+                            AppRoleId = 4,
+                            Avatar = "/adminLTE/images/users/avatar-3.jpg",
+                            BranchId = 34,
+                            CitizenId = 1000001030,
+                            CreatedBy = -1,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "admin_branch_43@gmail.com",
+                            FullName = "Admin Branch 43",
+                            PasswordHash = new byte[] { 68, 227, 89, 5, 170, 175, 167, 31, 42, 145, 83, 14, 244, 119, 76, 241, 138, 42, 177, 127, 222, 138, 61, 6, 136, 213, 81, 103, 197, 95, 160, 63, 217, 98, 20, 242, 161, 176, 61, 0, 80, 183, 69, 110, 245, 73, 236, 56, 219, 172, 183, 45, 84, 69, 102, 2, 17, 195, 37, 41, 57, 149, 252, 206 },
+                            PasswordSalt = new byte[] { 130, 2, 255, 3, 144, 251, 31, 105, 68, 78, 205, 4, 80, 68, 22, 48, 255, 61, 135, 36, 141, 170, 110, 108, 40, 160, 84, 97, 74, 27, 124, 15, 233, 174, 23, 78, 16, 106, 69, 103, 62, 8, 133, 15, 18, 223, 246, 249, 139, 218, 114, 50, 206, 220, 236, 249, 195, 182, 24, 92, 252, 73, 61, 219, 244, 17, 202, 187, 254, 120, 192, 84, 29, 110, 35, 209, 17, 20, 165, 58, 40, 61, 150, 115, 208, 230, 214, 9, 110, 177, 75, 13, 35, 9, 74, 113, 162, 229, 61, 50, 202, 11, 234, 27, 20, 85, 193, 42, 151, 80, 241, 103, 74, 19, 250, 153, 83, 11, 12, 17, 43, 219, 145, 226, 49, 240, 167, 38 },
+                            PhoneNumber1 = "+849000000043",
+                            PhoneNumber2 = "+849000000143",
+                            Username = "admin_branch_43"
+                        },
+                        new
+                        {
+                            Id = 44,
+                            Address = "Branch Address 44",
+                            AppRoleId = 4,
+                            Avatar = "/adminLTE/images/users/avatar-4.jpg",
+                            BranchId = 35,
+                            CitizenId = 1000001031,
+                            CreatedBy = -1,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "admin_branch_44@gmail.com",
+                            FullName = "Admin Branch 44",
+                            PasswordHash = new byte[] { 68, 227, 89, 5, 170, 175, 167, 31, 42, 145, 83, 14, 244, 119, 76, 241, 138, 42, 177, 127, 222, 138, 61, 6, 136, 213, 81, 103, 197, 95, 160, 63, 217, 98, 20, 242, 161, 176, 61, 0, 80, 183, 69, 110, 245, 73, 236, 56, 219, 172, 183, 45, 84, 69, 102, 2, 17, 195, 37, 41, 57, 149, 252, 206 },
+                            PasswordSalt = new byte[] { 130, 2, 255, 3, 144, 251, 31, 105, 68, 78, 205, 4, 80, 68, 22, 48, 255, 61, 135, 36, 141, 170, 110, 108, 40, 160, 84, 97, 74, 27, 124, 15, 233, 174, 23, 78, 16, 106, 69, 103, 62, 8, 133, 15, 18, 223, 246, 249, 139, 218, 114, 50, 206, 220, 236, 249, 195, 182, 24, 92, 252, 73, 61, 219, 244, 17, 202, 187, 254, 120, 192, 84, 29, 110, 35, 209, 17, 20, 165, 58, 40, 61, 150, 115, 208, 230, 214, 9, 110, 177, 75, 13, 35, 9, 74, 113, 162, 229, 61, 50, 202, 11, 234, 27, 20, 85, 193, 42, 151, 80, 241, 103, 74, 19, 250, 153, 83, 11, 12, 17, 43, 219, 145, 226, 49, 240, 167, 38 },
+                            PhoneNumber1 = "+849000000044",
+                            PhoneNumber2 = "+849000000144",
+                            Username = "admin_branch_44"
+                        },
+                        new
+                        {
+                            Id = 45,
+                            Address = "Branch Address 45",
+                            AppRoleId = 4,
+                            Avatar = "/adminLTE/images/users/avatar-5.jpg",
+                            BranchId = 36,
+                            CitizenId = 1000001032,
+                            CreatedBy = -1,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "admin_branch_45@gmail.com",
+                            FullName = "Admin Branch 45",
+                            PasswordHash = new byte[] { 68, 227, 89, 5, 170, 175, 167, 31, 42, 145, 83, 14, 244, 119, 76, 241, 138, 42, 177, 127, 222, 138, 61, 6, 136, 213, 81, 103, 197, 95, 160, 63, 217, 98, 20, 242, 161, 176, 61, 0, 80, 183, 69, 110, 245, 73, 236, 56, 219, 172, 183, 45, 84, 69, 102, 2, 17, 195, 37, 41, 57, 149, 252, 206 },
+                            PasswordSalt = new byte[] { 130, 2, 255, 3, 144, 251, 31, 105, 68, 78, 205, 4, 80, 68, 22, 48, 255, 61, 135, 36, 141, 170, 110, 108, 40, 160, 84, 97, 74, 27, 124, 15, 233, 174, 23, 78, 16, 106, 69, 103, 62, 8, 133, 15, 18, 223, 246, 249, 139, 218, 114, 50, 206, 220, 236, 249, 195, 182, 24, 92, 252, 73, 61, 219, 244, 17, 202, 187, 254, 120, 192, 84, 29, 110, 35, 209, 17, 20, 165, 58, 40, 61, 150, 115, 208, 230, 214, 9, 110, 177, 75, 13, 35, 9, 74, 113, 162, 229, 61, 50, 202, 11, 234, 27, 20, 85, 193, 42, 151, 80, 241, 103, 74, 19, 250, 153, 83, 11, 12, 17, 43, 219, 145, 226, 49, 240, 167, 38 },
+                            PhoneNumber1 = "+849000000045",
+                            PhoneNumber2 = "+849000000145",
+                            Username = "admin_branch_45"
+                        },
+                        new
+                        {
+                            Id = 46,
+                            Address = "Branch Address 46",
+                            AppRoleId = 4,
+                            Avatar = "/adminLTE/images/users/avatar-6.jpg",
+                            BranchId = 37,
+                            CitizenId = 1000001033,
+                            CreatedBy = -1,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "admin_branch_46@gmail.com",
+                            FullName = "Admin Branch 46",
+                            PasswordHash = new byte[] { 68, 227, 89, 5, 170, 175, 167, 31, 42, 145, 83, 14, 244, 119, 76, 241, 138, 42, 177, 127, 222, 138, 61, 6, 136, 213, 81, 103, 197, 95, 160, 63, 217, 98, 20, 242, 161, 176, 61, 0, 80, 183, 69, 110, 245, 73, 236, 56, 219, 172, 183, 45, 84, 69, 102, 2, 17, 195, 37, 41, 57, 149, 252, 206 },
+                            PasswordSalt = new byte[] { 130, 2, 255, 3, 144, 251, 31, 105, 68, 78, 205, 4, 80, 68, 22, 48, 255, 61, 135, 36, 141, 170, 110, 108, 40, 160, 84, 97, 74, 27, 124, 15, 233, 174, 23, 78, 16, 106, 69, 103, 62, 8, 133, 15, 18, 223, 246, 249, 139, 218, 114, 50, 206, 220, 236, 249, 195, 182, 24, 92, 252, 73, 61, 219, 244, 17, 202, 187, 254, 120, 192, 84, 29, 110, 35, 209, 17, 20, 165, 58, 40, 61, 150, 115, 208, 230, 214, 9, 110, 177, 75, 13, 35, 9, 74, 113, 162, 229, 61, 50, 202, 11, 234, 27, 20, 85, 193, 42, 151, 80, 241, 103, 74, 19, 250, 153, 83, 11, 12, 17, 43, 219, 145, 226, 49, 240, 167, 38 },
+                            PhoneNumber1 = "+849000000046",
+                            PhoneNumber2 = "+849000000146",
+                            Username = "admin_branch_46"
+                        },
+                        new
+                        {
+                            Id = 47,
+                            Address = "Branch Address 47",
+                            AppRoleId = 4,
+                            Avatar = "/adminLTE/images/users/avatar-7.jpg",
+                            BranchId = 38,
+                            CitizenId = 1000001034,
+                            CreatedBy = -1,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "admin_branch_47@gmail.com",
+                            FullName = "Admin Branch 47",
+                            PasswordHash = new byte[] { 68, 227, 89, 5, 170, 175, 167, 31, 42, 145, 83, 14, 244, 119, 76, 241, 138, 42, 177, 127, 222, 138, 61, 6, 136, 213, 81, 103, 197, 95, 160, 63, 217, 98, 20, 242, 161, 176, 61, 0, 80, 183, 69, 110, 245, 73, 236, 56, 219, 172, 183, 45, 84, 69, 102, 2, 17, 195, 37, 41, 57, 149, 252, 206 },
+                            PasswordSalt = new byte[] { 130, 2, 255, 3, 144, 251, 31, 105, 68, 78, 205, 4, 80, 68, 22, 48, 255, 61, 135, 36, 141, 170, 110, 108, 40, 160, 84, 97, 74, 27, 124, 15, 233, 174, 23, 78, 16, 106, 69, 103, 62, 8, 133, 15, 18, 223, 246, 249, 139, 218, 114, 50, 206, 220, 236, 249, 195, 182, 24, 92, 252, 73, 61, 219, 244, 17, 202, 187, 254, 120, 192, 84, 29, 110, 35, 209, 17, 20, 165, 58, 40, 61, 150, 115, 208, 230, 214, 9, 110, 177, 75, 13, 35, 9, 74, 113, 162, 229, 61, 50, 202, 11, 234, 27, 20, 85, 193, 42, 151, 80, 241, 103, 74, 19, 250, 153, 83, 11, 12, 17, 43, 219, 145, 226, 49, 240, 167, 38 },
+                            PhoneNumber1 = "+849000000047",
+                            PhoneNumber2 = "+849000000147",
+                            Username = "admin_branch_47"
+                        },
+                        new
+                        {
+                            Id = 48,
+                            Address = "Branch Address 48",
+                            AppRoleId = 4,
+                            Avatar = "/adminLTE/images/users/avatar-8.jpg",
+                            BranchId = 39,
+                            CitizenId = 1000001035,
+                            CreatedBy = -1,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "admin_branch_48@gmail.com",
+                            FullName = "Admin Branch 48",
+                            PasswordHash = new byte[] { 68, 227, 89, 5, 170, 175, 167, 31, 42, 145, 83, 14, 244, 119, 76, 241, 138, 42, 177, 127, 222, 138, 61, 6, 136, 213, 81, 103, 197, 95, 160, 63, 217, 98, 20, 242, 161, 176, 61, 0, 80, 183, 69, 110, 245, 73, 236, 56, 219, 172, 183, 45, 84, 69, 102, 2, 17, 195, 37, 41, 57, 149, 252, 206 },
+                            PasswordSalt = new byte[] { 130, 2, 255, 3, 144, 251, 31, 105, 68, 78, 205, 4, 80, 68, 22, 48, 255, 61, 135, 36, 141, 170, 110, 108, 40, 160, 84, 97, 74, 27, 124, 15, 233, 174, 23, 78, 16, 106, 69, 103, 62, 8, 133, 15, 18, 223, 246, 249, 139, 218, 114, 50, 206, 220, 236, 249, 195, 182, 24, 92, 252, 73, 61, 219, 244, 17, 202, 187, 254, 120, 192, 84, 29, 110, 35, 209, 17, 20, 165, 58, 40, 61, 150, 115, 208, 230, 214, 9, 110, 177, 75, 13, 35, 9, 74, 113, 162, 229, 61, 50, 202, 11, 234, 27, 20, 85, 193, 42, 151, 80, 241, 103, 74, 19, 250, 153, 83, 11, 12, 17, 43, 219, 145, 226, 49, 240, 167, 38 },
+                            PhoneNumber1 = "+849000000048",
+                            PhoneNumber2 = "+849000000148",
+                            Username = "admin_branch_48"
+                        },
+                        new
+                        {
+                            Id = 49,
+                            Address = "Branch Address 49",
+                            AppRoleId = 4,
+                            Avatar = "/adminLTE/images/users/avatar-9.jpg",
+                            BranchId = 40,
+                            CitizenId = 1000001036,
+                            CreatedBy = -1,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "admin_branch_49@gmail.com",
+                            FullName = "Admin Branch 49",
+                            PasswordHash = new byte[] { 68, 227, 89, 5, 170, 175, 167, 31, 42, 145, 83, 14, 244, 119, 76, 241, 138, 42, 177, 127, 222, 138, 61, 6, 136, 213, 81, 103, 197, 95, 160, 63, 217, 98, 20, 242, 161, 176, 61, 0, 80, 183, 69, 110, 245, 73, 236, 56, 219, 172, 183, 45, 84, 69, 102, 2, 17, 195, 37, 41, 57, 149, 252, 206 },
+                            PasswordSalt = new byte[] { 130, 2, 255, 3, 144, 251, 31, 105, 68, 78, 205, 4, 80, 68, 22, 48, 255, 61, 135, 36, 141, 170, 110, 108, 40, 160, 84, 97, 74, 27, 124, 15, 233, 174, 23, 78, 16, 106, 69, 103, 62, 8, 133, 15, 18, 223, 246, 249, 139, 218, 114, 50, 206, 220, 236, 249, 195, 182, 24, 92, 252, 73, 61, 219, 244, 17, 202, 187, 254, 120, 192, 84, 29, 110, 35, 209, 17, 20, 165, 58, 40, 61, 150, 115, 208, 230, 214, 9, 110, 177, 75, 13, 35, 9, 74, 113, 162, 229, 61, 50, 202, 11, 234, 27, 20, 85, 193, 42, 151, 80, 241, 103, 74, 19, 250, 153, 83, 11, 12, 17, 43, 219, 145, 226, 49, 240, 167, 38 },
+                            PhoneNumber1 = "+849000000049",
+                            PhoneNumber2 = "+849000000149",
+                            Username = "admin_branch_49"
+                        },
+                        new
+                        {
+                            Id = 50,
+                            Address = "Branch Address 50",
+                            AppRoleId = 4,
+                            Avatar = "/adminLTE/images/users/avatar-10.jpg",
+                            BranchId = 41,
+                            CitizenId = 1000001037,
+                            CreatedBy = -1,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "admin_branch_50@gmail.com",
+                            FullName = "Admin Branch 50",
+                            PasswordHash = new byte[] { 68, 227, 89, 5, 170, 175, 167, 31, 42, 145, 83, 14, 244, 119, 76, 241, 138, 42, 177, 127, 222, 138, 61, 6, 136, 213, 81, 103, 197, 95, 160, 63, 217, 98, 20, 242, 161, 176, 61, 0, 80, 183, 69, 110, 245, 73, 236, 56, 219, 172, 183, 45, 84, 69, 102, 2, 17, 195, 37, 41, 57, 149, 252, 206 },
+                            PasswordSalt = new byte[] { 130, 2, 255, 3, 144, 251, 31, 105, 68, 78, 205, 4, 80, 68, 22, 48, 255, 61, 135, 36, 141, 170, 110, 108, 40, 160, 84, 97, 74, 27, 124, 15, 233, 174, 23, 78, 16, 106, 69, 103, 62, 8, 133, 15, 18, 223, 246, 249, 139, 218, 114, 50, 206, 220, 236, 249, 195, 182, 24, 92, 252, 73, 61, 219, 244, 17, 202, 187, 254, 120, 192, 84, 29, 110, 35, 209, 17, 20, 165, 58, 40, 61, 150, 115, 208, 230, 214, 9, 110, 177, 75, 13, 35, 9, 74, 113, 162, 229, 61, 50, 202, 11, 234, 27, 20, 85, 193, 42, 151, 80, 241, 103, 74, 19, 250, 153, 83, 11, 12, 17, 43, 219, 145, 226, 49, 240, 167, 38 },
+                            PhoneNumber1 = "+849000000050",
+                            PhoneNumber2 = "+849000000150",
+                            Username = "admin_branch_50"
+                        },
+                        new
+                        {
+                            Id = 51,
+                            Address = "Branch Address 51",
+                            AppRoleId = 4,
+                            Avatar = "/adminLTE/images/users/avatar-1.jpg",
+                            BranchId = 42,
+                            CitizenId = 1000001038,
+                            CreatedBy = -1,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "admin_branch_51@gmail.com",
+                            FullName = "Admin Branch 51",
+                            PasswordHash = new byte[] { 68, 227, 89, 5, 170, 175, 167, 31, 42, 145, 83, 14, 244, 119, 76, 241, 138, 42, 177, 127, 222, 138, 61, 6, 136, 213, 81, 103, 197, 95, 160, 63, 217, 98, 20, 242, 161, 176, 61, 0, 80, 183, 69, 110, 245, 73, 236, 56, 219, 172, 183, 45, 84, 69, 102, 2, 17, 195, 37, 41, 57, 149, 252, 206 },
+                            PasswordSalt = new byte[] { 130, 2, 255, 3, 144, 251, 31, 105, 68, 78, 205, 4, 80, 68, 22, 48, 255, 61, 135, 36, 141, 170, 110, 108, 40, 160, 84, 97, 74, 27, 124, 15, 233, 174, 23, 78, 16, 106, 69, 103, 62, 8, 133, 15, 18, 223, 246, 249, 139, 218, 114, 50, 206, 220, 236, 249, 195, 182, 24, 92, 252, 73, 61, 219, 244, 17, 202, 187, 254, 120, 192, 84, 29, 110, 35, 209, 17, 20, 165, 58, 40, 61, 150, 115, 208, 230, 214, 9, 110, 177, 75, 13, 35, 9, 74, 113, 162, 229, 61, 50, 202, 11, 234, 27, 20, 85, 193, 42, 151, 80, 241, 103, 74, 19, 250, 153, 83, 11, 12, 17, 43, 219, 145, 226, 49, 240, 167, 38 },
+                            PhoneNumber1 = "+849000000051",
+                            PhoneNumber2 = "+849000000151",
+                            Username = "admin_branch_51"
+                        },
+                        new
+                        {
+                            Id = 52,
+                            Address = "Branch Address 52",
+                            AppRoleId = 4,
+                            Avatar = "/adminLTE/images/users/avatar-2.jpg",
+                            BranchId = 43,
+                            CitizenId = 1000001039,
+                            CreatedBy = -1,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "admin_branch_52@gmail.com",
+                            FullName = "Admin Branch 52",
+                            PasswordHash = new byte[] { 68, 227, 89, 5, 170, 175, 167, 31, 42, 145, 83, 14, 244, 119, 76, 241, 138, 42, 177, 127, 222, 138, 61, 6, 136, 213, 81, 103, 197, 95, 160, 63, 217, 98, 20, 242, 161, 176, 61, 0, 80, 183, 69, 110, 245, 73, 236, 56, 219, 172, 183, 45, 84, 69, 102, 2, 17, 195, 37, 41, 57, 149, 252, 206 },
+                            PasswordSalt = new byte[] { 130, 2, 255, 3, 144, 251, 31, 105, 68, 78, 205, 4, 80, 68, 22, 48, 255, 61, 135, 36, 141, 170, 110, 108, 40, 160, 84, 97, 74, 27, 124, 15, 233, 174, 23, 78, 16, 106, 69, 103, 62, 8, 133, 15, 18, 223, 246, 249, 139, 218, 114, 50, 206, 220, 236, 249, 195, 182, 24, 92, 252, 73, 61, 219, 244, 17, 202, 187, 254, 120, 192, 84, 29, 110, 35, 209, 17, 20, 165, 58, 40, 61, 150, 115, 208, 230, 214, 9, 110, 177, 75, 13, 35, 9, 74, 113, 162, 229, 61, 50, 202, 11, 234, 27, 20, 85, 193, 42, 151, 80, 241, 103, 74, 19, 250, 153, 83, 11, 12, 17, 43, 219, 145, 226, 49, 240, 167, 38 },
+                            PhoneNumber1 = "+849000000052",
+                            PhoneNumber2 = "+849000000152",
+                            Username = "admin_branch_52"
+                        },
+                        new
+                        {
+                            Id = 53,
+                            Address = "Branch Address 53",
+                            AppRoleId = 4,
+                            Avatar = "/adminLTE/images/users/avatar-3.jpg",
+                            BranchId = 44,
+                            CitizenId = 1000001040,
+                            CreatedBy = -1,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "admin_branch_53@gmail.com",
+                            FullName = "Admin Branch 53",
+                            PasswordHash = new byte[] { 68, 227, 89, 5, 170, 175, 167, 31, 42, 145, 83, 14, 244, 119, 76, 241, 138, 42, 177, 127, 222, 138, 61, 6, 136, 213, 81, 103, 197, 95, 160, 63, 217, 98, 20, 242, 161, 176, 61, 0, 80, 183, 69, 110, 245, 73, 236, 56, 219, 172, 183, 45, 84, 69, 102, 2, 17, 195, 37, 41, 57, 149, 252, 206 },
+                            PasswordSalt = new byte[] { 130, 2, 255, 3, 144, 251, 31, 105, 68, 78, 205, 4, 80, 68, 22, 48, 255, 61, 135, 36, 141, 170, 110, 108, 40, 160, 84, 97, 74, 27, 124, 15, 233, 174, 23, 78, 16, 106, 69, 103, 62, 8, 133, 15, 18, 223, 246, 249, 139, 218, 114, 50, 206, 220, 236, 249, 195, 182, 24, 92, 252, 73, 61, 219, 244, 17, 202, 187, 254, 120, 192, 84, 29, 110, 35, 209, 17, 20, 165, 58, 40, 61, 150, 115, 208, 230, 214, 9, 110, 177, 75, 13, 35, 9, 74, 113, 162, 229, 61, 50, 202, 11, 234, 27, 20, 85, 193, 42, 151, 80, 241, 103, 74, 19, 250, 153, 83, 11, 12, 17, 43, 219, 145, 226, 49, 240, 167, 38 },
+                            PhoneNumber1 = "+849000000053",
+                            PhoneNumber2 = "+849000000153",
+                            Username = "admin_branch_53"
+                        },
+                        new
+                        {
+                            Id = 54,
+                            Address = "Branch Address 54",
+                            AppRoleId = 4,
+                            Avatar = "/adminLTE/images/users/avatar-4.jpg",
+                            BranchId = 45,
+                            CitizenId = 1000001041,
+                            CreatedBy = -1,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "admin_branch_54@gmail.com",
+                            FullName = "Admin Branch 54",
+                            PasswordHash = new byte[] { 68, 227, 89, 5, 170, 175, 167, 31, 42, 145, 83, 14, 244, 119, 76, 241, 138, 42, 177, 127, 222, 138, 61, 6, 136, 213, 81, 103, 197, 95, 160, 63, 217, 98, 20, 242, 161, 176, 61, 0, 80, 183, 69, 110, 245, 73, 236, 56, 219, 172, 183, 45, 84, 69, 102, 2, 17, 195, 37, 41, 57, 149, 252, 206 },
+                            PasswordSalt = new byte[] { 130, 2, 255, 3, 144, 251, 31, 105, 68, 78, 205, 4, 80, 68, 22, 48, 255, 61, 135, 36, 141, 170, 110, 108, 40, 160, 84, 97, 74, 27, 124, 15, 233, 174, 23, 78, 16, 106, 69, 103, 62, 8, 133, 15, 18, 223, 246, 249, 139, 218, 114, 50, 206, 220, 236, 249, 195, 182, 24, 92, 252, 73, 61, 219, 244, 17, 202, 187, 254, 120, 192, 84, 29, 110, 35, 209, 17, 20, 165, 58, 40, 61, 150, 115, 208, 230, 214, 9, 110, 177, 75, 13, 35, 9, 74, 113, 162, 229, 61, 50, 202, 11, 234, 27, 20, 85, 193, 42, 151, 80, 241, 103, 74, 19, 250, 153, 83, 11, 12, 17, 43, 219, 145, 226, 49, 240, 167, 38 },
+                            PhoneNumber1 = "+849000000054",
+                            PhoneNumber2 = "+849000000154",
+                            Username = "admin_branch_54"
+                        },
+                        new
+                        {
+                            Id = 55,
+                            Address = "Branch Address 55",
+                            AppRoleId = 4,
+                            Avatar = "/adminLTE/images/users/avatar-5.jpg",
+                            BranchId = 46,
+                            CitizenId = 1000001042,
+                            CreatedBy = -1,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "admin_branch_55@gmail.com",
+                            FullName = "Admin Branch 55",
+                            PasswordHash = new byte[] { 68, 227, 89, 5, 170, 175, 167, 31, 42, 145, 83, 14, 244, 119, 76, 241, 138, 42, 177, 127, 222, 138, 61, 6, 136, 213, 81, 103, 197, 95, 160, 63, 217, 98, 20, 242, 161, 176, 61, 0, 80, 183, 69, 110, 245, 73, 236, 56, 219, 172, 183, 45, 84, 69, 102, 2, 17, 195, 37, 41, 57, 149, 252, 206 },
+                            PasswordSalt = new byte[] { 130, 2, 255, 3, 144, 251, 31, 105, 68, 78, 205, 4, 80, 68, 22, 48, 255, 61, 135, 36, 141, 170, 110, 108, 40, 160, 84, 97, 74, 27, 124, 15, 233, 174, 23, 78, 16, 106, 69, 103, 62, 8, 133, 15, 18, 223, 246, 249, 139, 218, 114, 50, 206, 220, 236, 249, 195, 182, 24, 92, 252, 73, 61, 219, 244, 17, 202, 187, 254, 120, 192, 84, 29, 110, 35, 209, 17, 20, 165, 58, 40, 61, 150, 115, 208, 230, 214, 9, 110, 177, 75, 13, 35, 9, 74, 113, 162, 229, 61, 50, 202, 11, 234, 27, 20, 85, 193, 42, 151, 80, 241, 103, 74, 19, 250, 153, 83, 11, 12, 17, 43, 219, 145, 226, 49, 240, 167, 38 },
+                            PhoneNumber1 = "+849000000055",
+                            PhoneNumber2 = "+849000000155",
+                            Username = "admin_branch_55"
+                        },
+                        new
+                        {
+                            Id = 56,
+                            Address = "Branch Address 56",
+                            AppRoleId = 4,
+                            Avatar = "/adminLTE/images/users/avatar-6.jpg",
+                            BranchId = 47,
+                            CitizenId = 1000001043,
+                            CreatedBy = -1,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "admin_branch_56@gmail.com",
+                            FullName = "Admin Branch 56",
+                            PasswordHash = new byte[] { 68, 227, 89, 5, 170, 175, 167, 31, 42, 145, 83, 14, 244, 119, 76, 241, 138, 42, 177, 127, 222, 138, 61, 6, 136, 213, 81, 103, 197, 95, 160, 63, 217, 98, 20, 242, 161, 176, 61, 0, 80, 183, 69, 110, 245, 73, 236, 56, 219, 172, 183, 45, 84, 69, 102, 2, 17, 195, 37, 41, 57, 149, 252, 206 },
+                            PasswordSalt = new byte[] { 130, 2, 255, 3, 144, 251, 31, 105, 68, 78, 205, 4, 80, 68, 22, 48, 255, 61, 135, 36, 141, 170, 110, 108, 40, 160, 84, 97, 74, 27, 124, 15, 233, 174, 23, 78, 16, 106, 69, 103, 62, 8, 133, 15, 18, 223, 246, 249, 139, 218, 114, 50, 206, 220, 236, 249, 195, 182, 24, 92, 252, 73, 61, 219, 244, 17, 202, 187, 254, 120, 192, 84, 29, 110, 35, 209, 17, 20, 165, 58, 40, 61, 150, 115, 208, 230, 214, 9, 110, 177, 75, 13, 35, 9, 74, 113, 162, 229, 61, 50, 202, 11, 234, 27, 20, 85, 193, 42, 151, 80, 241, 103, 74, 19, 250, 153, 83, 11, 12, 17, 43, 219, 145, 226, 49, 240, 167, 38 },
+                            PhoneNumber1 = "+849000000056",
+                            PhoneNumber2 = "+849000000156",
+                            Username = "admin_branch_56"
+                        },
+                        new
+                        {
+                            Id = 57,
+                            Address = "Branch Address 57",
+                            AppRoleId = 4,
+                            Avatar = "/adminLTE/images/users/avatar-7.jpg",
+                            BranchId = 48,
+                            CitizenId = 1000001044,
+                            CreatedBy = -1,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "admin_branch_57@gmail.com",
+                            FullName = "Admin Branch 57",
+                            PasswordHash = new byte[] { 68, 227, 89, 5, 170, 175, 167, 31, 42, 145, 83, 14, 244, 119, 76, 241, 138, 42, 177, 127, 222, 138, 61, 6, 136, 213, 81, 103, 197, 95, 160, 63, 217, 98, 20, 242, 161, 176, 61, 0, 80, 183, 69, 110, 245, 73, 236, 56, 219, 172, 183, 45, 84, 69, 102, 2, 17, 195, 37, 41, 57, 149, 252, 206 },
+                            PasswordSalt = new byte[] { 130, 2, 255, 3, 144, 251, 31, 105, 68, 78, 205, 4, 80, 68, 22, 48, 255, 61, 135, 36, 141, 170, 110, 108, 40, 160, 84, 97, 74, 27, 124, 15, 233, 174, 23, 78, 16, 106, 69, 103, 62, 8, 133, 15, 18, 223, 246, 249, 139, 218, 114, 50, 206, 220, 236, 249, 195, 182, 24, 92, 252, 73, 61, 219, 244, 17, 202, 187, 254, 120, 192, 84, 29, 110, 35, 209, 17, 20, 165, 58, 40, 61, 150, 115, 208, 230, 214, 9, 110, 177, 75, 13, 35, 9, 74, 113, 162, 229, 61, 50, 202, 11, 234, 27, 20, 85, 193, 42, 151, 80, 241, 103, 74, 19, 250, 153, 83, 11, 12, 17, 43, 219, 145, 226, 49, 240, 167, 38 },
+                            PhoneNumber1 = "+849000000057",
+                            PhoneNumber2 = "+849000000157",
+                            Username = "admin_branch_57"
+                        },
+                        new
+                        {
+                            Id = 58,
+                            Address = "Branch Address 58",
+                            AppRoleId = 4,
+                            Avatar = "/adminLTE/images/users/avatar-8.jpg",
+                            BranchId = 49,
+                            CitizenId = 1000001045,
+                            CreatedBy = -1,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "admin_branch_58@gmail.com",
+                            FullName = "Admin Branch 58",
+                            PasswordHash = new byte[] { 68, 227, 89, 5, 170, 175, 167, 31, 42, 145, 83, 14, 244, 119, 76, 241, 138, 42, 177, 127, 222, 138, 61, 6, 136, 213, 81, 103, 197, 95, 160, 63, 217, 98, 20, 242, 161, 176, 61, 0, 80, 183, 69, 110, 245, 73, 236, 56, 219, 172, 183, 45, 84, 69, 102, 2, 17, 195, 37, 41, 57, 149, 252, 206 },
+                            PasswordSalt = new byte[] { 130, 2, 255, 3, 144, 251, 31, 105, 68, 78, 205, 4, 80, 68, 22, 48, 255, 61, 135, 36, 141, 170, 110, 108, 40, 160, 84, 97, 74, 27, 124, 15, 233, 174, 23, 78, 16, 106, 69, 103, 62, 8, 133, 15, 18, 223, 246, 249, 139, 218, 114, 50, 206, 220, 236, 249, 195, 182, 24, 92, 252, 73, 61, 219, 244, 17, 202, 187, 254, 120, 192, 84, 29, 110, 35, 209, 17, 20, 165, 58, 40, 61, 150, 115, 208, 230, 214, 9, 110, 177, 75, 13, 35, 9, 74, 113, 162, 229, 61, 50, 202, 11, 234, 27, 20, 85, 193, 42, 151, 80, 241, 103, 74, 19, 250, 153, 83, 11, 12, 17, 43, 219, 145, 226, 49, 240, 167, 38 },
+                            PhoneNumber1 = "+849000000058",
+                            PhoneNumber2 = "+849000000158",
+                            Username = "admin_branch_58"
+                        },
+                        new
+                        {
+                            Id = 59,
+                            Address = "Branch Address 59",
+                            AppRoleId = 4,
+                            Avatar = "/adminLTE/images/users/avatar-9.jpg",
+                            BranchId = 50,
+                            CitizenId = 1000001046,
+                            CreatedBy = -1,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "admin_branch_59@gmail.com",
+                            FullName = "Admin Branch 59",
+                            PasswordHash = new byte[] { 68, 227, 89, 5, 170, 175, 167, 31, 42, 145, 83, 14, 244, 119, 76, 241, 138, 42, 177, 127, 222, 138, 61, 6, 136, 213, 81, 103, 197, 95, 160, 63, 217, 98, 20, 242, 161, 176, 61, 0, 80, 183, 69, 110, 245, 73, 236, 56, 219, 172, 183, 45, 84, 69, 102, 2, 17, 195, 37, 41, 57, 149, 252, 206 },
+                            PasswordSalt = new byte[] { 130, 2, 255, 3, 144, 251, 31, 105, 68, 78, 205, 4, 80, 68, 22, 48, 255, 61, 135, 36, 141, 170, 110, 108, 40, 160, 84, 97, 74, 27, 124, 15, 233, 174, 23, 78, 16, 106, 69, 103, 62, 8, 133, 15, 18, 223, 246, 249, 139, 218, 114, 50, 206, 220, 236, 249, 195, 182, 24, 92, 252, 73, 61, 219, 244, 17, 202, 187, 254, 120, 192, 84, 29, 110, 35, 209, 17, 20, 165, 58, 40, 61, 150, 115, 208, 230, 214, 9, 110, 177, 75, 13, 35, 9, 74, 113, 162, 229, 61, 50, 202, 11, 234, 27, 20, 85, 193, 42, 151, 80, 241, 103, 74, 19, 250, 153, 83, 11, 12, 17, 43, 219, 145, 226, 49, 240, 167, 38 },
+                            PhoneNumber1 = "+849000000059",
+                            PhoneNumber2 = "+849000000159",
+                            Username = "admin_branch_59"
+                        },
+                        new
+                        {
+                            Id = 60,
+                            Address = "Branch Address 60",
+                            AppRoleId = 4,
+                            Avatar = "/adminLTE/images/users/avatar-10.jpg",
+                            BranchId = 51,
+                            CitizenId = 1000001047,
+                            CreatedBy = -1,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "admin_branch_60@gmail.com",
+                            FullName = "Admin Branch 60",
+                            PasswordHash = new byte[] { 68, 227, 89, 5, 170, 175, 167, 31, 42, 145, 83, 14, 244, 119, 76, 241, 138, 42, 177, 127, 222, 138, 61, 6, 136, 213, 81, 103, 197, 95, 160, 63, 217, 98, 20, 242, 161, 176, 61, 0, 80, 183, 69, 110, 245, 73, 236, 56, 219, 172, 183, 45, 84, 69, 102, 2, 17, 195, 37, 41, 57, 149, 252, 206 },
+                            PasswordSalt = new byte[] { 130, 2, 255, 3, 144, 251, 31, 105, 68, 78, 205, 4, 80, 68, 22, 48, 255, 61, 135, 36, 141, 170, 110, 108, 40, 160, 84, 97, 74, 27, 124, 15, 233, 174, 23, 78, 16, 106, 69, 103, 62, 8, 133, 15, 18, 223, 246, 249, 139, 218, 114, 50, 206, 220, 236, 249, 195, 182, 24, 92, 252, 73, 61, 219, 244, 17, 202, 187, 254, 120, 192, 84, 29, 110, 35, 209, 17, 20, 165, 58, 40, 61, 150, 115, 208, 230, 214, 9, 110, 177, 75, 13, 35, 9, 74, 113, 162, 229, 61, 50, 202, 11, 234, 27, 20, 85, 193, 42, 151, 80, 241, 103, 74, 19, 250, 153, 83, 11, 12, 17, 43, 219, 145, 226, 49, 240, 167, 38 },
+                            PhoneNumber1 = "+849000000060",
+                            PhoneNumber2 = "+849000000160",
+                            Username = "admin_branch_60"
+                        },
+                        new
+                        {
+                            Id = 61,
+                            Address = "Branch Address 61",
+                            AppRoleId = 4,
+                            Avatar = "/adminLTE/images/users/avatar-1.jpg",
+                            BranchId = 52,
+                            CitizenId = 1000001048,
+                            CreatedBy = -1,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "admin_branch_61@gmail.com",
+                            FullName = "Admin Branch 61",
+                            PasswordHash = new byte[] { 68, 227, 89, 5, 170, 175, 167, 31, 42, 145, 83, 14, 244, 119, 76, 241, 138, 42, 177, 127, 222, 138, 61, 6, 136, 213, 81, 103, 197, 95, 160, 63, 217, 98, 20, 242, 161, 176, 61, 0, 80, 183, 69, 110, 245, 73, 236, 56, 219, 172, 183, 45, 84, 69, 102, 2, 17, 195, 37, 41, 57, 149, 252, 206 },
+                            PasswordSalt = new byte[] { 130, 2, 255, 3, 144, 251, 31, 105, 68, 78, 205, 4, 80, 68, 22, 48, 255, 61, 135, 36, 141, 170, 110, 108, 40, 160, 84, 97, 74, 27, 124, 15, 233, 174, 23, 78, 16, 106, 69, 103, 62, 8, 133, 15, 18, 223, 246, 249, 139, 218, 114, 50, 206, 220, 236, 249, 195, 182, 24, 92, 252, 73, 61, 219, 244, 17, 202, 187, 254, 120, 192, 84, 29, 110, 35, 209, 17, 20, 165, 58, 40, 61, 150, 115, 208, 230, 214, 9, 110, 177, 75, 13, 35, 9, 74, 113, 162, 229, 61, 50, 202, 11, 234, 27, 20, 85, 193, 42, 151, 80, 241, 103, 74, 19, 250, 153, 83, 11, 12, 17, 43, 219, 145, 226, 49, 240, 167, 38 },
+                            PhoneNumber1 = "+849000000061",
+                            PhoneNumber2 = "+849000000161",
+                            Username = "admin_branch_61"
+                        },
+                        new
+                        {
+                            Id = 62,
+                            Address = "Branch Address 62",
+                            AppRoleId = 4,
+                            Avatar = "/adminLTE/images/users/avatar-2.jpg",
+                            BranchId = 53,
+                            CitizenId = 1000001049,
+                            CreatedBy = -1,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "admin_branch_62@gmail.com",
+                            FullName = "Admin Branch 62",
+                            PasswordHash = new byte[] { 68, 227, 89, 5, 170, 175, 167, 31, 42, 145, 83, 14, 244, 119, 76, 241, 138, 42, 177, 127, 222, 138, 61, 6, 136, 213, 81, 103, 197, 95, 160, 63, 217, 98, 20, 242, 161, 176, 61, 0, 80, 183, 69, 110, 245, 73, 236, 56, 219, 172, 183, 45, 84, 69, 102, 2, 17, 195, 37, 41, 57, 149, 252, 206 },
+                            PasswordSalt = new byte[] { 130, 2, 255, 3, 144, 251, 31, 105, 68, 78, 205, 4, 80, 68, 22, 48, 255, 61, 135, 36, 141, 170, 110, 108, 40, 160, 84, 97, 74, 27, 124, 15, 233, 174, 23, 78, 16, 106, 69, 103, 62, 8, 133, 15, 18, 223, 246, 249, 139, 218, 114, 50, 206, 220, 236, 249, 195, 182, 24, 92, 252, 73, 61, 219, 244, 17, 202, 187, 254, 120, 192, 84, 29, 110, 35, 209, 17, 20, 165, 58, 40, 61, 150, 115, 208, 230, 214, 9, 110, 177, 75, 13, 35, 9, 74, 113, 162, 229, 61, 50, 202, 11, 234, 27, 20, 85, 193, 42, 151, 80, 241, 103, 74, 19, 250, 153, 83, 11, 12, 17, 43, 219, 145, 226, 49, 240, 167, 38 },
+                            PhoneNumber1 = "+849000000062",
+                            PhoneNumber2 = "+849000000162",
+                            Username = "admin_branch_62"
+                        },
+                        new
+                        {
+                            Id = 63,
+                            Address = "Branch Address 63",
+                            AppRoleId = 4,
+                            Avatar = "/adminLTE/images/users/avatar-3.jpg",
+                            BranchId = 54,
+                            CitizenId = 1000001050,
+                            CreatedBy = -1,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "admin_branch_63@gmail.com",
+                            FullName = "Admin Branch 63",
+                            PasswordHash = new byte[] { 68, 227, 89, 5, 170, 175, 167, 31, 42, 145, 83, 14, 244, 119, 76, 241, 138, 42, 177, 127, 222, 138, 61, 6, 136, 213, 81, 103, 197, 95, 160, 63, 217, 98, 20, 242, 161, 176, 61, 0, 80, 183, 69, 110, 245, 73, 236, 56, 219, 172, 183, 45, 84, 69, 102, 2, 17, 195, 37, 41, 57, 149, 252, 206 },
+                            PasswordSalt = new byte[] { 130, 2, 255, 3, 144, 251, 31, 105, 68, 78, 205, 4, 80, 68, 22, 48, 255, 61, 135, 36, 141, 170, 110, 108, 40, 160, 84, 97, 74, 27, 124, 15, 233, 174, 23, 78, 16, 106, 69, 103, 62, 8, 133, 15, 18, 223, 246, 249, 139, 218, 114, 50, 206, 220, 236, 249, 195, 182, 24, 92, 252, 73, 61, 219, 244, 17, 202, 187, 254, 120, 192, 84, 29, 110, 35, 209, 17, 20, 165, 58, 40, 61, 150, 115, 208, 230, 214, 9, 110, 177, 75, 13, 35, 9, 74, 113, 162, 229, 61, 50, 202, 11, 234, 27, 20, 85, 193, 42, 151, 80, 241, 103, 74, 19, 250, 153, 83, 11, 12, 17, 43, 219, 145, 226, 49, 240, 167, 38 },
+                            PhoneNumber1 = "+849000000063",
+                            PhoneNumber2 = "+849000000163",
+                            Username = "admin_branch_63"
+                        },
+                        new
+                        {
+                            Id = 64,
+                            Address = "Branch Address 64",
+                            AppRoleId = 4,
+                            Avatar = "/adminLTE/images/users/avatar-4.jpg",
+                            BranchId = 55,
+                            CitizenId = 1000001051,
+                            CreatedBy = -1,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "admin_branch_64@gmail.com",
+                            FullName = "Admin Branch 64",
+                            PasswordHash = new byte[] { 68, 227, 89, 5, 170, 175, 167, 31, 42, 145, 83, 14, 244, 119, 76, 241, 138, 42, 177, 127, 222, 138, 61, 6, 136, 213, 81, 103, 197, 95, 160, 63, 217, 98, 20, 242, 161, 176, 61, 0, 80, 183, 69, 110, 245, 73, 236, 56, 219, 172, 183, 45, 84, 69, 102, 2, 17, 195, 37, 41, 57, 149, 252, 206 },
+                            PasswordSalt = new byte[] { 130, 2, 255, 3, 144, 251, 31, 105, 68, 78, 205, 4, 80, 68, 22, 48, 255, 61, 135, 36, 141, 170, 110, 108, 40, 160, 84, 97, 74, 27, 124, 15, 233, 174, 23, 78, 16, 106, 69, 103, 62, 8, 133, 15, 18, 223, 246, 249, 139, 218, 114, 50, 206, 220, 236, 249, 195, 182, 24, 92, 252, 73, 61, 219, 244, 17, 202, 187, 254, 120, 192, 84, 29, 110, 35, 209, 17, 20, 165, 58, 40, 61, 150, 115, 208, 230, 214, 9, 110, 177, 75, 13, 35, 9, 74, 113, 162, 229, 61, 50, 202, 11, 234, 27, 20, 85, 193, 42, 151, 80, 241, 103, 74, 19, 250, 153, 83, 11, 12, 17, 43, 219, 145, 226, 49, 240, 167, 38 },
+                            PhoneNumber1 = "+849000000064",
+                            PhoneNumber2 = "+849000000164",
+                            Username = "admin_branch_64"
+                        },
+                        new
+                        {
+                            Id = 65,
+                            Address = "Branch Address 65",
+                            AppRoleId = 4,
+                            Avatar = "/adminLTE/images/users/avatar-5.jpg",
+                            BranchId = 56,
+                            CitizenId = 1000001052,
+                            CreatedBy = -1,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "admin_branch_65@gmail.com",
+                            FullName = "Admin Branch 65",
+                            PasswordHash = new byte[] { 68, 227, 89, 5, 170, 175, 167, 31, 42, 145, 83, 14, 244, 119, 76, 241, 138, 42, 177, 127, 222, 138, 61, 6, 136, 213, 81, 103, 197, 95, 160, 63, 217, 98, 20, 242, 161, 176, 61, 0, 80, 183, 69, 110, 245, 73, 236, 56, 219, 172, 183, 45, 84, 69, 102, 2, 17, 195, 37, 41, 57, 149, 252, 206 },
+                            PasswordSalt = new byte[] { 130, 2, 255, 3, 144, 251, 31, 105, 68, 78, 205, 4, 80, 68, 22, 48, 255, 61, 135, 36, 141, 170, 110, 108, 40, 160, 84, 97, 74, 27, 124, 15, 233, 174, 23, 78, 16, 106, 69, 103, 62, 8, 133, 15, 18, 223, 246, 249, 139, 218, 114, 50, 206, 220, 236, 249, 195, 182, 24, 92, 252, 73, 61, 219, 244, 17, 202, 187, 254, 120, 192, 84, 29, 110, 35, 209, 17, 20, 165, 58, 40, 61, 150, 115, 208, 230, 214, 9, 110, 177, 75, 13, 35, 9, 74, 113, 162, 229, 61, 50, 202, 11, 234, 27, 20, 85, 193, 42, 151, 80, 241, 103, 74, 19, 250, 153, 83, 11, 12, 17, 43, 219, 145, 226, 49, 240, 167, 38 },
+                            PhoneNumber1 = "+849000000065",
+                            PhoneNumber2 = "+849000000165",
+                            Username = "admin_branch_65"
+                        },
+                        new
+                        {
+                            Id = 66,
+                            Address = "Branch Address 66",
+                            AppRoleId = 4,
+                            Avatar = "/adminLTE/images/users/avatar-6.jpg",
+                            BranchId = 57,
+                            CitizenId = 1000001053,
+                            CreatedBy = -1,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "admin_branch_66@gmail.com",
+                            FullName = "Admin Branch 66",
+                            PasswordHash = new byte[] { 68, 227, 89, 5, 170, 175, 167, 31, 42, 145, 83, 14, 244, 119, 76, 241, 138, 42, 177, 127, 222, 138, 61, 6, 136, 213, 81, 103, 197, 95, 160, 63, 217, 98, 20, 242, 161, 176, 61, 0, 80, 183, 69, 110, 245, 73, 236, 56, 219, 172, 183, 45, 84, 69, 102, 2, 17, 195, 37, 41, 57, 149, 252, 206 },
+                            PasswordSalt = new byte[] { 130, 2, 255, 3, 144, 251, 31, 105, 68, 78, 205, 4, 80, 68, 22, 48, 255, 61, 135, 36, 141, 170, 110, 108, 40, 160, 84, 97, 74, 27, 124, 15, 233, 174, 23, 78, 16, 106, 69, 103, 62, 8, 133, 15, 18, 223, 246, 249, 139, 218, 114, 50, 206, 220, 236, 249, 195, 182, 24, 92, 252, 73, 61, 219, 244, 17, 202, 187, 254, 120, 192, 84, 29, 110, 35, 209, 17, 20, 165, 58, 40, 61, 150, 115, 208, 230, 214, 9, 110, 177, 75, 13, 35, 9, 74, 113, 162, 229, 61, 50, 202, 11, 234, 27, 20, 85, 193, 42, 151, 80, 241, 103, 74, 19, 250, 153, 83, 11, 12, 17, 43, 219, 145, 226, 49, 240, 167, 38 },
+                            PhoneNumber1 = "+849000000066",
+                            PhoneNumber2 = "+849000000166",
+                            Username = "admin_branch_66"
+                        },
+                        new
+                        {
+                            Id = 67,
+                            Address = "Branch Address 67",
+                            AppRoleId = 4,
+                            Avatar = "/adminLTE/images/users/avatar-7.jpg",
+                            BranchId = 58,
+                            CitizenId = 1000001054,
+                            CreatedBy = -1,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "admin_branch_67@gmail.com",
+                            FullName = "Admin Branch 67",
+                            PasswordHash = new byte[] { 68, 227, 89, 5, 170, 175, 167, 31, 42, 145, 83, 14, 244, 119, 76, 241, 138, 42, 177, 127, 222, 138, 61, 6, 136, 213, 81, 103, 197, 95, 160, 63, 217, 98, 20, 242, 161, 176, 61, 0, 80, 183, 69, 110, 245, 73, 236, 56, 219, 172, 183, 45, 84, 69, 102, 2, 17, 195, 37, 41, 57, 149, 252, 206 },
+                            PasswordSalt = new byte[] { 130, 2, 255, 3, 144, 251, 31, 105, 68, 78, 205, 4, 80, 68, 22, 48, 255, 61, 135, 36, 141, 170, 110, 108, 40, 160, 84, 97, 74, 27, 124, 15, 233, 174, 23, 78, 16, 106, 69, 103, 62, 8, 133, 15, 18, 223, 246, 249, 139, 218, 114, 50, 206, 220, 236, 249, 195, 182, 24, 92, 252, 73, 61, 219, 244, 17, 202, 187, 254, 120, 192, 84, 29, 110, 35, 209, 17, 20, 165, 58, 40, 61, 150, 115, 208, 230, 214, 9, 110, 177, 75, 13, 35, 9, 74, 113, 162, 229, 61, 50, 202, 11, 234, 27, 20, 85, 193, 42, 151, 80, 241, 103, 74, 19, 250, 153, 83, 11, 12, 17, 43, 219, 145, 226, 49, 240, 167, 38 },
+                            PhoneNumber1 = "+849000000067",
+                            PhoneNumber2 = "+849000000167",
+                            Username = "admin_branch_67"
+                        },
+                        new
+                        {
+                            Id = 68,
+                            Address = "Branch Address 68",
+                            AppRoleId = 4,
+                            Avatar = "/adminLTE/images/users/avatar-8.jpg",
+                            BranchId = 59,
+                            CitizenId = 1000001055,
+                            CreatedBy = -1,
+                            CreatedDate = new DateTime(2024, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "admin_branch_68@gmail.com",
+                            FullName = "Admin Branch 68",
+                            PasswordHash = new byte[] { 68, 227, 89, 5, 170, 175, 167, 31, 42, 145, 83, 14, 244, 119, 76, 241, 138, 42, 177, 127, 222, 138, 61, 6, 136, 213, 81, 103, 197, 95, 160, 63, 217, 98, 20, 242, 161, 176, 61, 0, 80, 183, 69, 110, 245, 73, 236, 56, 219, 172, 183, 45, 84, 69, 102, 2, 17, 195, 37, 41, 57, 149, 252, 206 },
+                            PasswordSalt = new byte[] { 130, 2, 255, 3, 144, 251, 31, 105, 68, 78, 205, 4, 80, 68, 22, 48, 255, 61, 135, 36, 141, 170, 110, 108, 40, 160, 84, 97, 74, 27, 124, 15, 233, 174, 23, 78, 16, 106, 69, 103, 62, 8, 133, 15, 18, 223, 246, 249, 139, 218, 114, 50, 206, 220, 236, 249, 195, 182, 24, 92, 252, 73, 61, 219, 244, 17, 202, 187, 254, 120, 192, 84, 29, 110, 35, 209, 17, 20, 165, 58, 40, 61, 150, 115, 208, 230, 214, 9, 110, 177, 75, 13, 35, 9, 74, 113, 162, 229, 61, 50, 202, 11, 234, 27, 20, 85, 193, 42, 151, 80, 241, 103, 74, 19, 250, 153, 83, 11, 12, 17, 43, 219, 145, 226, 49, 240, 167, 38 },
+                            PhoneNumber1 = "+849000000068",
+                            PhoneNumber2 = "+849000000168",
+                            Username = "admin_branch_68"
                         });
                 });
 
@@ -5534,9 +7098,8 @@ namespace App.Data.Migrations
 
                     b.HasOne("App.Data.Entities.User.AppUser", "Users")
                         .WithMany("AppNewsNavigation")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
+                        .HasForeignKey("CreatedBy")
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.Navigation("NewsCategory");
 
