@@ -1,4 +1,5 @@
-﻿using App.Web.Common;
+﻿using App.Data.Entities.Room;
+using App.Web.Common;
 
 namespace App.Web.Areas.Admin.ViewModels.Room
 {
@@ -20,6 +21,8 @@ namespace App.Web.Areas.Admin.ViewModels.Room
 		public string RoomTypeName { get; set; }
 		public string HotelName { get; set; }
 		public string? ImagePath { get; set; }
+
+		public List<string> EquipmentName { get; set; }
 		public bool IsDiscountProduct
 		{
 			get
@@ -35,5 +38,6 @@ namespace App.Web.Areas.Admin.ViewModels.Room
 				return false;
 			}
 		}
+		public ICollection<AppRoomEquipment> RoomEquipments { get; set; }
 	}
 }
