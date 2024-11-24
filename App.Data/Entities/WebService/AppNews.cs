@@ -16,7 +16,6 @@ namespace App.Data.Entities.News
         public string? CoverImgPath { get; set; }
         public string? CoverImgThumbnailPath { get; set; }
         public string? StampPath { get; set; }
-        public int UserId { get; set; }
         public int? CategoryId { get; set; }
 
         public AppUser Users { get; set; }
