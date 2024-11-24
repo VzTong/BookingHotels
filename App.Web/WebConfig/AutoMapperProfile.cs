@@ -14,6 +14,8 @@ using App.Web.Areas.Admin.ViewModels.Room;
 using App.Web.Areas.Admin.ViewModels.RoomType;
 using App.Web.Areas.Admin.ViewModels.User;
 using App.Web.ViewModels.Account;
+using App.Web.ViewModels.News;
+using App.Web.ViewModels.Room;
 using AutoMapper;
 
 namespace App.Web.WebConfig
@@ -50,21 +52,39 @@ namespace App.Web.WebConfig
 
 			// Map dữ liệu của AppNews
 			CreateMap<AppNews, AddOrUpdateNewsVM>().ReverseMap();
+			CreateMap<AppNews, NewsVM>().ReverseMap();
 
 			// Map dữ liệu của AppRoomType
 			CreateMap<AppRoomType, AddOrUpdateRTypeVM>().ReverseMap();
 
 			// Map dữ liệu của AppRoom
-			CreateMap<AppRoom, AddOrUpdateRoomVM>().ReverseMap();
+			CreateMap<AppRoom, AddOrUpdateRoomVM>()
+				.ForMember(dest => dest.ImgRooms, opt => opt.MapFrom(src => src.ImgRooms))
+				.ForMember(dest => dest.EquipmentId, opt => opt.MapFrom(src => src.RoomEquipments.Select(e => e.EquipmentId)))
+				.ForMember(dest => dest.LinkImage1_path, opt => opt.MapFrom(src => src.ImgRooms.ElementAtOrDefault(0).ImgSrc))
+				.ForMember(dest => dest.LinkImage2_path, opt => opt.MapFrom(src => src.ImgRooms.ElementAtOrDefault(1).ImgSrc))
+				.ForMember(dest => dest.LinkImage3_path, opt => opt.MapFrom(src => src.ImgRooms.ElementAtOrDefault(2).ImgSrc))
+				.ForMember(dest => dest.LinkImage4_path, opt => opt.MapFrom(src => src.ImgRooms.ElementAtOrDefault(3).ImgSrc))
+				.ReverseMap();
+
+			// Cấu hình mapping cho RoomController, action Detail area Client
+			CreateMap<AppRoom, RoomDetailVM>()
+			.ForMember(dest => dest.ImagePath, opt => opt.MapFrom(src => src.ImgRooms.Select(img => img.ImgSrc).ToList()))
+			.ForMember(dest => dest.EquipmentName, opt => opt.MapFrom(src => src.RoomEquipments.Select(e => e.Equipment.Name).ToList()))
+			.ForMember(dest => dest.RoomTypeName, opt => opt.MapFrom(src => src.RoomType != null ? src.RoomType.RoomTypeName : string.Empty))
+			.ForMember(dest => dest.BranchDesc, opt => opt.MapFrom(src => src.Branch != null ? src.Branch.Description : string.Empty))
+			.ForMember(dest => dest.HotelName, opt => opt.MapFrom(src => src.Branch != null && src.Branch.Hotel != null ? src.Branch.Hotel.Name : string.Empty))
+			.ForMember(dest => dest.PeopleStay, opt => opt.MapFrom(src => src.RoomType.PeopleStay))
+			.ForMember(dest => dest.BringPet, opt => opt.MapFrom(src => src.RoomType != null && src.RoomType.BringPet));
 		}
 
-		// Cấu hình mapping cho RoleController, action Index
+		// Cấu hình mapping cho RoleController, action Index area Admin
 		public static MapperConfiguration RoleIndexConf = new(mapper =>
 		{
 			// Map dữ liệu từ kiểu AppRole sang RoleListItemVM
 			mapper.CreateMap<AppRole, RoleListItemVM>()
 				.ForMember(
-					uItem => uItem.BranchName, 
+					uItem => uItem.BranchName,
 					opts => opts.MapFrom(
 						uEntity => uEntity.AppUsers
 							.Select(b => b.Branch.Name)
@@ -72,7 +92,7 @@ namespace App.Web.WebConfig
 					);
 		});
 
-		// Cấu hình mapping cho UserController, action Index
+		// Cấu hình mapping cho UserController, action Index area Admin
 		public static MapperConfiguration UserIndexConf = new(mapper =>
 		{
 			// Map dữ liệu từ AppUser sang UserListItemVM, map thuộc tính RoleName
@@ -119,14 +139,14 @@ namespace App.Web.WebConfig
 			mapper.CreateMap<AppRole, RoleDeleteVM>();
 		});
 
-		// Cấu hình mapping cho AppBranchHotelController, action Index
+		// Cấu hình mapping cho AppBranchHotelController, action Index area Admin
 		public static MapperConfiguration BranchHotelIndexConf = new(mapper =>
 		{
 			mapper.CreateMap<AppBranchHotel, AppBranchHotelListItemVM>()
 				.ForMember(uItem => uItem.HotelName, opts => opts.MapFrom(uEntity => uEntity.Hotel.Name));
 		});
 
-		// Cấu hình mapping cho AppHotelController, action Index
+		// Cấu hình mapping cho AppHotelController, action Index area Admin
 		public static MapperConfiguration HotelIndexConf = new(mapper =>
 		{
 			// Map dữ liệu từ AppHotel sang HotelListItemVM, map thuộc tính TypeEquipmentName
@@ -141,7 +161,7 @@ namespace App.Web.WebConfig
 				);
 		});
 
-		// Cấu hình mapping cho AppEquipmentController, action Index
+		// Cấu hình mapping cho AppEquipmentController, action Index area Admin
 		public static MapperConfiguration EquipmentIndexConf = new(mapper =>
 		{
 			// Map dữ liệu từ AppEquipment sang EquipmentListItemVM, map thuộc tính TypeEquipmentName
@@ -149,7 +169,7 @@ namespace App.Web.WebConfig
 				.ForMember(uItem => uItem.TypeEquipmentName, opts => opts.MapFrom(uEntity => uEntity.TypeEquipment.Name));
 		});
 
-		// Cấu hình mapping cho AppETypeController, action Index
+		// Cấu hình mapping cho AppETypeController, action Index area Admin
 		public static MapperConfiguration ETypeIndexConf = new(mapper =>
 		{
 			mapper.CreateMap<AppEquipmentType, ETypeListItemVM>()
@@ -163,15 +183,15 @@ namespace App.Web.WebConfig
 				);
 		});
 
-		// Cấu hình mapping cho AppNewsCategoryController, action Index
-		public static MapperConfiguration CategoryNewsConf = new(mapper =>
+		// Cấu hình mapping cho AppNewsCategoryController, action Index area Admin
+		public static MapperConfiguration CategoryNewsIndexConf = new(mapper =>
 		{
 			mapper.CreateMap<AppNewsCategory, ListItemCategoryNewsVM>()
 				.ForMember(vm => vm.TotalNews, opt => opt.MapFrom(entity => entity.NewsNavigation.Count));
 		});
 
-		// Cấu hình mapping cho AppNewsController, action Index
-		public static MapperConfiguration NewsConf = new(mapper =>
+		// Cấu hình mapping cho NewsController, action Index area Admin
+		public static MapperConfiguration NewsIndexConf = new(mapper =>
 		{
 			mapper.CreateMap<AppNews, ListItemNewsVM>()
 			.ForMember(uItem => uItem.CategoryName, opts => opts.MapFrom(uEntity => uEntity.NewsCategory.Title));
@@ -180,7 +200,7 @@ namespace App.Web.WebConfig
 			mapper.CreateMap<AppNews, ListItemNewsVM>().ReverseMap();
 		});
 
-		// Cấu hình mapping cho AppRTypeController, action Index
+		// Cấu hình mapping cho AppRTypeController, action Index area Admin
 		public static MapperConfiguration RTypeIndexConf = new(mapper =>
 		{
 			mapper.CreateMap<AppRoomType, RTypeListItemVM>()
@@ -194,24 +214,25 @@ namespace App.Web.WebConfig
 				);
 		});
 
+		// Cấu hình mapping cho AppRoomController, action Index area Admin
 		public static MapperConfiguration RoomsIndexConf = new(mapper =>
 		{
 			mapper.CreateMap<AppRoom, RoomListItemVM>()
 			.ForMember(
-				uItem => uItem.ImagePath, 
+				uItem => uItem.ImagePath,
 				opts => opts.MapFrom(
 					uEntity => uEntity.ImgRooms
 						.FirstOrDefault() == null ? "" : uEntity.ImgRooms.First().ImgSrc
 				)
 			)
 			.ForMember(
-				uItem => uItem.RoomTypeName, 
+				uItem => uItem.RoomTypeName,
 				opts => opts.MapFrom(
 					uEntity => uEntity.RoomType == null ? "" : uEntity.RoomType.RoomTypeName
 				)
 			)
 			.ForMember(
-				uItem => uItem.BranchName, 
+				uItem => uItem.BranchName,
 				opts => opts.MapFrom(
 					uEntity => uEntity.Branch == null ? "" : uEntity.Branch.Name
 				)
@@ -221,8 +242,67 @@ namespace App.Web.WebConfig
 				opts => opts.MapFrom(
 					uEntity => uEntity.Branch == null ? "" : uEntity.Branch.Hotel.Name
 				)
+			)
+			.ForMember(
+				uItem => uItem.EquipmentName,
+				opts => opts.MapFrom(
+					uEntity => uEntity.RoomEquipments
+						.Select(re => re.Equipment.Name)
+						.ToList()
+				)
 			);
 		});
+
+		// Cấu hình mapping cho NewsController, action Index area Client
+		public static MapperConfiguration NewsIndexClientConf = new(mapper =>
+		{
+			mapper.CreateMap<AppNews, NewsVM>()
+			.ForMember(uItem => uItem.CreatedByName, opst => opst.MapFrom(uEntity => uEntity.Users.FullName))
+			.ForMember(uItem => uItem.CategoryName, opts => opts.MapFrom(uEntity => uEntity.NewsCategory.Title));
+
+			mapper.CreateMap<NewsVM, AppNews>();
+			mapper.CreateMap<AppNews, NewsVM>().ReverseMap();
+		});
+
+		// Cấu hình mapping cho RoomController, action Index area Admin
+		public static MapperConfiguration RoomsIndexClientConf = new(mapper =>
+		{
+			mapper.CreateMap<AppRoom, RoomVM>()
+			.ForMember(
+				uItem => uItem.ImagePath,
+				opts => opts.MapFrom(
+					uEntity => uEntity.ImgRooms
+						.FirstOrDefault() == null ? "" : uEntity.ImgRooms.First().ImgSrc
+				)
+			)
+			.ForMember(
+				uItem => uItem.RoomTypeName,
+				opts => opts.MapFrom(
+					uEntity => uEntity.RoomType == null ? "" : uEntity.RoomType.RoomTypeName
+				)
+			)
+			.ForMember(
+				uItem => uItem.BranchDesc,
+				opts => opts.MapFrom(
+					uEntity => uEntity.Branch == null ? "" : uEntity.Branch.Description
+				)
+			)
+			.ForMember(
+				uItem => uItem.HotelName,
+				opts => opts.MapFrom(
+					uEntity => uEntity.Branch == null ? "" : uEntity.Branch.Hotel.Name
+				)
+			)
+			.ForMember(
+				uItem => uItem.EquipmentName,
+				opts => opts.MapFrom(
+					uEntity => uEntity.RoomEquipments
+						.Select(re => re.Equipment.Name)
+						.ToList()
+				)
+			);
+		});
+
 
 		//public static MapperConfiguration OrderConf = new(mapper =>
 		//{
