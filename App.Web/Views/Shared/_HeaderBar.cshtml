@@ -24,30 +24,17 @@
 								<li data-page="home-page">
 									<a asp-action="Index" asp-area="" asp-controller="Home">Trang chủ</a>
 								</li>
-								<li class="has-children">
-									<a href="rooms.html">Phòng</a>
-									<ul class="dropdown arrow-top">
-										<li><a href="rooms.html">Hiện có</a></li>
-										<li><a href="rooms.html">Phòng đơn</a></li>
-										<li><a href="rooms.html">Phòng đôi</a></li>
-										<li><a href="rooms.html">Phòng gia đình</a></li>
-										<li class="has-children">
-											<a href="rooms.html">Dịch vụ</a>
-											<ul class="dropdown">
-												<li><a href="rooms.html">Phòng cao cấp</a></li>
-												<li><a href="rooms.html">Tắm hơi</a></li>
-												<li><a href="rooms.html">Ăn uống</a></li>
-
-											</ul>
-										</li>
-
-									</ul>
-								</li>
+								<li><a asp-action="Index" asp-area="" asp-controller="Room">Phòng</a></li>
 								<li data-page="news-page">
-									<a asp-action="News" asp-controller="Home">Tin Tức</a>
+									<a asp-action="Index" asp-controller="News">Tin Tức</a>
 								</li>
 								<li><a asp-action="About" asp-controller="Home">Thông tin</a></li>
 								<li><a asp-action="Contact" asp-controller="Home">Liên hệ</a></li>
+								<li>
+									<a asp-action="BookingRoom" asp-controller="Order">
+									<i>las la-shopping-cart</i>
+									</a>
+								</li>
 								@if (Context.User.Identity.IsAuthenticated)
 								{
 									var roleId = Convert.ToInt32(Context.User.Claims.SingleOrDefault(c => c.Type.Contains(AppClaimTypes.RoleId))?.Value);
@@ -66,7 +53,7 @@
 											@if (roleId != AppConst.ROLE_CUSTOMER_ID)
 											{
 												<li class="p-2">
-													<a class="btn btn-info" target="_blank" asp-area="Admin" asp-controller="Home" asp-action="Index">
+													<a class="btn btn-info" style="color: white" target="_blank" asp-area="Admin" asp-controller="Home" asp-action="Index">
 														Trang quản lý
 													</a>
 												</li>
