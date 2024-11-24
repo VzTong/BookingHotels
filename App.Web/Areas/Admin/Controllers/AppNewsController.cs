@@ -43,7 +43,7 @@ namespace App.Web.Areas.Admin.Controllers
 
 			// Dự án tới ListItemNewsVM và áp dụng phân trang
 			var data = (await query
-				.ProjectTo<ListItemNewsVM>(AutoMapperProfile.NewsConf)
+				.ProjectTo<ListItemNewsVM>(AutoMapperProfile.NewsIndexConf)
 				.ToPagedListAsync(page, size))
 				.GenRowIndex();
 
@@ -75,7 +75,6 @@ namespace App.Web.Areas.Admin.Controllers
 
 				var news = _mapper.Map<AppNews>(model);
 				news.Slug = StringExtension.Slugify(news.Title);
-				news.UserId = user;
 				news.CreatedDate = now;
 				news.CreatedBy = user;
 
