@@ -31,7 +31,8 @@ namespace App.Data.Configurations.Room
 
             builder.Property(x => x.Status)
                 .IsRequired()
-                .HasMaxLength(DB.AppRoom.STATUS_LENGTH);
+                .HasMaxLength(DB.AppRoom.STATUS_LENGTH)
+                .HasDefaultValue(DB.RoomStatus.STATUS_CHECKOUT_NAME);
 
             builder.Property(x => x.Price)
                 .IsRequired()
