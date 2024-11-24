@@ -12,33 +12,9 @@ namespace App.Data.Configurations.WebService
 			builder.ToTable(DB.AppOrder.TABLE_NAME);
 			builder.HasKey(x => x.Id);
 
-			builder.Property(x => x.CheckInTime)
-				.IsRequired();
-
-			builder.Property(x => x.CheckOutTime)
-				.IsRequired();
-
-			builder.Property(x => x.TimeStay)
-				.IsRequired();
-
-			builder.Property(x => x.TotalPrice)
-				.IsRequired()
-				.HasMaxLength(DB.AppOrder.TOTAL_LENGTH);
-
-			builder.Property(x => x.Deposit)
-				.IsRequired()
-				.HasMaxLength(DB.AppOrder.TOTAL_LENGTH);
-
-            builder.Property(x => x.Status)
-                .IsRequired()
-                .HasMaxLength(DB.AppOrder.STATUS_LENGTH);
+			builder.Property(x => x.QuantityRoom).IsRequired();
 
             // FK - AppUser
-            builder.HasOne(x => x.Employee)
-				.WithMany(x => x.VerifiedOrders)
-				.HasForeignKey(x => x.EmployeeId)
-				.OnDelete(DeleteBehavior.Restrict);
-
 			builder.HasOne(x => x.Customer)
 				.WithMany(x => x.OwnerOrders)
 				.HasForeignKey(x => x.CreatedBy)
