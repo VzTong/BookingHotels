@@ -81,6 +81,8 @@ namespace App.Data
             modelBuilder.Entity<AppImgRoom>().SeedData();
             modelBuilder.Entity<AppRoomEquipment>().SeedData();
             modelBuilder.Entity<AppComment>().SeedData();
+            modelBuilder.Entity<AppOrder>().SeedData();
+            modelBuilder.Entity<AppOrderDetail>().SeedData();
         }
 	}
 }
