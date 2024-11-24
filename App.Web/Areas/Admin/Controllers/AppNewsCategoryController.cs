@@ -29,7 +29,7 @@ namespace App.Web.Areas.Admin.Controllers
 
 			var data = (await _repository
 			.GetAll<AppNewsCategory>()
-			.ProjectTo<ListItemCategoryNewsVM>(AutoMapperProfile.CategoryNewsConf)
+			.ProjectTo<ListItemCategoryNewsVM>(AutoMapperProfile.CategoryNewsIndexConf)
 			.ToPagedListAsync(page, size))
 			.GenRowIndex();
 			return View(data);
