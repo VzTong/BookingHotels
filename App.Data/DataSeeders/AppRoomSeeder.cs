@@ -20,7 +20,7 @@ namespace App.Data.DataSeeders
 					Slug = "t0145-101-luxury",
 					Status = DB.RoomStatus.STATUS_CHECKOUT_NAME,
 					Price = 15000000,
-					DiscountPrice = 120000,
+					DiscountPrice = 12000000,
 					DiscountFrom = new DateTime(2024, 10, 1),
 					DiscountTo = new DateTime(2024, 12, 31),
 					CreatedDate = now,

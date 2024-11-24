@@ -74,23 +74,6 @@ namespace App.Data.DataSeeders
 				}, new AppUser
 				{
 					Id = 4,
-					Username = "admin_cn_melia_ha_noi",
-					PasswordHash = pwdHash,
-					PasswordSalt = pwdSalt,
-					Address = "Hà Nội",
-					Email = "adminmeliahanoi@gmail.com",
-					FullName = "Hồ Thành Nhân",
-					PhoneNumber1 = "+84725136123",
-					PhoneNumber2 = "+84227450123",
-					Avatar = "/adminLTE/images/users/avatar-8.jpg",
-					CitizenId = 0917625678,
-					CreatedBy = -1,
-					CreatedDate = now,
-					BranchId = 1,               // Chi nhánh được tạo ở AppBranchHotelSeeder
-					AppRoleId = 4,              // Vai trò được tạo ở AppRoleSeeder
-				}, new AppUser
-				{
-					Id = 5,
 					Username = "full_news_manager",
 					PasswordHash = pwdHash,
 					PasswordSalt = pwdSalt,
@@ -107,7 +90,7 @@ namespace App.Data.DataSeeders
 					AppRoleId = 5,              // Vai trò được tạo ở AppRoleSeeder
 				}, new AppUser
 				{
-					Id = 6,
+					Id = 5,
 					Username = "cate_news_manager",
 					PasswordHash = pwdHash,
 					PasswordSalt = pwdSalt,
@@ -124,7 +107,7 @@ namespace App.Data.DataSeeders
 					AppRoleId = 6,              // Vai trò được tạo ở AppRoleSeeder
 				}, new AppUser
 				{
-					Id = 7,
+					Id = 6,
 					Username = "news_manager",
 					PasswordHash = pwdHash,
 					PasswordSalt = pwdSalt,
@@ -141,7 +124,7 @@ namespace App.Data.DataSeeders
 					AppRoleId = 7,              // Vai trò được tạo ở AppRoleSeeder
 				}, new AppUser
 				{
-					Id = 8,
+					Id = 7,
 					Username = "cate_equipment_management",
 					PasswordHash = pwdHash,
 					PasswordSalt = pwdSalt,
@@ -158,7 +141,7 @@ namespace App.Data.DataSeeders
 					AppRoleId = 8,              // Vai trò được tạo ở AppRoleSeeder
 				}, new AppUser
 				{
-					Id = 9,
+					Id = 8,
 					Username = "equipment_management",
 					PasswordHash = pwdHash,
 					PasswordSalt = pwdSalt,
@@ -175,6 +158,31 @@ namespace App.Data.DataSeeders
 					AppRoleId = 9,              // Vai trò được tạo ở AppRoleSeeder
 				}
 			);
+
+			// Add additional admins for the remaining 59 branches
+			for (int i = 9; i <= 68; i++)
+			{
+				builder.HasData(
+					new AppUser
+					{
+						Id = i,
+						Username = $"admin_branch_{i}",
+						PasswordHash = pwdHash,
+						PasswordSalt = pwdSalt,
+						Address = $"Branch Address {i}",
+						Email = $"admin_branch_{i}@gmail.com",
+						FullName = $"Admin Branch {i}",
+						PhoneNumber1 = $"+8490000000{i}",
+						PhoneNumber2 = $"+8490000001{i}",
+						Avatar = $"/adminLTE/images/users/avatar-{((i - 1) % 10) + 1}.jpg",
+						CitizenId = 1000000987 + i,
+						CreatedBy = -1,
+						CreatedDate = now,
+						BranchId = i - 9,               // Chi nhánh được tạo ở AppBranchHotelSeeder
+						AppRoleId = 4,              // Vai trò được tạo ở AppRoleSeeder
+					}
+				);
+			}
 		}
 	}
 }
