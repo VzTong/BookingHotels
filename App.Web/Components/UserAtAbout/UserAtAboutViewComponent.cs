@@ -19,8 +19,10 @@ namespace App.Web.Components.UserAtAbout
         public async Task<IViewComponentResult> InvokeAsync()
         {
             var data = await _repo
-                   .GetAll<AppUser>(x => x.DeletedDate == null && x.AppRoleId != AppConst.ROLE_CUSTOMER_ID)
-                   .OrderBy(x => x.DisplayOrder)
+                   .GetAll<AppUser>(x => x.DeletedDate == null 
+                                        && x.BranchId == null
+                                        && x.AppRoleId != AppConst.ROLE_CUSTOMER_ID)
+                   .OrderByDescending(x => x.DisplayOrder)
                    .Select(x => new UserVm
                    {
                        Id = x.Id,
