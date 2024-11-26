@@ -1,4 +1,5 @@
 ﻿using App.Data.Entities.Hotel;
+using App.Data.Entities.User;
 using App.Data.Repositories;
 using App.Share.Consts;
 using App.Share.Extensions;
@@ -32,6 +33,7 @@ namespace App.Web.Areas.Admin.Controllers
 		public async Task<IActionResult> Index(SearchBranchVM search, int page = 1, int size = DEFAULT_PAGE_SIZE)
 		{
 			int? branchId = GetCurrentUserBranchId(); //Truy xuất BranchId của người dùng hiện đang đăng nhập
+			ViewBag.BranchId = branchId;
 			ViewBag.Name = search.Name;
 			var data = await GetListBranchAsync(search, page, size, branchId);
 			return View(data);
@@ -97,6 +99,57 @@ namespace App.Web.Areas.Admin.Controllers
 				branch.CreatedDate = now;
 
 				await _repository.AddAsync(branch);
+
+				#region Tạo quyền và người dùng mặc định cho chi nhánh mới => Phân quyền cho chi nhánh mới
+				// Tạo vai trò quản trị viên cho chi nhánh mới được tạo
+				var adminRole = new AppRole
+				{
+					Name = $"Quản trị - Chi nhánh {branch.Name}",
+					Desc = $"Quản trị toàn bộ hệ thống thuộc chi nhánh {branch.Name}",
+					CanDelete = true,
+					CreatedBy = CurrentUserId,
+					CreatedDate = now
+				};
+				await _repository.AddAsync(adminRole);
+
+				// Tạo người dùng mặc định với quyền quản trị viên cho chi nhánh
+				var defaultAdminUser = new AppUser
+				{
+					Username = $"admin_branch_{branch.Id}",
+					FullName = "Default Admin",
+					Email = $"admin_branch_{branch.Id}@example.com",
+					PhoneNumber1 = "0000000000",
+					Address = "Default Address",
+					AppRoleId = adminRole.Id,
+					BranchId = branch.Id,
+					CreatedBy = CurrentUserId,
+					CreatedDate = now
+				};
+				// Generate password hash and salt
+				var password = "123123";
+				using (var hmac = new System.Security.Cryptography.HMACSHA512())
+				{
+					defaultAdminUser.PasswordSalt = hmac.Key;
+					defaultAdminUser.PasswordHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
+				}
+
+				await _repository.AddAsync(defaultAdminUser);
+
+				// Mã mới để tạo quyền cho vai trò
+				var permissions = await _repository.GetAll<MstPermission>().ToListAsync();
+				foreach (var permission in permissions)
+				{
+					var rolePermission = new AppRolePermission
+					{
+						AppRoleId = adminRole.Id,
+						MstPermissionId = permission.Id,
+						CreatedBy = CurrentUserId,
+						CreatedDate = now
+					};
+					await _repository.AddAsync(rolePermission);
+				}
+				#endregion
+
 				SetSuccessMesg($"Thêm chi nhánh '{branch.Name}' thành công");
 				return Redirect(refererUrl);
 
@@ -113,6 +166,9 @@ namespace App.Web.Areas.Admin.Controllers
 		public async Task<IActionResult> Update(AddOrUpdateBranchHotelVM model, [FromServices] IWebHostEnvironment env)
 		{
 			var branch = await _repository.FindAsync<AppBranchHotel>((int)model.Id);
+			
+			#region Kiểm tra chi nhánh tồn tại
+			// Kiểm tra chi nhánh tồn tại
 			if (!ModelState.IsValid)
 			{
 				SetErrorMesg(MODEL_STATE_INVALID_MESG, true);
@@ -128,6 +184,8 @@ namespace App.Web.Areas.Admin.Controllers
 				SetErrorMesg("Chi nhánh này đã tồn tại!");
 				return RedirectToAction(nameof(Index), ROUTE_FOR_AREA);
 			}
+			#endregion
+
 			try
 			{
 				model.IdMap = model.IdMap == null ? $"{HttpContext.Request.Scheme}://{HttpContext.Request.Host}" : model.IdMap;
@@ -149,6 +207,26 @@ namespace App.Web.Areas.Admin.Controllers
 				else
 				{
 					model.Img = branch.Img;
+				}
+
+				// Kiểm tra xem tên chi nhánh đã thay đổi chưa
+				if (branch.Name != model.Name)
+				{
+					// Cập nhật các quyền liên quan
+					var branchPermissions = await _repository.DbContext.AppRolePermission
+						.Where(rp => rp.AppRole.Name.Contains($"Chi nhánh {branch.Name}"))
+						.ToListAsync();
+
+					foreach (var permission in branchPermissions)
+					{
+						var role = await _repository.FindAsync<AppRole>(permission.AppRoleId);
+						if (role != null)
+						{
+							role.Name = $"Quản trị - Chi nhánh {model.Name}";
+							role.Desc = $"Quản trị toàn bộ hệ thống thuộc chi nhánh {model.Name}";
+							await _repository.UpdateAsync(role);
+						}
+					}
 				}
 
 				// Cập nhật các thuộc tính khác của branch
@@ -179,6 +257,38 @@ namespace App.Web.Areas.Admin.Controllers
 			}
 			// Gỡ khóa ngoại
 			branch.HotelId = null;
+
+			#region Xóa quyền, vai trò và người dùng liên quan đến chi nhánh
+			// Tìm và xóa tất cả các quyền liên quan đến chi nhánh
+			var branchPermissions = await _repository.DbContext.AppRolePermission
+				.Where(rp => rp.AppRole.Name.Contains($"Chi nhánh {branch.Name}"))
+				.ToListAsync();
+
+			foreach (var permission in branchPermissions)
+			{
+				await _repository.DeleteAsync(permission);
+			}
+
+			// Tìm và xóa tất cả các vai trò liên quan đến chi nhánh
+			var branchRoles = await _repository.DbContext.AppRole
+				.Where(r => r.Name.Contains($"Chi nhánh {branch.Name}"))
+				.ToListAsync();
+
+			foreach (var role in branchRoles)
+			{
+				await _repository.DeleteAsync(role);
+			}
+
+			// Tìm và xóa tất cả người dùng liên quan đến chi nhánh
+			var branchUsers = await _repository.DbContext.AppUsers
+				.Where(u => u.BranchId == branch.Id)
+				.ToListAsync();
+
+			foreach (var user in branchUsers)
+			{
+				await _repository.DeleteAsync(user);
+			}
+			#endregion
 
 			await _repository.DeleteAsync(branch);
 			SetSuccessMesg($"Chi nhánh '{branch.Name}' được xóa thành công");
