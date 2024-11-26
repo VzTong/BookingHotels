@@ -31,8 +31,8 @@
 								<li><a asp-action="About" asp-controller="Home">Thông tin</a></li>
 								<li><a asp-action="Contact" asp-controller="Home">Liên hệ</a></li>
 								<li>
-									<a asp-action="BookingRoom" asp-controller="Order">
-										<i class="las la-shopping-cart"></i>
+									<a class="cart-shopping" asp-controller="Order" asp-action="Index" aria-label="cart">
+										<i class="las la-shopping-cart fa-2x"></i> <span class="cart-text">0</span>
 									</a>
 								</li>
 								@if (Context.User.Identity.IsAuthenticated)
@@ -79,7 +79,7 @@
 										<a type="button"
 										   data-bs-toggle="modal"
 										   data-bs-target="#loginModals"
-										   style="cursor:default">
+										   style="cursor: pointer;">
 											Đăng nhập
 										</a>
 									</li>
@@ -87,7 +87,7 @@
 										<a type="button"
 										   data-bs-toggle="modal"
 										   data-bs-target="#signupModals"
-										   style="cursor:default">
+										   style="cursor: pointer;">
 											Đăng ký
 										</a>
 									</li>
