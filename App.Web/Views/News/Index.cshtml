@@ -8,15 +8,15 @@
 			<h2>Tin tức</h2>
 		</div>
 		<div class="card-group">
-			<div class="row">
-				<div class="col-md-6 mb-5 d-flex">
+			<div class="row m-0 p-0" style="width: 100%;">
+				<div class="col-12 d-flex">
 					@foreach (var item in Model)
 					{
 						<div class="card card-news mr-4">
 							<div class="media-with-text">
 								<div class="img-border-sm mb-4">
 									<a asp-action="Detail" asp-route-id="@item.Id" class="popup-vimeo image-play">
-										<img src="/@item.CoverImgThumbnailPath" alt="" class="img-fluid">
+										<img src="/@item.CoverImgThumbnailPath" alt="@item.Title" class="img-fluid">
 									</a>
 								</div>
 								<div class="card-body">
@@ -24,7 +24,9 @@
 									<h2 class="heading mb-0 text-truncate">
 										<a asp-action="Detail" asp-route-id="@item.Id">@item.Title</a>
 									</h2>
-									<span class="mb-3 d-block post-date">@item.CreatedDate?.ToString("dd/MM/yyyy") &bullet; Tạo bởi <span style="color: #0071C2;">@item.CreatedByName</span></span>
+									<span class="mb-3 d-block post-date">
+										@item.CreatedDate?.ToString("dd/MM/yyyy")
+									</span>
 									<p>@item.Content</p>
 									<p class="post-date">View @item.Views <span>Vote @item.Votes</span></p>
 									<a asp-action="Detail" asp-route-id="@item.Id" class="btn btn-primary w-100 text-white custom-bg shadow-none mb-2">Đọc thêm</a>
@@ -37,7 +39,7 @@
 		</div>
 	</div>
 </div>
-<div class="row mb-5">
+<div class="row mb-5" style="width: 100%;">
 	<div class="col-md-12 text-center">
 		<div class="site-block-27">
 			<partial name="_Pager" model="Model" />
