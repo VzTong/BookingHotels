@@ -1,4 +1,5 @@
 ﻿using App.Data.Entities.News;
+using App.Data.Entities.User;
 using App.Data.Repositories;
 using App.Web.ViewModels.News;
 using App.Web.WebConfig;
@@ -27,30 +28,33 @@ namespace App.Web.Controllers
                 .ThenByDescending(m => m.Id)
                 .ProjectTo<NewsVM>(AutoMapperProfile.NewsIndexClientConf)
                 .ToPagedListAsync(page, size);
+            
             return View(data);
         }
 
         public async Task<IActionResult> Detail(int id)
         {
-            var data = await _repository.FindAsync<AppNews>(id);
+            var data = await _repository.GetOneAsync<AppNews>(x => x.Id == id);
             if (data == null)
             {
                 SetErrorMesg(PAGE_NOT_FOUND_MESG);
                 return RedirectToAction(nameof(Index));
             }
+
             var vm = _mapper.Map<NewsVM>(data);
+            vm.CreatedByName = _repository.GetOneAsync<AppUser>(x => x.Id == data.CreatedBy).Result.FullName;
 
             // Fetch popular news
             var popularNews = _repository
-                .GetAll<AppNews>(n => n.CategoryId != data.CategoryId)
+                .GetAll<AppNews>(n => n.CategoryId == data.CategoryId)
                 .ProjectTo<NewsVM>(AutoMapperProfile.NewsIndexClientConf)
                 .FirstOrDefault();
 
             // Fetch list of popular news
             var popularListNews = await _repository
-                .GetAll<AppNews>()
+                .GetAll<AppNews>(n => n.CategoryId == data.CategoryId && n.Id != data.Id)
                 .OrderByDescending(n => n.DisplayOrder)
-                .Take(5) // Adjust the number of popular news items as needed
+                .Take(5)
                 .ProjectTo<NewsVM>(AutoMapperProfile.NewsIndexClientConf)
                 .Distinct()
                 .ToListAsync();
