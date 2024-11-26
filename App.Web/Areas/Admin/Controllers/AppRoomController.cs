@@ -1,4 +1,5 @@
-﻿using App.Data.Entities.Room;
+﻿using App.Data.Entities.Hotel;
+using App.Data.Entities.Room;
 using App.Data.Repositories;
 using App.Share.Consts;
 using App.Share.Extensions;
@@ -77,41 +78,92 @@ namespace App.Web.Areas.Admin.Controllers
 		[AppAuthorize(AuthConst.AppRoom.CREATE)]
 		public async Task<IActionResult> CreateRoom(AddOrUpdateRoomVM model, [FromServices] IWebHostEnvironment env)
 		{
+			#region check điều kiện để thêm phòng
+			// Kiểm tra điều kiện để thêm phòng
 			if (!ModelState.IsValid)
 			{
 				SetErrorMesg(MODEL_STATE_INVALID_MESG, true);
-				return RedirectToAction(nameof(Index), ROUTE_FOR_AREA);
-			}
-			if (_repository.GetAll<AppRoom>().Any(s => s.FloorNumber.Equals(model.FloorNumber) && s.RoomNumber.Equals(model.RoomNumber)))
-			{
-				SetErrorMesg("phòng này đã tồn tại !");
-				return RedirectToAction(nameof(Index), ROUTE_FOR_AREA);
+				return View(model);
 			}
 			if (model.Price <= model.DiscountPrice)
 			{
 				SetErrorMesg("Giá khuyến mãi không thể cao hơn hoặc bằng giá gốc !");
 				return View(model);
 			}
+			var branch = await _repository.FindAsync<AppBranchHotel>((int)(model.BranchId));
+			if (model.BranchId == null || branch == null)
+			{
+				SetErrorMesg("Chi nhánh không tồn tại !");
+				return View(model);
+			}
+			if (branch.Rooms.Count == branch.QuantityRoom)
+			{
+				SetErrorMesg("Chi nhánh đã đầy phòng");
+				return View(model);
+			}
+			if (model.RoomTypeId == null || !_repository.GetAll<AppRoomType>().Any(s => s.Id == model.RoomTypeId))
+			{
+				SetErrorMesg("Loại phòng không tồn tại !");
+				return View(model);
+			}
+			if (model.FloorNumber > branch.QuantityFloor)
+			{
+				SetErrorMesg("Số tầng không thể lớn hơn số tầng của chi nhánh !");
+				return View(model);
+			}
+			if (_repository.GetAll<AppRoom>().Any(s => s.FloorNumber.Equals(model.FloorNumber) && s.RoomNumber.Equals(model.RoomNumber) && s.RoomTypeId.Equals(model.RoomTypeId)))
+			{
+				SetErrorMesg("Phòng này đã tồn tại !");
+				return View(model);
+			}
+
+			#endregion
+
+			#region Thêm nhiều ảnh cho phòng => Thêm vào bảng ImgRoom
+			// Thêm nhiều ảnh cho phòng => Thêm vào bảng ImgRoom
+			var imgs = new IFormFile[] { model.LinkImage1, model.LinkImage2, model.LinkImage3, model.LinkImage4 };
+
+			var imgPaths = new String[] { model.LinkImage1_path, model.LinkImage2_path, model.LinkImage3_path, model.LinkImage4_path };
+
+			var now = DateTime.Now;
+			for (var i = 0; i < imgs.Length; i++)
+			{
+				imgPaths[i] = imgs[i] != null && imgs.Length > 0 ? UploadFile(imgs[i], env.WebRootPath) : null;
+				model.ImgRooms.Add(new AppImgRoom
+				{
+					ImgSrc = imgPaths[i],
+					CreatedBy = CurrentUserId,
+					CreatedDate = now
+				}); 
+			}
+			#endregion
+
+			#region Thêm dữ liệu trang thiết bị
+			// Thêm dữ liệu trang thiết bị
+			if (model.EquipmentId is not null)
+			{
+				foreach (var item in model.EquipmentId)
+				{
+					// Lấy thông tin trang thiết bị
+					var equipment = await _repository.FindAsync<AppEquipment>((int)item);
+					if (equipment != null)
+					{
+						model.RoomEquipments.Add(new AppRoomEquipment
+						{
+							EquipmentId = item
+						});
+					}
+				}
+			}
+			#endregion
+
 			try
 			{
-				var imgs = new string[] { model.LinkImage1, model.LinkImage2, model.LinkImage3, model.LinkImage4};
-				var now = DateTime.Now;
-				for (var i = 0; i < imgs.Length; i++)
-				{
-					var img = imgs[i] ?? "";
-
-					model.ProductImages.Add(new AppImgRoom
-					{
-						ImgSrc = img,
-						CreatedBy = CurrentUserId,
-						UpdatedBy = CurrentUserId,
-						CreatedDate = now
-					});
-				}
 				var user = CurrentUserId;
-
+				var roomType = await _repository.FindAsync<AppRoomType>((int)(model.RoomTypeId));
 				var room = _mapper.Map<AppRoom>(model);
-				room.RoomName = $"T0{room.FloorNumber}•{room.RoomNumber} {room.RoomType.RoomTypeName}";
+
+				room.RoomName = $"T0{room.FloorNumber}•{room.RoomNumber} {roomType.RoomTypeName}";
 				room.Slug = StringExtension.Slugify(room.RoomName);
 				room.CreatedBy = CurrentUserId;
 				room.CreatedDate = now;
@@ -137,14 +189,21 @@ namespace App.Web.Areas.Admin.Controllers
 				SetErrorMesg(PAGE_NOT_FOUND_MESG);
 				return RedirectToAction(nameof(Index));
 			}
-			var userEditVM = _mapper.Map<AddOrUpdateRoomVM>(room);
-			return View(userEditVM);
+			var roomEditVM = _mapper.Map<AddOrUpdateRoomVM>(room);
+			roomEditVM.LinkImage1_path = room.ImgRooms.ElementAtOrDefault(0)?.ImgSrc;
+			roomEditVM.LinkImage2_path = room.ImgRooms.ElementAtOrDefault(1)?.ImgSrc;
+			roomEditVM.LinkImage3_path = room.ImgRooms.ElementAtOrDefault(2)?.ImgSrc;
+			roomEditVM.LinkImage4_path = room.ImgRooms.ElementAtOrDefault(3)?.ImgSrc;
+			roomEditVM.EquipmentId = room.RoomEquipments.Select(e => e.EquipmentId ?? 0).ToList();
+			return View(roomEditVM);
 		}
 
 		[HttpPost]
 		[AppAuthorize(AuthConst.AppUser.UPDATE)]
-		public async Task<IActionResult> EditRoom(AddOrUpdateRoomVM model)
+		public async Task<IActionResult> EditRoom(AddOrUpdateRoomVM model, [FromServices] IWebHostEnvironment env)
 		{
+			#region check điều kiện để cập nhật phòng
+			// Kiểm tra điều kiện để cập nhật phòng
 			if (!ModelState.IsValid)
 			{
 				SetErrorMesg(MODEL_STATE_INVALID_MESG, true);
@@ -155,36 +214,99 @@ namespace App.Web.Areas.Admin.Controllers
 				SetErrorMesg("Giá khuyến mãi không thể cao hơn hoặc bằng giá gốc!");
 				return View(model);
 			}
+
+			var branch = await _repository.FindAsync<AppBranchHotel>((int)(model.BranchId));
+			if (model.BranchId == null || branch == null)
+			{
+				SetErrorMesg("Chi nhánh không tồn tại !");
+				return View(model);
+			}
+			if (branch.Rooms.Count == branch.QuantityRoom)
+			{
+				SetErrorMesg("Chi nhánh đã đầy phòng");
+				return View(model);
+			}
+			if (model.RoomTypeId == null || !_repository.GetAll<AppRoomType>().Any(s => s.Id == model.RoomTypeId))
+			{
+				SetErrorMesg("Loại phòng không tồn tại !");
+				return View(model);
+			}
+			if (model.FloorNumber > branch.QuantityFloor)
+			{
+				SetErrorMesg("Số tầng không thể lớn hơn số tầng của chi nhánh !");
+				return View(model);
+			}
+			if (_repository.GetAll<AppRoom>().Any(s => s.FloorNumber.Equals(model.FloorNumber) && s.RoomNumber.Equals(model.RoomNumber) && s.RoomTypeId.Equals(model.RoomTypeId)))
+			{
+				SetErrorMesg("Phòng này đã tồn tại !");
+				return View(model);
+			}
+			#endregion
+
 			try
 			{
 				var oldRoom = await _repository.FindAsync<AppRoom>((int)model.Id);
 
 				if (oldRoom is null)
 				{
-					SetErrorMesg("Không tìm thấy sản phẩm cần cập nhật.");
+					SetErrorMesg("Không tìm thấy phòng cần cập nhật.");
 					return View(model);
 				}
-				// Cập nhật sản phẩm
+				// Cập nhật phòng
 				_mapper.Map(model, oldRoom);
 				oldRoom.RoomName = $"T0{oldRoom.FloorNumber}•{oldRoom.RoomNumber} {oldRoom.RoomType.RoomTypeName}";
 				oldRoom.Slug = StringExtension.Slugify(oldRoom.RoomName);
 				await _repository.UpdateAsync(oldRoom);
 
-				// Cập nhật ảnh sản phẩm
+				#region Cập nhật ảnh phòng
+				// Cập nhật ảnh phòng
 				var roomImgs = (await _repository.GetAll<AppImgRoom>(x => x.RoomId == model.Id)
 										.ToListAsync());
 				// Cố định thứ tự update
 				roomImgs = roomImgs.OrderBy(x => x.Id).ToList();
-				var imgs = new string[] { model.LinkImage1, model.LinkImage2, model.LinkImage3, model.LinkImage4};
+				var imgs = new IFormFile[] { model.LinkImage1, model.LinkImage2, model.LinkImage3, model.LinkImage4 };
 				var now = DateTime.Now;
 				for (var i = 0; i < roomImgs.Count; i++)
 				{
-					var img = imgs[i];
-					roomImgs[i].ImgSrc = img;
+					if (imgs[i] != null && imgs.Length > 0)
+					{
+						// Delete old image if exists
+						if (!string.IsNullOrEmpty(roomImgs[i].ImgSrc))
+						{
+							var oldImagePath = Path.Combine(env.WebRootPath, roomImgs[i].ImgSrc.TrimStart('/'));
+							if (System.IO.File.Exists(oldImagePath))
+							{
+								System.IO.File.Delete(oldImagePath);
+							}
+						}
+
+						// Upload new photo and update link
+						var img = UploadFile(imgs[i], env.WebRootPath);
+						roomImgs[i].ImgSrc = img;
+					}
+
 					roomImgs[i].UpdatedBy = CurrentUserId;
 					roomImgs[i].UpdatedDate = now;
+				}await _repository.UpdateAsync(roomImgs);
+				#endregion
+
+				#region Cập nhật trang thiết bị
+				// Cập nhật trang thiết bị
+				if (model.EquipmentId is not null)
+				{
+					foreach (var item in model.EquipmentId)
+					{
+						// Lấy thông tin trang thiết bị
+						var equipment = await _repository.FindAsync<AppEquipment>((int)item);
+						if (equipment != null)
+						{
+							equipment.Id = item;
+							equipment.UpdatedBy = CurrentUserId;
+							equipment.UpdatedDate = now;
+						}await _repository.UpdateAsync(equipment);
+					}
 				}
-				await _repository.UpdateAsync(roomImgs);
+				#endregion
 
 				SetSuccessMesg($"Cập nhật phòng '{oldRoom.RoomName}' thành công");
 				var indexUrl = Request.Form["beforeUrl"].ToString();
@@ -274,5 +396,18 @@ namespace App.Web.Areas.Admin.Controllers
 			}
 			return Redirect(Referer);
 		}
+
+		[HttpGet]
+		public async Task<IActionResult> GetBranchInfoAsync(int branchId)
+		{
+			// Fetch the number of floors and rooms for the given branchId
+			var branchInfo = await _repository.FindAsync<AppBranchHotel>(branchId);
+			if (branchInfo != null)
+			{
+				return Json(new { floors = branchInfo.QuantityFloor, rooms = branchInfo.QuantityRoom });
+			}
+			return NotFound();
+		}
+
 	}
 }
