@@ -1,0 +1,176 @@
+﻿@using Microsoft.IdentityModel.Tokens
+@model App.Web.ViewModels.Room.RoomDetailVM
+@{
+	ViewData["Title"] = "Chi tiết phòng";
+	var bringPet = Model.BringPet ? "có thể mang thú cưng" : "không thể mang thú cưng";
+}
+<!-- giao diện chi tiết đặt phòng -->
+<div class="site-section detail-room mt-4">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<div>
+					<div class="slider-for owl-carousel mt-2">
+						@if (!Model.ImagePath.IsNullOrEmpty())
+						{
+							@foreach (var img in Model.ImagePath)
+							{
+								<div><img src="/@img" alt="Image" width="540px" height="371px" style="object-fit:cover" class="img-fluid"></div>
+							}
+						}
+					</div>
+					<div class="slider-nav">
+						@if (!Model.ImagePath.IsNullOrEmpty())
+						{
+							@foreach (var img in Model.ImagePath)
+							{
+								<div><img src="/@img" alt="Image" width="180px" height="124px" style="object-fit:cover" class="img-fluid"></div>
+							}
+						}
+					</div>
+				</div>
+			</div>
+			<!-- Room Details -->
+			<div class="col-md-6">
+				<h2 class="text-black">Thông tin chi tiết phòng</h2>
+				<p>
+					Tên phòng: @Model.RoomName - Thuộc tầng: @Model.FloorNumber có số phòng là: @Model.RoomNumber
+				</p>
+				<p>
+					@Model.BranchDesc
+				</p>
+				<p>
+					Thuộc khách sạn: @Model.HotelName
+				</p>
+				<p>
+					<strong class="text-primary h4">
+						@if (Model.IsDiscountProduct)
+						{
+							<span class="small text-secondary" style="text-decoration: line-through;">@Model.Price.ToString("#,0 VNĐ")/ ngày</span>
+
+							<span>@Model.DiscountPrice?.ToString("#,0 VNĐ")/ ngày</span>
+						}
+						else
+						{
+							@Model.Price.ToString("#,0 VNĐ")
+						}
+					</strong>
+				</p>
+				@if (Model.IsDiscountProduct)
+				{
+					<p>
+						Thời gian giảm giá
+						<span class="badge badge-soft-primary" style="cursor: default;">
+							@Model.DiscountFrom?.ToString("dd/MM/yyyy") ➡️ @Model.DiscountTo?.ToString("dd/MM/yyyy")
+						</span>
+					</p>
+				}
+				<p>
+					Thuộc loại phòng: @Model.RoomTypeName - Có @Model.PeopleStay người ở và @bringPet
+				</p>
+				<p>
+					<button class="btn btn-danger d-block my-3 shadow" 
+							onclick="addToCart(@Model.Id)">
+						<i class="las la-cart-arrow-down"></i>
+					</button>
+					<a asp-action="BookingRoom" 
+						asp-controller="Order" 
+						asp-route-id="@Model.Id" 
+						class="btn btn-primary text-white">Đặt phòng</a>
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+<!--  -->
+<div class="container mt-2">
+	<h5 class="fw-bold">Các tiện nghi được ưa chuộng nhất</h5>
+	<div class="row mt-3">
+		<div class="col-lg-3 mb-3 d-flex align-items-center">
+			<i class="las la-wifi"></i>
+			<span>WiFi miễn phí</span>
+		</div>
+		<div class="col-lg-3 mb-3 d-flex align-items-center">
+			<i class="las la-car-alt"></i>
+			<span>Xe đưa đón sân bay</span>
+		</div>
+		<div class="col-lg-3 mb-3 d-flex align-items-center">
+			<i class="las la-smoking"></i>
+			<span>Phòng hút thuốc riêng biệt</span>
+		</div>
+		<div class="col-lg-3 mb-3 d-flex align-items-center">
+			<i class="lab la-servicestack"></i>
+			<span>Dịch vụ phòng</span>
+		</div>
+	</div>
+</div>
+<!-- dịch vụ phòng -->
+<div class="container mt-4 mb-4">
+	<h5 class="fw-bold">Dịch vụ phòng</h5>
+	<div class="row">
+		<div class="container mt-2 my-4">
+			<!-- Amenities Section -->
+			<div class="row">
+				<div class="col-12">
+					<div class="section-title">Tiện nghi</div>
+					<div class="divider"></div>
+				</div>
+				<div class="col-md-6 details">
+					Bãi đỗ xe hơi: <strong>100,000 VNĐ / xe / ngày</strong><br>
+					Bãi đỗ xe máy: <strong>30,000 VNĐ / xe / ngày</strong><br>
+					Wifi: <strong>miễn phí</strong><br>
+					Thang máy: <strong>4 thang máy</strong><br>
+				</div>
+				<div class="col-md-6 details">
+					@if (Model.EquipmentName != null && Model.EquipmentName.Any())
+					{
+						@foreach (var equipment in Model.EquipmentName)
+						{
+							<p style="cursor: default;"><strong>✅</strong>@equipment<br></p>
+						}
+					}
+				</div>
+			</div>
+			<!-- Prices Section -->
+			<div class="row mt-4">
+				<div class="col-12">
+					<div class="section-title">Dịch vụ phòng</div>
+					<div class="divider"></div>
+				</div>
+				<div class="col-md-6 details">
+					Thêm người: <strong>Tăng thêm 550,000 VNĐ</strong><br>
+					Phí dọn dẹp: <strong>350,000 VNĐ</strong>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+
+@section Scripts {
+	<script type="text/javascript"
+			src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$('.slider-for').slick({
+				slidesToShow: 1,
+				slidesToScroll: 1,
+				arrows: false,
+				fade: true,
+				asNavFor: '.slider-nav',
+				autoplay: true,
+				autoplaySpeed: 2000
+			});
+			$('.slider-nav').slick({
+				slidesToShow: 3,
+				slidesToScroll: 1,
+				asNavFor: '.slider-for',
+				dots: true,
+				centerMode: true,
+				focusOnSelect: true,
+				arrows: true,
+				centerPadding: '0px'
+			});
+		});
+	</script>
+}

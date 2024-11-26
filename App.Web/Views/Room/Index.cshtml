@@ -1,0 +1,143 @@
+﻿@using Microsoft.IdentityModel.Tokens
+@model IEnumerable<App.Web.ViewModels.Room.RoomVM>
+@{
+	ViewData["Title"] = "Danh sách phòng";
+}
+<!-- container -->
+<div class="site-section bg-light our-room mt-4">
+	<div class="col-md-6 mx-auto text-center mb-5 section-heading">
+		<h2 class="mb-5">Danh sách phòng</h2>
+	</div>
+	<div class="container">
+		<div class="row">
+			<!-- mmenu chọn -->
+			<div class="col-lg-3 col-md-12 mb-lg-0 mb-4 px-">
+				<nav class="navbar navbar-expand-lg bg-white rounded shadow">
+					<div class="container-fluid flex-lg-column align-items-stretch">
+						<strong>
+							<a class="mt-2">Chọn lọc theo</a>
+						</strong>
+						<button class="navbar-toggler shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+							<span class="navbar-toggler-icon"></span>
+						</button>
+						<div class="collapse navbar-collapse flex-column align-items-stretch mt-2" id="filterDropdown">
+							<div class=" p-3 rounded mb-3">
+								<h5 class="mb-3 text-center fw-bold" style="font-size: 16px;">Các bộ lọc phổ biến</h5>
+								<div class="mb-2">
+									<input type="checkbox" id="f1" class="form-check-input shadow-none me-1">
+									<label class="form-check-label" for="f1">Khách sạn</label>
+								</div>
+								<div class="mb-2">
+									<input type="checkbox" id="f2" class="form-check-input shadow-none me-1">
+									<label class="form-check-label" for="f2">Căn hộ</label>
+								</div>
+								<div class="mb-2">
+									<input type="checkbox" id="f3" class="form-check-input shadow-none me-1">
+									<label class="form-check-label" for="f3">Bồn tắm</label>
+								</div>
+								<div class="mb-2">
+									<input type="checkbox" id="f4" class="form-check-input shadow-none me-1">
+									<label class="form-check-label" for="f4">Wifi miễn phí</label>
+								</div>
+							</div>
+							<hr>
+							<div class=" p-3 rounded mb-3">
+								<h5 class="mb-3 text-center" style="font-size: 16px;">Tiện nghi</h5>
+								<div class="mb-2">
+									<input type="checkbox" id="t1" class="form-check-input shadow-none me-1">
+									<label class="form-check-label" for="t1">Chỗ đổ xe</label>
+								</div>
+								<div class="mb-2">
+									<input type="checkbox" id="t2" class="form-check-input shadow-none me-1">
+									<label class="form-check-label" for="t2">Nhà hàng</label>
+								</div>
+								<div class="mb-2">
+									<input type="checkbox" id="t3" class="form-check-input shadow-none me-1">
+									<label class="form-check-label" for="t3">Dịch vụ phòng</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</nav>
+			</div>
+			<!-- Danh sách phong -->
+			<div class="col-lg-9 col-md-12 px-4">
+				@foreach (var item in Model)
+				{
+					<div class="col-md-12 px-4">
+						<div class="card mb-4 border-0 shadow">
+							<div class="row g-0 p-3 align-items-center">
+								<div class="col-md-4">
+									@if (item.ImagePath != null)
+									{
+										var imgSrc = item.ImagePath.StartsWith("https", StringComparison.OrdinalIgnoreCase) ? item.ImagePath : "/" + item.ImagePath;
+										<img src="@imgSrc" class="img-fluid rounded" style="object-fit:cover" />
+									}
+									else
+									{
+										<span>Hiện không có ảnh</span>
+									}
+								</div>
+								<div class="col-md-5">
+									<h5 class="mb-3">
+										@item.RoomName
+										<span>Loại phòng: @item.RoomTypeName</span>
+									</h5>
+									<div class="feature mb-3">
+										<h6 class="mb-1"></h6>
+										<p style="color: black;">@item.BranchDesc</p>
+									</div>
+									<div class="facilities mb-3">
+										<h6 class="mb-1">Trang thiết bị</h6>
+										@if (item.EquipmentName.IsNullOrEmpty())
+										{
+											<span class="badge rounded-pill bg-light text-dark text-wrap" style="cursor: default;">Không có trang thiết bị</span>
+										}
+										else
+										{
+											@foreach (var equipment in item.EquipmentName)
+											{
+												<span class="badge rounded-pill bg-light text-dark text-wrap">@equipment</span>
+											}
+										}
+									</div>
+								</div>
+								<div class="col-md-3">
+									<h6 class="mb-4">
+										@if (item.IsDiscountProduct)
+										{
+											<span class="small text-secondary" style="text-decoration: line-through;">@item.Price.ToString("#,0 VNĐ")</span>
+
+											<span>@item.DiscountPrice?.ToString("#,0 VNĐ")</span>
+
+											<span class="badge badge-soft-primary" style="cursor: default;">
+												@item.DiscountFrom?.ToString("dd/MM/yyyy") ➡️ @item.DiscountTo?.ToString("dd/MM/yyyy")
+											</span>
+										}
+										else
+										{
+											@item.Price.ToString("#,0 VNĐ")
+										}
+									</h6>
+									<button class="btn btn-danger d-block my-3 shadow" onclick="addToCart(@item.Id)">
+										<i class="las la-cart-arrow-down"></i>
+									</button>
+									<a asp-action="OrderRoom" asp-controller="Order" class="btn btn-primary text-white d-block shadow-none mb-2">Đặt phòng</a>
+									<a asp-action="Detail" asp-controller="Room" asp-route-id="@item.Id" class="btn btn-info d-block btn-outline-dark shadow-none">Xem chi tiết</a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				}
+			</div>
+		</div>
+		<div class="row mt-5 text-center">
+			<div class="col-md-12 text-center">
+				<div class="site-block-27">
+					<partial name="_Pager" model="Model" />
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
