@@ -47,6 +47,8 @@ namespace App.Web.Areas.Admin.Controllers
 								where: x => x.Username == model.Username.ToLower(),
 								AutoMapperProfile.LoginConf
 							);
+			#region Check user
+			// Check user
 			if (user == null)
 			{
 				TempData["Mesg"] = "Tài khoản không tồn tại";
@@ -72,6 +74,7 @@ namespace App.Web.Areas.Admin.Controllers
 				TempData["Mesg"] = "Tên đăng nhập hoặc mật khẩu không chính xác";
 				return View();
 			}
+			#endregion
 
 			var claims = new List<Claim> {
 							new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
@@ -91,6 +94,7 @@ namespace App.Web.Areas.Admin.Controllers
 				ExpiresUtc = DateTime.UtcNow.AddHours(AppConst.LOGIN_TIMEOUT),
 				IsPersistent = model.RememberMe
 			};
+
 			await HttpContext.SignInAsync(AppConst.COOKIES_AUTH, principal, authenPropeties);
 
 			CreateDirIfNotExist(model.Username);
@@ -113,6 +117,9 @@ namespace App.Web.Areas.Admin.Controllers
 		{
 			var user = await _repository.FindAsync<AppUser>(this.CurrentUserId);
 			var encryptPassword = this.HashHMACSHA512WithKey(model.Pwd, user.PasswordSalt);
+
+			#region Check password
+			// Check password
 			if (!encryptPassword.SequenceEqual(user.PasswordHash))
 			{
 				SetErrorMesg("Mật khẩu cũ không chính xác");
@@ -130,6 +137,7 @@ namespace App.Web.Areas.Admin.Controllers
 				SetErrorMesg($"Mật khẩu phải có ít nhất {VM.UserVM.PWD_MINLEN} ký tự");
 				return Redirect(Referer);
 			}
+			#endregion
 
 			var hashResult = this.HashHMACSHA512(model.NewPwd);
 			user.PasswordHash = hashResult.Value;
