@@ -28,28 +28,32 @@
 
 			<div class="card-body">
 				<div id="customerList">
-					<div class="row g-4 mb-3">
-						<div class="col-sm-auto">
-							<div>
-								@if (User.IsInPermission(AuthConst.AppBranchHotel.CREATE))
-								{
-									<button type="button" class="btn btn-success btn-label add-btn" data-bs-toggle="modal" id="create-btn" data-bs-target="#addBranchHotel"><i class="ri-add-line label-icon align-middle fs-16 me-2"></i> Thêm chi nhánh</button>
-								}
-							</div>
-						</div>
-						<div class="col-sm">
-							<div class="d-flex justify-content-sm-end">
-								<form class="form-horizontal d-flex" method="get" action="@Url.Action("Index", "AppBranchHotel", new { area = "Admin" })">
-									<div class="search-box ms-2">
-										<input type="text" class="form-control search" name="Name" value="@ViewBag.Name" placeholder="Tìm theo tên...">
-										<i class="ri-search-line search-icon"></i>
-									</div>
-									<button type="submit" class="btn btn-soft-dark waves-effect waves-light ms-3">Tìm kiếm</button>
-								</form>
-							</div>
-						</div>
-					</div>
+					@if (ViewBag.BranchId is null)
+					{
+						<div class="row g-4 mb-3">
 
+							<div class="col-sm-auto">
+								<div>
+									@if (User.IsInPermission(AuthConst.AppBranchHotel.CREATE))
+									{
+										<button type="button" class="btn btn-success btn-label add-btn" data-bs-toggle="modal" id="create-btn" data-bs-target="#addBranchHotel"><i class="ri-add-line label-icon align-middle fs-16 me-2"></i> Thêm chi nhánh</button>
+									}
+								</div>
+							</div>
+							<div class="col-sm">
+								<div class="d-flex justify-content-sm-end">
+									<form class="form-horizontal d-flex" method="get" action="@Url.Action("Index", "AppBranchHotel", new { area = "Admin" })">
+										<div class="search-box ms-2">
+											<input type="text" class="form-control search" name="Name" value="@ViewBag.Name" placeholder="Tìm theo tên...">
+											<i class="ri-search-line search-icon"></i>
+										</div>
+										<button type="submit" class="btn btn-soft-dark waves-effect waves-light ms-3">Tìm kiếm</button>
+									</form>
+								</div>
+							</div>
+						</div>
+
+					}
 					<div class="table-responsive mt-3 mb-1">
 						<table class="table align-middle" id="branchHotelTable">
 							<thead class="table-light">
@@ -63,7 +67,10 @@
 									<th>Nhân viên</th>
 									<th>Số Tầng</th>
 									<th>Phòng</th>
-									<th>Chức năng</th>
+									@if (ViewBag.BranchId is null)
+									{
+										<th>Chức năng</th>
+									}
 								</tr>
 							</thead>
 							<tbody class="list form-check-all">
@@ -127,16 +134,19 @@
 														</button>
 													</div>
 												}
-												@if (User.IsInPermission(AuthConst.AppBranchHotel.DELETE))
+												@if (ViewBag.BranchId is null)
 												{
-													<div class="remove">
-														<button class="btn btn-sm remove-item-btn link-danger fs-15"
-																data-bs-toggle="modal"
-																data-bs-target="#deleteBranchHotelModal"
-																onclick="setDeleteId('@item.Id')">
-															<i class="ri-delete-bin-line"></i>
-														</button>
-													</div>
+													@if (User.IsInPermission(AuthConst.AppBranchHotel.DELETE))
+													{
+														<div class="remove">
+															<button class="btn btn-sm remove-item-btn link-danger fs-15"
+																	data-bs-toggle="modal"
+																	data-bs-target="#deleteBranchHotelModal"
+																	onclick="setDeleteId('@item.Id')">
+																<i class="ri-delete-bin-line"></i>
+															</button>
+														</div>
+													}
 												}
 											</div>
 										</td>
@@ -178,8 +188,6 @@
 <partial name="_DeleteBranchHotelModal" model="null" />
 
 @section Scripts {
-	<script src="~/adminLTE/libs/prismjs/prism.js"></script>
-	<script src="~/adminLTE/js/pages/form-validation.init.js"></script>
 	<script src="~/js/admin/branchhotel/branch-validate.js"></script>
 	<script src="~/js/admin/branchhotel/branch-modal.js"></script>
 	<!-- Include Choices CSS -->
