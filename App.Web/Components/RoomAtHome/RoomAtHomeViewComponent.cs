@@ -21,8 +21,8 @@ namespace App.Web.Components.RoomAtHome
 			var data = await _repo
 				   .GetAll<AppRoom>(x => x.DeletedDate == null 
 										&& x.IsActive == true 
-										&& x.Status == DB.RoomStatus.STATUS_CHECKOUT_NAME
-										&& x.Status == DB.RoomStatus.STATUS_CANCELED_NAME)
+										&& (x.Status == DB.RoomStatus.STATUS_CHECKOUT_NAME
+										|| x.Status == DB.RoomStatus.STATUS_CANCELED_NAME))
 				   .OrderBy(x => x.DisplayOrder)
 				   .Select(x => new RoomVM
 				   {
