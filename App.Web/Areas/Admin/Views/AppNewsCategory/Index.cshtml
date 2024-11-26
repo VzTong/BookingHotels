@@ -33,13 +33,10 @@
 							<div>
 								@if (User.IsInPermission(AuthConst.AppCategoryNews.CREATE))
 								{
-									if (ViewBag.BranchId is null)
-									{
-										<a asp-action="CreateCateNews" class="btn btn-success btn-label add-btn">
-											<i class="ri-add-line label-icon align-middle fs-16 me-2"></i>
-											Thêm mới thể loại
-										</a>
-									}
+									<a asp-action="CreateCateNews" class="btn btn-success btn-label add-btn">
+										<i class="ri-add-line label-icon align-middle fs-16 me-2"></i>
+										Thêm mới thể loại
+									</a>
 								}
 							</div>
 						</div>
@@ -90,7 +87,7 @@
 														@item.Slug
 													</span>
 												}
-												@if(item.TotalNews >= 1)
+												@if (item.TotalNews >= 1)
 												{
 													<span class="badge badge-soft-info" style="cursor: default;">
 														Có @item.TotalNews tin tức

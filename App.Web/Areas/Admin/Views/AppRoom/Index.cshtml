@@ -34,43 +34,39 @@
 							<div>
 								@if (User.IsInPermission(AuthConst.AppRoom.CREATE))
 								{
-									if (ViewBag.BranchId is null)
-									{
-										<a asp-action="CreateRoom" class="btn btn-success btn-label add-btn">
-											<i class="ri-add-line label-icon align-middle fs-16 me-2"></i>
-											Thêm phòng
-										</a>
-									}
+									<a asp-action="CreateRoom" class="btn btn-success btn-label add-btn">
+										<i class="ri-add-line label-icon align-middle fs-16 me-2"></i>
+										Thêm phòng
+									</a>
 								}
 							</div>
 						</div>
 
-						@if (ViewBag.BranchId is null)
-						{
-							<div class="col-sm">
-								<div class="d-flex justify-content-sm-end">
-									<form class="form-horizontal d-flex" method="get" action="@Url.Action("Index", "AppRoom", new { area = "Admin" })">
-										<div class="search-box ms-2">
-											<input type="text" class="form-control search" name="Name" value="@ViewBag.Name" placeholder="Tìm theo tên...">
-											<i class="ri-search-line search-icon"></i>
-										</div>
-										<button type="submit" class="btn btn-soft-dark waves-effect waves-light ms-3">Tìm kiếm</button>
-									</form>
-								</div>
+						<div class="col-sm">
+							<div class="d-flex justify-content-sm-end">
+								<form class="form-horizontal d-flex" method="get" action="@Url.Action("Index", "AppRoom", new { area = "Admin" })">
+									<div class="search-box ms-2">
+										<input type="text" class="form-control search" name="Name" value="@ViewBag.Name" placeholder="Tìm theo tên...">
+										<i class="ri-search-line search-icon"></i>
+									</div>
+									<button type="submit" class="btn btn-soft-dark waves-effect waves-light ms-3">Tìm kiếm</button>
+								</form>
 							</div>
-						}
+						</div>
 					</div>
 
 					<div class="table-responsive mt-3 mb-1">
 						<table class="table align-middle" id="branchRoomTable">
 							<thead class="table-light">
-								<tr>
+								<tr class="text-center">
 									<th>#</th>
 									<th>Img</th>
 									<th>Tên phòng</th>
+									<th>Trang thiết bị</th>
 									<th>Chi nhánh</th>
 									<th>Giá</th>
 									<th>Giảm giá</th>
+									<th>Trạng thái</th>
 									<th>Chức năng</th>
 								</tr>
 							</thead>
@@ -130,6 +126,21 @@
 												}
 											</div>
 										</td>
+										<td class="roomEquipmentName fit">
+											@if (item.EquipmentName.IsNullOrEmpty())
+											{
+												<div class="badge rounded-pill badge-soft-secondary" style="cursor: default;">Không có trang thiết bị</div>
+											}
+											else
+											{
+												@foreach (var equipment in item.EquipmentName)
+												{
+													<p class="badge rounded-pill badge-soft-secondary ms-2" style="cursor: default;">
+														@equipment
+													</p>
+												}
+											}
+										</td>
 										<td class="branchRoomName fit">
 											@if (!item.BranchName.IsNullOrEmpty())
 											{
@@ -158,32 +169,57 @@
 											}
 										</td>
 										<td>
+											@if (item.Status == DB.RoomStatus.STATUS_CHECKIN_NAME)
+											{
+												<span class="badge badge-soft-warning" style="cursor: default;">
+													@item.Status
+												</span>
+											}
+											else if (item.Status == DB.RoomStatus.STATUS_CHECKOUT_NAME
+											|| item.Status == DB.RoomStatus.STATUS_CANCELED_NAME)
+											{
+												<span class="badge badge-soft-success" style="cursor: default;">
+													@item.Status
+												</span>
+											}
+											else if (item.Status == DB.RoomStatus.STATUS_PENDING_NAME
+											|| item.Status == DB.RoomStatus.STATUS_PROCESSING_NAME)
+											{
+												<span class="badge badge-soft-secondary" style="cursor: default;">
+													@item.Status
+												</span>
+											}
+											else
+											{
+												<span class="badge badge-soft-info" style="cursor: default;">
+													@item.Status
+												</span>
+											}
+										</td>
+										<td>
 											<div class="d-flex gap-2">
-												@if (ViewBag.BranchId is null)
+												@if (item.IsActive)
 												{
-													if (item.IsActive)
+													if (User.IsInPermission(AuthConst.AppRoom.UNPUBLIC))
 													{
-														if (User.IsInPermission(AuthConst.AppRoom.UNPUBLIC))
-														{
-															<a asp-action="UnPublicRoom" asp-route-id="@item.Id"
-															   title="Không công khai phòng"
-															   class="btn btn-sm edit-item-btn link-warning fs-15 js-delete-confirm"
-															   data-msg="Xác nhận ẩn phòng ⌈ @item.RoomName ⌋ khỏi hệ thống?">
-																<i class="fas fa-lock"></i>
-															</a>
-														}
+														<a asp-action="UnPublicRoom" asp-route-id="@item.Id"
+														   title="Không công khai phòng"
+														   class="btn btn-sm edit-item-btn link-warning fs-15 js-delete-confirm"
+														   data-msg="Xác nhận ẩn phòng ⌈ @item.RoomName ⌋ khỏi hệ thống?">
+															<i class="fas fa-lock"></i>
+														</a>
 													}
-													else
+												}
+												else
+												{
+													if (User.IsInPermission(AuthConst.AppRoom.PUBLIC))
 													{
-														if (User.IsInPermission(AuthConst.AppRoom.PUBLIC))
-														{
-															<a asp-action="PublicRoom" asp-route-id="@item.Id"
-															   title="Công khai phòng"
-															   class="btn btn-sm edit-item-btn link-secondary fs-15 js-delete-confirm"
-															   data-msg="Xác nhận công khai phòng ⌈ @item.RoomName ⌋ ?">
-																<i class="fas fa-globe"></i>
-															</a>
-														}
+														<a asp-action="PublicRoom" asp-route-id="@item.Id"
+														   title="Công khai phòng"
+														   class="btn btn-sm edit-item-btn link-secondary fs-15 js-delete-confirm"
+														   data-msg="Xác nhận công khai phòng ⌈ @item.RoomName ⌋ ?">
+															<i class="fas fa-globe"></i>
+														</a>
 													}
 												}
 												@if (User.IsInPermission(AuthConst.AppRoom.UPDATE))
@@ -211,20 +247,16 @@
 														</a>
 													</div>
 												}
-
-												@if (ViewBag.BranchId is null)
+												@if (User.IsInPermission(AuthConst.AppRoom.DELETE))
 												{
-													if (User.IsInPermission(AuthConst.AppRoom.DELETE))
-													{
-														<div class="remove">
-															<button class="btn btn-sm remove-item-btn link-danger fs-15"
-																	data-bs-toggle="modal"
-																	data-bs-target="#deleteRoomModal"
-																	onclick="setDeleteId('@item.Id')">
-																<i class="ri-delete-bin-line"></i>
-															</button>
-														</div>
-													}
+													<div class="remove">
+														<button class="btn btn-sm remove-item-btn link-danger fs-15"
+																data-bs-toggle="modal"
+																data-bs-target="#deleteRoomModal"
+																onclick="setDeleteId('@item.Id')">
+															<i class="ri-delete-bin-line"></i>
+														</button>
+													</div>
 												}
 											</div>
 										</td>

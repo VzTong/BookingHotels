@@ -200,14 +200,14 @@
 																   class="btn btn-sm edit-item-btn link-secondary fs-15"><i class="fas fa-arrow-alt-circle-down"></i></a>
 															}
 														</div>
-													}
 
-													<div class="edit">
-														<a asp-action="EditHotel" asp-route-id="@item.Id"
-														   class="btn btn-sm edit-item-btn link-success fs-15">
-															<i class="ri-edit-2-line"></i>
-														</a>
-													</div>
+														<div class="edit">
+															<a asp-action="EditHotel" asp-route-id="@item.Id"
+															   class="btn btn-sm edit-item-btn link-success fs-15">
+																<i class="ri-edit-2-line"></i>
+															</a>
+														</div>
+													}
 												}
 
 												@if (ViewBag.BranchId is null)
