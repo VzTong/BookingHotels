@@ -12,6 +12,14 @@ namespace App.Data.Configurations.WebService
 			builder.ToTable(DB.AppOrder.TABLE_NAME);
 			builder.HasKey(x => x.Id);
 
+			builder.Property(x => x.CusName)
+				.HasMaxLength(DB.AppOrder.CUS_NAME_LENGTH);
+			builder.Property(x => x.CusPhone)
+				.HasMaxLength(DB.AppOrder.CUS_PHONE_LENGTH);
+			builder.Property(x => x.CusEmail)
+				.HasMaxLength(DB.AppOrder.CUS_EMAIL_LENGTH);
+			builder.Property(x => x.CusNote)
+				.HasMaxLength(DB.AppOrder.CUS_NOTE_LENGTH);
 			builder.Property(x => x.QuantityRoom).IsRequired();
 
             // FK - AppUser
