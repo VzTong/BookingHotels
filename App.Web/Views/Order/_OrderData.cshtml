@@ -1,0 +1,52 @@
+﻿@model App.Web.ViewModels.Order.OrderDataVM
+
+<div class="card-header">Thông tin chi tiết của bạn</div>
+<div class="card-body">
+	<form asp-action="Order" method="post" autocomplete="off">
+		<input id="cus_id" name="cus_id"
+			   aria-label="hidden" value="0" type="hidden">
+		<div class="row mb-3">
+			<div class="col-md-6">
+				<label asp-for="CusName" class="form-label">
+					Họ tên
+				</label>
+				<input asp-for="CusName" class="form-control" type="text" placeholder="Họ Và Tên (*)" required>
+			</div>
+			<div class="col-md-6">
+				<label asp-for="CusNote" class="form-label">
+					Địa chỉ mail
+				</label>
+				<input asp-for="CusEmail" class="form-control" type="email" placeholder="Email (*)" required>
+			</div>
+		</div>
+		<div class="row mb-3">
+			<div class="col-md-6">
+				<label asp-for="CusNote" class="form-label">
+					SĐT
+				</label>
+				<input asp-for="CusPhone" class="form-control" type="text" placeholder="Điện Thoại (*)" required>
+			</div>
+			<div class="col-md-6">
+				<label asp-for="CusNote" class="form-label">
+					Ghi chú
+				</label>
+				<textarea asp-for="CusNote" class="form-control" placeholder="Ghi chú đặt phòng"></textarea>
+			</div>
+		</div>
+		<div class="row mb-3">
+			<div class="col-md-6">
+				<label asp-for="CheckInTime_Expected" class="form-label">
+					Thời gian nhận phòng (dự kiến)
+				</label>
+				<input name="CheckInTime_Expected" type="text" class="form-control js-date" data-provider="flatpickr" data-date-format="d.m.y" data-enable-time>
+			</div>
+			<div class="col-md-6">
+				<label asp-for="CheckOutTime_Expected" class="form-label">
+					Thời gian trả phòng (dự kiến)
+				</label>
+				<input name="CheckOutTime_Expected" type="text" class="form-control js-date" data-provider="flatpickr" data-date-format="d.m.y" data-enable-time>
+			</div>
+		</div>
+		<button type="submit" class="btn btn-primary mt-4 w-100">Đặt Phòng</button>
+	</form>
+</div>

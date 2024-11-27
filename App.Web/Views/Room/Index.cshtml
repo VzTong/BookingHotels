@@ -119,10 +119,10 @@
 											@item.Price.ToString("#,0 VNĐ")
 										}
 									</h6>
-									<button class="btn btn-danger d-block my-3 shadow" onclick="addToCart(@item.Id)">
+									<button class="btn btn-danger d-block mb-2 w-100 shadow" onclick="addToCart(@item.Id)">
 										<i class="las la-cart-arrow-down"></i>
 									</button>
-									<a asp-action="OrderRoom" asp-controller="Order" class="btn btn-primary text-white d-block shadow-none mb-2">Đặt phòng</a>
+									<a asp-action="Index" asp-controller="Order" class="btn btn-primary text-white d-block shadow-none mb-2" onclick="buyNow(event, @item.Id)">Đặt phòng</a>
 									<a asp-action="Detail" asp-controller="Room" asp-route-id="@item.Id" class="btn btn-info d-block btn-outline-dark shadow-none">Xem chi tiết</a>
 								</div>
 							</div>

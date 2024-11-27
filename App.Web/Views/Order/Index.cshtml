@@ -1,0 +1,148 @@
+﻿@using App.Share.Extensions
+@using App.Web.ViewModels.Order
+@model List<CartItemVM>
+@{
+	ViewBag.Title = "Danh mục phòng";
+	decimal total = 0.0m;
+}
+
+@section scripts {
+	<script src="~/js/client/order/cart_custom.js" asp-asp-append-version="true"></script>
+}
+<div class="site-section bg-light booking-room">
+	<div class="container">
+		<div class="row text-center">
+			<div class="col-md-6 mx-auto text-center section-heading">
+				<h2 class="mb-5">Đặt phòng</h2>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-lg-4">
+				@if (Model.Count > 0)
+				{
+					<!-- chi tiết đặt phòng -->
+					<div class="card mb-4 ani-item">
+						<div class="card-header fw-bold text-black"><strong>Chi tiết đặt phòng của bạn</strong> </div>
+						<div class="card-body text-black">
+							<div class="accordion accordion-border-box" id="genques-accordion">
+								@{
+									var now = DateTime.Now;
+									for (int i = 0; i < Model.Count; i++)
+									{
+										var item = Model[i];
+										var price = item.FinalPrice;
+										var totalPrice = item.TotalPrice;
+
+										total += price;
+
+										<div class="accordion-item">
+											<h2 class="accordion-header" id="genques-heading@(i+1)">
+												<button class="accordion-button collapsed d-flex" type="button" data-bs-toggle="collapse" data-bs-target="#genques-collapse@(i + 1)" aria-expanded="flase" aria-controls="genques-collapse@(i+1)" style="background: rgb(94 203 182 / 5%);">
+													<span class="cart-no mr-2">@(i + 1)</span>
+													@if (!string.IsNullOrEmpty(item.ImagePath))
+													{
+														<img src="/@item.ImagePath" style="width: 70px;border-radius: 5px;height: 35px;object-fit:cover" class="mr-3" />
+													}
+													<div class="mr-2 text-center d-block">
+														<span>Phòng: @item.RoomName</span>
+														<span class="cart-price" data-price="@price">Giá phòng: @price.ToString("#,0")</span>
+													</div>
+
+													<span class="cart-delete"
+														  onclick="deleteProductFromCart(event, @item.Id)">
+														<span>x</span>
+													</span>
+												</button>
+											</h2>
+											<div id="genques-collapse@(i+1)" class="accordion-collapse collapse show" aria-labelledby="genques-heading@(i+1)" data-bs-parent="#genques-accordion">
+												<div class="accordion-body">
+													<div class="mt-2 text-justify">
+														<p><strong>Tên phòng:</strong> @item.RoomName</p>
+														<p>@item.BranchDesc</p>
+														<p><strong>Thuộc khách sạn:</strong> @item.HotelName</p>
+														<p><strong>Giá phòng:</strong> @price.ToString("#,0")</p>
+														<p><strong>Loại phòng:</strong> @item.RTypeName</p>
+													</div>
+												</div>
+											</div>
+										</div>
+									}
+								}
+							</div>
+
+							<a asp-action="Index" asp-area="" asp-controller="Room" class="btn btn-link">
+								Thêm phòng
+							</a>
+						</div>
+					</div>
+
+
+					<!-- Giá -->
+					<div class="card mb-4 text-black">
+						<div class="card-header"><strong>Thành tiền</strong></div>
+						<div class="card-body text-center">
+							<h5>
+								<p class="cart-total-avc"></p>
+							</h5>
+							<p class="text-muted">Bao gồm thuế và phí</p>
+						</div>
+					</div>
+				}
+				else
+				{
+					<h2 style="text-align:center" class="cart-empty">Giỏ hàng đang rỗng !</h2>
+					<a asp-action="Index"
+					   asp-area=""
+					   asp-controller="Room"
+					   class="btn btn-link ml-3">
+						Thêm phòng
+					</a>
+				}
+			</div>
+
+			<div class="col-lg-8 text-black">
+				<!-- Thông tin khách hàng-->
+				<div class="card mb-4">
+					@if (User.Identity.IsAuthenticated)
+					{
+						if (Model.Count > 0)
+						{
+							var cusData = ViewBag.CusData as OrderDataVM;
+							cusData.Total = total;
+							<partial name="_OrderData" model="cusData" />
+						}
+					}
+					else
+					{
+						<div class="card-header">
+							<h2>Bạn cần đăng nhập để có thể đặt phòng</h2>
+						</div>
+					}
+				</div>
+
+				<!-- Lưu ý -->
+				<div class="card mb-4">
+					<div class="card-header">Mách nhỏ</div>
+					<div class="card-body">
+						<p>Không cần thẻ tín dụng</p>
+						<p>Đảm bảo đặt phòng không cần trả tiền. Bạn sẽ thanh toán trong lúc nghỉ</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/vn.js"></script>
+<script>
+	document.addEventListener('DOMContentLoaded', function () {
+		flatpickr('.js-date', {
+			altInput: true,
+			altFormat: "j F, Y H:i",
+			dateFormat: "Y-m-d H:i",
+			enableTime: true, // Enable time selection
+			locale: "vn" // Set the locale to Vietnamese
+		});
+	});
+</script>

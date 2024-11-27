@@ -52,7 +52,7 @@
 						}
 						else
 						{
-							@Model.Price.ToString("#,0 VNĐ")
+							<span>@Model.Price.ToString("#,0 VNĐ")/ ngày</span>
 						}
 					</strong>
 				</p>
@@ -68,14 +68,15 @@
 				<p>
 					Thuộc loại phòng: @Model.RoomTypeName - Có @Model.PeopleStay người ở và @bringPet
 				</p>
-				<p>
+				<p class="d-flex">
 					<button class="btn btn-danger d-block my-3 shadow" 
 							onclick="addToCart(@Model.Id)">
 						<i class="las la-cart-arrow-down"></i>
 					</button>
-					<a asp-action="BookingRoom" 
+					<a asp-action="Index" 
 						asp-controller="Order" 
-						asp-route-id="@Model.Id" 
+						asp-route-id="@Model.Id"
+						onclick="buyNow(event, @Model.Id)"
 						class="btn btn-primary text-white">Đặt phòng</a>
 				</p>
 			</div>
