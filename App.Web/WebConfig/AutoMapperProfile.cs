@@ -82,6 +82,9 @@ namespace App.Web.WebConfig
 			.ForMember(dest => dest.HotelName, opt => opt.MapFrom(src => src.Branch != null && src.Branch.Hotel != null ? src.Branch.Hotel.Name : string.Empty))
 			.ForMember(dest => dest.PeopleStay, opt => opt.MapFrom(src => src.RoomType.PeopleStay))
 			.ForMember(dest => dest.BringPet, opt => opt.MapFrom(src => src.RoomType != null && src.RoomType.BringPet));
+
+			// Map dữ liệu của OrderDataVM
+			CreateMap<OrderDataVM, AppOrder>().ReverseMap();
 		}
 
 		// Cấu hình mapping cho RoleController, action Index area Admin
@@ -316,7 +319,8 @@ namespace App.Web.WebConfig
 			.ForMember(uItem => uItem.ImagePath, opts =>
 				opts.MapFrom(uEntity => uEntity.ImgRooms.FirstOrDefault() == null ? "" : uEntity.ImgRooms.First().ImgSrc)
 			)
-			.ForMember(uItem => uItem.BranchHotelName, opts => opts.MapFrom(uEntity => uEntity.Branch == null ? "" : uEntity.Branch.Name)).ReverseMap();
+			.ForMember(uItem => uItem.HotelName, opts => opts.MapFrom(uEntity => uEntity.Branch.Hotel == null ? "" : uEntity.Branch.Hotel.Name))
+			.ForMember(uItem => uItem.BranchDesc, opts => opts.MapFrom(uEntity => uEntity.Branch == null ? "" : uEntity.Branch.Description)).ReverseMap();
 		});
 
 		public static MapperConfiguration OrderConf = new(mapper =>
