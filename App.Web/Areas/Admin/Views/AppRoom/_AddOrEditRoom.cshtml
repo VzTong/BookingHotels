@@ -3,7 +3,7 @@
 	var isCreateAction = ViewContext.GetCurrentActionName() == "CreateRoom";
 	var imgs = Model?.ImgRooms.Take(4).ToList();
 }
-<div class="row">
+<div class="row" id="updateRoom">
 	<div class="col-md-12">
 		<div class="mb-3">
 			@if (!isCreateAction)
@@ -38,6 +38,7 @@
 			<div class="mb-3">
 				<label asp-for="RoomTypeId" class="form-label">Loại phòng</label>
 				<select asp-for="RoomTypeId"
+						name="RoomTypeId"
 						class="form-select"
 						data-choices
 						data-placeholder="--- Chọn loại phòng ---"
@@ -97,7 +98,7 @@
 			<div class="d-flex">
 				<div class="col-5 mb-3" style="margin-right: 4rem;">
 					<label asp-for="DiscountFrom" class="control-label">Giảm từ ngày</label>
-					<input asp-for="DiscountFrom" type="datetime" id="roomDiscountFrom-field" class="form-control js-date" data-provider="flatpickr" data-date-format="d.m.y" data-enable-time />
+					<input asp-for="DiscountFrom" type="datetime-local" id="roomDiscountFrom-field" class="form-control js-date" value="@Model.DiscountFrom?.ToString("yyyy-MM-ddTHH:mm")" />
 					<div class="invalid-feedback">
 						Vui lòng nhập ngày bắt đầu giảm giá.
 					</div>
@@ -105,7 +106,7 @@
 				</div>
 				<div class="col-6 mb-3 ms-5">
 					<label asp-for="DiscountTo" class="control-label">Giảm đến ngày</label>
-					<input asp-for="DiscountTo" type="datetime" id="roomDiscountTo-field" class="form-control js-date" data-provider="flatpickr" data-date-format="d.m.y" data-enable-time />
+					<input asp-for="DiscountTo" type="datetime-local" id="roomDiscountTo-field" class="form-control js-date" value="@Model.DiscountTo?.ToString("yyyy-MM-ddTHH:mm")" />
 					<div class="invalid-feedback">
 						Vui lòng nhập ngày kết thúc giảm giá.
 					</div>
@@ -121,6 +122,7 @@
 				@for (int i = 1; i <= 4; i++)
 				{
 					var path = "";
+					@* var path = Model?.ImgRooms.ElementAtOrDefault(i)?.ImgSrc; *@
 					if (imgs != null && i <= imgs.Count)
 					{
 						path = imgs[i - 1].ImgSrc;
