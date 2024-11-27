@@ -67,15 +67,18 @@
 										<td class="RType_name">
 											@item.Name
 											<div>
-												@if (!item.BranchName.IsNullOrEmpty())
+												@if (ViewBag.BranchId is null)
 												{
-													<span class="badge badge-soft-info" style="cursor: default;">
-														<i class=" ri-hotel-line"></i> @item.BranchName
-													</span>
-												}
-												else
-												{
-													<div class="badge badge-soft-secondary" style="cursor: default;">Hệ thống</div>
+													@if (!item.BranchName.IsNullOrEmpty())
+													{
+														<span class="badge badge-soft-info" style="cursor: default;">
+															<i class=" ri-hotel-line"></i> @item.BranchName
+														</span>
+													}
+													else
+													{
+														<div class="badge badge-soft-secondary" style="cursor: default;">Hệ thống</div>
+													}
 												}
 											</div>
 										</td>
