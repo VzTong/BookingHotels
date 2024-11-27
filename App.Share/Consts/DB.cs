@@ -21,7 +21,7 @@
 			public const short USERNAME_LENGTH				= 200;
 			public const short PWD_LENGTH					= 200;
 			public const short FULLNAME_LENGTH				= 100;
-			public const short PHONE_LENGTH					= 15;
+			public const short PHONE_LENGTH					= 20;
 			public const short EMAIL_LENGTH					= 200;
 			public const short ADDRESS_LENGTH				= 150;
 			public const short AVATAR_LENGTH				= 500;
@@ -187,8 +187,12 @@
 		public static class AppOrder
 		{
 			public const string TABLE_NAME					= "AppOrder";
-			public const short STATUS_LENGTH				= 100;
-        }
+			public const short CUS_NAME_LENGTH				= 100;
+			public const short CUS_PHONE_LENGTH				= 20;
+			public const short CUS_EMAIL_LENGTH				= 200;
+			public const short DELIVERY_ADDRESS_LENGTH		= 150;
+			public const short CUS_NOTE_LENGTH				= 500;
+		}
 
         public static class OrderStatus
         {
