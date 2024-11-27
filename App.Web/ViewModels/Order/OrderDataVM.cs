@@ -5,9 +5,12 @@
 		public string CusName { get; set; }
 		public string CusPhone { get; set; }
 		public string CusEmail { get; set; }
-		public string DeliveryAddress { get; set; }
-		public string CusNote { get; set; }
-		public decimal Total { get; set; }
-		public int StatusId { get; set; }
+		public string? CusNote { get; set; }
+		public decimal? Total { get; set; }
+		public string? Status { get; set; }
+		public string? ImagePath { get; set; }
+
+		public DateTime CheckInTime_Expected { get; set; }
+		public DateTime CheckOutTime_Expected { get; set; }
 	}
 }
