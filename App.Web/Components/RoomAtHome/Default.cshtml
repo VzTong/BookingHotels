@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<App.Web.ViewModels.Room.RoomVM>
-@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers;
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
 <div class="site-section block-15 list-room">
 	<div class="container">
@@ -51,10 +51,10 @@
 									<p class="price">Giá chỉ từ <strong>@item.Price.ToString("#,0 VNĐ")</strong></p>
 								}
 								<div class="d-flex">
-									<button class="btn btn-danger d-block mt-3 shadow" onclick="addToCart(@item.Id)">
+									<button class="btn btn-danger d-block shadow" style="height:39px" onclick="addToCart(@item.Id)">
 										<i class="las la-cart-arrow-down"></i>
 									</button>
-									<a asp-action="Detail" asp-controller="Room" asp-route-id="@item.Id" class="btn btn-primary w-100 text-white custom-bg shadow-none mb-2">Xem thêm</a>
+									<a asp-action="Detail" asp-controller="Room" asp-route-id="@item.Id" class="btn btn-primary w-100 text-white custom-bg shadow-none mb-2">Xem chi tiết</a>
 								</div>
 							</div>
 						</div>
