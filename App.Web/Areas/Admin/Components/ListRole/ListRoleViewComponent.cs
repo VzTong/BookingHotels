@@ -16,11 +16,13 @@ namespace App.Web.Areas.Admin.Components.ListRole
 		public async Task<IViewComponentResult> InvokeAsync(int? seletetedId, IEnumerable<int> excludeIds)
 		{
 			int? brandId = GetCurrentUserBranchId();
+			int currentUserId = CurrentUserId;
 			var data = await repository
 			   .GetAll<AppRole>(where: r =>
 				   (r.Id != 1) &&
 				   (brandId == null || repository.DbContext.AppUsers
-					   .Any(ur => ur.AppRoleId == r.Id && ur.Branch.Id == brandId)) &&
+					   .Any(ur => ur.AppRoleId == r.Id && ur.Branch.Id == brandId)) ||
+				   (r.CreatedBy == currentUserId) &&
 				   (excludeIds == null || !excludeIds.Any() || !excludeIds.Contains(r.Id)))
 			   .ToListAsync();
 
