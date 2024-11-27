@@ -24,7 +24,8 @@ namespace App.Web.Areas.Admin.Controllers
 		[AppAuthorize(AuthConst.AppRole.VIEW_LIST)]
 		public async Task<IActionResult> Index(int page = 1, int size = DEFAULT_PAGE_SIZE)
 		{
-			int? branchId = GetCurrentUserBranchId(); //Truy xuất BranchId của người dùng hiện đang đăng nhập
+			int? branchId = GetCurrentUserBranchId();
+			int currentUserId = CurrentUserId;
 			ViewBag.BranchId = branchId;
 
 			var query = _repository.GetAll<AppRole>();
@@ -32,7 +33,7 @@ namespace App.Web.Areas.Admin.Controllers
 			// Nếu BranchId không rỗng, hãy lọc người dùng theo BranchId
 			if (branchId.HasValue)
 			{
-				query = (IOrderedQueryable<AppRole>)query.Where(u => u.AppUsers.Any(b => b.BranchId == branchId.Value));
+				query = (IOrderedQueryable<AppRole>)query.Where(role => role.AppUsers.Any(user => user.BranchId == branchId.Value) || role.CreatedBy == currentUserId);
 			}
 
 			// Dự án tới RoleListItemVM và áp dụng phân trang
