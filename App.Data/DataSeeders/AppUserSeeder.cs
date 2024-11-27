@@ -332,7 +332,7 @@ namespace App.Data.DataSeeders
 						CreatedBy = 1,
 						CreatedDate = now,
 						BranchId = i,               // Chi nhánh được tạo ở AppBranchHotelSeeder
-						AppRoleId = i + 17,              // Vai trò được tạo ở AppRoleSeeder
+						AppRoleId = i + 8,              // Vai trò được tạo ở AppRoleSeeder
 					}
 				);
 			}
