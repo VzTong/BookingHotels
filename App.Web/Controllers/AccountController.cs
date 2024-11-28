@@ -1,8 +1,13 @@
-﻿using App.Data.Entities.User;
+﻿using App.Data.Entities.service;
+using App.Data.Entities.User;
 using App.Data.Repositories;
+using App.Share.Consts;
 using App.Share.Extensions;
+using App.Web.Areas.Admin.ViewModels.EquipmentType;
+using App.Web.Common;
 using App.Web.Common.Helpers;
 using App.Web.ViewModels.Account;
+using App.Web.ViewModels.Cmt;
 using App.Web.WebConfig;
 using App.Web.WebConfig.Consts;
 using AspNetCoreHero.ToastNotification.Abstractions;
@@ -156,7 +161,7 @@ namespace App.Web.Controllers
 
 		[Authorize]
 		[HttpPost("/thong-tin-ca-nhan")]
-		public async Task<IActionResult> UserProfile(UserProfileClientVM model)
+		public async Task<IActionResult> UserProfile(UserProfileClientVM model, [FromServices] IWebHostEnvironment env)
 		{
 			if (!ModelState.IsValid)
 			{
@@ -166,6 +171,26 @@ namespace App.Web.Controllers
 			try
 			{
 				var user = await _repository.FindAsync<AppUser>(CurrentUserId);
+				if (model.AvatarPath != null && model.AvatarPath.Length > 0)
+				{
+					// Xóa ảnh cũ nếu tồn tại
+					if (!string.IsNullOrEmpty(user.Avatar))
+					{
+						var oldImagePath = Path.Combine(env.WebRootPath, user.Avatar.TrimStart('/'));
+						//if (System.IO.File.Exists(oldImagePath))
+						//{
+						//	System.IO.File.Delete(oldImagePath);
+						//}
+					}
+
+					// Tải lên ảnh mới và cập nhật đường dẫn
+					model.Avatar = UploadFile(model.AvatarPath, env.WebRootPath);
+				}
+				else
+				{
+					model.Avatar = user.Avatar;
+				}
+
 				_mapper.Map<UserProfileClientVM, AppUser>(model, user);
 				await _repository.UpdateAsync<AppUser>(user);
 				_notyf.Success("Cập nhật thông tin thành công!");
@@ -175,12 +200,6 @@ namespace App.Web.Controllers
 				_notyf.Error("Có lỗi trong quá trình xử lý, vui lòng thử lại sau!");
 			}
 			return RedirectToAction(nameof(UserProfile));
-		}
-
-		[Route("doi-mat-khau")]
-		public IActionResult ChangePassword()
-		{
-			return View();
 		}
 
 		[HttpPost("doi-mat-khau")]
@@ -210,7 +229,33 @@ namespace App.Web.Controllers
 			}
 
 			_notyf.Success("Đổi mật khẩu thành công");
-			return View();
+			return RedirectToAction(nameof(UserProfile));
+		}
+
+		[HttpPost]
+		public async Task<IActionResult> SendComment(SendCmtVM model)
+		{
+			if (!ModelState.IsValid)
+			{
+				SetErrorMesg(MODEL_STATE_INVALID_MESG, true);
+				return RedirectToAction(nameof(UserProfile));
+			}
+			try
+			{
+				var now = DateTime.Now;
+				var user = CurrentUserId;
+				var cmt = _mapper.Map<AppComment>(model);
+				cmt.CreatedBy = CurrentUserId;
+				cmt.CreatedDate = now;
+
+				await _repository.AddAsync(cmt);
+				SetSuccessMesg($"Đã đăng bình luận");
+				return RedirectToAction(nameof(UserProfile));
+			}
+			catch (Exception ex)
+			{
+				return RedirectToAction(nameof(UserProfile));
+			}
 		}
 	}
 }
