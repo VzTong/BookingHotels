@@ -1,0 +1,239 @@
+﻿@using App.Share.Consts
+@using System.Security.Claims
+@using App.Web.WebConfig.Consts
+@model App.Web.ViewModels.Account.UserProfileClientVM
+@{
+	ViewData["Title"] = "Tài khoản của tôi";
+}
+
+
+@if (Context.User.Identity.IsAuthenticated)
+{
+	var roleId = Convert.ToInt32(Context.User.Claims.SingleOrDefault(c => c.Type.Contains(AppClaimTypes.RoleId))?.Value);
+
+	<!-- profile -->
+	<div class="col-md-6 mx-auto text-center mb-5 section-heading mt-5">
+		<h2>Thông tin cá nhân</h2>
+	</div>
+	<div class="container my-4">
+		<div class="row">
+			<div class="col-md">
+				<div class="card shadow-sm">
+					<div class="card-body">
+						<div class="d-flex justify-content-between align-items-center mb-3">
+							<div>
+								<h2 class="fw-bold display-6 mb-0">Thông tin cá nhân</h2>
+								<p class="text-muted">Cập nhật thông tin của bạn xem hóa đơn và đánh giá dịch vụ (trang web và khách sạn bạn đã ở).</p>
+							</div>
+							<div class="ms-auto">
+								<!-- Hình ảnh dạng khung tròn -->
+								<img src="@Model.Avatar" alt="Ảnh đại diện" class="rounded-circle" width="60" height="60">
+							</div>
+						</div>
+						<!-- Info Rows -->
+						<form method="post" asp-controller="Account" asp-action="UserProfile" class="row col-12 needs-validation" novalidate>
+							<div class="row mb-3 col-12">
+								<div class="col-md-6">
+									<label asp-for="@Model.Username" class="form-label">Tên đăng nhập</label>
+									<input asp-for="@Model.Username" id="username" class="form-control" />
+								</div>
+								<div class="col-md-6">
+									<label asp-for="@Model.FullName" class="form-label">Họ tên</label>
+									<input type="text" id="fullname" asp-for="@Model.FullName" class="form-control">
+								</div>
+							</div>
+
+							<div class="row mb-3 col-5 mr-3">
+								<div class="col-md-6">
+									<label asp-for="@Model.PhoneNumber1" class="form-label">Số điện thoại 1</label>
+									<input type="text" asp-for="@Model.PhoneNumber1" id="phone1" class="form-control">
+								</div>
+								<div class="col-md-6">
+									<label asp-for="@Model.PhoneNumber2" class="form-label">Số điện thoại 2</label>
+									<input type="text" asp-for="@Model.PhoneNumber2" id="phone2" class="form-control">
+								</div>
+							</div>
+
+							<div class="row mb-3 col-7">
+								<div class="col-md-6">
+									<label asp-for="@Model.Address" class="form-label">Địa chỉ</label>
+									<input type="text" asp-for="@Model.Address" id="address" class="form-control">
+								</div>
+								<div class="col-md-6">
+									<label asp-for="@Model.Email" class="form-label">Email</label>
+									<input type="email" asp-for="@Model.Email" id="email" class="form-control">
+								</div>
+							</div>
+
+							<div class="row mb-3 col-12">
+								<div class="col-lg-4">
+									<div class="mb-3">
+										<label for="citizenInput" class="form-label">Số căn cước</label>
+										<input type="text" class="form-control" id="citizenInput" maxlength="12" asp-for="@Model.CitizenId" />
+										<div class="invalid-feedback">
+											Vui lòng nhập số căn cước hoặc một trong các trường khác.
+										</div>
+									</div>
+								</div>
+								<!--end col-->
+								<div class="col-lg-4">
+									<div class="mb-3">
+										<label for="passportInput" class="form-label">Mã hộ chiếu</label>
+										<input type="text" class="form-control" id="passportInput" maxlength="12" asp-for="@Model.Passport" />
+										<div class="invalid-feedback">
+											Vui lòng nhập mã hộ chiếu hoặc một trong các trường khác.
+										</div>
+									</div>
+								</div>
+								<!--end col-->
+								<div class="col-lg-4">
+									<div class="mb-3">
+										<label for="permanentInput" class="form-label">
+											Số thẻ thường trú/ tạm trú
+										</label>
+										<input type="text" class="form-control" id="permanentInput" maxlength="15" asp-for="@Model.Permanent">
+										<div class="invalid-feedback">
+											Vui lòng nhập số thẻ thường trú/ tạm trú hoặc một trong các trường khác.
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class=" justify-content-start gap-3 mt-3">
+								<button type="submit" class="btn btn-primary">Cập nhật</button>
+								<button type="reset" class="btn btn-secondary me-2">Reset</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<!-- change password -->
+			<div class="container">
+				<div class="row">
+					<div class="col-md">
+						<div class="card shadow-sm">
+							<div class="card-header text-white d-flex justify-content-between align-items-center" style="background: #0e73df !important;">
+								<h5 class="mb-0 text-white">Mật khẩu</h5>
+							</div>
+							<div class="card-body">
+								<partial name="_ChangePassword" model="new App.Web.ViewModels.Account.ChangePwdVM()" />
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Change Password -->
+			@if (roleId != AppConst.ROLE_CUSTOMER_ID)
+			{
+				<a asp-area="Admin"
+				   asp-controller="Home"
+				   asp-action="Index"
+				   class="btn btn-secondary col-md mr-3 ml-3">
+					Trang quản trị
+				</a>
+			}
+			else
+			{
+				<div class="container my-4">
+					<div class="row">
+						<!-- Thông tin đặt phòng -->
+						<div class="col-md-6 mb-4">
+							<div class="card shadow-sm h-100">
+								<div class="card-header text-white d-flex justify-content-between align-items-center" style="background: #0e73df !important;">
+									<h5 class="mb-0 text-white">Thông tin đặt phòng</h5>
+								</div>
+								<div class="card-body">
+									@* <div class="mb-3">
+							<h6 class="fw-bold">Trạng thái thanh toán:</h6>
+							<span class="badge bg-success">Đã thanh toán</span>
+							</div>
+							<div class="mb-3">
+							<h6 class="fw-bold">Khách sạn:</h6>
+							<p class="mb-0">Khách sạn ABC</p>
+							</div>
+							<div class="mb-3">
+							<h6 class="fw-bold">Ngày nhận phòng:</h6>
+							<p class="mb-0">25/12/2024 lúc 14:00</p>
+							</div>
+							<div class="mb-3">
+							<h6 class="fw-bold">Ngày trả phòng:</h6>
+							<p class="mb-0">27/12/2024 lúc 12:00</p>
+							</div> *@
+
+								</div>
+							</div>
+						</div>
+
+						<!-- Đánh giá khách sạn -->
+						<div class="col-md-6 mb-4">
+							<div class="card shadow-sm h-100">
+								<div class="card-header text-white" style="background: #0e73df !important;">
+									<h5 class="mb-0 text-white">Đánh giá khách sạn</h5>
+								</div>
+								<div class="card-body">
+
+									<partial name="_SendComment" model="new App.Web.ViewModels.Cmt.SendCmtVM()" />
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			}
+		</div>
+	</div>
+}
+else
+{
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 mx-auto text-center">
+				<h2 class="fw-bold display-6 mb-0">Bạn chưa đăng nhập</h2>
+				<p class="text-muted">Vui lòng đăng nhập để xem thông tin cá nhân của bạn.</p>
+			</div>
+		</div>
+	</div>
+}
+@section Scripts {
+	<script src="~/adminLTE/js/pages/form-validation.init.js"></script>
+	<!-- password-addon init -->
+	<script src="~/adminLTE/js/pages/passowrd-create.init.js" asp-append-version="true"></script>
+
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			var form = document.querySelector('form.needs-validation');
+			var citizenInput = document.getElementById('citizenInput');
+			var passportInput = document.getElementById('passportInput');
+			var permanentInput = document.getElementById('permanentInput');
+
+			function validateFields() {
+				var citizenValue = citizenInput.value.trim();
+				var passportValue = passportInput.value.trim();
+				var permanentValue = permanentInput.value.trim();
+
+				if (!citizenValue && !passportValue && !permanentValue) {
+					citizenInput.classList.add('is-invalid');
+					passportInput.classList.add('is-invalid');
+					permanentInput.classList.add('is-invalid');
+					return false;
+				} else {
+					citizenInput.classList.remove('is-invalid');
+					passportInput.classList.remove('is-invalid');
+					permanentInput.classList.remove('is-invalid');
+					return true;
+				}
+			}
+
+			citizenInput.addEventListener('input', validateFields);
+			passportInput.addEventListener('input', validateFields);
+			permanentInput.addEventListener('input', validateFields);
+
+			form.addEventListener('submit', function (event) {
+				if (!validateFields() || form.checkValidity() === false) {
+					event.preventDefault();
+					event.stopPropagation();
+				}
+				form.classList.add('was-validated');
+			}, false);
+		});
+	</script>
+}
