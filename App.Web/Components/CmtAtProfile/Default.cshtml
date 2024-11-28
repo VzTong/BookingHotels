@@ -1,0 +1,29 @@
+﻿@model IEnumerable<App.Web.ViewModels.Cmt.CmtVM>
+
+<div class="container">
+	<div class="d-block">
+		@foreach (var item in Model)
+		{
+			<div class="card card-comment mt-3">
+				<div class="p-3">
+					<div class="d-flex">
+						<div>
+							<h2 class="h5">@item.UserName</h2>
+							<blockquote>
+								&ldquo;@item.Description&rdquo;
+							</blockquote>
+						</div>
+					</div>
+					<div class="remove" style="text-align: end;">
+						<button class="btn btn-sm remove-item-btn btn-danger fs-15"
+								data-bs-toggle="modal"
+								data-bs-target="#deleteCmtModal"
+								onclick="setDeleteId('@item.Id')">
+							<i class="ri-delete-bin-line"></i>
+						</button>
+					</div>
+				</div>
+			</div>
+		}
+	</div>
+</div>
