@@ -19,10 +19,10 @@ namespace App.Web.Areas.Admin.Controllers
 	[Authorize(AuthenticationSchemes = AppConst.COOKIES_AUTH)]
 	public class AppEquipmentController : AppControllerBase
 	{
-		private readonly ILogger<AppBranchHotelController> _logger;
+		private readonly ILogger<AppEquipmentController> _logger;
 		readonly GenericRepository _repository;
 
-		public AppEquipmentController(GenericRepository repository, ILogger<AppBranchHotelController> logger, IMapper mapper) : base(mapper, repository)
+		public AppEquipmentController(GenericRepository repository, ILogger<AppEquipmentController> logger, IMapper mapper) : base(mapper, repository)
 		{
 			_logger = logger;
 			_repository = repository;
