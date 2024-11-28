@@ -10,6 +10,8 @@ public class CartItemVM
 	public decimal? DiscountPrice { get; set; }
 	public DateTime? DiscountFrom { get; set; }
 	public DateTime? DiscountTo { get; set; }
+	public int PeopleStay { get; set; }
+	public bool BringPet { get; set; }
 	public bool IsActive { get; set; }
 	public string RTypeName { get; set; }
 	public string HotelName { get; set; }
