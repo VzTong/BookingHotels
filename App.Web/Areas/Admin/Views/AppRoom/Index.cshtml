@@ -110,7 +110,7 @@
 											<environment names="Development">
 												<small class="text-secondary" style="cursor: default; font-size: x-small">(id @item.Id)</small>
 											</environment>
-											<a class="text-secondary ml-1" target="_blank" asp-controller="Rooms" asp-action="RoomDetail" asp-route-slug="@item.Slug" asp-route-productId="@item.Id"><i class="fas fa-external-link-alt text-secondary"></i></a>
+											<a class="text-secondary ml-1" target="_blank" asp-controller="Room" asp-action="Detail" asp-route-slug="@item.Slug" asp-route-productId="@item.Id"><i class="fas fa-external-link-alt text-secondary"></i></a>
 											<div>
 												@if (!item.Slug.IsNullOrEmpty())
 												{
