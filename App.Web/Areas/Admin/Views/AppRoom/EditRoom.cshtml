@@ -1,0 +1,183 @@
+﻿@model App.Web.Areas.Admin.ViewModels.Room.AddOrUpdateRoomVM
+@{
+	ViewData["Title"] = "Cập nhật phòng";
+}
+<div class="row">
+	<div class="col-12">
+		<div class="page-title-box d-sm-flex align-items-center justify-content-between">
+			<h4 class="mb-sm-0">Quản lý phòng</h4>
+
+			<div class="page-title-right">
+				<ol class="breadcrumb m-0">
+					<li class="breadcrumb-item"><a asp-action="Index" asp-area="Admin" asp-controller="Home">Bảng tổng quan</a></li>
+					<li class="breadcrumb-item active"><a asp-action="Index" asp-area="Admin" asp-controller="AppRoom">Danh sách phòng</a></li>
+					<li class="breadcrumb-item active">Cập nhật phòng</li>
+				</ol>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-lg-12">
+		<div class="card">
+			<div class="card-header align-items-center d-flex">
+				<h4 class="card-title mb-0">Cập nhật phòng</h4>
+			</div><!-- end card header -->
+
+			<div class="card-body">
+				<div id="customerList">
+					<div class="row gy-4">
+						<form asp-action="EditRoom" enctype="multipart/form-data" autocomplete="off" class="row g-3 needs-validation" novalidate>
+							<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+							<partial name="_AddOrEditRoom" />
+							<div class="form-group mt-3">
+								<button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Lưu</button>
+							</div>
+						</form>
+					</div>
+					<div class="d-flex justify-content-end">
+						<div class="pagination-wrap hstack gap-2">
+							<partial name="_BackToList" />
+						</div>
+					</div>
+				</div>
+			</div><!-- end card -->
+		</div>
+		<!-- end col -->
+	</div>
+	<!-- end col -->
+</div>
+<!-- end row -->
+@section Scripts {
+	<script src="~/js/admin/room/room-validate.js" asp-append-version="true"></script>
+	@* Include Flatpickr JS *@
+	<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+	<script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/vn.js"></script>
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			flatpickr('.js-date', {
+				altInput: true,
+				altFormat: "j F, Y H:i",
+				dateFormat: "Y-m-d H:i",
+				enableTime: true, // Enable time selection
+				locale: "vn" // Set the locale to Vietnamese
+			});
+		});
+
+		$(document).ready(function () {
+			choices = new Choices('.js-choice', {
+				searchEnabled: true,
+				itemSelectText: '',
+			});
+		});
+	</script>
+
+	<script>
+		// img1
+		var existingImgSrc_Cover = '@(Model.LinkImage1_path ?? "")';
+		if (existingImgSrc_Cover) {
+			$('#imgLinkImage1_update').show().attr('src', existingImgSrc_Cover);
+			$('#iconLinkImage1_update').hide();
+		}
+		// File input change event
+		$('#LinkImage1_update').on('change', function () {
+			var fileInput = $(this);
+			var file = fileInput[0].files[0];
+			console.log(file);
+			if (file) {
+				$('#imgLinkImage1_update').show().attr('src', URL.createObjectURL(file));
+				$('#iconLinkImage1_update').hide();
+			} else {
+				$('#imgLinkImage1_update').css('display', 'none').attr('src', '');
+				$('#iconLinkImage1_update').hide();
+			}
+		});
+
+		// img2
+		var existingImgSrc_Cover = '@(Model.LinkImage2_path ?? "")';
+		if (existingImgSrc_Cover) {
+			$('#imgLinkImage2_update').show().attr('src', existingImgSrc_Cover);
+			$('#iconLinkImage2_update').hide();
+		}
+		// File input change event
+		$('#LinkImage2_update').on('change', function () {
+			var fileInput = $(this);
+			var file = fileInput[0].files[0];
+			console.log(file);
+			if (file) {
+				$('#imgLinkImage2_update').show().attr('src', URL.createObjectURL(file));
+				$('#iconLinkImage2_update').hide();
+			} else {
+				$('#imgLinkImage1_update').css('display', 'none').attr('src', '');
+				$('#iconLinkImage2_update').hide();
+			}
+		});
+
+		// img3
+		var existingImgSrc_Cover = '@(Model.LinkImage3_path ?? "")';
+		if (existingImgSrc_Cover) {
+			$('#imgLinkImage3_update').show().attr('src', existingImgSrc_Cover);
+			$('#iconLinkImage3_update').hide();
+		}
+		// File input change event
+		$('#LinkImage3_update').on('change', function () {
+			var fileInput = $(this);
+			var file = fileInput[0].files[0];
+			console.log(file);
+			if (file) {
+				$('#imgLinkImage3_update').show().attr('src', URL.createObjectURL(file));
+				$('#iconLinkImage3_update').hide();
+			} else {
+				$('#imgLinkImage3_update').css('display', 'none').attr('src', '');
+				$('#iconLinkImage3_update').hide();
+			}
+		});
+
+		// img4
+		var existingImgSrc_Cover = '@(Model.LinkImage4_path ?? "")';
+		if (existingImgSrc_Cover) {
+			$('#imgLinkImage4_update').show().attr('src', existingImgSrc_Cover);
+			$('#iconLinkImage4_update').hide();
+		}
+		// File input change event
+		$('#LinkImage4_update').on('change', function () {
+			var fileInput = $(this);
+			var file = fileInput[0].files[0];
+			console.log(file);
+			if (file) {
+				$('#imgLinkImage4_update').show().attr('src', URL.createObjectURL(file));
+				$('#iconLinkImage4_update').hide();
+			} else {
+				$('#imgLinkImage4_update').css('display', 'none').attr('src', '');
+				$('#iconLinkImage4_update').hide();
+			}
+		});
+	</script>
+
+	<script>
+		$(document).ready(function () {
+			$('#BranchId').change(function () {
+				var branchId = $(this).val();
+				if (branchId) {
+					$.ajax({
+						url: '@Url.Action("GetBranchInfo", "AppRoom", new { area = "Admin" })',
+						type: 'GET',
+						data: { branchId: branchId },
+						success: function (data) {
+							$('#branch-info').show();
+							$('#branch-floors').text('Chi nhánh này có: ' + data.floors + ' tầng');
+							$('#branch-rooms').text('Chi nhánh này có: ' + data.rooms + ' phòng');
+						},
+						error: function () {
+							$('#branch-info').hide();
+						}
+					});
+				} else {
+					$('#branch-info').hide();
+				}
+			});
+		});
+	</script>
+}
