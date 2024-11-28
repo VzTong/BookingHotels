@@ -38,7 +38,7 @@
 
 										<div class="accordion-item">
 											<h2 class="accordion-header" id="genques-heading@(i+1)">
-												<button class="accordion-button collapsed d-flex" type="button" data-bs-toggle="collapse" data-bs-target="#genques-collapse@(i + 1)" aria-expanded="flase" aria-controls="genques-collapse@(i+1)" style="background: rgb(94 203 182 / 5%);">
+												<button class="accordion-button collapsed d-flex" type="button" data-bs-toggle="collapse" data-bs-target="#genques-collapse@(i + 1)" aria-expanded="false" aria-controls="genques-collapse@(i+1)" style="background: rgb(94 203 182 / 5%);">
 													<span class="cart-no mr-2">@(i + 1)</span>
 													@if (!string.IsNullOrEmpty(item.ImagePath))
 													{
@@ -55,7 +55,7 @@
 													</span>
 												</button>
 											</h2>
-											<div id="genques-collapse@(i+1)" class="accordion-collapse collapse show" aria-labelledby="genques-heading@(i+1)" data-bs-parent="#genques-accordion">
+											<div id="genques-collapse@(i+1)" class="accordion-collapse collapse" aria-labelledby="genques-heading@(i+1)" data-bs-parent="#genques-accordion">
 												<div class="accordion-body">
 													<div class="mt-2 text-justify">
 														<p><strong>Tên phòng:</strong> @item.RoomName</p>
@@ -63,6 +63,10 @@
 														<p><strong>Thuộc khách sạn:</strong> @item.HotelName</p>
 														<p><strong>Giá phòng:</strong> @price.ToString("#,0")</p>
 														<p><strong>Loại phòng:</strong> @item.RTypeName</p>
+														<p><strong>Số người tối đa:</strong>@item.PeopleStay</p>
+														<p><strong>Thú cưng:</strong>
+															@(item.BringPet ? "✅Có thể mang" : "❌Không thể mang")
+														</p>
 													</div>
 												</div>
 											</div>
