@@ -16,6 +16,9 @@ namespace App.Data.Configurations.WebService
 				.IsRequired()
 				.HasMaxLength(DB.AppComment.DESC_LENGTH);
 
+			builder.Property(x => x.Rating)
+				.IsRequired();
+
 			// FK - AppUser
 			builder.HasOne(x => x.User)
 				.WithMany(x => x.Comments)
