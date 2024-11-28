@@ -35,7 +35,7 @@
 							<div class="row mb-3 col-12">
 								<div class="col-md-6">
 									<label asp-for="@Model.Username" class="form-label">Tên đăng nhập</label>
-									<input asp-for="@Model.Username" id="username" class="form-control" />
+									<input asp-for="@Model.Username" disabled id="username" class="form-control" style="cursor: no-drop;" />
 								</div>
 								<div class="col-md-6">
 									<label asp-for="@Model.FullName" class="form-label">Họ tên</label>
@@ -171,8 +171,36 @@
 									<h5 class="mb-0 text-white">Đánh giá khách sạn</h5>
 								</div>
 								<div class="card-body">
-
-									<partial name="_SendComment" model="new App.Web.ViewModels.Cmt.SendCmtVM()" />
+									<!-- Xem bình luận -->
+									<div class="accordion accordion-border-box" id="genques-accordion1">
+										<div class="accordion-item">
+											<h2 class="accordion-header" id="send-cmt">
+												<button class="accordion-button collapsed d-flex" type="button" data-bs-toggle="collapse" data-bs-target="#genques-collapse1" aria-expanded="false" aria-controls="genques-collapse1" style="background: rgb(94 203 182 / 5%);">
+													<span class="text-center d-block">Các bình luận của bạn</span>
+												</button>
+											</h2>
+											<div id="genques-collapse1" class="accordion-collapse collapse" aria-labelledby="send-cmt" data-bs-parent="#genques-accordion1">
+												<div class="accordion-body">
+													@await Component.InvokeAsync("CmtAtProfile")
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- Viết bình luận -->
+									<div class="accordion accordion-border-box mt-3" id="genques-accordion">
+										<div class="accordion-item">
+											<h2 class="accordion-header" id="send-cmt">
+												<button class="accordion-button collapsed d-flex" type="button" data-bs-toggle="collapse" data-bs-target="#genques-collapse" aria-expanded="false" aria-controls="genques-collapse" style="background: rgb(94 203 182 / 5%);">
+													<span class="text-center d-block">Viết bình luận</span>
+												</button>
+											</h2>
+											<div id="genques-collapse" class="accordion-collapse collapse" aria-labelledby="send-cmt" data-bs-parent="#genques-accordion">
+												<div class="accordion-body">
+													<partial name="_SendComment" model="new App.Web.ViewModels.Cmt.SendCmtVM()" />
+												</div>
+											</div>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -193,11 +221,18 @@ else
 		</div>
 	</div>
 }
+<partial name="_DeleteCmtModal" model="null" />
 @section Scripts {
+	<script src="~/adminLTE/js/pages/plugins/lord-icon-2.1.0.js" asp-append-version="true"></script>
 	<script src="~/adminLTE/js/pages/form-validation.init.js"></script>
 	<!-- password-addon init -->
 	<script src="~/adminLTE/js/pages/passowrd-create.init.js" asp-append-version="true"></script>
-
+	<script>
+		function setDeleteId(id) {
+			const deleteConfirmBtn = document.getElementById('deleteConfirmBtn');
+			deleteConfirmBtn.href = `/Account/DeleteCmt/${id}`;
+		}
+	</script>
 	<script>
 		document.addEventListener('DOMContentLoaded', function () {
 			var form = document.querySelector('form.needs-validation');
