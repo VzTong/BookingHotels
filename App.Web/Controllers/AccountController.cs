@@ -14,6 +14,7 @@ using AspNetCoreHero.ToastNotification.Abstractions;
 using AutoMapper;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Components.RenderTree;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 
@@ -237,7 +238,7 @@ namespace App.Web.Controllers
 		{
 			if (!ModelState.IsValid)
 			{
-				SetErrorMesg(MODEL_STATE_INVALID_MESG, true);
+				_notyf.Error(MODEL_STATE_INVALID_MESG);
 				return RedirectToAction(nameof(UserProfile));
 			}
 			try
@@ -249,13 +250,33 @@ namespace App.Web.Controllers
 				cmt.CreatedDate = now;
 
 				await _repository.AddAsync(cmt);
-				SetSuccessMesg($"Đã đăng bình luận");
+				_notyf.Success($"Đã đăng bình luận");
 				return RedirectToAction(nameof(UserProfile));
 			}
 			catch (Exception ex)
 			{
 				return RedirectToAction(nameof(UserProfile));
 			}
+		}
+
+		public async Task<IActionResult> DeleteCmt(int id)
+		{
+			var cmt = await _repository.FindAsync<AppComment>(id);
+			var curentUserId = CurrentUserId;
+			var username = CurrentUsername;
+			if (cmt == null)
+			{
+				_notyf.Error("Bình luận này không tồn tại hoặc đã được xóa trước đó");
+				return RedirectToAction(nameof(UserProfile));
+			}
+			if (cmt.CreatedBy != curentUserId)
+			{
+				_notyf.Error("Bạn không có quyền xóa bình luận này");
+				return RedirectToAction(nameof(UserProfile));
+			}
+			await _repository.DeleteAsync(cmt);
+			_notyf.Success($"Bình luận '{username}' được xóa thành công");
+			return RedirectToAction(nameof(UserProfile));
 		}
 	}
 }
