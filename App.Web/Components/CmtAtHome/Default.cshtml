@@ -19,11 +19,11 @@
 								@if (item.UserAvt != null)
 								{
 									var imgSrc = item.UserAvt.StartsWith("https", StringComparison.OrdinalIgnoreCase) ? item.UserAvt : item.UserAvt;
-									<img src="@imgSrc" alt="@item.UserName" loading="lazy" class="img-fluid rounded" />
+									<img src="@imgSrc" alt="@item.UserName" loading="lazy" class="img-fluid rounded" style="width: 80px; height:70px" />
 								}
 								else
 								{
-									<img src="~/clientlte/images/img_1.jpg" alt="Avatar" class="img-fluid rounded">
+									<img src="~/clientlte/images/img_1.jpg" alt="Avatar" class="img-fluid rounded" style="width: 80px; height:70px">
 								}
 							</div>
 							<div>
