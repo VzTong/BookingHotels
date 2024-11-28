@@ -4,17 +4,21 @@ namespace App.Web.ViewModels.Account
 {
 	public class UserProfileClientVM
 	{
-		[AppRequired]
-		public string FullName { get; set; }
-		[AppRequired]
+		// Thông tin cơ bản
+		public string? Username { get; set; }
+		public string? FullName { get; set; }
 		[AppPhone]
-		public string PhoneNumber1 { get; set; }
+		public string? PhoneNumber1 { get; set; }
 		[AppPhone]
-		public string PhoneNumber2 { get; set; }
-		[AppRequired]
+		public string? PhoneNumber2 { get; set; }
 		[AppEmail]
-		public string Email { get; set; }
+		public string? Email { get; set; }
 		[AppRequired]
-		public string Address { get; set; }
+		public string? Address { get; set; }
+		public string? Avatar { get; set; }
+		public IFormFile? AvatarPath { get; set; }
+		public int? CitizenId { get; set; }
+		public string? Passport { get; set; }
+		public string? Permanent { get; set; }
 	}
 }
