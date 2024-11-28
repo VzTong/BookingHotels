@@ -196,8 +196,8 @@
 
         public static class OrderStatus
         {
-            public const string STATUS_PROCESSING_NAME = "Hóa đơn đang được chờ thanh toán";
-            public const string STATUS_DONE_NAME = "Hóa đơn đã thanh toán";
+            public const string STATUS_PROCESSING_NAME		= "Hóa đơn đang được chờ thanh toán";
+            public const string STATUS_DONE_NAME			= "Hóa đơn đã thanh toán";
         }
 
         public static class AppOrderDetail
@@ -211,6 +211,21 @@
 		{
 			public const string TABLE_NAME					= "AppComment";
 			public const short DESC_LENGTH					= 255;
+		}
+
+		public static class CommentRating
+		{
+			public const short GREAT_ID						= 5;
+			public const short GOOD_ID						= 4;
+			public const short MEDIUM_ID					= 3;
+			public const short LEAST_ID						= 2;
+			public const short VERY_POOR_ID					= 1;
+
+			public const string GREAT						= "5⭐ - Tuyệt vời";
+			public const string GOOD						= "4⭐ - Tốt";
+			public const string MEDIUM						= "3⭐ - Trung bình";
+			public const string LEAST						= "2⭐ - Kém";
+			public const string VERY_POOR					= "1⭐ - Rất kém";
 		}
 		#endregion
 	}
