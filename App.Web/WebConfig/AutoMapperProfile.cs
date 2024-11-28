@@ -16,10 +16,12 @@ using App.Web.Areas.Admin.ViewModels.Room;
 using App.Web.Areas.Admin.ViewModels.RoomType;
 using App.Web.Areas.Admin.ViewModels.User;
 using App.Web.ViewModels.Account;
+using App.Web.ViewModels.Cmt;
 using App.Web.ViewModels.News;
 using App.Web.ViewModels.Order;
 using App.Web.ViewModels.Room;
 using AutoMapper;
+using MailKit.Search;
 
 namespace App.Web.WebConfig
 {
@@ -85,6 +87,9 @@ namespace App.Web.WebConfig
 
 			// Map dữ liệu của OrderDataVM
 			CreateMap<OrderDataVM, AppOrder>().ReverseMap();
+
+			// Map dư liệu tạo cmt
+			CreateMap<AppComment, SendCmtVM>().ReverseMap();
 		}
 
 		// Cấu hình mapping cho RoleController, action Index area Admin
@@ -319,6 +324,8 @@ namespace App.Web.WebConfig
 			.ForMember(uItem => uItem.ImagePath, opts =>
 				opts.MapFrom(uEntity => uEntity.ImgRooms.FirstOrDefault() == null ? "" : uEntity.ImgRooms.First().ImgSrc)
 			)
+			.ForMember(uItem => uItem.PeopleStay, opts => opts.MapFrom(uEntity => uEntity.RoomType.PeopleStay))
+			.ForMember(uItem => uItem.BringPet, opts => opts.MapFrom(uEntity => uEntity.RoomType.BringPet))
 			.ForMember(uItem => uItem.HotelName, opts => opts.MapFrom(uEntity => uEntity.Branch.Hotel == null ? "" : uEntity.Branch.Hotel.Name))
 			.ForMember(uItem => uItem.BranchDesc, opts => opts.MapFrom(uEntity => uEntity.Branch == null ? "" : uEntity.Branch.Description)).ReverseMap();
 		});
