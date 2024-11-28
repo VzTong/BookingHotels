@@ -208,7 +208,7 @@ namespace App.Web.Areas.Admin.Components.MainNavBar
 				{
 					Action = "Index",
 					Controller = "AppComment",
-					DisplayText = "Quản lý đánh giá khách sạn",
+					DisplayText = "Quản lý bình luận",
 					Icon = "comments",
 					Permission = AuthConst.AppComment.VIEW_LIST
 				});
