@@ -6,6 +6,7 @@ using App.Data.Entities.User;
 using App.Web.Areas.Admin.ViewModels.Account;
 using App.Web.Areas.Admin.ViewModels.BranchHotel;
 using App.Web.Areas.Admin.ViewModels.CategoryNews;
+using App.Web.Areas.Admin.ViewModels.Comment;
 using App.Web.Areas.Admin.ViewModels.Equipment;
 using App.Web.Areas.Admin.ViewModels.EquipmentType;
 using App.Web.Areas.Admin.ViewModels.Hotel;
@@ -21,7 +22,6 @@ using App.Web.ViewModels.News;
 using App.Web.ViewModels.Order;
 using App.Web.ViewModels.Room;
 using AutoMapper;
-using MailKit.Search;
 
 namespace App.Web.WebConfig
 {
@@ -317,6 +317,7 @@ namespace App.Web.WebConfig
 			);
 		});
 
+		// Cấu hình mapping cho OrderController, action Index area Client
 		public static MapperConfiguration CartConf = new(mapper =>
 		{
 			mapper.CreateMap<AppRoom, CartItemVM>()
@@ -330,6 +331,7 @@ namespace App.Web.WebConfig
 			.ForMember(uItem => uItem.BranchDesc, opts => opts.MapFrom(uEntity => uEntity.Branch == null ? "" : uEntity.Branch.Description)).ReverseMap();
 		});
 
+		// Cấu hình mapping cho OrderController, action Index area Client
 		public static MapperConfiguration OrderConf = new(mapper =>
 		{
 			mapper.CreateMap<AppOrderDetail, ListItemOrderDetailVM>();
@@ -337,9 +339,18 @@ namespace App.Web.WebConfig
 				.ForMember(x => x.AppOrderDetails, opt => opt.MapFrom(x => x.OrderDetails));
 		});
 
+		// Cấu hình mapping cho OrderController, action Index area Client
 		public static MapperConfiguration OrderDetailConf = new(mapper =>
 		{
 			mapper.CreateMap<AppOrderDetail, ListItemOrderDetailVM>().ReverseMap();
+		});
+
+		// Cấu hình mapping cho AppCommentController, action Index area Admin
+		public static MapperConfiguration CmtIndexConf = new(mapper =>
+		{
+			mapper.CreateMap<AppComment, CmtListItemVM>().ReverseMap();
+			mapper.CreateMap<AppComment, CmtListItemVM>()
+				.ForMember(uItem => uItem.UserName, opts => opts.MapFrom(uEntity => uEntity.User.FullName));
 		});
 	}
 }
