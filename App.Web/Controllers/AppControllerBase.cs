@@ -61,5 +61,40 @@ namespace App.Web.Controllers
 			hashResult.Key = hmac.Key;
 			return hashResult;
 		}
+
+		/// <summary>
+		/// Upload và trả về tên file, file đó được lưu trong thư mục Upload
+		/// </summary>
+		/// <param name="file">Là file đó</param>
+		/// <param name="dir">Thư mục lưu file</param>
+		/// <returns></returns>
+		protected string UploadFile(IFormFile file, string dir)
+		{
+			if (file == null)
+			{
+				// Người dùng không upload ảnh, sử dụng ảnh mặc định
+				var defaultImageBytes = System.IO.File.ReadAllBytes(DefaultImagePath.TrimStart('/'));
+				return Convert.ToBase64String(defaultImageBytes);
+			}
+
+			// upload ảnh bìa (CoverImg)
+			var fName = file.FileName;
+			fName = Path.GetFileNameWithoutExtension(fName)
+					+ DateTime.Now.Ticks
+					+ Path.GetExtension(fName);
+
+			// Gán giá trị cột CoverImg
+			var res = "upload/img/" + fName;
+
+			// Tạo đường dẫn tuyệt đối (Ví dụ: E:/Project/wwwroot/upload/xxxx.jpg)
+			fName = Path.Combine(dir, "upload/img", fName);
+
+			// Tạo Stream để lưu file
+			var stream = System.IO.File.Create(fName);
+			file.CopyTo(stream);
+			stream.Dispose(); // Giải phóng bộ nhớ
+
+			return res;
+		}
 	}
 }
