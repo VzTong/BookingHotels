@@ -23,7 +23,7 @@ namespace App.Data.DataSeeders
 					CusPhone = "+12025550123",
 					CusEmail = "johnsmith1992@gmail.com",
 					CusNote = "No special requests",
-					Status = DB.RoomStatus.STATUS_CHECKOUT_NAME
+					Status = DB.OrderStatus.STATUS_DONE_NAME
 				},
 				new AppOrder
 				{
@@ -36,7 +36,7 @@ namespace App.Data.DataSeeders
 					CusPhone = "+84911234567",
 					CusEmail = "user2@gmail.com",
 					CusNote = "Late check-in",
-					Status = DB.RoomStatus.STATUS_CHECKOUT_NAME
+					Status = DB.OrderStatus.STATUS_DONE_NAME
 				},
 				// Orders for rooms with STATUS_BOOKING_NAME
 				new AppOrder
@@ -45,11 +45,11 @@ namespace App.Data.DataSeeders
 					QuantityRoom = 1,
 					CustomerId = 11,
 					CreatedDate = now,
-					CusName = "Trần THị Hòa",
+					CusName = "Trần Thị Hòa",
 					CusPhone = "+84931234567",
 					CusEmail = "user4@gmail.com",
 					CusNote = "Early check-in",
-					Status = DB.RoomStatus.STATUS_BOOKING_NAME
+					Status = DB.OrderStatus.STATUS_PROCESSING_NAME
 				},
 				new AppOrder
 				{
@@ -61,7 +61,7 @@ namespace App.Data.DataSeeders
 					CusPhone = "+84921234567",
 					CusEmail = "user3@gmail.com",
 					CusNote = "No special requests",
-					Status = DB.RoomStatus.STATUS_BOOKING_NAME
+					Status = DB.OrderStatus.STATUS_PROCESSING_NAME
 				},
 				new AppOrder
 				{
@@ -73,7 +73,7 @@ namespace App.Data.DataSeeders
 					CusPhone = "+12025550127",
 					CusEmail = "foreign_user5@gmail.com",
 					CusNote = "Late check-out",
-					Status = DB.RoomStatus.STATUS_BOOKING_NAME
+					Status = DB.OrderStatus.STATUS_PROCESSING_NAME
 				},
 				// Orders for rooms with STATUS_CHECKIN_NAME
 				new AppOrder
@@ -86,7 +86,7 @@ namespace App.Data.DataSeeders
 					CusPhone = "+12025550125",
 					CusEmail = "user8@gmail.com",
 					CusNote = "No special requests",
-					Status = DB.RoomStatus.STATUS_CHECKIN_NAME
+					Status = DB.OrderStatus.STATUS_PROCESSING_NAME
 				},
 				new AppOrder
 				{
@@ -98,7 +98,7 @@ namespace App.Data.DataSeeders
 					CusPhone = "+12025550124",
 					CusEmail = "user7@gmail.com",
 					CusNote = "Early check-out",
-					Status = DB.RoomStatus.STATUS_CHECKIN_NAME
+					Status = DB.OrderStatus.STATUS_PROCESSING_NAME
 				},
 				new AppOrder
 				{
@@ -110,7 +110,7 @@ namespace App.Data.DataSeeders
 					CusPhone = "+12025550123",
 					CusEmail = "user6@gmail.com",
 					CusNote = "No special requests",
-					Status = DB.RoomStatus.STATUS_CHECKIN_NAME
+					Status = DB.OrderStatus.STATUS_PROCESSING_NAME
 				},
 				new AppOrder
 				{
@@ -122,7 +122,7 @@ namespace App.Data.DataSeeders
 					CusPhone = "+84941234567",
 					CusEmail = "user5@gmail.com",
 					CusNote = "Late check-in",
-					Status = DB.RoomStatus.STATUS_CHECKIN_NAME
+					Status = DB.OrderStatus.STATUS_PROCESSING_NAME
 				},
 				new AppOrder
 				{
@@ -134,7 +134,7 @@ namespace App.Data.DataSeeders
 					CusPhone = "+12025550126",
 					CusEmail = "user9@gmail.com",
 					CusNote = "No special requests",
-					Status = DB.RoomStatus.STATUS_CHECKIN_NAME
+					Status = DB.OrderStatus.STATUS_PROCESSING_NAME
 				}
 			);
 		}
