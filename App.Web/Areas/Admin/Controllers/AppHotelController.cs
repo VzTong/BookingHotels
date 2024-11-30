@@ -127,7 +127,7 @@ namespace App.Web.Areas.Admin.Controllers
 		}
 
 		[HttpPost]
-		[AppAuthorize(AuthConst.AppUser.UPDATE)]
+		[AppAuthorize(AuthConst.AppHotel.UPDATE)]
 		public async Task<IActionResult> EditHotel(AddOrUpdateHotelVM model, [FromServices] IWebHostEnvironment env)
 		{
 			var hotel = await _repository.FindAsync<AppHotel>((int)model.Id);
