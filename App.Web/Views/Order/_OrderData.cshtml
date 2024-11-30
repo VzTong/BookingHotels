@@ -13,7 +13,7 @@
 				<input asp-for="CusName" class="form-control" type="text" placeholder="Họ Và Tên (*)" required>
 			</div>
 			<div class="col-md-6">
-				<label asp-for="CusNote" class="form-label">
+				<label asp-for="CusEmail" class="form-label">
 					Địa chỉ mail
 				</label>
 				<input asp-for="CusEmail" class="form-control" type="email" placeholder="Email (*)" required>
@@ -21,7 +21,7 @@
 		</div>
 		<div class="row mb-3">
 			<div class="col-md-6">
-				<label asp-for="CusNote" class="form-label">
+				<label asp-for="CusPhone" class="form-label">
 					SĐT
 				</label>
 				<input asp-for="CusPhone" class="form-control" type="text" placeholder="Điện Thoại (*)" required>
@@ -45,6 +45,26 @@
 					Thời gian trả phòng (dự kiến)
 				</label>
 				<input name="CheckOutTime_Expected" type="text" class="form-control js-date" data-provider="flatpickr" data-date-format="d.m.y" data-enable-time>
+			</div>
+		</div>
+		<div class="row mb-3">
+			<div class="col-md-4">
+				<label asp-for="CusCitizenId" class="form-label">
+					Số thẻ căn cước
+				</label>
+				<input asp-for="CusCitizenId" id="citizenInput" class="form-control" type="text" placeholder="Số thẻ căn cước">
+			</div>
+			<div class="col-md-4">
+				<label asp-for="CusPassport" class="form-label">
+					Số thẻ hộ chiếu
+				</label>
+				<input asp-for="CusPassport" id="passportInput" class="form-control" type="text" placeholder="Số thẻ hộ chiếu">
+			</div>
+			<div class="col-md-4">
+				<label asp-for="CusPermanent" class="form-label">
+					Số thẻ thường trú / tạm trú
+				</label>
+				<input asp-for="CusPermanent" id="permanentInput" class="form-control" type="text" placeholder="Số thẻ thường trú / tạm trú">
 			</div>
 		</div>
 		<button type="submit" class="btn btn-primary mt-4 w-100">Đặt Phòng</button>
