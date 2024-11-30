@@ -13,7 +13,6 @@ namespace App.Data.Entities.service
 		public decimal? TotalPrice { get; set; }
 		public int? TimeStay { get; set; }
         public string? RoomName { get; set; }
-		public string? ImagePath { get; set; }
         public int? OrderId { get; set; }
         public int? RoomId { get; set; }
 
