@@ -38,6 +38,9 @@ namespace App.Web.Controllers
 					CusEmail = cusData.Email,
 					CusName = cusData.FullName,
 					CusPhone = cusData.PhoneNumber1,
+					CusCitizenId = cusData.CitizenId,
+					CusPassport = cusData.Passport,
+					CusPermanent = cusData.Permanent,
 					CusNote = ""
 				};
 				ViewBag.CusData = orderData;
@@ -74,17 +77,25 @@ namespace App.Web.Controllers
 				{
 					RoomId = detail.Id,
 					RoomName = detail.RoomName,
-					TotalPrice = detail.TotalPrice, // Use TotalPrice here
-					ImagePath = detail.ImagePath,
-					CheckInTime_Expected = detail.CheckInTime_Expected,
-					CheckOutTime_Expected = detail.CheckOutTime_Expected,
+					TotalPrice = detail.TotalPrice,
+					CheckInTime_Expected = model.CheckInTime_Expected,
+					CheckOutTime_Expected = model.CheckOutTime_Expected,
 					CreatedBy = CurrentUserId,
 					CreatedDate = DateTime.Now,
 					UpdatedBy = CurrentUserId,
 					UpdatedDate = DateTime.Now
 				};
+				order.QuantityRoom++;
 				order.TotalPrice += tmp.TotalPrice;
 				order.OrderDetails.Add(tmp);
+
+				// Update room status to booked
+				var room = await _repository.FindAsync<AppRoom>(detail.Id);
+				if (room != null)
+				{
+					room.Status = DB.RoomStatus.STATUS_BOOKING_NAME;
+					await _repository.UpdateAsync(room);
+				}
 			}
 			await _repository.AddAsync(order);
 		}
