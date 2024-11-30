@@ -1,0 +1,158 @@
+﻿@using App.Share.Consts
+@using App.Share.Extensions
+@model IEnumerable<App.Web.ViewModels.Order.OrderVM>
+@{
+	var index = 1;
+}
+@foreach (var item in Model)
+{
+	<div class="accordion accordion-border-box" id="manageaccount-accordion-@item.Id">
+		<div class="accordion-item">
+			<h2 class="accordion-header" id="manageaccount-heading-@item.Id">
+				<button class="accordion-button collapsed text-center d-flex"
+						type="button"
+						data-bs-toggle="collapse"
+						data-bs-target="#manageaccount-collapse-@item.Id"
+						aria-expanded="false"
+						aria-controls="manageaccount-collapse-@item.Id"
+						style="background: rgb(94 203 182 / 5%);">
+					<span class="col-md-1 js-index">
+						@(index++)
+					</span>
+					<div class="col-md-2 text-center">
+						@if (item.Status == DB.OrderStatus.STATUS_PROCESSING_NAME)
+						{
+							<span class="badge badge-soft-warning badge-border" style="cursor: default;">
+								@item.Status
+							</span>
+						}
+						else
+						{
+							<span class="badge badge-soft-success badge-border" style="cursor: default;">
+								@item.Status
+							</span>
+						}
+					</div>
+					<span class="col-md-4 ml-5">@item.TotalAmount?.ToString("#,0 VNĐ")</span>
+					<span>Hóa đơn có @item.QuantityRoom phòng</span>
+				</button>
+			</h2>
+			<div id="manageaccount-collapse-@item.Id"
+				 class="accordion-collapse collapse"
+				 aria-labelledby="manageaccount-heading-@item.Id"
+				 data-bs-parent="#manageaccount-accordion-@item.Id">
+				<div class="accordion-body">
+					@if (item.AppOrderDetails is not null)
+					{
+						var rowindex = 1;
+						@if (item.AppOrderDetails.Count() > 0)
+						{
+							@foreach (var item1 in item.AppOrderDetails)
+							{
+								@if (item1.DeletedDate is null)
+								{
+									<div class="row mt-2 text-center">
+										<div class="col-md-1">
+											@(rowindex++)
+										</div>
+										<div class="col-md-4">
+											<strong>Phòng: @item1.RoomName</strong>
+											<p class="small">
+												CheckIn dự kiến
+												<span class="badge badge-soft-secondary badge-border" style="cursor: default;">
+													@item1.CheckInTime_Expected.ToDMYHM()
+												</span>
+											</p>
+											<p class="small">
+												CheckOut dự kiến
+												<span class="badge badge-soft-secondary badge-border" style="cursor: default;">
+													@item1.CheckOutTime_Expected.ToDMYHM()
+												</span>
+											</p>
+										</div>
+										<div class="col-md-4">
+											@if (item1.CheckInTime is not null || item1.CheckOutTime is not null)
+											{
+												@if (item1.CheckInTime is not null)
+												{
+													<p class="small">
+														CheckIn:
+														<span class="badge badge-soft-primary badge-border"
+															  style="cursor: default;">
+															@item1.CheckInTime?.ToDMYHM()
+														</span>
+													</p>
+												}
+												@if (item1.CheckOutTime is not null)
+												{
+													<p class="small">
+														CheckOut
+														<span class="badge badge-soft-primary badge-border"
+															  style="cursor: default;">
+															@item1.CheckOutTime?.ToDMYHM()
+														</span>
+													</p>
+													<p class="small">
+														Thời gian ở
+														<span class="badge badge-soft-info badge-border"
+															  style="cursor: default;">
+															@item1.TimeStay ngày
+														</span>
+													</p>
+												}
+											}
+											<div class="mt-3">
+												@if (item1.CheckOutTime is null && item1.TotalPrice > 0)
+												{
+													<p class="small">
+														Tạm tính
+														<span class="badge badge-soft-secondary badge-border"
+															  style="cursor: default;">
+															@item1.TotalPrice?.ToString("#,0 VNĐ")
+														</span>
+													</p>
+												}
+												else if (item1.CheckOutTime != null && item1.TotalPrice > 0)
+												{
+													<p class="small">
+														Tổng giá phòng
+														<span class="badge badge-soft-secondary badge-border"
+															  style="cursor: default;">
+															@item1.TotalPrice?.ToString("#,0 VNĐ")
+														</span>
+													</p>
+												}
+												else
+												{
+													<span class="badge badge-soft-secondary badge-border"
+														  style="cursor: default;">
+														Chưa tính giá
+													</span>
+												}
+											</div>
+										</div>
+										<div class="col-md-2">
+											@item1.RoomStatus
+										</div>
+										<div class="col-md-1" style="text-align: end !important">
+											@if (item1.CheckInTime is null)
+											{
+												<button class="btn btn-sm remove-item-btn btn-danger fs-15"
+														data-bs-toggle="modal"
+														data-bs-target="#cancelODetailModel"
+														onclick="setCancelId('@item1.Id')">
+													<i class="ri-delete-bin-line"></i>
+												</button>
+											}
+										</div>
+									</div>
+									<hr/>
+								}
+							}
+						}
+					}
+				</div>
+			</div>
+		</div>
+	</div>
+}
