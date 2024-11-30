@@ -153,6 +153,12 @@
 															Tạm tính @item1.TotalPrice?.ToString("#,0 VNĐ")
 														</span>
 													}
+													else if (item1.CheckOutTime != null && item1.TotalPrice > 0)
+													{
+														<span class="badge badge-soft-secondary badge-border" style="cursor: default;">
+															Tổng giá phòng @item1.TotalPrice?.ToString("#,0 VNĐ")
+														</span>
+													}
 													else
 													{
 
