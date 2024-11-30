@@ -1,0 +1,219 @@
+﻿@model IEnumerable<App.Data.Entities.service.AppOrder>
+
+<div class="col-md-12">
+	<div class="row text-center text-bold" data-header-flg="1" style="border-bottom: 1px solid #bebcbc;padding: 15px 0px;">
+		<div class="col-md-1">#</div>
+		<div class="col-md-4">Khách hàng</div>
+		<div class="col-md-2">Tổng giá</div>
+		<div class="col-md-2">Trạng thái</div>
+		<div class="col-md-2">Chức năng</div>
+	</div>
+	@{
+		var index = 1;
+	}
+	@foreach (var item in Model)
+	{
+		<div class="accordion accordion-border-box" id="manageaccount-accordion-@item.Id">
+			<div class="accordion-item">
+				<h2 class="accordion-header" id="manageaccount-heading-@item.Id">
+					<button class="accordion-button collapsed text-center"
+							type="button"
+							data-bs-toggle="collapse"
+							data-bs-target="#manageaccount-collapse-@item.Id"
+							aria-expanded="false"
+							aria-controls="manageaccount-collapse-@item.Id"
+							style="border-bottom: 1px solid #bebcbc; padding: 6px 0px; padding-right: 10px">
+						<div class="col-md-1 js-index">
+							@(index++)
+						</div>
+						<div class="col-md-4 d-block">
+							<p>@item.CusName</p>
+							<div class="d-block">
+								<span class="badge badge-soft-primary badge-border" style="cursor: default;">
+									@item.CusPhone
+								</span>
+								<span class="badge badge-soft-primary badge-border" style="cursor: default;">
+									@item.CusEmail
+								</span>
+								@if (!item.CusNote.IsNullOrEmpty())
+								{
+									<span class="badge badge-soft-secondary" style="cursor: default;">
+										@item.CusNote
+									</span>
+								}
+							</div>
+						</div>
+						<div class="col-md-2 d-block">
+							<p>@item.TotalPrice?.ToString("#,0 VNĐ")</p>
+							<span class="badge badge-soft-secondary badge-border" style="cursor: default;">
+								Hóa đơn gồm @item.QuantityRoom phòng
+							</span>
+						</div>
+						<div class="col-md-2 text-center">
+							@if (item.Status == DB.OrderStatus.STATUS_PROCESSING_NAME)
+							{
+								<span class="badge badge-soft-warning badge-border" style="cursor: default;">
+									@item.Status
+								</span>
+							}
+							else if (item.Status == DB.OrderStatus.STATUS_CANCEL_NAME)
+							{
+								<span class="badge badge-soft-danger badge-border" style="cursor: default;">
+									@item.Status
+								</span>
+							}
+							else
+							{
+								<span class="badge badge-soft-success badge-border" style="cursor: default;">
+									@item.Status
+								</span>
+							}
+						</div>
+						<div class="col-md-2">
+							@if (item.Status == DB.OrderStatus.STATUS_CANCEL_NAME
+												&& User.IsInPermission(AuthConst.AppOrder.DELETE))
+							{
+								<a class="btn btn-sm remove-item-btn link-danger fs-15"
+								   style="text-align: end !important"
+								   data-bs-toggle="modal"
+								   data-bs-target="#deleteOrderModal"
+								   onclick="setDeleteId('@item.Id')">
+									<i class="ri-delete-bin-line"></i>
+								</a>
+							}
+						</div>
+					</button>
+				</h2>
+				@if (User.IsInPermission(AuthConst.AppOrder.DETAILS))
+				{
+					<div id="manageaccount-collapse-@item.Id"
+						 class="accordion-collapse collapse"
+						 aria-labelledby="manageaccount-heading-@item.Id"
+						 data-bs-parent="#manageaccount-accordion-@item.Id">
+						<div class="accordion-body">
+							@if (item.OrderDetails is not null)
+							{
+								var rowindex = 1;
+								@if (item.OrderDetails.Count() > 0)
+								{
+									@foreach (var item1 in item.OrderDetails)
+									{
+										@if (item1.DeletedDate is null)
+										{
+											<div class="row mt-2 align-items-center text-center">
+
+												<div class="col-md-1">
+													@(rowindex++)
+												</div>
+												<div class="col-md-4 d-block">
+													<p>Phòng: @item1.RoomName</p>
+													<div class="d-block">
+														<div class="d-block">
+															<span class="badge badge-soft-secondary badge-border" style="cursor: default;">
+																Thời gian nhận phòng dự kiến:
+																@item1.CheckInTime_Expected.ToDMYHM()
+															</span>
+															<span class="badge badge-soft-secondary badge-border" style="cursor: default;">
+																Thời gian trả phòng dự kiến:
+																@item1.CheckOutTime_Expected.ToDMYHM()
+															</span>
+														</div>
+														@if (item1.CheckInTime is not null
+																						|| item1.CheckOutTime is not null)
+														{
+															<div class="d-block">
+																@if (item1.CheckInTime is not null)
+																{
+																	<span class="badge badge-soft-primary badge-border"
+																		  style="cursor: default;">
+																		Thời gian nhận phòng:
+																		@item1.CheckInTime?.ToDMYHM()
+																	</span>
+																}
+																@if (item1.CheckOutTime is not null)
+																{
+																	<span class="badge badge-soft-primary badge-border"
+																		  style="cursor: default;">
+																		Thời gian trả phòng:
+																		@item1.CheckOutTime?.ToDMYHM()
+																	</span>
+																	<span class="badge badge-soft-info badge-border"
+																		  style="cursor: default;">
+																		Thời gian ở: @item1.TimeStay ngày
+																	</span>
+																}
+															</div>
+														}
+													</div>
+												</div>
+												<div class="col-md-2">
+													@if (item1.CheckOutTime is null && item1.TotalPrice > 0)
+													{
+														<span class="badge badge-soft-secondary badge-border" style="cursor: default;">
+															Tạm tính @item1.TotalPrice?.ToString("#,0 VNĐ")
+														</span>
+													}
+													else
+													{
+
+														<span class="badge badge-soft-secondary badge-border" style="cursor: default;">
+															Chưa tính giá
+														</span>
+													}
+												</div>
+												<div class="col-md-2">
+													@item1.Room.Status
+												</div>
+												<div class="col-md-2" style="text-align: end !important">
+													@if (item1.CheckOutTime is null)
+													{
+														if (User.IsInPermission(AuthConst.AppOrder.UPDATE))
+														{
+															if (item1.CheckInTime is null)
+															{
+																<a class="btn btn-sm edit-item-btn link-success fs-15"
+																   title="Nhận phòng"
+																   data-bs-toggle="modal"
+																   data-bs-target="#checkInConfirmBtn"
+																   onclick="checkInId('@item1.Id')">
+																	<i class="ri-calendar-check-fill"></i>
+																</a>
+															}
+															else
+															{
+																<a class="btn btn-sm edit-item-btn link-success fs-15"
+																   title="Trả phòng"
+																   data-bs-toggle="modal"
+																   data-bs-target="#checkOutConfirmBtn"
+																   onclick="checkOutId('@item1.Id')">
+																	<i class="ri-currency-fill"></i>
+																</a>
+															}
+														}
+													}
+													@if (item1.CheckInTime is null)
+													{
+														@if (User.IsInPermission(AuthConst.AppOrder.DELETE))
+														{
+															<button class="btn btn-sm remove-item-btn link-danger fs-15"
+																	data-bs-toggle="modal"
+																	data-bs-target="#cancelODetailConfirmBtn"
+																	onclick="setCancelId('@item1.Id')">
+																<i class="ri-delete-bin-line"></i>
+															</button>
+														}
+													}
+												</div>
+											</div>
+										}
+									}
+								}
+							}
+						</div>
+					</div>
+				}
+			</div>
+		</div>
+	}
+	<div class="row" data-end-flg="1"></div>
+</div>
