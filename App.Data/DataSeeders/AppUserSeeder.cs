@@ -172,7 +172,7 @@ namespace App.Data.DataSeeders
 					CreatedBy = -1,
 					CreatedDate = now,
 					BranchId = null,
-					AppRoleId = 10,
+					AppRoleId = 3,
 				}, new AppUser
 				{
 					Id = 10,
@@ -189,7 +189,7 @@ namespace App.Data.DataSeeders
 					CreatedBy = -1,
 					CreatedDate = now,
 					BranchId = null,
-					AppRoleId = 11,
+					AppRoleId = 3,
 				}, new AppUser
 				{
 					Id = 11,
@@ -206,7 +206,7 @@ namespace App.Data.DataSeeders
 					CreatedBy = -1,
 					CreatedDate = now,
 					BranchId = null,
-					AppRoleId = 12,
+					AppRoleId = 3,
 				}, new AppUser
 				{
 					Id = 12,
@@ -223,7 +223,7 @@ namespace App.Data.DataSeeders
 					CreatedBy = -1,
 					CreatedDate = now,
 					BranchId = null,
-					AppRoleId = 13,
+					AppRoleId = 3,
 				}, new AppUser
 				{
 					Id = 13,
@@ -240,7 +240,7 @@ namespace App.Data.DataSeeders
 					CreatedBy = -1,
 					CreatedDate = now,
 					BranchId = null,
-					AppRoleId = 14,
+					AppRoleId = 3,
 				}, new AppUser
 				{
 					Id = 14,
@@ -257,7 +257,7 @@ namespace App.Data.DataSeeders
 					CreatedBy = -1,
 					CreatedDate = now,
 					BranchId = null,
-					AppRoleId = 15,
+					AppRoleId = 3,
 				}, new AppUser
 				{
 					Id = 15,
@@ -274,7 +274,7 @@ namespace App.Data.DataSeeders
 					CreatedBy = -1,
 					CreatedDate = now,
 					BranchId = null,
-					AppRoleId = 16,
+					AppRoleId = 3,
 				}, new AppUser
 				{
 					Id = 16,
@@ -291,7 +291,7 @@ namespace App.Data.DataSeeders
 					CreatedBy = -1,
 					CreatedDate = now,
 					BranchId = null,
-					AppRoleId = 17,
+					AppRoleId = 3,
 				}, new AppUser
 				{
 					Id = 17,
@@ -308,7 +308,7 @@ namespace App.Data.DataSeeders
 					CreatedBy = -1,
 					CreatedDate = now,
 					BranchId = null,
-					AppRoleId = 18,
+					AppRoleId = 3,
 				}
 			);
 
