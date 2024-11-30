@@ -8,7 +8,9 @@ using App.Web.ViewModels.Order;
 using App.Web.WebConfig;
 using AspNetCoreHero.ToastNotification.Abstractions;
 using AutoMapper;
+using Microsoft.AspNetCore.Components.RenderTree;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using X.PagedList;
 
 namespace App.Web.Controllers
@@ -81,14 +83,12 @@ namespace App.Web.Controllers
 					CheckInTime_Expected = model.CheckInTime_Expected,
 					CheckOutTime_Expected = model.CheckOutTime_Expected,
 					CreatedBy = CurrentUserId,
-					CreatedDate = DateTime.Now,
-					UpdatedBy = CurrentUserId,
-					UpdatedDate = DateTime.Now
+					CreatedDate = DateTime.Now
 				};
 				order.QuantityRoom++;
 				order.TotalPrice += tmp.TotalPrice;
 				order.OrderDetails.Add(tmp);
-
+				order.CustomerId = CurrentUserId;
 				// Update room status to booked
 				var room = await _repository.FindAsync<AppRoom>(detail.Id);
 				if (room != null)
@@ -137,6 +137,77 @@ namespace App.Web.Controllers
 			{
 				Response.Cookies.Delete(item);
 			}
+		}
+
+		[AppAuthorize(AuthConst.AppOrder.DELETE)]
+		public async Task<IActionResult> CancelODetail(int id)
+		{
+			var user = CurrentUserId;
+
+			var oDetail = await _repository.FindAsync<AppOrderDetail>(id);
+			if (oDetail == null)
+			{
+				SetErrorMesg("Chi tiết hóa đơn này không tồn tại, hoặc bị xóa trước đó");
+				return RedirectToAction("Index", "Home");
+			}
+			if (oDetail.CheckInTime.HasValue)
+			{
+				SetErrorMesg("Không thể hủy chi tiết hóa đơn đã nhận phòng");
+				return RedirectToAction("Index", "Home");
+			}
+			if (oDetail.CheckOutTime.HasValue)
+			{
+				SetErrorMesg("Không thể hủy chi tiết hóa đơn đã trả phòng");
+				return RedirectToAction("Index", "Home");
+			}
+
+			#region Cập nhật trạng thái phòng
+			// Lấy thông tin phòng
+			var room = await _repository.GetOneAsync<AppRoom>(r => r.Id == oDetail.RoomId);
+			if (room == null)
+			{
+				SetErrorMesg("Không tìm thấy phòng tương ứng!");
+				return RedirectToAction(nameof(Index));
+			}
+			room.Status = DB.RoomStatus.STATUS_CANCELED_NAME;
+			room.UpdatedBy = CurrentUserId;
+			room.UpdatedDate = DateTime.Now;
+			await _repository.UpdateAsync<AppRoom>(room);
+			#endregion
+
+			#region Cập nhật order
+			// Lấy thông tin hóa đơn
+			var order = await _repository.DbContext.AppOrders
+									.Include(o => o.OrderDetails)
+										.ThenInclude(d => d.Room)
+									.FirstOrDefaultAsync(o => o.OrderDetails.Any(d => d.Id == oDetail.Id));
+			if (order == null)
+			{
+				SetErrorMesg("Không tìm thấy hóa đơn tương ứng!");
+				return RedirectToAction(nameof(Index));
+			}
+			// Check if all order details are checked out
+			var allCheckedOut = order.OrderDetails.All(d => d.CheckOutTime.HasValue);
+			if (allCheckedOut)
+			{
+				// Cập nhật order
+				order.Status = DB.OrderStatus.STATUS_CANCEL_NAME;
+				order.UpdatedDate = DateTime.Now;
+				order.UpdatedBy = user;
+				order.QuantityRoom--;
+			}
+			else
+			{
+				order.UpdatedDate = DateTime.Now;
+				order.UpdatedBy = user;
+				order.QuantityRoom--;
+			}
+			await _repository.UpdateAsync<AppOrder>(order);
+			#endregion
+
+			await _repository.DeleteAsync(oDetail);
+			SetSuccessMesg($"Thông tin đặt phòng '{oDetail.RoomName}' được xóa thành công");
+			return RedirectToAction("Index", "Home");
 		}
 	}
 }
