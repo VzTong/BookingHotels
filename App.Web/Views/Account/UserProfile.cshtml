@@ -137,35 +137,19 @@
 				<div class="container my-4">
 					<div class="row">
 						<!-- Thông tin đặt phòng -->
-						<div class="col-md-6 mb-4">
+						<div class="col-md-7 mb-4">
 							<div class="card shadow-sm h-100">
 								<div class="card-header text-white d-flex justify-content-between align-items-center" style="background: #0e73df !important;">
 									<h5 class="mb-0 text-white">Thông tin đặt phòng</h5>
 								</div>
 								<div class="card-body">
-									@* <div class="mb-3">
-							<h6 class="fw-bold">Trạng thái thanh toán:</h6>
-							<span class="badge bg-success">Đã thanh toán</span>
-							</div>
-							<div class="mb-3">
-							<h6 class="fw-bold">Khách sạn:</h6>
-							<p class="mb-0">Khách sạn ABC</p>
-							</div>
-							<div class="mb-3">
-							<h6 class="fw-bold">Ngày nhận phòng:</h6>
-							<p class="mb-0">25/12/2024 lúc 14:00</p>
-							</div>
-							<div class="mb-3">
-							<h6 class="fw-bold">Ngày trả phòng:</h6>
-							<p class="mb-0">27/12/2024 lúc 12:00</p>
-							</div> *@
-
+									@await Component.InvokeAsync("OrderForUser")
 								</div>
 							</div>
 						</div>
 
 						<!-- Đánh giá khách sạn -->
-						<div class="col-md-6 mb-4">
+						<div class="col-md-5 mb-4">
 							<div class="card shadow-sm h-100">
 								<div class="card-header text-white" style="background: #0e73df !important;">
 									<h5 class="mb-0 text-white">Đánh giá khách sạn</h5>
@@ -222,6 +206,7 @@ else
 	</div>
 }
 <partial name="_DeleteCmtModal" model="null" />
+<partial name="_CancelODetailModal" model="null" />
 @section Scripts {
 	<script src="~/adminLTE/js/pages/plugins/lord-icon-2.1.0.js" asp-append-version="true"></script>
 	<script src="~/adminLTE/js/pages/form-validation.init.js"></script>
@@ -231,6 +216,10 @@ else
 		function setDeleteId(id) {
 			const deleteConfirmBtn = document.getElementById('deleteConfirmBtn');
 			deleteConfirmBtn.href = `/Account/DeleteCmt/${id}`;
+		}
+		function setDeleteId(id) {
+			const deleteConfirmBtn = document.getElementById('cancelODetailConfirmBtn');
+			deleteConfirmBtn.href = `/Account/CancelODetail/${id}`;
 		}
 	</script>
 	<script>
