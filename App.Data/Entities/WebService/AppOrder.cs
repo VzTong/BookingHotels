@@ -12,6 +12,9 @@ namespace App.Data.Entities.service
 		public string CusName { get; set; }
 		public string CusPhone { get; set; }
 		public string CusEmail { get; set; }
+		public int? CusCitizenId { get; set; }
+		public string? CusPassport { get; set; }
+		public string? CusPermanent { get; set; }
 		public string? CusNote { get; set; }
 		public decimal? TotalPrice { get; set; }
         public int QuantityRoom { get; set; }
