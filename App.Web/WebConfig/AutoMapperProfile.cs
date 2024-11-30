@@ -58,8 +58,8 @@ namespace App.Web.WebConfig
 			// Map dữ liệu của AppNews
 			CreateMap<AppNews, AddOrUpdateNewsVM>().ReverseMap();
 			CreateMap<AppNews, NewsVM>()
-			.ForMember(AppNews => AppNews.CreatedByName, opts => 
-				opts.MapFrom(AppNews => AppNews.Users.Id == AppNews.CreatedBy ? "khong co j" : AppNews.Users.FullName ))
+			.ForMember(AppNews => AppNews.CreatedByName, opts =>
+				opts.MapFrom(AppNews => AppNews.Users.Id == AppNews.CreatedBy ? "khong co j" : AppNews.Users.FullName))
 				.ReverseMap();
 
 			// Map dữ liệu của AppRoomType
@@ -85,11 +85,15 @@ namespace App.Web.WebConfig
 			.ForMember(dest => dest.PeopleStay, opt => opt.MapFrom(src => src.RoomType.PeopleStay))
 			.ForMember(dest => dest.BringPet, opt => opt.MapFrom(src => src.RoomType != null && src.RoomType.BringPet));
 
-			// Map dữ liệu của OrderDataVM
+			// Map dữ liệu tạo cmt
+			CreateMap<AppComment, SendCmtVM>().ReverseMap();
+
+			// Map dữ liệu Order
 			CreateMap<OrderDataVM, AppOrder>().ReverseMap();
 
-			// Map dư liệu tạo cmt
-			CreateMap<AppComment, SendCmtVM>().ReverseMap();
+			// Map dữ liệu của AppOrderDetail
+			CreateMap<AppOrderDetail, ListItemOrderDetailVM>().ReverseMap();
+
 		}
 
 		// Cấu hình mapping cho RoleController, action Index area Admin
@@ -331,18 +335,13 @@ namespace App.Web.WebConfig
 			.ForMember(uItem => uItem.BranchDesc, opts => opts.MapFrom(uEntity => uEntity.Branch == null ? "" : uEntity.Branch.Description)).ReverseMap();
 		});
 
-		// Cấu hình mapping cho OrderController, action Index area Client
-		public static MapperConfiguration OrderConf = new(mapper =>
-		{
-			mapper.CreateMap<AppOrderDetail, ListItemOrderDetailVM>();
-			mapper.CreateMap<AppOrder, ListItemOrderVM>()
-				.ForMember(x => x.AppOrderDetails, opt => opt.MapFrom(x => x.OrderDetails));
-		});
-
-		// Cấu hình mapping cho OrderController, action Index area Client
-		public static MapperConfiguration OrderDetailConf = new(mapper =>
+		// Cấu hình mapping cho OrderController, action Index area Admin
+		public static MapperConfiguration OrderIndexConf = new(mapper =>
 		{
 			mapper.CreateMap<AppOrderDetail, ListItemOrderDetailVM>().ReverseMap();
+			mapper.CreateMap<AppOrder, ListItemOrderVM>()
+				.ForMember(uItem => uItem.AppOrderDetails, opts => opts.MapFrom(x => x.OrderDetails))
+				.ForMember(uItem => uItem.TotalAmount, opts => opts.MapFrom(tp => tp.OrderDetails.Sum(detail => detail.TotalPrice))).ReverseMap();
 		});
 
 		// Cấu hình mapping cho AppCommentController, action Index area Admin
