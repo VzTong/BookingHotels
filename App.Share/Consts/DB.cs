@@ -197,6 +197,7 @@
         public static class OrderStatus
         {
             public const string STATUS_PROCESSING_NAME		= "Hóa đơn đang được chờ thanh toán";
+            public const string STATUS_CANCEL_NAME			= "Đã hủy đặt phòng";
             public const string STATUS_DONE_NAME			= "Hóa đơn đã thanh toán";
         }
 
