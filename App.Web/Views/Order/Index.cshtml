@@ -150,3 +150,41 @@
 		});
 	});
 </script>
+<script>
+	document.addEventListener('DOMContentLoaded', function () {
+		var form = document.querySelector('form.needs-validation');
+		var citizenInput = document.getElementById('citizenInput');
+		var passportInput = document.getElementById('passportInput');
+		var permanentInput = document.getElementById('permanentInput');
+
+		function validateFields() {
+			var citizenValue = citizenInput.value.trim();
+			var passportValue = passportInput.value.trim();
+			var permanentValue = permanentInput.value.trim();
+
+			if (!citizenValue && !passportValue && !permanentValue) {
+				citizenInput.classList.add('is-invalid');
+				passportInput.classList.add('is-invalid');
+				permanentInput.classList.add('is-invalid');
+				return false;
+			} else {
+				citizenInput.classList.remove('is-invalid');
+				passportInput.classList.remove('is-invalid');
+				permanentInput.classList.remove('is-invalid');
+				return true;
+			}
+		}
+
+		citizenInput.addEventListener('input', validateFields);
+		passportInput.addEventListener('input', validateFields);
+		permanentInput.addEventListener('input', validateFields);
+
+		form.addEventListener('submit', function (event) {
+			if (!validateFields() || form.checkValidity() === false) {
+				event.preventDefault();
+				event.stopPropagation();
+			}
+			form.classList.add('was-validated');
+		}, false);
+	});
+</script>
