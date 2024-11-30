@@ -198,7 +198,7 @@ namespace App.Data.DataSeeders
 					PasswordSalt = pwdSalt,
 					Address = "Hải Phòng",
 					Email = "user4@gmail.com",
-					FullName = "Trần THị Hòa",
+					FullName = "Trần Thị Hòa",
 					PhoneNumber1 = "+84931234567",
 					PhoneNumber2 = "+84987654324",
 					Avatar = "/clientLTE/images/person_4.jpg",
