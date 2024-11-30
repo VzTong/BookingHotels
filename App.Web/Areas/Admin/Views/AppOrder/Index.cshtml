@@ -1,0 +1,113 @@
+﻿@using Microsoft.IdentityModel.Tokens
+@model IEnumerable<App.Web.Areas.Admin.ViewModels.Order.ListItemOrderVM>
+@{
+	ViewData["Title"] = "Danh sách đơn đặt phòng";
+}
+
+<div class="row">
+	<div class="col-12">
+		<div class="page-title-box d-sm-flex align-items-center justify-content-between">
+			<h4 class="mb-sm-0">Quản lý đặt phòng</h4>
+
+			<div class="page-title-right">
+				<ol class="breadcrumb m-0">
+					<li class="breadcrumb-item"><a asp-action="Index" asp-area="Admin" asp-controller="Home">Bảng tổng quan</a></li>
+					<li class="breadcrumb-item active">Đặt phòng</li>
+				</ol>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-lg-12">
+		<div class="card">
+			<div class="card-header">
+				<h4 class="card-title mb-0">Danh sách đơn đặt phòng</h4>
+			</div><!-- end card header -->
+
+			<div class="card-body">
+				<div id="customerList">
+					<div class="row g-4 mb-3">
+						@if (ViewBag.BranchId is null)
+						{
+							<div class="col-sm">
+								<div class="d-flex justify-content-sm-end">
+									<form class="form-horizontal d-flex" method="get" action="@Url.Action("Index", "AppOrder", new { area = "Admin" })">
+										<div class="search-box ms-2">
+											<input type="text" class="form-control search" name="Name" value="@ViewBag.Name" placeholder="Tìm theo tên khách hàng...">
+											<i class="ri-search-line search-icon"></i>
+										</div>
+										<button type="submit" class="btn btn-soft-dark waves-effect waves-light ms-3">Tìm kiếm</button>
+									</form>
+								</div>
+							</div>
+						}
+					</div>
+
+					<!-- Danh sách đặt phòng -->
+					<div class="table-responsive mt-3 mb-1">
+						<vc:select-list-order />
+					</div>
+
+					@if (ViewBag.NoResultsFound != null && ViewBag.NoResultsFound && ViewBag.BranchId is null)
+					{
+						<div class="noresult">
+							<div class="text-center">
+								<lord-icon src="https://cdn.lordicon.com/msoeawqm.json" trigger="loop" colors="primary:#121331,secondary:#08a88a" style="width:75px;height:75px">
+								</lord-icon>
+								<h5 class="mt-2">Xin lỗi! Không tìm thấy kết quả</h5>
+								<p class="text-muted mb-0">
+									Chúng tôi đã tìm kiếm tất cả dữ liệu. Chúng tôi không tìm thấy bất kỳ dữ liệu nào bạn tìm kiếm.
+								</p>
+							</div>
+						</div>
+					}
+					<div class="d-flex justify-content-end">
+						<div class="pagination-wrap hstack gap-2">
+							<partial name="_Pager" />
+						</div>
+					</div>
+				</div>
+			</div><!-- end card -->
+		</div>
+		<!-- end col -->
+	</div>
+	<!-- end col -->
+</div>
+<!-- end row -->
+
+<partial name="_DeleteOrderModal" model="null" />
+<partial name="_CancelODetailModal" model="null" />
+<partial name="_CheckInOrder" model="null" />
+<partial name="_CheckOutOrder" model="null" />
+
+@section Scripts {
+	<script>
+		function setDeleteId(id) {
+			const deleteConfirmBtn = document.getElementById('deleteOrderConfirmBtn');
+			deleteConfirmBtn.href = `/Admin/AppOrder/DeleteOrder/${id}`;
+		}
+		function setCancelId(id) {
+			const cancelODetailConfirmBtn = document.getElementById('cancelODetailConfirmBtn');
+			cancelODetailConfirmBtn.href = `/Admin/AppOrder/CancelODetail/${id}`;
+		}
+		function checkInId(id) {
+			const checkInForm = document.getElementById('checkInForm');
+			if (checkInForm) {
+				checkInForm.action = `/Admin/AppOrder/CheckIn/${id}`;
+			} else {
+				console.error('checkInForm element not found');
+			}
+		}
+		function checkOutId(id) {
+			const checkInForm = document.getElementById('checkOutForm');
+			if (checkInForm) {
+				checkInForm.action = `/Admin/AppOrder/CheckOut/${id}`;
+			} else {
+				console.error('checkInForm element not found');
+			}
+		}
+	</script>
+}
