@@ -6,7 +6,7 @@
 }
 @foreach (var item in Model)
 {
-	<div class="accordion accordion-border-box" id="manageaccount-accordion-@item.Id">
+	<div class="accordion accordion-border-box mt-3" id="manageaccount-accordion-@item.Id">
 		<div class="accordion-item">
 			<h2 class="accordion-header" id="manageaccount-heading-@item.Id">
 				<button class="accordion-button collapsed text-center d-flex"
@@ -135,12 +135,12 @@
 											@item1.RoomStatus
 										</div>
 										<div class="col-md-1" style="text-align: end !important">
-											@if (item1.CheckInTime is null)
+											@if (item1.CheckInTime is null && item1.DeletedDate is null)
 											{
 												<button class="btn btn-sm remove-item-btn btn-danger fs-15"
 														data-bs-toggle="modal"
-														data-bs-target="#cancelODetailModel"
-														onclick="setCancelId('@item1.Id')">
+														data-bs-target="#cancelODetailClient"
+														onclick="setCancelIdClient('@item1.Id')">
 													<i class="ri-delete-bin-line"></i>
 												</button>
 											}

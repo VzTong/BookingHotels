@@ -28,7 +28,7 @@ namespace App.Web.Components.OrderForUser
 					TotalAmount = x.TotalPrice,
 					QuantityRoom = x.QuantityRoom,
 					Status = x.Status,
-					AppOrderDetails = x.OrderDetails.Select(s => new OrderDetailVM
+					AppOrderDetails = x.OrderDetails.Where(d => d.DeletedDate == null).Select(s => new OrderDetailVM
 					{
 						Id = s.Id,
 						OrderId = s.OrderId,
