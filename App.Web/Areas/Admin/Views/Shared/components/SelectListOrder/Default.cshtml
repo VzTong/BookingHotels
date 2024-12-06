@@ -94,11 +94,11 @@
 							@if (item.OrderDetails is not null)
 							{
 								var rowindex = 1;
-								@if (item.OrderDetails.Count() > 0)
+								if (item.OrderDetails.Count() > 0)
 								{
-									@foreach (var item1 in item.OrderDetails)
+									foreach (var item1 in item.OrderDetails)
 									{
-										@if (item1.DeletedDate is null)
+										if (item1.DeletedDate is null)
 										{
 											<div class="row mt-2 align-items-center text-center">
 
@@ -197,7 +197,7 @@
 															}
 														}
 													}
-													@if (item1.CheckInTime is null)
+													@if (item1.CheckInTime is null && item1.DeletedDate is null)
 													{
 														@if (User.IsInPermission(AuthConst.AppOrder.DELETE))
 														{
