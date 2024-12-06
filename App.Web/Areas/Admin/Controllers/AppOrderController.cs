@@ -245,12 +245,13 @@ namespace App.Web.Areas.Admin.Controllers
 			var user = CurrentUserId;
 
 			var oDetail = await _repository.FindAsync<AppOrderDetail>(id);
+
 			if (oDetail == null)
 			{
 				SetErrorMesg("Chi tiết hóa đơn này không tồn tại, hoặc bị xóa trước đó");
 				return RedirectToAction(nameof(Index), ROUTE_FOR_AREA);
 			}
-			if(oDetail.CheckInTime.HasValue)
+			if (oDetail.CheckInTime.HasValue)
 			{
 				SetErrorMesg("Không thể hủy chi tiết hóa đơn đã nhận phòng");
 				return RedirectToAction(nameof(Index), ROUTE_FOR_AREA);
@@ -269,11 +270,17 @@ namespace App.Web.Areas.Admin.Controllers
 				SetErrorMesg("Không tìm thấy phòng tương ứng!");
 				return RedirectToAction(nameof(Index));
 			}
+
 			room.Status = DB.RoomStatus.STATUS_CANCELED_NAME;
 			room.UpdatedBy = CurrentUserId;
 			room.UpdatedDate = DateTime.Now;
 			await _repository.UpdateAsync<AppRoom>(room);
 			#endregion
+
+			// Gỡ khóa ngoại
+			oDetail.RoomId = null;
+			// Xóa chi tiết hóa đơn
+			await _repository.DeleteAsync(oDetail);
 
 			#region Cập nhật order
 			// Lấy thông tin hóa đơn
@@ -287,7 +294,7 @@ namespace App.Web.Areas.Admin.Controllers
 				return RedirectToAction(nameof(Index));
 			}
 			// Check if all order details are checked out
-			var allCheckedOut = order.OrderDetails.All(d => d.CheckOutTime.HasValue);
+			var allCheckedOut = order.OrderDetails.All(d => d.DeletedDate.HasValue);
 			if (allCheckedOut)
 			{
 				// Cập nhật order
@@ -302,11 +309,44 @@ namespace App.Web.Areas.Admin.Controllers
 				order.UpdatedBy = user;
 				order.QuantityRoom--;
 			}
-			await _repository.UpdateAsync<AppOrder>(order);
+
+			oDetail.OrderId = null;
+			await _repository.UpdateAsync(oDetail);
+			await _repository.UpdateAsync(order);
 			#endregion
 
-			await _repository.DeleteAsync(oDetail);
 			SetSuccessMesg($"Thông tin đặt phòng '{oDetail.RoomName}' được xóa thành công");
+			if (Referer != null)
+			{
+				return Redirect(Referer);
+			}
+			return RedirectToAction(nameof(Index), ROUTE_FOR_AREA);
+		}
+
+		[AppAuthorize(AuthConst.AppOrder.DELETE)]
+		public async Task<IActionResult> DeleteOrder(int id)
+		{
+			var user = CurrentUserId;
+
+			var order = await _repository.FindAsync<AppOrder>(id);
+
+			if (order == null)
+			{
+				SetErrorMesg("Chi tiết hóa đơn này không tồn tại, hoặc bị xóa trước đó");
+				return RedirectToAction(nameof(Index), ROUTE_FOR_AREA);
+			}
+
+			if (order.QuantityRoom == 0 && order.Status == DB.OrderStatus.STATUS_CANCEL_NAME)
+			{
+				await _repository.DeleteAsync(order);
+			}
+			else
+			{
+				SetErrorMesg("Không thể xóa đơn hàng trong khi vẫn còn thông tin đặt phòng!");
+				return RedirectToAction(nameof(Index), ROUTE_FOR_AREA);
+			}
+
+			SetSuccessMesg($"Thông tin đặt phòng của '{order.CusName}' được xóa thành công");
 			if (Referer != null)
 			{
 				return Redirect(Referer);
