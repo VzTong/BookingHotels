@@ -206,7 +206,7 @@ else
 	</div>
 }
 <partial name="_DeleteCmtModal" model="null" />
-<partial name="_CancelODetailModal" model="null" />
+<partial name="_CancelODetailClient" model="null" />
 @section Scripts {
 	<script src="~/adminLTE/js/pages/plugins/lord-icon-2.1.0.js" asp-append-version="true"></script>
 	<script src="~/adminLTE/js/pages/form-validation.init.js"></script>
@@ -217,9 +217,9 @@ else
 			const deleteConfirmBtn = document.getElementById('deleteConfirmBtn');
 			deleteConfirmBtn.href = `/Account/DeleteCmt/${id}`;
 		}
-		function setDeleteId(id) {
-			const deleteConfirmBtn = document.getElementById('cancelODetailConfirmBtn');
-			deleteConfirmBtn.href = `/Account/CancelODetail/${id}`;
+		function setCancelIdClient(id) {
+			const deleteConfirmBtn = document.getElementById('cancelODClientConfirmBtn');
+			deleteConfirmBtn.href = `/Order/CancelODetailClient/${id}`;
 		}
 	</script>
 	<script>
