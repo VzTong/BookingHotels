@@ -109,7 +109,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Update="Views\Account\_CancelODetailModal.cshtml">
+    <Content Update="Views\Account\_CancelODetailClient.cshtml">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
