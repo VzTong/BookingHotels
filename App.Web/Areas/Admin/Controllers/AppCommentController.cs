@@ -29,6 +29,14 @@ namespace App.Web.Areas.Admin.Controllers
 		[AppAuthorize(AuthConst.AppComment.VIEW_LIST)]
 		public async Task<IActionResult> Index(int page = 1, int size = DEFAULT_PAGE_SIZE)
 		{
+			var userBranchId = GetCurrentUserBranchId();
+
+			if (userBranchId != null)
+			{
+				// Return a 403 Forbidden status code
+				return StatusCode(403);
+			}
+
 			var data = (await _repository
 				.GetAll<AppComment>()
 				.OrderByDescending(m => m.DisplayOrder)
