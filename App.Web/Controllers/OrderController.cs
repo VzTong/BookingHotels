@@ -8,7 +8,6 @@ using App.Web.ViewModels.Order;
 using App.Web.WebConfig;
 using AspNetCoreHero.ToastNotification.Abstractions;
 using AutoMapper;
-using Microsoft.AspNetCore.Components.RenderTree;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using X.PagedList;
@@ -139,12 +138,11 @@ namespace App.Web.Controllers
 			}
 		}
 
-		[AppAuthorize(AuthConst.AppOrder.DELETE)]
-		public async Task<IActionResult> CancelODetail(int id)
+		public async Task<IActionResult> CancelODetailClient(int id)
 		{
 			var user = CurrentUserId;
 
-			var oDetail = await _repository.FindAsync<AppOrderDetail>(id);
+			var oDetail = await _repository.GetOneAsync<AppOrderDetail>(x => x.Id == id);
 			if (oDetail == null)
 			{
 				SetErrorMesg("Chi tiết hóa đơn này không tồn tại, hoặc bị xóa trước đó");
@@ -175,6 +173,11 @@ namespace App.Web.Controllers
 			await _repository.UpdateAsync<AppRoom>(room);
 			#endregion
 
+			// Gỡ khóa ngoại
+			oDetail.RoomId = null;
+			// Xóa chi tiết hóa đơn
+			await _repository.DeleteAsync(oDetail);
+
 			#region Cập nhật order
 			// Lấy thông tin hóa đơn
 			var order = await _repository.DbContext.AppOrders
@@ -202,10 +205,12 @@ namespace App.Web.Controllers
 				order.UpdatedBy = user;
 				order.QuantityRoom--;
 			}
+			// GỠ khóa ngoại
+			oDetail.OrderId = null;
+			await _repository.UpdateAsync(oDetail);
 			await _repository.UpdateAsync<AppOrder>(order);
 			#endregion
 
-			await _repository.DeleteAsync(oDetail);
 			SetSuccessMesg($"Thông tin đặt phòng '{oDetail.RoomName}' được xóa thành công");
 			return RedirectToAction("Index", "Home");
 		}
