@@ -87,7 +87,7 @@ namespace App.Data.DataSeeders
 					CreatedBy = -1,
 					CreatedDate = now,
 					BranchId = null,               // Chi nhánh được tạo ở AppBranchHotelSeeder
-					AppRoleId = 5,              // Vai trò được tạo ở AppRoleSeeder
+					AppRoleId = 4,              // Vai trò được tạo ở AppRoleSeeder
 				}, new AppUser
 				{
 					Id = 5,
@@ -104,7 +104,7 @@ namespace App.Data.DataSeeders
 					CreatedBy = -1,
 					CreatedDate = now,
 					BranchId = null,               // Chi nhánh được tạo ở AppBranchHotelSeeder
-					AppRoleId = 6,              // Vai trò được tạo ở AppRoleSeeder
+					AppRoleId = 5,              // Vai trò được tạo ở AppRoleSeeder
 				}, new AppUser
 				{
 					Id = 6,
@@ -121,7 +121,7 @@ namespace App.Data.DataSeeders
 					CreatedBy = -1,
 					CreatedDate = now,
 					BranchId = null,               // Chi nhánh được tạo ở AppBranchHotelSeeder
-					AppRoleId = 7,              // Vai trò được tạo ở AppRoleSeeder
+					AppRoleId = 6,              // Vai trò được tạo ở AppRoleSeeder
 				}, new AppUser
 				{
 					Id = 7,
@@ -138,7 +138,7 @@ namespace App.Data.DataSeeders
 					CreatedBy = -1,
 					CreatedDate = now,
 					BranchId = null,               // Chi nhánh được tạo ở AppBranchHotelSeeder
-					AppRoleId = 8,              // Vai trò được tạo ở AppRoleSeeder
+					AppRoleId = 7,              // Vai trò được tạo ở AppRoleSeeder
 				}, new AppUser
 				{
 					Id = 8,
@@ -155,7 +155,7 @@ namespace App.Data.DataSeeders
 					CreatedBy = -1,
 					CreatedDate = now,
 					BranchId = null,               // Chi nhánh được tạo ở AppBranchHotelSeeder
-					AppRoleId = 9,              // Vai trò được tạo ở AppRoleSeeder
+					AppRoleId = 8,              // Vai trò được tạo ở AppRoleSeeder
 				}, new AppUser
 				{
 					Id = 9,
