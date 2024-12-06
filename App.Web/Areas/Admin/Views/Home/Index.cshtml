@@ -352,8 +352,8 @@
 								<div class="card-header border-0 align-items-center d-flex">
 									<h4 class="card-title mb-0 flex-grow-1">Projects Overview</h4>
 									<select class="btn btn-soft-secondary btn-sm" id="yearSelector" onchange="updateChartData(currentFilter)">
+										<option value="2024">2024</option>
 										<option value="2023">2023</option>
-										<option value="2022">2022</option>
 									</select>
 
 									<div>
@@ -382,7 +382,7 @@
 										<!--end col-->
 										<div class="col-6 col-sm-4">
 											<div class="p-3 border border-dashed border-start-0 border-end-0">
-												<h5 class="mb-1 text-success"><span class="counter-value" data-target="10589351">0</span>Đ</h5>
+												<h5 class="mb-1 text-success"><span class="counter-value" data-target="@ViewBag.TotalOrderAmount">0</span> VNĐ</h5>
 												<p class="text-muted mb-0">Tổng doanh thu</p>
 											</div>
 										</div>
@@ -403,7 +403,3 @@
 		</div> <!-- end .h-100-->
 	</div> <!-- end col -->
 </div>
-@section Scripts {
-	<!-- projects js -->
-	<script src="~/adminLTE/js/pages/dashboard-projects.init.js" asp-append-version="true"></script>
-}
