@@ -19,8 +19,8 @@ namespace App.Data.DataSeeders
                     QuantityStaff = 20,
                     QuantityFloor = 200,
                     QuantityRoom = 150,
-                    CreatedDate = now,
-                    HotelId = 1, // Khách Sạn Melia Hà Nội
+                    CreatedDate = new DateTime(2023, 10, 1),
+					HotelId = 1, // Khách Sạn Melia Hà Nội
                     Img = "https://hoanghamobile.com/tin-tuc/wp-content/uploads/2024/04/anh-ha-noi.jpg",
                     Description = "Chi nhánh của Melia Hà Nội tại Hà Nội"
                 },
@@ -47,7 +47,7 @@ namespace App.Data.DataSeeders
                     QuantityStaff = 15,
                     QuantityFloor = 190,
                     QuantityRoom = 200,
-					CreatedDate = now,
+					CreatedDate = new DateTime(2024, 3, 15),
                     HotelId = 3, // Khách Sạn Đà Nẵng Golden Bay
                     Img = "https://images2.thanhnien.vn/528068263637045248/2023/4/23/cau-vang-da-nang-16822248307311159361992.jpg",
                     Description = "Chi nhánh của Đà Nẵng Golden Bay tại Đà Nẵng"
@@ -63,7 +63,7 @@ namespace App.Data.DataSeeders
                     QuantityRoom = 600,
 					CreatedDate = now,
                     HotelId = 4, // Khách Sạn Nha Trang Lodge
-                    Img = "https://scontent.fvca1-1.fna.fbcdn.net/v/t1.6435-9/105491263_2363218890638032_4176841546494313648_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=2285d6&_nc_ohc=Am6nyPLhFTAQ7kNvgGcHsrl&_nc_zt=23&_nc_ht=scontent.fvca1-1.fna&_nc_gid=AdC-QhHD7kjqPE3Z4nZe9VW&oh=00_AYDLGhjVb-QnzZuzypqiIqVj_rcPwHBSosH70XxLoibW4g&oe=674CB979",
+                    Img = "https://i2-vnexpress.vnecdn.net/2021/03/22/NhaTrang-KhoaTran-27-1616120145.jpg?w=1200&h=0&q=100&dpr=1&fit=crop&s=9BMNnjV_o665_kwWTgfOSQ",
                     Description = "Chi nhánh của Nha Trang Lodge tại Nha Trang"
                 },
                 new AppBranchHotel
@@ -75,7 +75,7 @@ namespace App.Data.DataSeeders
                     QuantityStaff = 12,
                     QuantityFloor = 10,
                     QuantityRoom = 30,
-					CreatedDate = now,
+					CreatedDate = new DateTime(2024, 7, 19),
                     HotelId = 5, // Khách Sạn Imperial Hải Phòng
                     Img = "https://i0.wp.com/heza.gov.vn/wp-content/uploads/2023/10/hai_phong-scaled.jpg?fit=2560%2C1662&ssl=1",
                     Description = "Chi nhánh của Imperial Hải Phòng tại Hải Phòng"
@@ -103,7 +103,7 @@ namespace App.Data.DataSeeders
                     QuantityStaff = 35,
                     QuantityFloor = 100,
                     QuantityRoom = 90,
-					CreatedDate = now,
+					CreatedDate = new DateTime(2024, 10, 15),
                     HotelId = 7, // Khách Sạn The Peninsula Tokyo
                     Img = "https://www.agoda.com/wp-content/uploads/2024/06/tokyo-japan-1244x700.jpg",
                     Description = "Chi nhánh của The Peninsula Tokyo tại Tokyo"
@@ -453,7 +453,7 @@ namespace App.Data.DataSeeders
                     QuantityStaff = 25,
                     QuantityFloor = 100,
                     QuantityRoom = 80,
-					CreatedDate = now,
+					CreatedDate = new DateTime(2024, 12, 15),
                     HotelId = 3, // Khách Sạn Đà Nẵng Golden Bay
                     Img = "https://nhaf.net.vn/wp-content/uploads/2022/03/thanh-pho-ho-chi-minh-scaled.jpg",
                     Description = "Chi nhánh của Đà Nẵng Golden Bay tại TP. Hồ Chí Minh"
@@ -481,7 +481,7 @@ namespace App.Data.DataSeeders
                     QuantityStaff = 18,
                     QuantityFloor = 100,
                     QuantityRoom = 60,
-					CreatedDate = now,
+					CreatedDate = new DateTime(2024, 12, 1),
                     HotelId = 5, // Khách Sạn Imperial Hải Phòng
                     Img = "https://focusasiatravel.vn/wp-content/uploads/2023/09/eb13dca8-82c2-42c0-8698-c37a468c001b.jpg",
                     Description = "Chi nhánh của Imperial Hải Phòng tại Nha Trang"
@@ -509,7 +509,7 @@ namespace App.Data.DataSeeders
                     QuantityStaff = 40,
                     QuantityFloor = 100,
                     QuantityRoom = 100,
-					CreatedDate = now,
+					CreatedDate = new DateTime(2024, 1, 15),
                     HotelId = 7, // Khách Sạn The Peninsula Tokyo
                     Description = "Chi nhánh của The Peninsula tại New York"
                 },
@@ -536,7 +536,7 @@ namespace App.Data.DataSeeders
                     QuantityStaff = 30,
                     QuantityFloor = 100,
                     QuantityRoom = 75,
-					CreatedDate = now,
+					CreatedDate = new DateTime(2024, 7, 15),
                     HotelId = 9, // Khách Sạn The Biltmore Miami
                     Img = "https://media.tacdn.com/media/attractions-content--1x-1/12/29/06/2b.jpg",
                     Description = "Chi nhánh của The Biltmore tại Cancun"

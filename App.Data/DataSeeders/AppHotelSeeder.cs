@@ -20,7 +20,7 @@ namespace App.Data.DataSeeders
 					PhoneNumber1 = "+842438223333",
 					Email = "info@meliahanoi.com",
 					ImgBanner = "https://du-lich.chudu24.com/f/m/2105/20/khach-san-melia-hanoi.jpg",
-					CreatedDate = now
+					CreatedDate = new DateTime(2023, 10, 1),
 				},
 				new AppHotel
 				{
@@ -42,7 +42,7 @@ namespace App.Data.DataSeeders
 					PhoneNumber1 = "+842363921888",
 					Email = "info@goldenbaydanang.com",
 					ImgBanner = "https://www.arttravel.com.vn/upload/news/golden-bay-(4)-9448.jpg",
-					CreatedDate = now
+					CreatedDate = new DateTime(2023, 10, 15),
 				},
 				new AppHotel
 				{
@@ -64,7 +64,7 @@ namespace App.Data.DataSeeders
 					PhoneNumber1 = "+842253888888",
 					Email = "info@imperialhotel.com.vn",
 					ImgBanner = "https://cf.bstatic.com/xdata/images/hotel/max1024x768/467550547.webp?k=df9413c20e4dc78e4dd3a98618e2815ca246f2bc27a33edf99d9f1bae10e994c&o=",
-					CreatedDate = now
+					CreatedDate = new DateTime(2024, 7, 19)
 				},
 				new AppHotel
 				{
@@ -86,7 +86,7 @@ namespace App.Data.DataSeeders
 					PhoneNumber1 = "+81362701000",
 					Email = "info@peninsula.com",
 					ImgBanner = "https://tokyo-marunouchi.jp/dmo_wp_YfehP9/wp-content/uploads/2017/03/banket_pe_07.jpg",
-					CreatedDate = now
+					CreatedDate = new DateTime(2024, 10, 15)
 				},
 				new AppHotel
 				{
@@ -108,7 +108,7 @@ namespace App.Data.DataSeeders
 					PhoneNumber1 = "+13055284500",
 					Email = "info@biltmorehotel.com",
 					ImgBanner = "https://biltmore-coral-gables.hotelmix.vn/data/Photos/1920x1080/2004/200471/200471074/Biltmore-Hotel-Miami-Coral-Gables-Exterior.JPEG",
-					CreatedDate = now
+					CreatedDate = new DateTime(2024, 7, 15)
 				},
 				new AppHotel
 				{

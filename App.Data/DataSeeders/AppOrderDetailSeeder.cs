@@ -16,14 +16,14 @@ namespace App.Data.DataSeeders
 					RoomId = 1,
 					RoomName = "T0145•101 Luxury",
 					OrderId = 1,
-					CheckInTime_Expected = new DateTime(2024, 10, 1, 14, 0, 0),
-					CheckOutTime_Expected = new DateTime(2024, 10, 10, 12, 0, 0),
-					CheckInTime = new DateTime(2024, 10, 1, 14, 0, 0),
-					CheckOutTime = new DateTime(2024, 10, 10, 12, 0, 0),
-					TimeStay = (new DateTime(2024, 10, 10, 12, 0, 0) - new DateTime(2024, 10, 1, 14, 0, 0)).Days,
+					CheckInTime_Expected = new DateTime(2023, 10, 1, 14, 0, 0),
+					CheckOutTime_Expected = new DateTime(2023, 10, 10, 12, 0, 0),
+					CheckInTime = new DateTime(2023, 10, 1, 14, 0, 0),
+					CheckOutTime = new DateTime(2023, 10, 10, 12, 0, 0),
+					TimeStay = (new DateTime(2023, 10, 10, 12, 0, 0) - new DateTime(2023, 10, 1, 14, 0, 0)).Days,
 					CreatedBy = 87,
-					CreatedDate = now,
-					UpdatedDate = now.AddHours(1), // Ensure UpdatedDate is greater than CheckInTime
+					CreatedDate = new DateTime(2023, 10, 1),
+					UpdatedDate = new DateTime(2023, 10, 10).AddHours(1), // Ensure UpdatedDate is greater than CheckInTime
 					TotalPrice = CalculatePrice(12000000, new DateTime(2024, 10, 1, 14, 0, 0), new DateTime(2024, 10, 10, 12, 0, 0), new DateTime(2024, 10, 10, 12, 0, 0))
 				},
 				new AppOrderDetail
@@ -52,7 +52,7 @@ namespace App.Data.DataSeeders
 					CheckOutTime_Expected = new DateTime(2024, 11, 30, 12, 0, 0),
 					CheckInTime = new DateTime(2024, 11, 25, 12, 0, 0),
 					CreatedBy = 1,
-					CreatedDate = now,
+					CreatedDate = new DateTime(2024, 10, 15),
 					TotalPrice = CalculatePrice(20000000, new DateTime(2024, 11, 25, 12, 0, 0), new DateTime(2024, 11, 29, 12, 0, 0), null)
 				},
 				new AppOrderDetail
