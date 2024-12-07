@@ -19,7 +19,7 @@ function fetchChartData() {
         .catch(error => console.error('Lỗi khi tìm nạp dữ liệu biểu đồ:', error));
 }
 
-// Function to format the fetched chart data
+// Hàm định dạng dữ liệu biểu đồ đã lấy
 function formatChartData(data) {
     const formattedData = {};
     for (const year in data) {
@@ -131,7 +131,7 @@ function initializeChart(chartData) {
     chart.render();
 }
 
-// Function to update chart data when a filter is selected
+// Chức năng cập nhật dữ liệu biểu đồ khi bộ lọc được chọn
 function updateChartData(filter) {
     const year = document.getElementById('yearSelector').value || new Date().getFullYear(); // Selected year or current year
     let newData = [];
