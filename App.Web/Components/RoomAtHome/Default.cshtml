@@ -42,19 +42,19 @@
 								@if (item.IsDiscountProduct)
 								{
 									<p>
-										<span class="small text-secondary" style="text-decoration: line-through;">@item.Price.ToString("#,0 VNĐ")</span>
-										<span class="price"> ➡️  <strong>@item.DiscountPrice?.ToString("#,0 VNĐ")</strong></span>
+										<span class="small text-secondary" style="text-decoration: line-through;">@item.Price.ToString("VND #,0")</span>
+										<span class="price"> ➡️  <strong>@item.DiscountPrice?.ToString("VND #,0")</strong></span>
 									</p>
 								}
 								else
 								{
-									<p class="price">Giá chỉ từ <strong>@item.Price.ToString("#,0 VNĐ")</strong></p>
+									<p class="price">Giá chỉ từ <strong>@item.Price.ToString("VND #,0")</strong></p>
 								}
 								<div class="d-flex">
 									<button class="btn btn-danger d-block shadow" style="height:39px" onclick="addToCart(@item.Id)">
 										<i class="las la-cart-arrow-down"></i>
 									</button>
-									<a asp-action="Detail" asp-controller="Room" asp-route-id="@item.Id" class="btn btn-primary w-100 text-white custom-bg shadow-none mb-2">Xem chi tiết</a>
+									<a asp-action="Detail" asp-controller="Room" asp-route-id="@item.Id" class="btn btn-primary w-100 text-white custom-bg shadow-none mb-2 ml-2">Xem chi tiết</a>
 								</div>
 							</div>
 						</div>

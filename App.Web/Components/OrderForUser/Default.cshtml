@@ -33,7 +33,7 @@
 							</span>
 						}
 					</div>
-					<span class="col-md-4 ml-5">@item.TotalAmount?.ToString("#,0 VNĐ")</span>
+					<span class="col-md-4 ml-5">@item.TotalAmount?.ToString("VND #,0")</span>
 					<span>Hóa đơn có @item.QuantityRoom phòng</span>
 				</button>
 			</h2>
@@ -108,7 +108,7 @@
 														Tạm tính
 														<span class="badge badge-soft-secondary badge-border"
 															  style="cursor: default;">
-															@item1.TotalPrice?.ToString("#,0 VNĐ")
+															@item1.TotalPrice?.ToString("VND #,0")
 														</span>
 													</p>
 												}
@@ -118,7 +118,7 @@
 														Tổng giá phòng
 														<span class="badge badge-soft-secondary badge-border"
 															  style="cursor: default;">
-															@item1.TotalPrice?.ToString("#,0 VNĐ")
+															@item1.TotalPrice?.ToString("VND #,0")
 														</span>
 													</p>
 												}
