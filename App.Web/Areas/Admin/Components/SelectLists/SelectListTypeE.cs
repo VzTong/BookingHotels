@@ -17,7 +17,7 @@ namespace App.Web.Areas.Admin.Components.SelectLists
 		public async Task<IViewComponentResult> InvokeAsync(List<int>? selectedValue, string _for, bool allowNull)
 		{
 			var TypeEList = await repository
-				.GetAll<AppEquipmentType>()
+				.GetAll<AppEquipmentType>(s => s.DeletedDate == null)
 				.OrderByDescending(s => s.CreatedDate)
 				.ToListAsync();
 

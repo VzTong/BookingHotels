@@ -19,7 +19,7 @@ namespace App.Web.Areas.Admin.Components.SelectLists
         {
 			int? branchId = GetCurrentUserBranchId();
 
-			IQueryable<AppHotel> query = repository.GetAll<AppHotel>();
+			IQueryable<AppHotel> query = repository.GetAll<AppHotel>(s => s.DeletedDate == null);
 
 			if (branchId != null)
 			{

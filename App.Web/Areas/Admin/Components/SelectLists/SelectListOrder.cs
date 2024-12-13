@@ -20,6 +20,7 @@ namespace App.Web.Areas.Admin.Components.SelectLists
 				(m => m.OrderDetails
 						.Any(r => r.Room.BranchId == brandId) 
 						|| brandId == null
+						&& m.DeletedDate == null
 				)
 				.Include(m => m.OrderDetails)
 				.ThenInclude(r => r.Room)
