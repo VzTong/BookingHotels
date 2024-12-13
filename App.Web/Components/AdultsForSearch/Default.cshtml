@@ -1,0 +1,30 @@
+﻿@using App.Share.Consts;
+@model IEnumerable<App.Data.Entities.Room.AppRoomType>
+
+@foreach (var item in Model)
+{
+	var bringPets = item.BringPet ? "✅ Thú cưng" : "❌ Thú cưng";
+	var name = "";
+	if (item.Id == DB.AppRoomTypeName.SINGLE_ROOM_ID)
+	{
+		name = DB.AppRoomTypeName.SINGLE_ROOM;
+	}
+	else if (item.Id == DB.AppRoomTypeName.DOUBLE_ROOM_ID)
+	{
+		name = DB.AppRoomTypeName.DOUBLE_ROOM;
+	}
+	else if (item.Id == DB.AppRoomTypeName.FAMILY_ROOM_ID)
+	{
+		name = DB.AppRoomTypeName.FAMILY_ROOM;
+	}
+	else if (item.Id == DB.AppRoomTypeName.LUXURY_ROOM_ID)
+	{
+		name = DB.AppRoomTypeName.LUXURY_ROOM;
+	}
+	else
+	{
+		name = DB.AppRoomTypeName.VIP_ROOM;
+	}
+
+	<option name="@ViewBag.Adults" value="@item.Id">@name - @item.PeopleStay - @bringPets</option>
+}
