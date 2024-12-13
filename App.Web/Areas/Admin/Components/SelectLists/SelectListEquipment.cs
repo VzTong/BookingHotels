@@ -1,10 +1,8 @@
-﻿using App.Data.Repositories;
-using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using App.Data.Entities.Room;
+using App.Data.Repositories;
 using Microsoft.AspNetCore.Mvc;
-using System.Security.Claims;
-using App.Data.Entities.Room;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using X.PagedList;
-using App.Share.Consts;
 
 namespace App.Web.Areas.Admin.Components.SelectLists
 {
@@ -19,7 +17,7 @@ namespace App.Web.Areas.Admin.Components.SelectLists
 		public async Task<IViewComponentResult> InvokeAsync(List<int>? selectedValue, string _for, bool allowNull)
 		{
 			var equipment = await repository
-				.GetAll<AppEquipment>()
+				.GetAll<AppEquipment>(s => s.DeletedDate == null)
 				.OrderByDescending(s => s.CreatedDate)
 				.ToListAsync();
 
