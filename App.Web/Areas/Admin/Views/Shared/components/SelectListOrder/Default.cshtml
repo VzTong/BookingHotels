@@ -44,7 +44,7 @@
 							</div>
 						</div>
 						<div class="col-md-2 d-block">
-							<p>@item.TotalPrice?.ToString("#,0 VNĐ")</p>
+							<p>@item.TotalPrice?.ToString("VND #,0")</p>
 							<span class="badge badge-soft-secondary badge-border" style="cursor: default;">
 								Hóa đơn gồm @item.QuantityRoom phòng
 							</span>
@@ -150,13 +150,13 @@
 													@if (item1.CheckOutTime is null && item1.TotalPrice > 0)
 													{
 														<span class="badge badge-soft-secondary badge-border" style="cursor: default;">
-															Tạm tính @item1.TotalPrice?.ToString("#,0 VNĐ")
+															Tạm tính @item1.TotalPrice?.ToString("VND #,0")
 														</span>
 													}
 													else if (item1.CheckOutTime != null && item1.TotalPrice > 0)
 													{
 														<span class="badge badge-soft-secondary badge-border" style="cursor: default;">
-															Tổng giá phòng @item1.TotalPrice?.ToString("#,0 VNĐ")
+															Tổng giá phòng @item1.TotalPrice?.ToString("VND #,0")
 														</span>
 													}
 													else
