@@ -17,7 +17,7 @@
 		translator : 'Suyadi &lt;1441177004009@student.unsika.ac.id&gt;, Ammar Faizi &lt;ammarfaizi2@gmail.com&gt;',
 		language   : 'Bahasa Indonesia',
 		direction  : 'ltr',
-		dateFormat : 'j F, Y H:i', // Mar 13, 2012 05:27 PM
+		dateFormat : 'd-m-Y H:i', // Mar 13, 2012 05:27 PM
 		fancyDateFormat : '$1 H:i', // will produce smth like: Today 12:25 PM
 		nonameDateFormat : 'd m Y - H : i : s', // to apply if upload file is noname: 120513172700
 		messages   : {
