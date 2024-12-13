@@ -149,14 +149,14 @@
 												</p>
 											}
 										</td>
-										<td class="price fit">@item.Price.ToString("#,0 VNĐ")</td>
+										<td class="price fit">@item.Price.ToString("VND #,0")</td>
 										<td class="discountPrice">
 											@if (item.IsDiscountProduct)
 											{
 												<div>
-													<span class="small text-secondary" style="text-decoration: line-through;">@item.Price.ToString("#,0 VNĐ")</span>
+													<span class="small text-secondary" style="text-decoration: line-through;">@item.Price.ToString("VND #,0")</span>
 
-													<span>👉 @item.DiscountPrice?.ToString("#,0 VNĐ")</span>
+													<span>👉 @item.DiscountPrice?.ToString("VND #,0")</span>
 												</div>
 
 												<span class="badge badge-soft-primary" style="cursor: default;">
