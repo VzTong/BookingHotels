@@ -1,5 +1,11 @@
 ﻿@model App.Web.ViewModels.Order.OrderDataVM
-
+<style>
+	.form-control:disabled, .form-control[readonly] {
+		background-color: #ffffff !important;
+		cursor: pointer !important;
+		text-align: center !important;
+	}
+</style>
 <div class="card-header">Thông tin chi tiết của bạn</div>
 <div class="card-body">
 	<form asp-action="Order" method="post" autocomplete="off">
@@ -38,13 +44,23 @@
 				<label asp-for="CheckInTime_Expected" class="form-label">
 					Thời gian nhận phòng (dự kiến)
 				</label>
-				<input name="CheckInTime_Expected" type="text" class="form-control js-date" data-provider="flatpickr" data-date-format="d.m.y" data-enable-time>
+				<input name="CheckInTime_Expected" type="text"
+					   class="form-control js-date"
+					   data-provider="flatpickr"
+					   data-date-format="d.m.y"
+					   data-enable-time
+					   placeholder="Ngày - Tháng - Năm - Giờ">
 			</div>
 			<div class="col-md-6">
 				<label asp-for="CheckOutTime_Expected" class="form-label">
 					Thời gian trả phòng (dự kiến)
 				</label>
-				<input name="CheckOutTime_Expected" type="text" class="form-control js-date" data-provider="flatpickr" data-date-format="d.m.y" data-enable-time>
+				<input name="CheckOutTime_Expected" type="text"
+					   class="form-control js-date"
+					   data-provider="flatpickr"
+					   data-date-format="d.m.y"
+					   data-enable-time
+					   placeholder="Ngày - Tháng - Năm - Giờ">
 			</div>
 		</div>
 		<div class="row mb-3">

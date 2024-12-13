@@ -1,45 +1,82 @@
-﻿<div class="site-section  avalability-room">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-12 bg-white shadow p-4 rounded">
-                <h5 class="mb-4">Chọn nơi bạn muốn ở lại (●'◡'●)</h5>
-                <form class="row g-3 align-items-end">
-                    <!-- Location Field (input) -->
-                    <div class="col-md-3">
-                        <label for="location" class="form-label" style="font-weight: 500;">Điểm đến</label>
-                        <input type="text" id="location" class="form-control shadow-none" placeholder="Enter location">
-                    </div>
+﻿<style>
+	.form-control:disabled, .form-control[readonly] {
+		background-color: #ffffff !important;
+		cursor: pointer !important;
+		text-align: center !important;
+	}
+</style>
+<div class="site-section  avalability-room">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-lg-12 bg-white shadow p-4 rounded">
+				<h5 class="mb-4">Chọn nơi bạn muốn ở lại (●'◡'●)</h5>
+				<form class="row g-3 align-items-end text-center" method="get" action="@Url.Action("Index", "Room")">
+					<!-- Location Field (input) -->
+					<div class="col-md-2">
+						<label for="Addr" class="form-label" style="font-weight: 500;">Điểm đến</label>
+						<input type="text" name="Addr" value="@ViewBag.Addr" class="form-control shadow-none" placeholder="Chọn nơi bạn muốn đến">
+					</div>
 
                     <!-- Check-in Field -->
-                    <div class="col-md-2">
-                        <label for="checkin" class="form-label" style="font-weight: 500;">Check-in</label>
-                        <input type="date" id="checkin" class="form-control shadow-none">
-                    </div>
+                    <div class="col-md-3">
+						<label for="CheckInTime_Expected" class="form-label" style="font-weight: 500;">
+							Thời gian nhận phòng dự kiến
+						</label>
+						<input name="CheckInTime_Expected" type="text"
+							   value="@ViewBag.CheckInTime_Expected"
+							   class="form-control js-date"
+							   data-provider="flatpickr"
+							   data-date-format="d.m.y"
+							   data-enable-time
+							   placeholder="Ngày - Tháng - Năm - Giờ">
+					</div>
 
                     <!-- Check-out Field -->
-                    <div class="col-md-2">
-                        <label for="checkout" class="form-label" style="font-weight: 500;">Check-out</label>
-                        <input type="date" id="checkout" class="form-control shadow-none">
+                    <div class="col-md-3">
+						<label for="CheckOutTime_Expected" class="form-label" style="font-weight: 500;">
+							Thời gian trả phòng dự kiến
+						</label>
+						<input name="CheckOutTime_Expected" type="text"
+							   value="@ViewBag.CheckOutTime_Expected"
+							   class="form-control js-date"
+							   data-provider="flatpickr"
+							   data-date-format="d.m.y"
+							   data-enable-time
+							   placeholder="Ngày - Tháng - Năm - Giờ">
                     </div>
 
-                    <!-- Adults Field -->
-                    <div class="col-md-2">
-                        <label for="adults" class="form-label" style="font-weight: 500;">Số người ở</label>
-                        <select id="adults" class="form-select shadow-none">
-                            <option selected>Select menu</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                        </select>
-                    </div>
-
-                    <!-- Submit Button -->
-                    <div class="col-md-1">
-                        <button type="submit" class="btn btn-primary p-2 m-2">Tìm kiếm</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
+					<!-- Adults Field -->
+					<div class="col-md-3">
+						<label for="Adults" class="form-label" style="font-weight: 500;">Loại - số người ở - vật nuôi</label>
+						<select name="Adults"
+								data-placeholder="--- Lựa chọn ---"
+								data-choices-sorting="true"
+								data-live-search="true"
+								class="form-select js-choice shadow-none">
+							<option name="@ViewBag.Adults" value="" class="text-center">--- Lựa chọn ---</option>
+							@await Component.InvokeAsync("AdultsForSearch")
+						</select>
+					</div>
+					<!-- Submit Button -->
+					<div class="col-md-1 p-0">
+						<button type="submit" class="btn btn-primary p-2 mt-2">Tìm kiếm</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/vn.js"></script>
+<script>
+	document.addEventListener('DOMContentLoaded', function () {
+		flatpickr('.js-date', {
+			altInput: true,
+			altFormat: "d-m-Y H:i",
+			dateFormat: "Y-m-d H:i",
+			enableTime: true, // Enable time selection
+			locale: "vn" // Set the locale to Vietnamese
+		});
+	});
+</script>

@@ -46,13 +46,13 @@
 					<strong class="text-primary h4">
 						@if (Model.IsDiscountProduct)
 						{
-							<span class="small text-secondary" style="text-decoration: line-through;">@Model.Price.ToString("#,0 VNĐ")/ ngày</span>
+							<span class="small text-secondary" style="text-decoration: line-through;">@Model.Price.ToString("VND #,0")/ ngày</span>
 
-							<span>@Model.DiscountPrice?.ToString("#,0 VNĐ")/ ngày</span>
+							<span>@Model.DiscountPrice?.ToString("VND #,0")/ ngày</span>
 						}
 						else
 						{
-							<span>@Model.Price.ToString("#,0 VNĐ")/ ngày</span>
+							<span>@Model.Price.ToString("VND #,0")/ ngày</span>
 						}
 					</strong>
 				</p>
